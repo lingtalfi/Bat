@@ -49,8 +49,8 @@ More info about [bigbang oneliner here]( https://github.com/lingtalfi/universe/b
 touchDone
 -----------
 
-This method acts as php's [touch function](http://php.net/manual/en/function.touch.php) and has the same signature.
-The only difference is that FileSystemTool::touch creates intermediary directories if necessary,
+This method acts like the php's [touch function](http://php.net/manual/en/function.touch.php) and has the same signature.
+The only difference is that FileSystemTool::touchDone creates intermediary directories if necessary,
 and throws an exception in case something goes wrong.
 
 This allows us to do a one liner, and be ensured that past that line the file has been touched (hence the Done suffix):
