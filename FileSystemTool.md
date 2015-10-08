@@ -46,7 +46,7 @@ More info about [bigbang oneliner here]( https://github.com/lingtalfi/universe/b
 
 
 
-touch
+touchDone
 -----------
 
 This method acts as php's [touch function](http://php.net/manual/en/function.touch.php) and has the same signature.
