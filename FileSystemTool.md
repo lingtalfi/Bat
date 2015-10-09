@@ -6,6 +6,9 @@ FileSystemTool
 
 This class contains functions for manipulating the filesystem.
 
+Note: 
+some examples use the a function, which comes from the [bigbang technique]( https://github.com/lingtalfi/universe/blob/master/planets/TheScientist/convention.portableAutoloader.eng.md ).
+If you don't use bigbang, you can use var_dump as a replacement.
 
 
 
@@ -29,6 +32,11 @@ hello                |  \<empty string>
 ..                   |  \<empty string>
 
 
+
+```php
+$f = '/path/to/myfile.jpg';
+a(FileSystemTool::getFileExtension($f)); // jpg
+```
 
 
 
