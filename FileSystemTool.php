@@ -10,6 +10,34 @@ class FileSystemTool
 
 
     /**
+     * Returns the file extension:
+     *
+     * hello.txt            -> txt
+     * hello.tXT            -> tXT
+     * hello.tar.gz         -> gz
+     * .htaccess            -> <empty string>
+     * .htaccess.tar.gz     -> gz
+     * hello                -> <empty string>
+     *
+     */
+    public static function getFileExtension($file)
+    {
+        if (is_string($file)) {
+            if ('.' === $file[0]) {
+                if ('.' === $file) {
+                    return '';
+                }
+                $file = substr($file, 1);
+            }
+            return pathinfo($file, PATHINFO_EXTENSION);
+        }
+        else {
+            throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($file)));
+        }
+    }
+
+
+    /**
      *
      * bool mkdir ( string $pathname [, int $mode = 0777 [, bool $recursive = false [, resource $context ]]] )
      *

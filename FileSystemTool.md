@@ -10,6 +10,28 @@ This class contains functions for manipulating the filesystem.
 
 
 
+getFileExtension
+-----------
+
+Returns the extension of a file which path is given.
+The behaviour of this method is described by the following table:
+
+
+filename      |      extension returned
+------------  | --------------------
+hello.txt            |  txt
+hello.tXT            |  tXT
+hello.tar.gz         |  gz
+.htaccess            |  \<empty string>
+.htaccess.tar.gz     |  gz
+hello                |  \<empty string>
+.                    |  \<empty string>
+..                   |  \<empty string>
+
+
+
+
+
 mkdir
 -----------
 
