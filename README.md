@@ -7,7 +7,7 @@ Bat
 Bat (Basic Tools) is an ensemble of basic tools that one can use to 
 hopefully do a job faster (from the coding point of view, not performance).
 
-A tool is a static class, which mean that you can call its method
+A tool is a **static class**, which means that you can call its methods
 without having to instantiate it.
 
 
