@@ -13,8 +13,37 @@ If you don't use bigbang, you can use var_dump as a replacement.
 
 
 
+clearDir
+-------------
+2015-10-12
+
+```php
+void|bool    clearDir ( string:file, bool:throwEx = true )
+```
+
+
+Ensures that a directory exists and is empty.
+
+It is considered a success if the directory exists and is empty, and a failure otherwise.
+
+By default, the method throws an exception in case of failure.
+
+If you set the throwEx flag to false, then this method will return true in case of success,
+and false in case of failure.
+     
+     
+     
+     
+     
+
 getFileExtension
 -----------
+2015-10-09
+
+
+```php
+string    getFileExtension ( string:file )
+```
 
 Returns the extension of a file which path is given.
 The behaviour of this method is described by the following table:
@@ -42,6 +71,13 @@ a(FileSystemTool::getFileExtension($f)); // jpg
 
 mkdir
 -----------
+2015-10-07
+
+
+```php
+bool    mkdir ( string:pathName, octal:mode = 0777, bool:recursive = false, resource:context? )
+```
+
 
 This does basically the same job as php's [mkdir](http://php.net/manual/en/function.mkdir.php) function (it also has the same signature by the way), 
 but the difference is that the FileSystemTool::mkdir method
@@ -77,6 +113,12 @@ More info about [bigbang oneliner here]( https://github.com/lingtalfi/universe/b
 remove
 -----------
 2015-10-12
+
+
+```php
+void|bool        remove ( string:file, bool:throwEx = true )
+```
+
 
 Removes an entry from the filesystem.
 
@@ -122,6 +164,12 @@ if (false === FileSystemTool::remove('doo', false)) {
 
 touchDone
 -----------
+2015-10-07
+
+
+```php
+void        touchDone ( string:fileName ) 
+```
 
 This method acts like the php's [touch function](http://php.net/manual/en/function.touch.php) and has the same signature.
 The only difference is that FileSystemTool::touchDone creates intermediary directories if necessary,

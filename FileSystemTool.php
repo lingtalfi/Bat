@@ -10,6 +10,37 @@ class FileSystemTool
 
 
     /**
+     * Ensures that a directory exist and is empty.
+     *
+     * It is considered a success if the directory exists and is empty, and a failure otherwise.
+     *
+     * By default, the method throws an exception in case of failure.
+     *
+     * If you set the throwEx flag to false, then this method will return true in case of success,
+     * and false in case of failure.
+     *
+     *
+     */
+    public static function clearDir($file, $throwEx = true)
+    {
+        if (true === self::mkdir($file, 0777, true)) {
+            $files = new \FilesystemIterator($file,
+                \FilesystemIterator::KEY_AS_PATHNAME |
+                \FilesystemIterator::CURRENT_AS_FILEINFO |
+                \FilesystemIterator::SKIP_DOTS
+            );
+            foreach ($files as $f) {
+                if (false === self::_remove($f, $throwEx)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return self::_oops("Cannot create the dir $file", $throwEx);
+    }
+
+
+    /**
      * Returns the file extension:
      *
      * hello.txt            -> txt
@@ -39,14 +70,22 @@ class FileSystemTool
 
     /**
      *
+     * Ensures that a directory exists.
+     *
+     * It uses the same arguments as the php native mkdir function.
      * bool mkdir ( string $pathname [, int $mode = 0777 [, bool $recursive = false [, resource $context ]]] )
      *
-     * Returns true if the given dir exists when the function exits
-     * or false if for some reason the given dir couldn't be created.
+     *
+     * It is considered a success when the dir exists and is a dir (not a file or a link).
+     * It is considered a failure otherwise.
+     *
+     *
+     * This method returns true in case of success, and false in case of failure.
+     *
      */
     public static function mkdir($pathName, $mode = 0777, $recursive = false)
     {
-        if (file_exists($pathName)) {
+        if (file_exists($pathName) && is_dir($pathName) && !is_link($pathName)) {
             return true;
         }
         if (4 === func_num_args()) {
@@ -67,7 +106,7 @@ class FileSystemTool
      * It is considered a success when the entry doesn't exist on the filesystem at the end,
      * and a failure otherwise.
      *
-     * By default, the function throws an exception in case of failure.
+     * By default, the method throws an exception in case of failure.
      *
      * If you set the throwEx flag to false, then this method will return true in case of success,
      * and false in case of failure.
@@ -90,7 +129,6 @@ class FileSystemTool
             return true;
         }
     }
-
 
 
     /**
@@ -171,5 +209,5 @@ class FileSystemTool
                 return true;
             }
         }
-    }    
+    }
 }
