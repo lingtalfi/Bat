@@ -74,6 +74,50 @@ More info about [bigbang oneliner here]( https://github.com/lingtalfi/universe/b
 
 
 
+remove
+-----------
+2015-10-12
+
+Removes an entry from the filesystem.
+
+The entry can be:
+- a link, then the link only is removed (not the target)
+- a file, then the file is removed
+- a directory, the the directory is removed recursively
+
+It is considered a success when the entry doesn't exist on the filesystem at the end,
+and a failure otherwise.
+By default, the function throws an exception in case of failure.
+If you set the throwEx flag to false, then this method will return true in case of success,
+and false in case of failure.
+
+
+
+There are two basic workflows: 
+
+- straight to the point (default)
+- flexible (throwEx=false)
+
+
+```php
+
+
+/**
+ * Case 1: straight to the point
+ */
+FileSystemTool::remove('doo');
+// now entry doo doesn't exist on your file system (or you get an exception)
+
+
+/**
+ * Case 2: flexible approach
+ */
+if (false === FileSystemTool::remove('doo', false)) {
+    // here you get the opportunity to handle the failure manually
+}
+
+```
+
 
 
 touchDone
