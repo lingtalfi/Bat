@@ -20,7 +20,9 @@ So far, the Bat library is composed of the following tools:
 
 Tools       |       Description
 ----------- | -----------------------
-[FileSystemTool]( https://github.com/lingtalfi/universe/blob/master/planets/Bat/FileSystemTool.md )          |       Tools for the filesystem.
+[FileSystemTool]( https://github.com/lingtalfi/Bat/blob/master/FileSystemTool.md )          |       Tools for the filesystem
+[LocalHostTool](  https://github.com/lingtalfi/Bat/blob/master/LocalHostTool.md )          |       Tools aware of the local host
+[StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
 
 
 
