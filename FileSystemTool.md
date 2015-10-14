@@ -7,7 +7,7 @@ FileSystemTool
 This class contains functions for manipulating the filesystem.
 
 Note: 
-some examples use the a function, which comes from the [bigbang technique]( https://github.com/lingtalfi/universe/blob/master/planets/TheScientist/convention.portableAutoloader.eng.md ).
+some examples use the a function, which comes from the [bigbang technique]( https://github.com/lingtalfi/TheScientist/blob/master/convention.portableAutoloader.eng.md ).
 If you don't use bigbang, you can use var_dump as a replacement.
 
 
@@ -106,7 +106,7 @@ if (FileSystemTool::mkdir($dir)) {
 ```
  
 
-More info about [bigbang oneliner here]( https://github.com/lingtalfi/universe/blob/master/planets/TheScientist/convention.portableAutoloader.eng.md ).
+More info about [bigbang oneliner here]( https://github.com/lingtalfi/TheScientist/blob/master/convention.portableAutoloader.eng.md ).
 
 
 
