@@ -38,6 +38,12 @@ Tools       |       Description
 History Log
 ------------------
 
+- v1.07 -- 2015-10-17
+
+    add FileSystemTool::mkdirDone
+    
+    
+    
 - v1.06 -- 2015-10-14
 
     add StringTool::camelCase2Constant

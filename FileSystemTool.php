@@ -76,11 +76,15 @@ class FileSystemTool
      * bool mkdir ( string $pathname [, int $mode = 0777 [, bool $recursive = false [, resource $context ]]] )
      *
      *
-     * It is considered a success when the dir exists and is a dir (not a file or a link).
+     * It is considered a success when the dir exists and is a dir (not a file or a link),
+     *      and there were no permissions errors.
+     *
      * It is considered a failure otherwise.
      *
      *
      * This method returns true in case of success, and false in case of failure.
+     * If a link or a file resides at the location where you want to create the dir, this
+     * method will not try to remove the existing link or file and will fail.
      *
      */
     public static function mkdir($pathName, $mode = 0777, $recursive = false)
@@ -92,6 +96,42 @@ class FileSystemTool
             return mkdir($pathName, $mode, $recursive, func_get_args()[3]);
         }
         return mkdir($pathName, $mode, $recursive);
+    }
+
+
+    /**
+     *
+     * Ensures that a directory exists, or throws an exception if something wrong happens.
+     *
+     * It uses the same arguments as the php native mkdir function.
+     * bool mkdir ( string $pathname [, int $mode = 0777 [, bool $recursive = false [, resource $context ]]] )
+     *
+     *
+     * It is considered a success when the dir exists and is a dir (not a file or a link),
+     *      and there were no permissions errors.
+     *
+     * It is considered a failure otherwise.
+     *
+     *
+     * This method returns true in case of success, and false in case of failure.
+     * If a link or a file resides at the location where you want to create the dir, this
+     * method will not try to remove the existing link or file and will fail.
+     *
+     * @return bool
+     * @throws \Exception
+     */
+    public static function mkdirDone($pathName, $mode = 0777, $recursive = true)
+    {
+        if (4 === func_num_args()) {
+            $ret = mkdir($pathName, $mode, $recursive, func_get_args()[3]);
+        }
+        else {
+            $ret = mkdir($pathName, $mode, $recursive);
+        }
+        if (false === $ret) {
+            throw new \Exception("Could not make dir $pathName");
+        }
+        return true;
     }
 
 
