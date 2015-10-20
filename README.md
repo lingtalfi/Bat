@@ -38,6 +38,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- v1.08 -- 2015-10-20
+
+    add FileSystemTool::copyDir
+    
 - v1.07 -- 2015-10-17
 
     add FileSystemTool::mkdirDone
