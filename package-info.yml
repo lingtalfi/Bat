@@ -1,2 +1,4 @@
+dependencies:
+    git::/lingtalfi/CopyDir:1.0.0    
 ACPCompliantRanges:
     - 1.0*
