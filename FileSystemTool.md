@@ -32,6 +32,18 @@ If you set the throwEx flag to false, then this method will return true in case 
 and false in case of failure.
      
      
+
+copyDir
+-------------     
+2015-10-20
+
+```php
+bool        copyDir ( str:srcDir, str:targetDir, bool:preservePerms = false, array:&errors = [] )
+```
+     
+Copies a directory (recursively) to a given location.
+
+     
      
      
      

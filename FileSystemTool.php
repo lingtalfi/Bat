@@ -5,6 +5,8 @@ namespace Bat;
 /*
  * LingTalfi 2015-10-07
  */
+use CopyDir\AuthorCopyDirUtil;
+
 class FileSystemTool
 {
 
@@ -37,6 +39,19 @@ class FileSystemTool
             return true;
         }
         return self::_oops("Cannot create the dir $file", $throwEx);
+    }
+
+
+    /**
+     * Copies a directory to a given location.
+     */
+    public static function copyDir($src, $target, $preservePerms = false, &$errors = [])
+    {
+        $o = AuthorCopyDirUtil::create();
+        $o->setPreservePerms($preservePerms);
+        $ret = $o->copyDir($src, $target);
+        $errors = $o->getErrors();
+        return $ret;
     }
 
 
