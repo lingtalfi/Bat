@@ -58,25 +58,34 @@ string    getFileExtension ( string:file )
 ```
 
 Returns the extension of a file which path is given.
-The behaviour of this method is described by the following table:
-
-
-filename      |      extension returned
-------------  | --------------------
-hello.txt            |  txt
-hello.tXT            |  tXT
-hello.tar.gz         |  gz
-.htaccess            |  \<empty string>
-.htaccess.tar.gz     |  gz
-hello                |  \<empty string>
-.                    |  \<empty string>
-..                   |  \<empty string>
+The extension in this [fileName nomenclature](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md)
 
 
 
 ```php
 $f = '/path/to/myfile.jpg';
 a(FileSystemTool::getFileExtension($f)); // jpg
+```
+     
+     
+
+getFileName
+-----------
+2015-10-25
+
+
+```php
+string    getFileName ( string:file )
+```
+
+Returns the [file name](The extension in this [fileName nomenclature](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md))
+of a file which path is given.
+
+
+
+```php
+$f = '/path/to/myfile.jpg';
+a(FileSystemTool::getFileName($f)); // myfile
 ```
 
 

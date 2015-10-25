@@ -56,19 +56,12 @@ class FileSystemTool
 
 
     /**
-     * Returns the file extension:
-     *
-     * hello.txt            -> txt
-     * hello.tXT            -> tXT
-     * hello.tar.gz         -> gz
-     * .htaccess            -> <empty string>
-     * .htaccess.tar.gz     -> gz
-     * hello                -> <empty string>
-     *
+     * Returns the file extension as defined here: https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md
      */
     public static function getFileExtension($file)
     {
         if (is_string($file)) {
+            $file = basename($file);
             if ('.' === $file[0]) {
                 if ('.' === $file) {
                     return '';
@@ -80,6 +73,27 @@ class FileSystemTool
             throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($file)));
         }
         return pathinfo($file, PATHINFO_EXTENSION);
+    }
+
+    /**
+     * Returns the file name as defined here: https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md
+     */
+    public static function getFileName($file)
+    {
+        if (is_string($file)) {
+            $file = basename($file);
+            if ('.' === $file[0]) {
+                $p = explode('.', $file);
+                if (count($p) > 2) {
+                    array_pop($p);
+                }
+                return implode('.', $p);
+            }
+        }
+        else {
+            throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($file)));
+        }
+        return pathinfo($file, PATHINFO_FILENAME);
     }
 
 

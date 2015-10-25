@@ -38,6 +38,11 @@ Tools       |       Description
 History Log
 ------------------
 
+- v1.09 -- 2015-10-25
+
+    add FileSystemTool::getFileName
+    Fix FileSystemTool::getFileExtension bug (now it takes the whole path into account)
+    
 - v1.08 -- 2015-10-20
 
     add FileSystemTool::copyDir
