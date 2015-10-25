@@ -27,6 +27,7 @@ Tools       |       Description
 ----------- | -----------------------
 [FileSystemTool]( https://github.com/lingtalfi/Bat/blob/master/FileSystemTool.md )          |       Tools for the filesystem
 [LocalHostTool](  https://github.com/lingtalfi/Bat/blob/master/LocalHostTool.md )          |       Tools aware of the local host
+[MimeTypeTool](  https://github.com/lingtalfi/Bat/blob/master/MimeTypeTool.md )          |       Tool handling mime type
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
 
 
@@ -37,11 +38,14 @@ Tools       |       Description
 
 History Log
 ------------------
-
+    
+    
 - v1.09 -- 2015-10-25
 
+    add MimeTypeTool
     add FileSystemTool::getFileName
     Fix FileSystemTool::getFileExtension bug (now it takes the whole path into account)
+    
     
 - v1.08 -- 2015-10-20
 
