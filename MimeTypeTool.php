@@ -16,7 +16,11 @@ class MimeTypeTool
     {
         $mime = 'application/octet-stream';
 
-        if (extension_loaded('fileinfo')) {
+        if (
+            extension_loaded('fileinfo') &&
+            'http://' !== substr($file, 0, 7) &&
+            'https://' !== substr($file, 0, 8)
+        ) {
             $finfo = finfo_open(FILEINFO_MIME_TYPE);
             if (false !== ($_mime = finfo_file($finfo, $file))) {
                 $mime = $_mime;
