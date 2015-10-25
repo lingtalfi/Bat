@@ -87,6 +87,21 @@ of a file which path is given.
 $f = '/path/to/myfile.jpg';
 a(FileSystemTool::getFileName($f)); // myfile
 ```
+ 
+     
+
+getFileSize
+-----------
+2015-10-25
+
+
+```php
+int|false    getFileSize ( string:file )
+```
+
+Returns the size in bytes of a given file.
+The file can be an url starting with http:// https://, or a filesystem file.
+
 
 
 

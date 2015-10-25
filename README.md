@@ -44,6 +44,7 @@ History Log
 
     add MimeTypeTool
     add FileSystemTool::getFileName
+    add FileSystemTool::getFileSize
     Fix FileSystemTool::getFileExtension bug (now it takes the whole path into account)
     
     
