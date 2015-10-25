@@ -78,7 +78,7 @@ getFileName
 string    getFileName ( string:file )
 ```
 
-Returns the [file name](The extension in this [fileName nomenclature](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md))
+Returns the [file name](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md)
 of a file which path is given.
 
 
