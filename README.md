@@ -42,47 +42,47 @@ History Log
     
 - v1.09 -- 2015-10-25
 
-    add MimeTypeTool
-    add FileSystemTool::getFileName
-    add FileSystemTool::getFileSize
-    Fix FileSystemTool::getFileExtension bug (now it takes the whole path into account)
+    - add MimeTypeTool
+    - add FileSystemTool::getFileName
+    - add FileSystemTool::getFileSize
+    - Fix FileSystemTool::getFileExtension bug (now it takes the whole path into account)
     
     
 - v1.08 -- 2015-10-20
 
-    add FileSystemTool::copyDir
+    - add FileSystemTool::copyDir
     
 - v1.07 -- 2015-10-17
 
-    add FileSystemTool::mkdirDone
+    - add FileSystemTool::mkdirDone
     
     
     
 - v1.06 -- 2015-10-14
 
-    add StringTool::camelCase2Constant
+    - add StringTool::camelCase2Constant
     
     
 - v1.05 -- 2015-10-12
 
-    add FileSystemTool::remove
-    add FileSystemTool::clearDir
+    - add FileSystemTool::remove
+    - add FileSystemTool::clearDir
     
     
 - v1.04 -- 2015-10-09
 
-    add FileSystemTool::getFileExtension
+    - add FileSystemTool::getFileExtension
 
 - v1.03 -- 2015-10-09
 
-    add LocalHostTool::isWindows
-    add LocalHostTool::isMac
-    add LocalHostTool::isUnix
+    - add LocalHostTool::isWindows
+    - add LocalHostTool::isMac
+    - add LocalHostTool::isUnix
     
 - v1.01 -- 2015-10-08
 
-    add FileSystemTool::touchDone
+    - add FileSystemTool::touchDone
     
 - v1.00 -- 2015-10-07
 
-    add FileSystemTool::mkdir
+    - add FileSystemTool::mkdir
