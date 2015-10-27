@@ -44,6 +44,26 @@ bool        copyDir ( str:srcDir, str:targetDir, bool:preservePerms = false, arr
 Copies a directory (recursively) to a given location.
 
      
+existsUnder
+-------------     
+2015-10-27
+
+```php
+bool        existsUnder ( str:file, str:dir )
+```
+     
+     
+Returns true only if:
+
+- dir exists
+- file exists and is located under the dir
+
+This method automatically resolves paths (things like ../../ are being resolved) before executing the test.
+This method comes handy when you want to check for a path that comes from an (untrusted) user.
+
+
+
+     
      
      
      

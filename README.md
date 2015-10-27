@@ -43,6 +43,10 @@ History Log
 ------------------
     
     
+- v1.10 -- 2015-10-27
+
+    - add FileSystemTool::existsUnder
+    
 - v1.09 -- 2015-10-25
 
     - add MimeTypeTool

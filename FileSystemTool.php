@@ -55,6 +55,25 @@ class FileSystemTool
     }
 
 
+
+    /**
+     * Returns true only if:
+     * - dir exists
+     * - file exists and is located under the dir
+     *
+     */
+    public static function existsUnder($file, $dir)
+    {
+        if (false !== $rDir = realpath($dir)) {
+            if (false !== $rFile = realpath($file)) {
+                return ($rDir === substr($rFile, 0, strlen($rDir)));
+            }
+        }
+        return false;
+    }
+    
+    
+    
     /**
      * Returns the file extension as defined here: https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md
      */
