@@ -32,7 +32,10 @@ Tools       |       Description
 
 
 
+Dependencies
+------------------
 
+- [CopyDir 1.0.0](https://github.com/lingtalfi/CopyDir)
 
 
 
