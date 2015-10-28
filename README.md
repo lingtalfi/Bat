@@ -43,6 +43,11 @@ History Log
 ------------------
     
     
+- v1.11 -- 2015-10-28
+
+    - add StringTool::htmlAttributes    
+    
+    
 - v1.10 -- 2015-10-27
 
     - add FileSystemTool::existsUnder

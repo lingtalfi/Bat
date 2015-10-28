@@ -71,3 +71,43 @@ foreach ($ar as $a) {
 
 Note: the bigbang.php script and the "a" function comes from the 
 [portable autoloader technique]( https://github.com/lingtalfi/TheScientist/blob/master/convention.portableAutoloader.eng.md )
+
+
+
+
+htmlAttributes
+-----------
+2015-10-28
+
+
+```php
+str    htmlAttributes ( array:attributes )
+```
+
+
+Returns an html attributes string based on the given attributes array.
+Support arguments with just value, like checked for example.
+
+Also, if an argument value is null, it is omitted;
+this behaviour might be useful in this case where we define default attributes values, 
+then we can **unset** them by setting a null value.
+
+
+Example of use:
+
+
+```php
+$attr = [
+    'class' => 'foo bar',
+    'style' => 'color: red',
+    'required',
+    'id' => null,
+];
+
+
+$ret = StringTool::htmlAttributes($attr); 
+az($ret); // $ret = ' class="foo bar" style="color: red" required'
+```
+
+
+
