@@ -26,6 +26,32 @@ class StringTool
         return $str;
     }
 
+
+    /**
+     * Take a string, and return an array containing two entries:
+     *
+     * - the string without the numerical suffix
+     * - the numerical suffix or false if the last chars are not numerical
+     *
+     * For instance,
+     *      hello68 => [hello, 68]
+     *      hello => [hello, false]
+     *      hello-78.79 => [hello78., 79]
+     *      123 => ["", 123]
+     *
+     *
+     */
+    public static function cutNumericalSuffix($str)
+    {
+        $suffix = false;
+        if (preg_match('!^(.*)([0-9]+)$!U', $str, $m)) {
+            $str = $m[1];
+            $suffix = (int)$m[2];
+        }
+        return [$str, $suffix];
+    }
+
+
     /**
      * Returns an html attributes string based on the given array.
      * Support arguments with just value, like checked for example.

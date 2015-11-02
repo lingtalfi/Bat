@@ -43,6 +43,11 @@ History Log
 ------------------
     
     
+- v1.12 -- 2015-11-02
+
+    - add StringTool::cutNumericalSuffix
+    
+        
 - v1.11 -- 2015-10-28
 
     - add StringTool::htmlAttributes    

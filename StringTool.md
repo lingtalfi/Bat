@@ -64,13 +64,32 @@ foreach ($ar as $a) {
 ``` 
 
 
-
-
-
-
-
 Note: the bigbang.php script and the "a" function comes from the 
 [portable autoloader technique]( https://github.com/lingtalfi/TheScientist/blob/master/convention.portableAutoloader.eng.md )
+
+
+
+cutNumericalSuffix
+-----------
+2015-11-02
+
+```php
+array(str:string, false|int:numericalSuffix)    cutNumericalSuffix( str:string )
+```
+
+
+This method takes a string, and returns an array containing two entries:
+
+- the string without the numerical suffix
+- the numerical suffix or false if the last chars are not numerical
+
+For instance,
+
+    hello68 => [hello, 68]
+    hello => [hello, false]
+    hello-78.79 => [hello78., 79]
+    123 => ["", 123]
+
 
 
 
