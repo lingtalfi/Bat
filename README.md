@@ -43,21 +43,21 @@ History Log
 ------------------
     
     
-- v1.12 -- 2015-11-02
+- 1.12 -- 2015-11-02
 
     - add StringTool::cutNumericalSuffix
     
         
-- v1.11 -- 2015-10-28
+- 1.11 -- 2015-10-28
 
     - add StringTool::htmlAttributes    
     
     
-- v1.10 -- 2015-10-27
+- 1.10 -- 2015-10-27
 
     - add FileSystemTool::existsUnder
     
-- v1.09 -- 2015-10-25
+- 1.09 -- 2015-10-25
 
     - add MimeTypeTool
     - add FileSystemTool::getFileName
@@ -65,41 +65,41 @@ History Log
     - Fix FileSystemTool::getFileExtension bug (now it takes the whole path into account)
     
     
-- v1.08 -- 2015-10-20
+- 1.08 -- 2015-10-20
 
     - add FileSystemTool::copyDir
     
-- v1.07 -- 2015-10-17
+- 1.07 -- 2015-10-17
 
     - add FileSystemTool::mkdirDone
     
     
     
-- v1.06 -- 2015-10-14
+- 1.06 -- 2015-10-14
 
     - add StringTool::camelCase2Constant
     
     
-- v1.05 -- 2015-10-12
+- 1.05 -- 2015-10-12
 
     - add FileSystemTool::remove
     - add FileSystemTool::clearDir
     
     
-- v1.04 -- 2015-10-09
+- 1.04 -- 2015-10-09
 
     - add FileSystemTool::getFileExtension
 
-- v1.03 -- 2015-10-09
+- 1.03 -- 2015-10-09
 
     - add LocalHostTool::isWindows
     - add LocalHostTool::isMac
     - add LocalHostTool::isUnix
     
-- v1.01 -- 2015-10-08
+- 1.01 -- 2015-10-08
 
     - add FileSystemTool::touchDone
     
-- v1.00 -- 2015-10-07
+- 1.00 -- 2015-10-07
 
     - add FileSystemTool::mkdir
