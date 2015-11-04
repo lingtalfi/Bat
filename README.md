@@ -43,6 +43,11 @@ History Log
 ------------------
     
     
+- 1.13 -- 2015-11-04
+
+    - add FileSystemTool::filePerms
+    
+    
 - 1.12 -- 2015-11-02
 
     - add StringTool::cutNumericalSuffix

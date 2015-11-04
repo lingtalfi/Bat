@@ -63,8 +63,22 @@ This method comes handy when you want to check for a path that comes from an (un
 
 
 
+filePerms
+------------
+2015-11-04
      
      
+```php     
+false|str:perms     filePerms(str:file, bool:unix=true)     
+```     
+     
+Gets file permissions.
+
+Returns:        
+- false in case of failure
+- if true === unix, str:permissions       ( -rw-r--r-- )
+- if false === unix, str:permissions      ( 1777, 0644, ...)
+
      
      
 
