@@ -43,6 +43,11 @@ History Log
 ------------------
     
     
+- 1.14 -- 2015-11-12
+
+    - add StringTool::strPosAll
+    
+    
 - 1.13 -- 2015-11-04
 
     - add FileSystemTool::filePerms

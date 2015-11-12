@@ -130,3 +130,70 @@ az($ret); // $ret = ' class="foo bar" style="color: red" required'
 
 
 
+strPosAll
+-----------
+2015-11-12
+
+```php
+array:positions strPosAll( str:haystack, str:needle, int:offset=0 )
+```
+
+Returns an array of positions of needle in haystack, starting at the given offset.
+It uses the encoding given by the mb_internal_encoding php function, which is utf-8 by default.
+
+Example:
+
+
+The following script uses the [portable autoloader](https://github.com/lingtalfi/TheScientist/blob/master/convention.portableAutoloader.eng.md) technique.
+
+```php
+<?php
+
+use Bat\StringTool;
+
+require_once "bigbang.php";
+
+
+
+a(mb_internal_encoding());
+
+$str = "Hum, hello, did you hear me say hello?";
+a(StringTool::strPosAll($str, 'hello'));
+
+
+
+$str = "Cet été, il faisait beau. Cet été c'était bien.";
+a(StringTool::strPosAll($str, 'été'));
+
+
+mb_internal_encoding('iso-8859-1'); // checking that StringTool uses the encoding set with the mb_internal_encoding function
+$str = "Cet été, il faisait beau. Cet été c'était bien.";
+a(StringTool::strPosAll($str, 'été'));
+
+```
+The output of the above script looks like this:
+
+```
+string 'UTF-8' (length=5)
+
+array (size=2)
+  0 => int 5
+  1 => int 32
+
+array (size=2)
+  0 => int 4
+  1 => int 30
+
+array (size=2)
+  0 => int 4
+  1 => int 32
+
+```
+
+
+
+
+
+
+
+

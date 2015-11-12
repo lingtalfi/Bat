@@ -78,6 +78,26 @@ class StringTool
         }
         return $s;
     }
+
+    /**
+     * Returns an array containing all the positions of $needle in $haystack.
+     * A warning E_USER_WARNING is generated if needle is not a string or a number.
+     */
+    public static function strPosAll($haystack, $needle, $offset = 0)
+    {
+        $ret = [];
+        if (is_string($needle) || is_numeric($needle)) {
+            $len = mb_strlen((string)$needle);
+            while (false !== $pos = mb_strpos($haystack, $needle, $offset)) {
+                $ret[] = $pos;
+                $offset = $pos + $len;
+            }
+        }
+        else {
+            trigger_error(sprintf("strPosAll expects needle argument to be string or numeric, %s given", gettype($needle)), E_USER_WARNING);
+        }
+        return $ret;
+    }
 }
 
 
