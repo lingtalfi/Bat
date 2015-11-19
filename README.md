@@ -43,6 +43,11 @@ History Log
 ------------------
     
     
+- 1.15 -- 2015-11-19
+
+    - add StringTool::replacePortion
+    
+    
 - 1.14 -- 2015-11-12
 
     - add StringTool::strPosAll

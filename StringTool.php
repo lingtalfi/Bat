@@ -79,6 +79,25 @@ class StringTool
         return $s;
     }
 
+
+    /**
+     * Replaces a portion of the string with another.
+     * 
+     * @param int $start
+     *                  if start is bigger than the string's length,
+     *                  then the text will be inserted at the end of the string.
+     * @param int $length
+     * @return string
+     */
+    public static function replacePortion($string, $start, $length, $replacement)
+    {
+        $begin = mb_substr($string, 0, $start);
+        $end = mb_substr($string, $start + $length);
+        return $begin . $replacement . $end;
+    }
+    
+    
+    
     /**
      * Returns an array containing all the positions of $needle in $haystack.
      * A warning E_USER_WARNING is generated if needle is not a string or a number.

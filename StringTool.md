@@ -130,6 +130,43 @@ az($ret); // $ret = ' class="foo bar" style="color: red" required'
 
 
 
+
+replacePortion
+-----------
+2015-11-19
+
+
+Replaces a portion of the string with another.
+
+
+```php
+str    replacePortion ( str:string, int:start, int:length, str:replacement )
+```
+
+### Example
+
+```php
+<?php
+
+
+use Bat\StringTool;
+
+require_once "bigbang.php";
+
+a(StringTool::replacePortion('abcdef', 1, 2, 'ppp')); // apppdef
+
+
+
+```
+
+
+
+
+
+
+
+
+
 strPosAll
 -----------
 2015-11-12
