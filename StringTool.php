@@ -81,12 +81,16 @@ class StringTool
 
 
     /**
-     * Replaces a portion of the string with another.
+     * Cuts a portion of a string, and replaces it with a replacement string.
      * 
      * @param int $start
-     *                  if start is bigger than the string's length,
+     *                  the position where to start the cut.
+     *                  If start is bigger than the string's length,
      *                  then the text will be inserted at the end of the string.
      * @param int $length
+     *                  the length of the cut
+     * @param string $replacement
+     *                  the replacement string
      * @return string
      */
     public static function replacePortion($string, $start, $length, $replacement)

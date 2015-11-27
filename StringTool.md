@@ -136,12 +136,18 @@ replacePortion
 2015-11-19
 
 
-Replaces a portion of the string with another.
+Cuts a portion of a string, and replaces it with a replacement string.
 
 
 ```php
 str    replacePortion ( str:string, int:start, int:length, str:replacement )
 ```
+
+- start: the position where to start the cut. If start is bigger than the string's length, then the text will be inserted at the end of the string.
+- length: the length of the cut
+- replacement: the replacement string
+
+
 
 ### Example
 
