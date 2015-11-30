@@ -43,6 +43,10 @@ History Log
 ------------------
     
     
+- 1.16 -- 2015-11-30
+
+    - add StringTool::split
+    
 - 1.15 -- 2015-11-19
 
     - add StringTool::replacePortion

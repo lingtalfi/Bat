@@ -167,6 +167,40 @@ a(StringTool::replacePortion('abcdef', 1, 2, 'ppp')); // apppdef
 
 
 
+split
+-----------
+2015-11-30
+
+
+Split the given (assumed) string into an array of multi-byte characters.
+The internal encoding used is the one returned by the php's mb_internal_encoding function.
+
+
+```php
+array    split ( str:string )
+```
+
+
+### Example
+
+```php
+<?php
+
+
+use Bat\StringTool;
+
+require_once "bigbang.php";
+
+
+$string = "été";
+a(StringTool::split($string));  // [é, t, é]
+
+
+
+```
+
+
+
 
 
 

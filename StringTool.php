@@ -82,7 +82,7 @@ class StringTool
 
     /**
      * Cuts a portion of a string, and replaces it with a replacement string.
-     * 
+     *
      * @param int $start
      *                  the position where to start the cut.
      *                  If start is bigger than the string's length,
@@ -99,9 +99,23 @@ class StringTool
         $end = mb_substr($string, $start + $length);
         return $begin . $replacement . $end;
     }
-    
-    
-    
+
+
+    /**
+     * Split the given (assumed) string into an array of multi-byte characters.
+     * The internal encoding used is the one returned by the php's mb_internal_encoding function.
+     *
+     */
+    public static function split($string)
+    {
+        $len = mb_strlen($string);
+        $ret = [];
+        for ($i = 0; $i < $len; $i++) {
+            $ret[] = mb_substr($string, $i, 1);
+        }
+        return $ret;
+    }
+
     /**
      * Returns an array containing all the positions of $needle in $haystack.
      * A warning E_USER_WARNING is generated if needle is not a string or a number.
