@@ -29,6 +29,7 @@ Tools       |       Description
 [LocalHostTool](  https://github.com/lingtalfi/Bat/blob/master/LocalHostTool.md )          |       Tools aware of the local host
 [MimeTypeTool](  https://github.com/lingtalfi/Bat/blob/master/MimeTypeTool.md )          |       Tool handling mime type
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
+[UriTool]( https://github.com/lingtalfi/Bat/blob/master/UriTool.md )          |       Tools for uri manipulation
 
 
 
@@ -42,6 +43,10 @@ Dependencies
 History Log
 ------------------
     
+    
+- 1.17 -- 2015-12-04
+
+    - add UriTool::appendQueryString
     
 - 1.16 -- 2015-11-30
 
