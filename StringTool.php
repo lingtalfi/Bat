@@ -5,8 +5,16 @@ namespace Bat;
 /*
  * LingTalfi 2015-10-14
  */
+use Tiphaine\TiphaineTool;
+
 class StringTool
 {
+
+
+    public static function autoCast($string)
+    {
+        return TiphaineTool::autoCast($string);
+    }
 
 
     /**

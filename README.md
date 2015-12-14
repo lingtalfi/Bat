@@ -37,11 +37,17 @@ Dependencies
 ------------------
 
 - [CopyDir 1.0.0](https://github.com/lingtalfi/CopyDir)
+- [Tiphaine 1.0.0](https://github.com/lingtalfi/Tiphaine)
 
 
 
 History Log
 ------------------
+    
+    
+- 1.18 -- 2015-12-14
+
+    - add StringTool::autoCast
     
     
 - 1.17 -- 2015-12-04

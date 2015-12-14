@@ -8,6 +8,21 @@ This class contains functions for manipulating strings.
 
 
 
+autoCast
+-----------
+2015-12-14
+
+A proxy to Tiphaine::autoCast method.
+See [Tiphaine](https://github.com/lingtalfi/Tiphaine) for more info.
+
+
+```php
+str    autoCast ( string:str )
+```
+
+
+
+
 
 camelCase2Constant
 -----------
