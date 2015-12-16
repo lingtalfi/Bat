@@ -30,6 +30,7 @@ Tools       |       Description
 [MimeTypeTool](  https://github.com/lingtalfi/Bat/blob/master/MimeTypeTool.md )          |       Tool handling mime type
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
 [UriTool]( https://github.com/lingtalfi/Bat/blob/master/UriTool.md )          |       Tools for uri manipulation
+[ValidationTool]( https://github.com/lingtalfi/Bat/blob/master/ValidationTool.md )          |       Tools for validating data
 
 
 
@@ -43,6 +44,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.20 -- 2015-12-16
+
+    - add ValidationTool::isEmail
     
 - 1.19 -- 2015-12-16
 
