@@ -74,12 +74,12 @@ class FileSystemTool
 
     /**
      * Gets file permissions.
-     * 
-     * Returns:        
+     *
+     * Returns:
      * - false in case of failure
      * - if true === unix, str:permissions       ( -rw-r--r-- )
      * - if false === unix, str:permissions      ( 1777, 0644, ...)
-     * 
+     *
      */
     public static function filePerms($file, $unix = true)
     {
@@ -289,6 +289,25 @@ class FileSystemTool
             throw new \Exception("Could not make dir $pathName");
         }
         return true;
+    }
+
+
+    /**
+     *
+     * Creates a file, and the intermediary directories if necessary.
+     *
+     * @return bool,
+     *      true if the file exists when the method has been executed
+     *      false if the file couldn't be created
+     */
+    public static function mkfile($pathName, $data = '', $dirMode = 0777)
+    {
+        if (true === FileSystemTool::mkdir(dirname($pathName), $dirMode, true)) {
+            if (false !== file_put_contents($pathName, $data)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 

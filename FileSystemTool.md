@@ -205,6 +205,42 @@ FileSystemTool::mkdirDone($dir);
 
 
 
+
+
+mkfile
+-----------
+2015-12-15
+
+
+```php
+bool    mkfile ( str:pathName, str:data="", octal:dirMode = 0777 )
+```
+
+Creates a file, and the intermediary directories if necessary
+Returns true if the file exists when the method has been executed.
+Returns false if the file couldn't be created.
+
+
+### Example
+
+```php
+<?php
+
+
+use Bat\FileSystemTool;
+
+require_once "bigbang.php";
+
+
+$f = "/tmp/do/re/mi.txt";
+a(FileSystemTool::mkfile($f, "hello"));
+
+
+```
+
+
+
+
 remove
 -----------
 2015-10-12

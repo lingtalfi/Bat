@@ -44,7 +44,10 @@ Dependencies
 History Log
 ------------------
     
-    
+- 1.19 -- 2015-12-16
+
+    - add FileSystemTool::mkfile
+        
 - 1.18 -- 2015-12-14
 
     - add StringTool::autoCast
