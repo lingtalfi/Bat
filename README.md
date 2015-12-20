@@ -25,6 +25,7 @@ So far, the Bat library is composed of the following tools:
 
 Tools       |       Description
 ----------- | -----------------------
+[ArrayTool]( https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md )          |       Tools for manipulating arrays
 [FileSystemTool]( https://github.com/lingtalfi/Bat/blob/master/FileSystemTool.md )          |       Tools for the filesystem
 [LocalHostTool](  https://github.com/lingtalfi/Bat/blob/master/LocalHostTool.md )          |       Tools aware of the local host
 [MimeTypeTool](  https://github.com/lingtalfi/Bat/blob/master/MimeTypeTool.md )          |       Tool handling mime type
@@ -45,6 +46,11 @@ Dependencies
 History Log
 ------------------
     
+- 1.21 -- 2015-12-20
+
+    - add ArrayTool::getMissingKeys
+        
+        
 - 1.20 -- 2015-12-16
 
     - add ValidationTool::isEmail
