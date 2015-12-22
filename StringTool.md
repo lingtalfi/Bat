@@ -8,6 +8,16 @@ This class contains functions for manipulating strings.
 
 
 
+
+Note: 
+some examples use the **a** function, which comes from the [bigbang technique]( https://github.com/lingtalfi/TheScientist/blob/master/convention.portableAutoloader.eng.md ).
+If you don't use bigbang, you can use var_dump as a replacement.
+
+
+
+
+
+
 autoCast
 -----------
 2015-12-14
@@ -40,48 +50,10 @@ Converts a string in camel case to a php like constant.<br>
 Exact nomenclature is defined in 
 [string cases nomenclature]( https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md )
  
+This method is an alias to the [CaseTool:camel2Constant](https://github.com/lingtalfi/Bat/blob/master/CaseTool.md#camel2Constant) method since 1.22.
+See the CaseTool:camel2Constant documentation for more info.
+
  
-```php
-<?php
-
-
-use Bat\StringTool;
-
-require_once "bigbang.php";
-
-
-$ar = [
-    'camelCase',
-    'thisIsNotCorrect',
-    'simpleXML',
-    'localDb2Remote',
-    'notFound404',
-];
-
-
-foreach ($ar as $a) {
-    a(StringTool::camelCase2Constant($a));
-}
- 
-
-/**
- * The output:
- *
- * string 'CAMEL_CASE' (length=10)
- * string 'THIS_IS_NOT_CORRECT' (length=19)
- * string 'SIMPLE_XML' (length=10)
- * string 'LOCAL_DB_2_REMOTE' (length=17)
- * string 'NOT_FOUND_404' (length=13)
- * 
- * 
- */ 
- 
-``` 
-
-
-Note: the bigbang.php script and the "a" function comes from the 
-[portable autoloader technique]( https://github.com/lingtalfi/TheScientist/blob/master/convention.portableAutoloader.eng.md )
-
 
 
 cutNumericalSuffix
