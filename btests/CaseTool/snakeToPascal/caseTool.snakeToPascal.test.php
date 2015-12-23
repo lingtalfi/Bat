@@ -18,12 +18,14 @@ $a = [
     'and_now_real_XML',
     'and_now_real__XML',
     'AND_NOW_REAL__XML',
+    '_AND_NOW_REAL__XML',
 ];
 
 $b = [
     '',
     'Just a test sentence to start with',
     'AndNowRealShit',
+    'AndNowRealXml',
     'AndNowRealXml',
     'AndNowRealXml',
     'AndNowRealXml',
