@@ -20,6 +20,7 @@ $a = [
     'AND_NOW_REAL__XML',
     '_AND_NOW_REAL__XML',
     'has No_Time',
+    'stILL has No_Time',
 ];
 
 $b = [
@@ -31,6 +32,7 @@ $b = [
     'AndNowRealXml',
     'AndNowRealXml',
     'Has noTime',
+    'Still has noTime',
 ];
 
 
