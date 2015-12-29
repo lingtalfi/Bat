@@ -18,8 +18,7 @@ class CaseTool
             $str = preg_replace('!([a-z]+)([^a-z])!', '$1' . '_' . '$2', $str);
             $str = preg_replace('!([0-9]+)([^0-9])!', '$1' . '_' . '$2', $str);
             $str = strtoupper($str);
-        }
-        else {
+        } else {
             throw new \InvalidArgumentException(sprintf("string argument must be of type string, %s given", gettype($str)));
         }
         return $str;
@@ -37,10 +36,26 @@ class CaseTool
                 $v = ucfirst(strtolower($v));
             });
             $str = implode('', $arr);
-        }
-        else {
+        } else {
             throw new \InvalidArgumentException(sprintf("string argument must be of type string, %s given", gettype($str)));
         }
         return $str;
+    }
+
+    public static function snakeToRegular($str)
+    {
+        if (is_string($str)) {
+            // splits using one or more consecutive underscores
+            $arr = preg_split('!_+!', $str);
+            $str = implode(' ', $arr);
+        } else {
+            throw new \InvalidArgumentException(sprintf("string argument must be of type string, %s given", gettype($str)));
+        }
+        return $str;
+    }
+
+    public static function unsnake($str)
+    {
+        return self::snakeToRegular($str);
     }
 }

@@ -47,6 +47,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.23 -- 2015-12-29
+
+    - add CaseTool::snakeToRegular and unsnake alias
+
 - 1.22 -- 2015-12-22
 
     - add CaseTool

@@ -128,4 +128,44 @@ foreach ($ar as $a) {
  * string 'AndNowRealXml' (length=13)
  */
 
-``` 
+```
+
+
+
+snakeToRegular
+-----------
+2015-12-29
+
+
+
+
+```php
+str    snakeToRegular ( string:str )
+```
+
+
+Converts a string in snake case to a regular string.
+Snake case is defined in
+[string cases nomenclature]( https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md )
+
+
+```php
+<?php
+
+
+use Bat\CaseTool;
+
+require_once "bigbang.php";
+
+
+$str = "mi_chel__a_bu";
+a(CaseTool::snakeToRegular($str)); // mi chel a bu
+
+```
+
+
+unsnake
+-----------
+2015-12-29
+
+Alias to the [snakeToRegular](https://github.com/lingtalfi/Bat/blob/master/CaseTool.md#snaketoregular) method
