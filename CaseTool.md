@@ -164,6 +164,34 @@ a(CaseTool::snakeToRegular($str)); // mi chel a bu
 ```
 
 
+toSnake
+-----------
+2016-01-06
+
+
+```php
+str    toSnake ( string:str )
+```
+
+Return the [snake version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#snake-case) of the given string.
+
+
+
+```php
+<?php
+
+
+use Bat\CaseTool;
+
+require_once "bigbang.php";
+
+
+a(CaseTool::toSnake("Hello everybody, is it ok?")); // hello_everybody_is_it_ok
+```
+
+
+
+
 unsnake
 -----------
 2015-12-29

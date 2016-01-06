@@ -2,8 +2,9 @@
 
 namespace Bat;
 
-/*
+/**
  * LingTalfi 2015-12-21
+ * @link https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md
  */
 class CaseTool
 {
@@ -18,7 +19,8 @@ class CaseTool
             $str = preg_replace('!([a-z]+)([^a-z])!', '$1' . '_' . '$2', $str);
             $str = preg_replace('!([0-9]+)([^0-9])!', '$1' . '_' . '$2', $str);
             $str = strtoupper($str);
-        } else {
+        }
+        else {
             throw new \InvalidArgumentException(sprintf("string argument must be of type string, %s given", gettype($str)));
         }
         return $str;
@@ -36,7 +38,8 @@ class CaseTool
                 $v = ucfirst(strtolower($v));
             });
             $str = implode('', $arr);
-        } else {
+        }
+        else {
             throw new \InvalidArgumentException(sprintf("string argument must be of type string, %s given", gettype($str)));
         }
         return $str;
@@ -48,9 +51,19 @@ class CaseTool
             // splits using one or more consecutive underscores
             $arr = preg_split('!_+!', $str);
             $str = implode(' ', $arr);
-        } else {
+        }
+        else {
             throw new \InvalidArgumentException(sprintf("string argument must be of type string, %s given", gettype($str)));
         }
+        return $str;
+    }
+
+    public static function toSnake($str)
+    {
+        $str = strtolower($str);
+        $str = preg_replace('![^a-zA-Z0-9\s_]!', '', $str);
+        $arr = preg_split('!\s+!', $str);
+        $str = implode('_', $arr);
         return $str;
     }
 
