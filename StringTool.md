@@ -118,6 +118,40 @@ az($ret); // $ret = ' class="foo bar" style="color: red" required'
 
 
 
+removeAccents
+---------------
+2016-01-07
+
+
+```php
+str    removeAccents ( str:string )
+```
+
+Replace accentuated letters with their non accentuated equivalent.
+
+
+Example of use:
+
+```php
+<?php
+
+
+use Bat\StringTool;
+
+require_once "bigbang.php";
+
+
+
+a(StringTool::removeAccents("métisse")); // metisse
+
+```
+
+
+
+
+
+
+
 replacePortion
 -----------
 2015-11-19

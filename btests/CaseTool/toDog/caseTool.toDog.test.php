@@ -18,22 +18,24 @@ $a = [
     'I get it a_a_A',
     'really  ?  ?  ?',
     'really___?__?__?',
+    'métisse',
 ];
 
 $b = [
     '',
     'ok',
     'ok',
-    '_ok_',
-    'i_get_it_a_a_a',
-    'really_',
-    'really_',
+    '-ok-',
+    'i-get-it-a_a_a',
+    'really-',
+    'really_______',
+    'metisse',
 ];
 
 
 $agg->addTestsByColumn($a, $b, function ($value, $expected, &$msg, $testNumber) {
 
-    $res = CaseTool::toSnake($value);
+    $res = CaseTool::toDog($value);
     if ($expected !== $res) {
         ComparisonErrorTableTool::collect($testNumber, $expected, $res);
     }
