@@ -82,7 +82,7 @@ class StringTool
 
     public static function removeAccents($str)
     {
-        return strtr($str, [
+        static $map = [
             // single letters
             'à' => 'a',
             'á' => 'a',
@@ -124,8 +124,8 @@ class StringTool
             'Ð' => 'D',
             'Ď' => 'D',
             'Đ' => 'D',
-            
-            
+
+
             'è' => 'e',
             'é' => 'e',
             'ê' => 'e',
@@ -146,8 +146,8 @@ class StringTool
             'Ě' => 'E',
 
             'ƒ' => 'f',
-            
-            
+
+
             'ĝ' => 'g',
             'ğ' => 'g',
             'ġ' => 'g',
@@ -162,7 +162,7 @@ class StringTool
             'ħ' => 'h',
             'Ĥ' => 'H',
             'Ħ' => 'H',
-            
+
             'ì' => 'i',
             'í' => 'i',
             'î' => 'i',
@@ -189,8 +189,8 @@ class StringTool
 
             'ķ' => 'k',
             'Ķ' => 'K',
-            
-            
+
+
             'ł' => 'l',
             'ĺ' => 'l',
             'ļ' => 'l',
@@ -201,8 +201,8 @@ class StringTool
             'Ļ' => 'L',
             'Ľ' => 'L',
             'Ŀ' => 'L',
-            
-            
+
+
             'ñ' => 'n',
             'ń' => 'n',
             'ņ' => 'n',
@@ -212,7 +212,7 @@ class StringTool
             'Ń' => 'N',
             'Ņ' => 'N',
             'Ň' => 'N',
-            
+
             'ò' => 'o',
             'ó' => 'o',
             'ô' => 'o',
@@ -246,8 +246,8 @@ class StringTool
             'Ŕ' => 'R',
             'Ŗ' => 'R',
             'Ř' => 'R',
-            
-            
+
+
             'ś' => 's',
             'š' => 's',
             'ŝ' => 's',
@@ -263,8 +263,8 @@ class StringTool
             'Ţ' => 'T',
             'Ť' => 'T',
             'Ŧ' => 'T',
-            
-            
+
+
             'ù' => 'u',
             'ú' => 'u',
             'û' => 'u',
@@ -297,11 +297,11 @@ class StringTool
             'Ǘ' => 'U',
             'Ǚ' => 'U',
             'Ǜ' => 'U',
-            
-            
+
+
             'ŵ' => 'w',
             'Ŵ' => 'W',
-            
+
             'ý' => 'y',
             'ÿ' => 'y',
             'ŷ' => 'y',
@@ -316,12 +316,12 @@ class StringTool
             'Ź' => 'Z',
             'Ž' => 'Z',
 
-           
-            
+
             // accentuated ligatures
             'Ǽ' => 'A',
             'ǽ' => 'a',
-        ]);
+        ];
+        return strtr($str, $map);
     }
 
 
