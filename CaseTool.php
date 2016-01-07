@@ -60,17 +60,17 @@ class CaseTool
 
     public static function toDog($str)
     {
-        $str = strtolower($str);
+        $str = strtolower(StringTool::removeAccents($str));
         $str = preg_replace('![^a-zA-Z0-9 _-]!', '', $str);
         $str = str_replace(' ', '-', $str);
         $str = preg_replace('!-+!', '-', $str);
         return $str;
     }
 
-    
+
     public static function toSnake($str)
     {
-        $str = strtolower($str);
+        $str = strtolower(StringTool::removeAccents($str));
         $str = preg_replace('![^a-zA-Z0-9 _]!', '', $str);
         $str = str_replace(' ', '_', $str);
         $str = preg_replace('!_+!', '_', $str);

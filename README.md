@@ -47,10 +47,13 @@ Dependencies
 History Log
 ------------------
     
+- 1.26 -- 2016-01-07
+
+    - add CaseTool::toDog
+    
 - 1.25 -- 2016-01-07
 
     - add StringTool::removeAccents
-    
     
 - 1.24 -- 2016-01-06
 

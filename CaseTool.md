@@ -164,6 +164,34 @@ a(CaseTool::snakeToRegular($str)); // mi chel a bu
 ```
 
 
+toDog
+-----------
+2016-01-07
+
+
+```php
+str    toDog ( str:string )
+```
+
+Return the [dog version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#dog-case) of the given string.
+
+
+
+```php
+<?php
+
+
+use Bat\CaseTool;
+
+require_once "bigbang.php";
+
+
+a(CaseTool::toDog("Hello everybody, is it ok?")); // hello-everybody-is-it-ok
+```
+
+
+
+
 toSnake
 -----------
 2016-01-06

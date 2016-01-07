@@ -18,6 +18,7 @@ $a = [
     'I get it a_a_A',
     'really  ?  ?  ?',
     'really___?__?__?',
+    'bête',
 ];
 
 $b = [
@@ -28,6 +29,7 @@ $b = [
     'i_get_it_a_a_a',
     'really_',
     'really_',
+    'bete',
 ];
 
 
