@@ -61,18 +61,29 @@ class CaseTool
     public static function toDog($str)
     {
         $str = strtolower(StringTool::removeAccents($str));
-        $str = preg_replace('![^a-zA-Z0-9 _-]!', '', $str);
-        $str = str_replace(' ', '-', $str);
+        $str = preg_replace('![^a-zA-Z0-9\s_-]!', '', $str);
+        $str = preg_replace('!\s!', '-', $str);
         $str = preg_replace('!-+!', '-', $str);
         return $str;
     }
 
+    public static function toFlea($str)
+    {
+        $str = strtolower(StringTool::removeAccents($str));
+        $str = preg_replace('![^a-zA-Z0-9\s\._-]!', '', $str);
+        $str = preg_replace('!\s!', '-', $str);
+        $str = preg_replace('!-+!', '-', $str);
+        $str = preg_replace('!_+!', '_', $str);
+        $str = preg_replace('!\.+!', '.', $str);
+        return $str;
+    }
 
+    
     public static function toSnake($str)
     {
         $str = strtolower(StringTool::removeAccents($str));
-        $str = preg_replace('![^a-zA-Z0-9 _]!', '', $str);
-        $str = str_replace(' ', '_', $str);
+        $str = preg_replace('![^a-zA-Z0-9\s_]!', '', $str);
+        $str = preg_replace('!\s!', '_', $str);
         $str = preg_replace('!_+!', '_', $str);
         return $str;
     }

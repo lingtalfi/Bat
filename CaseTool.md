@@ -190,6 +190,32 @@ a(CaseTool::toDog("Hello everybody, is it ok?")); // hello-everybody-is-it-ok
 ```
 
 
+toFlea
+-----------
+2016-01-07
+
+
+```php
+str    toFlea ( str:string )
+```
+
+Return the [flea version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#flea-case) of the given string.
+
+This case comes handy to ensure safe name for uploaded files.
+
+
+```php
+<?php
+
+use Bat\CaseTool;
+
+require_once "bigbang.php";
+
+
+a(CaseTool::toFlea("abraham/../...jpg")); // abraham.jpg
+```
+
+
 
 
 toSnake

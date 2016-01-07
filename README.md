@@ -47,6 +47,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.27 -- 2016-01-07
+
+    - add CaseTool::toFlea
+    
 - 1.26 -- 2016-01-07
 
     - add CaseTool::toDog
