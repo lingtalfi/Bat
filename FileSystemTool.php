@@ -151,6 +151,7 @@ class FileSystemTool
 
     /**
      * Returns the file extension as defined here: https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md
+     * @return string
      */
     public static function getFileExtension($file)
     {
