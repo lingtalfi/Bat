@@ -24,6 +24,8 @@ $a = [
     'abraham..jpg',
     'abraham/../...jpg',
     '..abraham..',
+    // weird
+    '"hoLLy"',
 ];
 
 $b = [
@@ -40,6 +42,8 @@ $b = [
     'abraham.jpg',
     'abraham.jpg',
     '.abraham.',
+    // weird
+    'holly',    
 ];
 
 
