@@ -48,6 +48,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.29 -- 2016-01-16
+
+    - add ExceptionTool::toString method
+    
 - 1.28 -- 2016-01-16
 
     - add ExceptionTool

@@ -10,7 +10,25 @@ class ExceptionTool
 
 
     /**
+     * Equivalent of the php's native __toString method,
+     * but the trace shows all characters (php's default trace trims long lines)
+     *
+     * @return string
+     */
+    public static function toString(\Exception $e)
+    {
+
+        return "exception '" . get_class($e) . "' with message '" . $e->getMessage() . "' in " . $e->getFile() . ":" . $e->getLine() . PHP_EOL .
+        'Stack trace:' . PHP_EOL .
+        self::traceAsString($e);
+    }
+
+
+    /**
+     * Return the traceAsString, but with all characters (not trimmed like native php's getTraceAsString do).
      * http://stackoverflow.com/questions/1949345/how-can-i-get-the-full-string-of-php-s-gettraceasstring
+     *
+     * @return string
      */
     public static function traceAsString(\Exception $exception)
     {
@@ -53,6 +71,7 @@ class ExceptionTool
                 $args);
             $count++;
         }
+        $rtn .= '#' . $count . ' {main}';
         return $rtn;
     }
 
