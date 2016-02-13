@@ -63,6 +63,31 @@ This method comes handy when you want to check for a path that comes from an (un
 
 
 
+
+fileGenerator
+-------------     
+2016-02-13
+
+```php
+callable:generator      fileGenerator ( str:file, bool:ignoreTrailingNewLines=true )
+```
+     
+Returns a generator function, which can iterate over the lines of the given file.
+
+
+### Example
+
+```php
+
+$f = "/path/to/data.txt";
+$gen = FileSystemTool::fileGenerator($f);
+foreach ($gen() as $v) {
+    a($v);
+}
+
+```
+
+
 filePerms
 ------------
 2015-11-04

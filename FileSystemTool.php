@@ -227,6 +227,30 @@ class FileSystemTool
         }
     }
 
+
+    /**
+     * Returns a generator function, which can iterate over the lines of the given file.
+     */
+    public static function fileGenerator($file, $ignoreTrailingNewLines = true)
+    {
+        return function () use ($file, $ignoreTrailingNewLines) {
+            $f = fopen($file, 'r');
+            try {
+                while ($line = fgets($f)) {
+                    if (true === $ignoreTrailingNewLines) {
+                        yield rtrim($line, PHP_EOL);
+                    }
+                    else {
+                        yield $line;
+                    }
+                }
+            } finally {
+                fclose($f);
+            }
+        };
+    }
+
+
     /**
      *
      * Ensures that a directory exists.

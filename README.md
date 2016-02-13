@@ -48,6 +48,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.30 -- 2016-02-13
+
+    - add FileSystemTool::fileGenerator method
+    
 - 1.29 -- 2016-01-16
 
     - add ExceptionTool::toString method
