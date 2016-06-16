@@ -84,69 +84,7 @@ class FileSystemTool
      */
     public static function filePerms($file, $unix = true)
     {
-        if (false !== ($perms = fileperms($file))) {
-            if (false === $unix) {
-                $ret = substr(sprintf('%o', $perms), -4);
-            }
-            else {
-
-                if (($perms & 0xC000) == 0xC000) {
-                    // Socket
-                    $ret = 's';
-                }
-                elseif (($perms & 0xA000) == 0xA000) {
-                    // Symbolic Link
-                    $ret = 'l';
-                }
-                elseif (($perms & 0x8000) == 0x8000) {
-                    // Regular
-                    $ret = '-';
-                }
-                elseif (($perms & 0x6000) == 0x6000) {
-                    // Block special
-                    $ret = 'b';
-                }
-                elseif (($perms & 0x4000) == 0x4000) {
-                    // Directory
-                    $ret = 'd';
-                }
-                elseif (($perms & 0x2000) == 0x2000) {
-                    // Character special
-                    $ret = 'c';
-                }
-                elseif (($perms & 0x1000) == 0x1000) {
-                    // FIFO pipe
-                    $ret = 'p';
-                }
-                else {
-                    // Unknown
-                    $ret = 'u';
-                }
-
-                // Owner
-                $ret .= (($perms & 0x0100) ? 'r' : '-');
-                $ret .= (($perms & 0x0080) ? 'w' : '-');
-                $ret .= (($perms & 0x0040) ?
-                    (($perms & 0x0800) ? 's' : 'x') :
-                    (($perms & 0x0800) ? 'S' : '-'));
-
-                // Group
-                $ret .= (($perms & 0x0020) ? 'r' : '-');
-                $ret .= (($perms & 0x0010) ? 'w' : '-');
-                $ret .= (($perms & 0x0008) ?
-                    (($perms & 0x0400) ? 's' : 'x') :
-                    (($perms & 0x0400) ? 'S' : '-'));
-
-                // World
-                $ret .= (($perms & 0x0004) ? 'r' : '-');
-                $ret .= (($perms & 0x0002) ? 'w' : '-');
-                $ret .= (($perms & 0x0001) ?
-                    (($perms & 0x0200) ? 't' : 'x') :
-                    (($perms & 0x0200) ? 'T' : '-'));
-            }
-            return $ret;
-        }
-        return false;
+        return PermTool::filePerms($file, $unix);
     }
 
 
@@ -173,6 +111,7 @@ class FileSystemTool
 
     /**
      * Returns the file name as defined here: https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md
+     * The file name without the last extension.
      */
     public static function getFileName($file)
     {

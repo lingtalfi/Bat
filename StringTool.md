@@ -10,8 +10,7 @@ This class contains functions for manipulating strings.
 
 
 Note: 
-some examples use the **a** function, which comes from the [bigbang technique]( https://github.com/lingtalfi/TheScientist/blob/master/convention.portableAutoloader.eng.md ).
-If you don't use bigbang, you can use var_dump as a replacement.
+some examples require a bigbang script and use the **a** function. More on this here in the [bigbang technique]( https://github.com/lingtalfi/TheScientist/blob/master/convention.portableAutoloader.eng.md ).
 
 
 

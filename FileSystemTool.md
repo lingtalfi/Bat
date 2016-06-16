@@ -92,18 +92,7 @@ filePerms
 ------------
 2015-11-04
      
-     
-```php     
-false|str:perms     filePerms(str:file, bool:unix=true)     
-```     
-     
-Gets file permissions.
-
-Returns:        
-- false in case of failure
-- if true === unix, str:permissions       ( -rw-r--r-- )
-- if false === unix, str:permissions      ( 1777, 0644, ...)
-
+See [PermTool::filePerms](https://github.com/lingtalfi/Bat/blob/master/PermTool.md#fileperms)
      
      
 
