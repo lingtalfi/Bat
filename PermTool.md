@@ -18,7 +18,7 @@ chmod
 -----------
 2016-06-16
 
-
+Recursive version of php chmod.
 
 
 ```php
@@ -54,7 +54,7 @@ chown
 -----------
 2016-06-16
 
-
+Recursive version of php chown.
 
 
 ```php
@@ -108,7 +108,7 @@ chperms
 -----------
 2016-06-16
 
-
+Combination of recursive chmod and chown.
 
 
 ```php
