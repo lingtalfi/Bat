@@ -46,3 +46,18 @@ a(UriTool::appendQueryString('/home', ['template' => 'yellow', 'user' => 'me']))
 
 
 
+getWebsiteAbsoluteUrl
+-----------
+2016-11-26
+
+
+```php
+str|false    getWebsiteUrl ( )
+```
+
+Gets the absolute url for a website. Useful when you need to redirect a page using the php header function.
+
+
+
+
+
