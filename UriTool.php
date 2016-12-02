@@ -29,6 +29,26 @@ class UriTool
         return $ret;
     }
 
+    /**
+     * Returns string|false
+     *
+     */
+    public static function fileGetContents($url)
+    {
+        if (true === (bool)ini_get('allow_url_fopen')) {
+            return file_get_contents($url);
+        } elseif (function_exists('curl_version')) {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $data = curl_exec($ch);
+            curl_close($ch);
+            return $data;
+        }
+        return false;
+    }
+
+
 
     public static function getWebsiteAbsoluteUrl()
     {
@@ -50,6 +70,8 @@ class UriTool
         }
         return $proto . '://' . $domain;
     }
+
+
 
 
 }

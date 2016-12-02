@@ -49,6 +49,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.33 -- 2016-12-02
+
+    - add UriTool::fileGetContents
+    
 - 1.32 -- 2016-11-26
 
     - add UriTool::getWebsiteAbsoluteUrl
