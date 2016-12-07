@@ -64,8 +64,8 @@ class FileSystemTool
      */
     public static function existsUnder($file, $dir)
     {
-        if (false !== $rDir = realpath($dir)) {
-            if (false !== $rFile = realpath($file)) {
+        if (false !== ($rDir = realpath($dir))) {
+            if (false !== ($rFile = realpath($file)) ){
                 return ($rDir === substr($rFile, 0, strlen($rDir)));
             }
         }
