@@ -26,7 +26,8 @@ So far, the Bat library is composed of the following tools:
 Tools       |       Description
 ----------- | -----------------------
 [ArrayTool]( https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md )          |       Tools for manipulating arrays
-[CaseTool]( https://github.com/lingtalfi/Bat/blob/master/CaseTool.md )          |       Tools for for converting a case to another
+[CaseTool]( https://github.com/lingtalfi/Bat/blob/master/CaseTool.md )          |       Tools for converting a case to another
+[ClassTool]( https://github.com/lingtalfi/Bat/blob/master/ClassTool.md )          |       Tools for working with classes
 [ExceptionTool]( https://github.com/lingtalfi/Bat/blob/master/ExceptionTool.md )          |       Tools for manipulating exception
 [FileSystemTool]( https://github.com/lingtalfi/Bat/blob/master/FileSystemTool.md )          |       Tools for the filesystem
 [LocalHostTool](  https://github.com/lingtalfi/Bat/blob/master/LocalHostTool.md )          |       Tools aware of the local host
@@ -48,6 +49,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.34 -- 2016-12-22
+
+    - add ClassTool
     
 - 1.33 -- 2016-12-02
 
