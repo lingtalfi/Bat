@@ -65,7 +65,7 @@ class FileSystemTool
     public static function existsUnder($file, $dir)
     {
         if (false !== ($rDir = realpath($dir))) {
-            if (false !== ($rFile = realpath($file)) ){
+            if (false !== ($rFile = realpath($file))) {
                 return ($rDir === substr($rFile, 0, strlen($rDir)));
             }
         }
@@ -102,8 +102,7 @@ class FileSystemTool
                 }
                 $file = substr($file, 1);
             }
-        }
-        else {
+        } else {
             throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($file)));
         }
         return pathinfo($file, PATHINFO_EXTENSION);
@@ -124,8 +123,7 @@ class FileSystemTool
                 }
                 return implode('.', $p);
             }
-        }
-        else {
+        } else {
             throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($file)));
         }
         return pathinfo($file, PATHINFO_FILENAME);
@@ -155,13 +153,11 @@ class FileSystemTool
                 curl_setopt($ch, CURLOPT_TIMEOUT, 10); // mitigate slowloris attacks http://php.net/manual/en/function.get-headers.php#117189
                 curl_exec($ch);
                 return (int)curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
-            }
-            else {
+            } else {
                 $head = array_change_key_case(get_headers($file, 1));
                 return (int)$head['content-length'];
             }
-        }
-        else {
+        } else {
             return filesize($file);
         }
     }
@@ -178,8 +174,7 @@ class FileSystemTool
                 while ($line = fgets($f)) {
                     if (true === $ignoreTrailingNewLines) {
                         yield rtrim($line, PHP_EOL);
-                    }
-                    else {
+                    } else {
                         yield $line;
                     }
                 }
@@ -246,8 +241,7 @@ class FileSystemTool
     {
         if (4 === func_num_args()) {
             $ret = mkdir($pathName, $mode, $recursive, func_get_args()[3]);
-        }
-        else {
+        } else {
             $ret = mkdir($pathName, $mode, $recursive);
         }
         if (false === $ret) {
@@ -298,17 +292,38 @@ class FileSystemTool
         if (false === is_link($file)) {
             if (file_exists($file)) {
                 return self::_remove($file, $throwEx);
-            }
-            else {
+            } else {
                 return true;
             }
-        }
-        else {
+        } else {
             if (false === unlink($file)) {
                 return self::_oops("Cannot remove link $file", $throwEx);
             }
             return true;
         }
+    }
+
+
+    /**
+     * http://stackoverflow.com/questions/1707801/making-a-temporary-dir-for-unpacking-a-zipfile-into
+     */
+    public static function tempDir($dir = null, $prefix = null)
+    {
+        if (null === $dir) {
+            $dir = sys_get_temp_dir();
+        }
+        if (null === $prefix) {
+            $prefix = '';
+        }
+        $tempfile = tempnam($dir, $prefix);
+        if (file_exists($tempfile)) {
+            unlink($tempfile);
+        }
+        mkdir($tempfile);
+        if (is_dir($tempfile)) {
+            return $tempfile;
+        }
+        return false;
     }
 
 
@@ -330,18 +345,15 @@ class FileSystemTool
             $n = func_num_args();
             if (1 === $n) {
                 $ret = touch($fileName);
-            }
-            elseif (2 === $n) {
+            } elseif (2 === $n) {
                 $ret = touch($fileName, func_get_arg(1));
-            }
-            elseif (3 === $n) {
+            } elseif (3 === $n) {
                 $ret = touch($fileName, func_get_arg(1), func_get_arg(2));
             }
             if (false === $ret) {
                 throw new \Exception("Could not touch the file $fileName");
             }
-        }
-        else {
+        } else {
             throw new \InvalidArgumentException(sprintf("fileName argument must be of type string, %s given", gettype($fileName)));
         }
     }
@@ -374,12 +386,10 @@ class FileSystemTool
                     return self::_oops("Cannot remove dir $file", $throwEx);
                 }
                 return true;
-            }
-            else {
+            } else {
                 return self::_oops("Cannot remove unreadable dir $file", $throwEx);
             }
-        }
-        else {
+        } else {
             if (true === is_file($file) || true === is_link($file)) {
                 if (false === unlink($file)) {
                     if (true === is_link($file)) {

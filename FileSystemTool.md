@@ -305,6 +305,32 @@ if (false === FileSystemTool::remove('doo', false)) {
 
 ```
 
+tempDir
+-----------
+2016-12-23
+
+
+```php
+false|string        tempDir ( string:dir=null, string:prefix=null ) 
+```
+
+Creates a temporary directory and returns its path,
+or false in case of failure.
+
+The "dir" argument can be used to specify the parent directory.
+If not specified, the default temporary directory will be used.
+
+The "prefix" argument is a prefix for the created tmp directory name.
+ 
+  
+```php
+a(FileSystemTool::tempDir()); // /private/var/tmp/cTzJZe
+a(FileSystemTool::tempDir(__DIR__)); // /Users/me/webproject/www/XJEubG
+a(FileSystemTool::tempDir(null, '/private/var/tmp/xxxijtKdi'));  
+```  
+
+
+
 
 
 touchDone

@@ -50,6 +50,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.35 -- 2016-12-23
+
+    - add FileSystemTool::tempDir
+    
 - 1.34 -- 2016-12-22
 
     - add ClassTool
