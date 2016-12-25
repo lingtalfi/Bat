@@ -51,6 +51,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.38 -- 2016-12-25
+
+    - add ClassTool::rewriteMethodContent
+    
 - 1.37 -- 2016-12-24
 
     - add ClassTool

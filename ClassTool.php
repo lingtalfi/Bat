@@ -76,12 +76,34 @@ class ClassTool
             $s .= '$' . $parameter->getName();
 
             if ($parameter->isOptional()) {
-                a($parameter);
                 $s .= ' = ' . $parameter->getDefaultValue();
             }
 
         }
         $s .= ')';
         return $s;
+    }
+
+
+    /**
+     * @throws \ReflectionException when the class/method doesn't exist
+     */
+    public static function rewriteMethodContent($class, $method, $func)
+    {
+        $_method = new \ReflectionMethod($class, $method); // check that method exist
+        $file = $_method->getFileName();
+        $fileContent = file_get_contents($file);
+        $content = preg_replace_callback('!function\s+\b' . $method . '\b(.*){(.*)}!Ums', function ($match) use ($func, $method) {
+            $body = trim($match[2]);
+            $p = explode(PHP_EOL, $body);
+            $lines = array_filter(array_map('trim', $p));
+            call_user_func_array($func, [&$lines]);
+            $s8 = str_repeat(' ', 8);
+            $s = '';
+            $s .= 'function ' . $method . $match[1] . '{' . PHP_EOL . $s8 . implode(PHP_EOL . $s8, $lines) . PHP_EOL . '    }';
+            return $s;
+        }, $fileContent);
+        file_put_contents($file, $content);
+
     }
 }

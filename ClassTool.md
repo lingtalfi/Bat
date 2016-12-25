@@ -36,7 +36,7 @@ getMethodSignature
 
 
 ```php
-str    getMethodSignature ( \ReflectionMethod::method )
+str    getMethodSignature ( \ReflectionMethod:method )
 ```
 
 Gets the signature of a given method.
@@ -68,3 +68,93 @@ a(ClassTool::getMethodSignature($method)); // public static function pou(array &
 
 
 
+
+
+
+rewriteMethodContent
+-----------
+2016-12-25
+
+
+
+```php
+void    rewriteMethodContent ( string:class, string:method, callable:func )
+```
+
+Rewrites the file containing the given class and method, after updating its content.
+
+The content can be modified using the third argument, a callable which accepts one argument: lines.
+
+lines is an array which contains the lines inside the target method.
+
+lines is passed as a reference to the transformer callback.
+
+ 
+```php
+<?php
+
+
+use Bat\ClassTool;
+
+require_once "bigbang.php";
+
+
+class POOO
+{
+
+
+    public static function reindeer($someParams)
+    {
+        $doo = 6;
+        return $doo;
+    }
+
+    public static function dormir(){
+        return "pou";
+    }
+
+}
+
+
+ClassTool::rewriteMethodContent('POOO', 'reindeer', function (&$lines) {
+    array_splice($lines, 1, 0, '$doo += 9;');
+});
+
+```
+ 
+ After executing this code, the file will look like this:
+
+
+
+```php
+<?php
+
+
+use Bat\ClassTool;
+
+require_once "bigbang.php";
+
+
+class POOO
+{
+
+
+    public static function reindeer($someParams)
+    {
+        $doo = 6;
+        $doo += 9;
+        return $doo;
+    }
+
+    public static function dormir(){
+        return "pou";
+    }
+
+}
+
+
+ClassTool::rewriteMethodContent('POOO', 'reindeer', function (&$lines) {
+    array_splice($lines, 1, 0, '$doo += 9;');
+});
+
+```
