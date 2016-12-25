@@ -51,6 +51,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.37 -- 2016-12-24
+
+    - add ClassTool
+    
 - 1.36 -- 2016-12-23
 
     - add FileTool::getNbLines

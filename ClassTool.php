@@ -31,4 +31,57 @@ class ClassTool
 //        }
         return $body;
     }
+
+    public static function getMethodSignature(\ReflectionMethod $method)
+    {
+        $s = '';
+
+        if (true === $method->isAbstract()) {
+            $s .= 'abstract ';
+        }
+        if (true === $method->isPublic()) {
+            $s .= 'public ';
+        }
+        if (true === $method->isProtected()) {
+            $s .= 'protected ';
+        }
+        if (true === $method->isPrivate()) {
+            $s .= 'private ';
+        }
+        if (true === $method->isStatic()) {
+            $s .= 'static ';
+        }
+        $s .= 'function ';
+
+        $s .= $method->getName();
+        $s .= '(';
+        $i = 0;
+        foreach ($method->getParameters() as $parameter) {
+            if ($i++ > 0) {
+                $s .= ', ';
+            }
+
+            if ($parameter->isArray()) {
+                $s .= 'array ';
+            } else {
+                $hint = $parameter->getClass();
+                if (null !== $hint) {
+                    $s .= '\\' . $hint->name . ' ';
+                }
+            }
+
+            if (true === $parameter->isPassedByReference()) {
+                $s .= '&';
+            }
+            $s .= '$' . $parameter->getName();
+
+            if ($parameter->isOptional()) {
+                a($parameter);
+                $s .= ' = ' . $parameter->getDefaultValue();
+            }
+
+        }
+        $s .= ')';
+        return $s;
+    }
 }
