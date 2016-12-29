@@ -22,7 +22,7 @@ class ZipTool
             $tmpDir = FileSystemTool::tempDir();
             $cmd = 'unzip "' . str_replace('"', '\"', $archive) . '" -d"' . str_replace('"', '\"', $tmpDir) . '"';
             $output = [];
-            $ret = 0;
+            $ret = false;
             exec($cmd, $output, $ret);
             if (0 === $ret) {
                 $files = scandir($tmpDir);
@@ -34,12 +34,13 @@ class ZipTool
                                 $targetDirectory = dirname($archive);
                                 $name = pathinfo($archive, PATHINFO_FILENAME);
                                 $targetDir = $targetDirectory . "/" . $name;
-                                FileSystemTool::remove($targetDir);
-                                $ret = rename($dir, $targetDir);
-                                FileSystemTool::remove($tmpDir);
-                                return $ret;
                             }
                         }
+                        FileSystemTool::remove($targetDir);
+                        FileSystemTool::mkdir(dirname($targetDir), 0777, true);
+                        $ret = rename($dir, $targetDir);
+                        FileSystemTool::remove($tmpDir);
+                        return $ret;
                     }
                 }
             } else {

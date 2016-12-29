@@ -52,6 +52,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.40 -- 2016-12-29
+
+    - fix ZipTool
+    
 - 1.39 -- 2016-12-29
 
     - add ZipTool
