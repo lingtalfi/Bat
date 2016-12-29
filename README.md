@@ -37,6 +37,7 @@ Tools       |       Description
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
 [UriTool]( https://github.com/lingtalfi/Bat/blob/master/UriTool.md )          |       Tools for uri manipulation
 [ValidationTool]( https://github.com/lingtalfi/Bat/blob/master/ValidationTool.md )          |       Tools for validating data
+[ZipTool]( https://github.com/lingtalfi/Bat/blob/master/ZipTool.md )          |       Zip related tool
 
 
 
@@ -50,6 +51,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.39 -- 2016-12-29
+
+    - add ZipTool
     
 - 1.38 -- 2016-12-25
 

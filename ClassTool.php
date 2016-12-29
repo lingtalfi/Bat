@@ -9,7 +9,7 @@ class ClassTool
 
     /**
      * Example:
-     *      $content = ClassTool::getMethodContent(LayoutBridge::class, 'displayLeftMenuBlocks');
+     *      $content = ClassTool::getMethodContent(LayoutServices::class, 'displayLeftMenuBlocks');
      *
      *
      */

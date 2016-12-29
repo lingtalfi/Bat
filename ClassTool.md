@@ -23,7 +23,7 @@ to the end line (including the signature).
 
  
 ```php
-$content = ClassTool::getMethodContent(LayoutBridge::class, 'displayLeftMenuBlocks');
+$content = ClassTool::getMethodContent(LayoutServices::class, 'displayLeftMenuBlocks');
 a($content);
 ``` 
 
