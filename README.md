@@ -52,6 +52,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.42 -- 2017-03-24
+
+    - fix FileTool.split
+    
 - 1.41 -- 2017-03-24
 
     - add FileTool.split

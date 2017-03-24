@@ -43,8 +43,8 @@ class FileTool
         $b = array_slice($lines, $lineNumber);
 
 
-        $a = implode(PHP_EOL, $a);
-        $b = implode(PHP_EOL, $b);
+        $a = implode("", $a);
+        $b = implode("", $b);
         return [$a, $b];
     }
 }
