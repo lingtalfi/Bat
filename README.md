@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07
+2015-10-07 --> 2017-03-24
 
 
 ![Basic Tools](http://s18.postimg.org/qhu0b9g5l/bat_web.jpg "Basic Tools")
@@ -51,6 +51,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.41 -- 2017-03-24
+
+    - add FileTool.split
     
 - 1.40 -- 2016-12-29
 
