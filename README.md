@@ -52,6 +52,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.43 -- 2017-03-26
+
+    - fix ClassTool.getMethodContent return false if the function does not exist.
+    
 - 1.42 -- 2017-03-24
 
     - fix FileTool.split

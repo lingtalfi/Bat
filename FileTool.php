@@ -47,4 +47,32 @@ class FileTool
         $b = implode("", $b);
         return [$a, $b];
     }
+
+
+    /**
+     * Cut a file from line startLine to endLine, and returns two parts:
+     * - the part before the startLine,
+     * - the part after the endLine
+     */
+    public static function cut($file, $startLine, $endLine)
+    {
+        $lines = file($file);
+        if ($startLine < 1) {
+            throw new \Exception("startLine number must be greater than 0");
+        }
+        if ($endLine > count($lines)) {
+            $count = count($lines);
+            throw new \Exception("endLine number must be lower than $count");
+        }
+
+
+        $startLine--;
+        $a = array_slice($lines, 0, $startLine);
+        $b = array_slice($lines, $endLine);
+
+
+        $a = implode("", $a);
+        $b = implode("", $b);
+        return [$a, $b];
+    }
 }

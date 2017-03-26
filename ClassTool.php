@@ -11,12 +11,17 @@ class ClassTool
      * Example:
      *      $content = ClassTool::getMethodContent(LayoutServices::class, 'displayLeftMenuBlocks');
      *
+     * @return string|false
      *
      */
     public static function getMethodContent($class, $method)
     {
         // http://stackoverflow.com/questions/7026690/reconstruct-get-code-of-php-function
-        $func = new \ReflectionMethod($class, $method);
+        try {
+            $func = new \ReflectionMethod($class, $method);
+        } catch (\ReflectionException $e) {
+            return false;
+        }
         $filename = $func->getFileName();
         $start_line = $func->getStartLine() - 1; // it's actually - 1, otherwise you wont get the function() block
         $end_line = $func->getEndLine();
