@@ -52,6 +52,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.44 -- 2017-03-27
+
+    - add ClassTool.getMethodInnerContent
+    
 - 1.43 -- 2017-03-26
 
     - fix ClassTool.getMethodContent return false if the function does not exist.

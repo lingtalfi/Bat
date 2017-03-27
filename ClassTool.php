@@ -37,10 +37,20 @@ class ClassTool
         return $body;
     }
 
+
+    public static function getMethodInnerContent($class, $method)
+    {
+        if (false === ($content = self::getMethodContent($class, $method))) {
+            return false;
+        }
+        $content = substr($content, 0, -1); // remove trailing }
+        $p = explode('{', $content, 2);
+        return $p[1];
+    }
+
     public static function getMethodSignature(\ReflectionMethod $method)
     {
         $s = '';
-
         if (true === $method->isAbstract()) {
             $s .= 'abstract ';
         }
