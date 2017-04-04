@@ -259,10 +259,10 @@ class FileSystemTool
      *      true if the file exists when the method has been executed
      *      false if the file couldn't be created
      */
-    public static function mkfile($pathName, $data = '', $dirMode = 0777, $flags = 0)
+    public static function mkfile($pathName, $data = '', $dirMode = 0777, $mode = 0)
     {
         if (true === FileSystemTool::mkdir(dirname($pathName), $dirMode, true)) {
-            if (false !== file_put_contents($pathName, $data, $flags)) {
+            if (false !== file_put_contents($pathName, $data, $mode)) {
                 return true;
             }
         }
