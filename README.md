@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.46 -- 2017-04-04
+
+    - add flags argument to FileSystemTool.mkfile
+    
 - 1.45 -- 2017-04-04
 
     - add ObTool

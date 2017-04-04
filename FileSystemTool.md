@@ -227,7 +227,7 @@ mkfile
 
 
 ```php
-bool    mkfile ( str:pathName, str:data="", octal:dirMode = 0777 )
+bool    mkfile ( str:pathName, str:data="", octal:dirMode = 0777, int:flags=0 )
 ```
 
 Creates a file, and the intermediary directories if necessary
