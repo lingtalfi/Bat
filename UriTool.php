@@ -22,7 +22,11 @@ class UriTool
                 if (0 !== $i) {
                     $ret .= "&";
                 }
-                $ret .= "$k=$v";
+                if ("" !== $v) {
+                    $ret .= "$k=$v";
+                } else {
+                    $ret .= $k;
+                }
                 $i++;
             }
         }
@@ -49,7 +53,6 @@ class UriTool
     }
 
 
-
     public static function getWebsiteAbsoluteUrl()
     {
         // http://stackoverflow.com/questions/1175096/how-to-find-out-if-youre-using-https-without-serverhttps
@@ -70,8 +73,6 @@ class UriTool
         }
         return $proto . '://' . $domain;
     }
-
-
 
 
 }

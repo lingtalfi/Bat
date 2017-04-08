@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.48 -- 2017-04-08
+
+    - fix UriTool.appendQueryString with empty param value
+    
 - 1.47 -- 2017-04-04
 
     - add FileTool.extract
