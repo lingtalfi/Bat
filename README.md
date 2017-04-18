@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.49 -- 2017-04-18
+
+    - add UriTool.uri method
+    
 - 1.48 -- 2017-04-08
 
     - fix UriTool.appendQueryString with empty param value

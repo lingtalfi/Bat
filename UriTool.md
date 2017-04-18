@@ -82,3 +82,22 @@ Gets the absolute url for a website. Useful when you need to redirect a page usi
 
 
 
+
+uri
+-----------
+2017-04-18
+
+
+```php
+str|false    uri ( string:uri = null, array:params = [], bool:replace = true, bool:absolute = false )
+```
+
+A swiss army knife for uri.
+It can return a relative or absolute url for a website,
+including/replacing the existing parameters or even your parameters.
+
+
+
+
+
+

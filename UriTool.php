@@ -75,4 +75,24 @@ class UriTool
     }
 
 
+    public static function uri($uri = null, array $params = [], $replace = true, $absolute = false)
+    {
+        // assuming we are not using a cli environment
+        if (null === $uri) {
+            $uri = $_SERVER['REQUEST_URI'];
+            $p = explode("?", $uri, 2);
+            $uri = $p[0];
+        }
+
+        if (false === $replace) {
+            $params = array_merge($_GET, $params);
+        }
+
+        $prefix = "";
+        if (true === $absolute) {
+            $prefix = UriTool::getWebsiteAbsoluteUrl();
+        }
+        return $prefix . UriTool::appendQueryString($uri, $params);
+
+    }
 }
