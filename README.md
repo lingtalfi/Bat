@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.51 -- 2017-04-20
+
+    - FileTool.cut method now has a replaceFile option
+    
 - 1.50 -- 2017-04-20
 
     - add FileTool.insert method

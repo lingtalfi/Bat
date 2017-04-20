@@ -14,12 +14,14 @@ cut
 2017-04-04
 
 ```php
-array    cut ( string:file, int:startLine, int:endLine )
+array    cut ( string:file, int:startLine, int:endLine, bool:replaceFile=false )
 ```
 
 Cut a file from line startLine to endLine, and returns an array containing two entries:
 - 0: the part before the startLine
 - 1: the part after the endLine
+
+Or, if replaceFile is true, replace the actual file (doing the cut).
 
 
 

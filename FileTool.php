@@ -50,14 +50,16 @@ class FileTool
 
 
     /**
-     * Cut a file from line startLine to endLine, and returns two parts:
+     * Cut a file from line startLine to endLine, and either returns two parts (if replaceFile is false):
      * - the part before the startLine,
      * - the part after the endLine
+     *
+     * Or actually do the cut in the file (if replaceFile is true).
      *
      *
      * @return array, the two parts around (before and after) the cut as an array
      */
-    public static function cut($file, $startLine, $endLine)
+    public static function cut($file, $startLine, $endLine, $replaceFile=false)
     {
         $lines = file($file);
         if ($startLine < 1) {
@@ -76,6 +78,9 @@ class FileTool
 
         $a = implode("", $a);
         $b = implode("", $b);
+        if(true===$replaceFile){
+            file_put_contents($file, $a  . $b);
+        }
         return [$a, $b];
     }
 
