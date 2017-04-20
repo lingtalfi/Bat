@@ -21,19 +21,20 @@ Cut a file from line startLine to endLine, and returns an array containing two e
 - 0: the part before the startLine
 - 1: the part after the endLine
 
-Or, if replaceFile is true, replace the actual file (doing the cut).
+If replaceFile is true, also replace the actual file (doing the cut).
 
 
 
 extract
 -------------
-2017-04-04
+2017-04-04 --> 2017-04-20
 
 ```php
 string    extract ( string:file, array:slices )
 ```
 
-extract the slices from the given file, and return the result as a string.
+extract the slices from the given file, and return the result as a string. 
+It will also save the file with the actual changes done, if replaceFile is true.
 
 Each slice is an array:
  - 0: startLine of the part to cut

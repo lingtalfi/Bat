@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.52 -- 2017-04-20
+
+    - FileTool.extract method now has a replaceFile option
+    
 - 1.51 -- 2017-04-20
 
     - FileTool.cut method now has a replaceFile option

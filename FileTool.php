@@ -59,7 +59,7 @@ class FileTool
      *
      * @return array, the two parts around (before and after) the cut as an array
      */
-    public static function cut($file, $startLine, $endLine, $replaceFile=false)
+    public static function cut($file, $startLine, $endLine, $replaceFile = false)
     {
         $lines = file($file);
         if ($startLine < 1) {
@@ -78,8 +78,8 @@ class FileTool
 
         $a = implode("", $a);
         $b = implode("", $b);
-        if(true===$replaceFile){
-            file_put_contents($file, $a  . $b);
+        if (true === $replaceFile) {
+            file_put_contents($file, $a . $b);
         }
         return [$a, $b];
     }
@@ -88,6 +88,7 @@ class FileTool
     /**
      *
      * Take a file, extract all the slices from it, and return the result.
+     * It will also save the file with the actual changes done, if replaceFile is true.
      *
      * Each slice is an array:
      *      - 0: startLine of the part to cut
@@ -98,7 +99,7 @@ class FileTool
      *
      * @return string, the extracted content
      */
-    public static function extract($file, array $slices)
+    public static function extract($file, array $slices, $replaceFile = false)
     {
         $lines = file($file);
         $max = count($lines);
@@ -123,7 +124,11 @@ class FileTool
 
             $lines = array_merge($a, $b);
         }
-        return implode("", $lines);
+        $ret = implode("", $lines);
+        if (true === $replaceFile) {
+            file_put_contents($file, $ret);
+        }
+        return $ret;
     }
 
     /**
