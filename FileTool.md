@@ -53,6 +53,22 @@ Count the number of lines of the given file.
      
      
 
+insert
+-------------
+2017-04-20
+     
+```php     
+void  insert ( int:lineNumber, str:content, str:file )
+```     
+
+Inserts the given content at the given lineNumber for the file.
+If the given lineNumber is greater than the number of lines in the file,
+the content will be appended to the existing file, prefixed with a newline.
+
+
+
+
+
 split
 -------------
 2017-03-24

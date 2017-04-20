@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.50 -- 2017-04-20
+
+    - add FileTool.insert method
+    
 - 1.49 -- 2017-04-18
 
     - add UriTool.uri method

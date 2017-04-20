@@ -120,4 +120,38 @@ class FileTool
         }
         return implode("", $lines);
     }
+
+    /**
+     * Inserts the given content at the given lineNumber for the file.
+     * If the given lineNumber is greater than the number of lines in the file,
+     * the content will be appended to the existing file, prefixed with a newline.
+     *
+     */
+    public static function insert($lineNumber, $content, $file)
+    {
+        if ($lineNumber > 0) {
+            $lines = file($file);
+
+            // we add +1 because to allow appending to the last line
+            $max = count($lines) + 1;
+            if ($lineNumber > $max) {
+                $lineNumber = $max;
+            }
+
+            $index = $lineNumber - 1;
+            $a = array_slice($lines, 0, $index);
+            $b = array_slice($lines, $index);
+
+            $c = implode("", $a);
+            if ($max === $lineNumber && empty($b)) {
+                $c .= PHP_EOL;
+            }
+            $c .= $content;
+            $c .= implode("", $b);
+
+            FileSystemTool::mkfile($file, $c);
+        } else {
+            throw new \Exception("the lineNumber must be greater than 0");
+        }
+    }
 }
