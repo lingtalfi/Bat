@@ -6,6 +6,16 @@ namespace Bat;
 class FileTool
 {
 
+    public static function cleanVerticalSpaces($file, $maxConsecutiveBlankLines = 3)
+    {
+        $maxConsecutiveBlankLines++;
+        $r = str_repeat(PHP_EOL, $maxConsecutiveBlankLines);
+        $c = file_get_contents($file);
+        $n = $maxConsecutiveBlankLines + 1;
+        $c = preg_replace('!(\n(\r?\s)*){' . $n . ',}!', $r, $c);
+        file_put_contents($file, $c);
+    }
+
     public static function getNbLines($file)
     {
         $linecount = 0;

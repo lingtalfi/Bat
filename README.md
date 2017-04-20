@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.53 -- 2017-04-20
+
+    - add FileTool.cleanVerticalSpaces method
+    
 - 1.52 -- 2017-04-20
 
     - FileTool.extract method now has a replaceFile option

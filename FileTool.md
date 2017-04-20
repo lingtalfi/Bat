@@ -9,6 +9,20 @@ This class contains functions for manipulating files.
 
 
 
+cleanVerticalSpaces
+-------------
+2017-04-20
+
+```php
+array    cleanVerticalSpaces ( string:file, int:maxConsecutiveBlankLines=3 )
+```
+
+Replace more than n consecutive blank lines by n consecutive blank lines.
+
+
+
+
+
 cut
 -------------
 2017-04-04
