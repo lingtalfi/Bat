@@ -101,6 +101,18 @@ class ClassTool
 
 
     /**
+     * @return string, the short name for the given class.
+     * For instance if the class is A\B\CCC,
+     * it returns CCC.
+     *
+     */
+    public static function getShortName($object)
+    {
+        $p = explode('\\', get_class($object));
+        return array_pop($p);
+    }
+
+    /**
      * @throws \ReflectionException when the class/method doesn't exist
      */
     public static function rewriteMethodContent($class, $method, $func)

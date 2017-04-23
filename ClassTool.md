@@ -66,6 +66,20 @@ a(ClassTool::getMethodSignature($method)); // public static function pou(array &
 ``` 
 
 
+getShortName
+-----------
+2017-04-23
+
+
+
+```php
+str    getShortName ( object:object )
+```
+
+Return the short name for the given class.
+
+For instance if the class is A\B\CCC,
+it returns CCC.
 
 
 

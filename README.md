@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.54 -- 2017-04-23
+
+    - add ClassTool.getShortName method
+    
 - 1.53 -- 2017-04-20
 
     - add FileTool.cleanVerticalSpaces method
