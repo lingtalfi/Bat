@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.55 -- 2017-04-28
+
+    - add StringTool.getUniqueCssId
+    
 - 1.54 -- 2017-04-23
 
     - add ClassTool.getShortName method

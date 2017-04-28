@@ -68,8 +68,7 @@ class StringTool
             if (is_numeric($k)) {
                 $s .= ' ';
                 $s .= htmlspecialchars($v, ENT_QUOTES, 'UTF-8');
-            }
-            else {
+            } else {
                 if (null !== $v) {
                     $s .= ' ';
                     $s .= htmlspecialchars($k, ENT_QUOTES, 'UTF-8') . '="' . htmlspecialchars($v, ENT_QUOTES, 'UTF-8') . '"';
@@ -79,6 +78,10 @@ class StringTool
         return $s;
     }
 
+    public static function getUniqueCssId($prefix = "")
+    {
+        return $prefix . md5(uniqid($prefix, true));
+    }
 
     public static function removeAccents($str)
     {
@@ -374,8 +377,7 @@ class StringTool
                 $ret[] = $pos;
                 $offset = $pos + $len;
             }
-        }
-        else {
+        } else {
             trigger_error(sprintf("strPosAll expects needle argument to be string or numeric, %s given", gettype($needle)), E_USER_WARNING);
         }
         return $ret;

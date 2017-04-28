@@ -78,6 +78,23 @@ For instance,
 
 
 
+getUniqueCssId
+-----------
+2017-04-28
+
+
+```php
+string      getUniqueCssId ( string:prefix = "" )
+```
+
+Returns a "unique" identifier to use as a css id, possibly prefixed with a given string.
+
+
+```php
+a(StringTool::getUniqueCssId("po-")); // po-7d92af3dddd5083eb7432686c2a9f2ca
+```
+
+
 
 
 htmlAttributes
