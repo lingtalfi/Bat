@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.56 -- 2017-05-03
+
+    - add keyPrefix argument to StringTool.htmlAttributes method
+    
 - 1.55 -- 2017-04-28
 
     - add StringTool.getUniqueCssId

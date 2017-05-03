@@ -99,11 +99,11 @@ a(StringTool::getUniqueCssId("po-")); // po-7d92af3dddd5083eb7432686c2a9f2ca
 
 htmlAttributes
 -----------
-2015-10-28
+2015-10-28 -> 2017-05-03
 
 
 ```php
-str    htmlAttributes ( array:attributes )
+str    htmlAttributes ( array:attributes, str:keyPrefix="" )
 ```
 
 

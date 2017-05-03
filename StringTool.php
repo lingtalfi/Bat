@@ -60,8 +60,11 @@ class StringTool
      * this behaviour might be useful in this case where we define default attributes values,
      * then the client can unset them by setting a null value.
      *
+     *
+     * The $keyPrefix allows us to prefix with "data-" for instance.
+     *
      */
-    public static function htmlAttributes(array $attributes)
+    public static function htmlAttributes(array $attributes, $keyPrefix = "")
     {
         $s = '';
         foreach ($attributes as $k => $v) {
@@ -71,7 +74,7 @@ class StringTool
             } else {
                 if (null !== $v) {
                     $s .= ' ';
-                    $s .= htmlspecialchars($k, ENT_QUOTES, 'UTF-8') . '="' . htmlspecialchars($v, ENT_QUOTES, 'UTF-8') . '"';
+                    $s .= $keyPrefix . htmlspecialchars($k, ENT_QUOTES, 'UTF-8') . '="' . htmlspecialchars($v, ENT_QUOTES, 'UTF-8') . '"';
                 }
             }
         }
