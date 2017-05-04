@@ -9,6 +9,18 @@ class ArrayTool
 {
 
 
+
+    public static function arrayUniqueRecursive(array $array)
+    {
+        $result = array_map("unserialize", array_unique(array_map("serialize", $array)));
+        foreach ($result as $key => $value) {
+            if (is_array($value)) {
+                $result[$key] = self::arrayUniqueRecursive($value);
+            }
+        }
+        return $result;
+    }
+
     /**
      * Check that all given $keys exist (as keys) in the given $arr.
      * If not, returns the missing keys.
@@ -33,4 +45,6 @@ class ArrayTool
         }
         return false;
     }
+
+
 }

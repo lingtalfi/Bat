@@ -16,6 +16,30 @@ If you don't use bigbang, you can use var_dump as a replacement.
 
 
     
+arrayUniqueRecursive
+-------------
+2017-05-04
+
+
+```php
+array    arrayUniqueRecursive ( array:arr)
+```
+
+Returns an array after applying the "unique" filter recursively to it.
+
+
+### Example
+
+```php
+<?php
+
+$input = array_merge_recursive($profile1, $profile2);
+$input = Bat::arrayUniqueRecursive($input);
+
+```
+     
+
+    
 getMissingKeys
 -------------
 2015-12-20

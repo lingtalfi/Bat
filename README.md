@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.57 -- 2017-05-04
+
+    - add ArrayTool.arrayUniqueRecursive method
+    
 - 1.56 -- 2017-05-03
 
     - add keyPrefix argument to StringTool.htmlAttributes method
