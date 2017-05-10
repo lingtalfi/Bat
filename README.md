@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.58 -- 2017-05-10
+
+    - add UriTool.noEscalating method
+    
 - 1.57 -- 2017-05-04
 
     - add ArrayTool.arrayUniqueRecursive method
