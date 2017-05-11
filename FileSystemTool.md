@@ -43,6 +43,19 @@ bool        copyDir ( str:srcDir, str:targetDir, bool:preservePerms = false, arr
      
 Copies a directory (recursively) to a given location.
 
+
+copyFile
+-------------     
+2017-05-11
+
+
+```php
+bool        copyFile ( str:srcDir, str:targetDir )
+```
+
+Copy a file.
+
+
      
 existsUnder
 -------------     

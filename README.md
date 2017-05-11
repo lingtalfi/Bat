@@ -53,6 +53,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.59 -- 2017-05-11
+
+    - add FileSystemTool.copyFile method
+    
 - 1.58 -- 2017-05-10
 
     - add UriTool.noEscalating method

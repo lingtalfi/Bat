@@ -55,6 +55,15 @@ class FileSystemTool
         return $ret;
     }
 
+    /**
+     * Copy a file
+     */
+    public static function copyFile($src, $target)
+    {
+        self::mkdir(dirname($target), 0777, true);
+        return copy($src, $target);
+    }
+
 
     /**
      * Returns true only if:
