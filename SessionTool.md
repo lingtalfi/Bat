@@ -37,3 +37,16 @@ exit;
 
 ```
 
+
+
+
+start
+-----------
+2017-05-22
+
+
+Starts a php session if it's not already started
+
+```php
+void start( )
+```

@@ -54,6 +54,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.61 -- 2017-05-22
+
+    - add SessionTool::start method
+    
 - 1.60 -- 2017-05-17
 
     - add SessionTool

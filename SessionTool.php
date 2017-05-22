@@ -9,7 +9,7 @@ class SessionTool
 
 
     /**
-     * @param $keys, array or string representing the key(s) to destroy from the session.
+     * @param $keys , array or string representing the key(s) to destroy from the session.
      *
      *
      * Note: the variables that you did not destroy will survive after a redirection
@@ -40,6 +40,14 @@ class SessionTool
         session_destroy();
         session_start();
         $_SESSION = $recoveringSession;
+    }
+
+
+    public static function start()
+    {
+        if (session_status() === \PHP_SESSION_NONE) {
+            session_start();
+        }
     }
 
 }
