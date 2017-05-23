@@ -54,6 +54,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.62 -- 2017-05-23
+
+    - add StringTool::ucfirst method
+    
 - 1.61 -- 2017-05-22
 
     - add SessionTool::start method

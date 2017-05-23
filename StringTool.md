@@ -307,7 +307,15 @@ array (size=2)
 
 
 
+ucfirst
+-----------
+2017-05-23
 
+```php
+string ucfirst( str:string )
+```
+
+Like ucfirst, but using utf8 (works with accentuated letters).
 
 
 
