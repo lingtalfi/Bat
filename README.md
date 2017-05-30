@@ -54,6 +54,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.63 -- 2017-05-30
+
+    - add SessionTool::destroyAll method
+    
 - 1.62 -- 2017-05-23
 
     - add StringTool::ucfirst method

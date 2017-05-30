@@ -10,6 +10,30 @@ This class contains functions for manipulating sessions.
 
 
 
+destroyAll
+-----------
+2017-05-30
+
+Destroy all variables in the session, plus the session cookie.
+
+
+```php
+void destroyAll(  )
+```
+
+
+
+
+Example:
+
+```php
+<?php
+
+SessionTool::destroyAll();
+
+```
+
+
 destroyPartial
 -----------
 2017-05-17
