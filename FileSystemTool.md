@@ -268,6 +268,21 @@ a(FileSystemTool::mkfile($f, "hello"));
 
 
 
+noEscalating
+-----------
+2017-06-03
+
+
+```php
+str    noEscalating (string:uri)
+```
+
+Returns a file path which won't be able to escalate into parent directories (removing the expression ".." basically).
+
+
+
+
+
 remove
 -----------
 2015-10-12

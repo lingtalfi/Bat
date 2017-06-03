@@ -279,6 +279,13 @@ class FileSystemTool
     }
 
 
+
+
+    public static function noEscalating($uri)
+    {
+        return str_replace('..', '', $uri);
+    }
+
     /**
      * Removes an entry from the filesystem.
      * The entry can be:

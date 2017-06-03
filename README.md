@@ -54,6 +54,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.64 -- 2017-06-03
+
+    - add FileSystemTool::noEscalating method
+    
 - 1.63 -- 2017-05-30
 
     - add SessionTool::destroyAll method
