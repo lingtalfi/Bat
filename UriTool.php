@@ -53,6 +53,19 @@ class UriTool
     }
 
 
+    public static function getHost()
+    {
+        if (array_key_exists('HTTP_HOST', $_SERVER)) {
+            $domain = $_SERVER['HTTP_HOST'];
+        } elseif (array_key_exists('SERVER_NAME', $_SERVER)) {
+            $domain = $_SERVER['SERVER_NAME'];
+        } else {
+            $domain = false;
+        }
+        return $domain;
+    }
+
+
     public static function getWebsiteAbsoluteUrl()
     {
         // http://stackoverflow.com/questions/1175096/how-to-find-out-if-youre-using-https-without-serverhttps
@@ -99,7 +112,6 @@ class UriTool
         }
         return $prefix . UriTool::appendQueryString($uri, $params);
     }
-
 
 
 }

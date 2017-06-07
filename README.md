@@ -54,6 +54,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.65 -- 2017-06-07
+
+    - add UriTool::getHost method
+    
 - 1.64 -- 2017-06-03
 
     - add FileSystemTool::noEscalating method

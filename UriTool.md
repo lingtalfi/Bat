@@ -67,6 +67,20 @@ Will try differents methods:
 
 
 
+getHost
+-----------
+2017-06-07
+
+
+```php
+str|false    getHost ( )
+```
+
+Gets the host name, or false in case of error.
+
+
+
+
 getWebsiteAbsoluteUrl
 -----------
 2016-11-26
