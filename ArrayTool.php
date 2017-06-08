@@ -9,7 +9,6 @@ class ArrayTool
 {
 
 
-
     public static function arrayUniqueRecursive(array $array)
     {
         $result = array_map("unserialize", array_unique(array_map("serialize", $array)));
@@ -44,6 +43,25 @@ class ArrayTool
             return $missing;
         }
         return false;
+    }
+
+
+    /**
+     * Put the layer array on top of the base array,
+     * and return an array containing only the base keys,
+     * which values are replaced by the layer values if available.
+     *
+     * https://stackoverflow.com/questions/18240493/php-array-replace-without-creating-keys
+     *
+     * @param array $layer
+     * @param array $base
+     *
+     *
+     * @return array
+     */
+    public static function superimpose(array $layer, array $base)
+    {
+        return array_merge($base, array_intersect_key($layer, $base));
     }
 
 

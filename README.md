@@ -54,6 +54,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.66 -- 2017-06-08
+
+    - add ArrayTool::superimpose method
+    
 - 1.65 -- 2017-06-07
 
     - add UriTool::getHost method

@@ -77,4 +77,53 @@ a(ArrayTool::getMissingKeys($arr, ['firstName', 'lastName']));  // false
 
 ```
      
+     
+     
+superimpose
+--------------
+2017-06-08
+     
+
+```php
+array    superimpose(array layer, array base)
+```
+
+Put the layer array on top of the base array,
+and return an array containing only the base keys,
+which values are replaced by the layer values if available.
+
+
+
+### Example
+
+```php
+<?php
+
+
+$replace =  [
+    "aoo" => 6,
+    "doo" => 67,
+    "coo" => 68,
+];
+
+$base = [
+    "aoo" => 78,
+    "boo" => 78,
+];
+
+$result = ArrayTool::superimpose($replace, $base);
+a($result);
+
+/**
+ * Returns the following 
+ * 
+* array(2) {
+*    ["aoo"] => int(6)
+*    ["boo"] => int(78)
+*  }
+*/
+
+```     
+     
+     
 
