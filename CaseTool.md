@@ -74,6 +74,23 @@ foreach ($ar as $a) {
 
 
 
+snakeToCamel
+-----------
+2017-06-09
+
+
+
+
+```php
+str    snakeToCamel ( string:str )
+```
+
+
+Converts a string in snake case to a string in camel case.
+[string cases nomenclature]( https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md )
+ 
+ 
+
 snakeToPascal
 -----------
 2015-12-22

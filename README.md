@@ -54,6 +54,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.67 -- 2017-06-09
+
+    - add CaseTool::snakeToCamelCase method
+    
 - 1.66 -- 2017-06-08
 
     - add ArrayTool::superimpose method
