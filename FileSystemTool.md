@@ -15,10 +15,10 @@ If you don't use bigbang, you can use var_dump as a replacement.
 
 clearDir
 -------------
-2015-10-12
+2015-10-12 --> 2017-06-22
 
 ```php
-void|bool    clearDir ( string:file, bool:throwEx = true )
+void|bool    clearDir ( string:file, bool:throwEx = true, bool:abortIfSymlink=true )
 ```
 
 
@@ -30,6 +30,9 @@ By default, the method throws an exception in case of failure.
 
 If you set the throwEx flag to false, then this method will return true in case of success,
 and false in case of failure.
+
+By default, if the target is a symlink, the process will be aborted.
+If you want to clear the symlink dir, set the $abortIfSymlink flag to false.
      
      
 

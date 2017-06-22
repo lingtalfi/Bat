@@ -54,6 +54,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.68 -- 2017-06-22
+
+    - add FileSystemTool.clearDir abortIfSymlink argument
+    
 - 1.67 -- 2017-06-09
 
     - add CaseTool::snakeToCamelCase method

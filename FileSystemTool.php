@@ -23,10 +23,22 @@ class FileSystemTool
      * and false in case of failure.
      *
      *
+     * By default, if the target is a symlink, the process will be aborted.
+     * If you want to clear the symlink dir, set the $abortIfSymlink flag to false.
+     *
+     *
+     *
      */
-    public static function clearDir($file, $throwEx = true)
+    public static function clearDir($file, $throwEx = true, $abortIfSymlink = true)
     {
-        if (true === self::mkdir($file, 0777, true)) {
+
+        if (
+            (
+                false === $abortIfSymlink &&
+                is_dir($file) && is_link($file)
+            ) ||
+            true === self::mkdir($file, 0777, true)
+        ) {
             $files = new \FilesystemIterator($file,
                 \FilesystemIterator::KEY_AS_PATHNAME |
                 \FilesystemIterator::CURRENT_AS_FILEINFO |
@@ -277,8 +289,6 @@ class FileSystemTool
         }
         return false;
     }
-
-
 
 
     public static function noEscalating($uri)
