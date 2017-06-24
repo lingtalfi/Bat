@@ -23,7 +23,17 @@ class UriTool
                     $ret .= "&";
                 }
                 if ("" !== $v) {
-                    $ret .= "$k=$v";
+                    if (is_array($v)) {
+                        $c = 0;
+                        foreach ($v as $w) {
+                            if (0 !== $c++) {
+                                $ret .= '&';
+                            }
+                            $ret .= "$k" . "[]=$w";
+                        }
+                    } else {
+                        $ret .= "$k=$v";
+                    }
                 } else {
                     $ret .= $k;
                 }
@@ -103,7 +113,26 @@ class UriTool
         }
 
         if (false === $replace) {
-            $params = array_merge($_GET, $params);
+
+            foreach ($_GET as $k => $v) {
+                if (!array_key_exists($k, $params)) {
+                    $params[$k] = $v;
+                } else {
+                    $val = $params[$k];
+                    if (is_array($v) || is_array($val)) {
+                        $arr = $v;
+
+                        if (!is_array($arr)) {
+                            $arr = [$arr];
+                        }
+                        if (!is_array($val)) {
+                            $val = [(string)$val];
+                        }
+                        $arr = array_merge($arr, $val);
+                        $params[$k] = $arr;
+                    }
+                }
+            }
         }
 
         $prefix = "";

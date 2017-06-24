@@ -54,6 +54,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.69 -- 2017-06-24
+
+    - UriTool.uri function now supports merging with one level numeric index array 
+    
 - 1.68 -- 2017-06-22
 
     - add FileSystemTool.clearDir abortIfSymlink argument
