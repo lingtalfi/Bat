@@ -54,6 +54,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.71 -- 2017-06-24
+
+    - UriTool.appendQueryString function now supports one level numeric index array
+    
 - 1.70 -- 2017-06-24
 
     - undo UriTool.uri function now supports merging with one level numeric index array 

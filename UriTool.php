@@ -21,7 +21,17 @@ class UriTool
                     $ret .= "&";
                 }
                 if ("" !== $v) {
-                    $ret .= "$k=$v";
+                    if (is_array($v)) {
+                        $c = 0;
+                        foreach ($v as $w) {
+                            if (0 !== $c++) {
+                                $ret .= '&';
+                            }
+                            $ret .= "$k" . "[]=$w";
+                        }
+                    } else {
+                        $ret .= "$k=$v";
+                    }
                 } else {
                     $ret .= $k;
                 }
