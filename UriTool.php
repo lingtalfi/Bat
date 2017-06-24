@@ -1,13 +1,11 @@
 <?php
 
 namespace Bat;
-
 /*
  * LingTalfi 2015-12-04
  */
 class UriTool
 {
-
     /**
      * Appends parameters to a base uri, and in the form of a query string (starting with a question mark).
      */
@@ -23,17 +21,7 @@ class UriTool
                     $ret .= "&";
                 }
                 if ("" !== $v) {
-                    if (is_array($v)) {
-                        $c = 0;
-                        foreach ($v as $w) {
-                            if (0 !== $c++) {
-                                $ret .= '&';
-                            }
-                            $ret .= "$k" . "[]=$w";
-                        }
-                    } else {
-                        $ret .= "$k=$v";
-                    }
+                    $ret .= "$k=$v";
                 } else {
                     $ret .= $k;
                 }
@@ -62,7 +50,6 @@ class UriTool
         return false;
     }
 
-
     public static function getHost()
     {
         if (array_key_exists('HTTP_HOST', $_SERVER)) {
@@ -75,7 +62,6 @@ class UriTool
         return $domain;
     }
 
-
     public static function getWebsiteAbsoluteUrl()
     {
         // http://stackoverflow.com/questions/1175096/how-to-find-out-if-youre-using-https-without-serverhttps
@@ -85,7 +71,6 @@ class UriTool
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
             $isSecure = true;
         }
-
         $proto = (true === $isSecure) ? 'https' : 'http';
         if (array_key_exists('HTTP_HOST', $_SERVER)) {
             $domain = $_SERVER['HTTP_HOST'];
@@ -96,7 +81,6 @@ class UriTool
         }
         return $proto . '://' . $domain;
     }
-
 
     public static function noEscalating($uri)
     {
@@ -111,36 +95,13 @@ class UriTool
             $p = explode("?", $uri, 2);
             $uri = $p[0];
         }
-
         if (false === $replace) {
-
-            foreach ($_GET as $k => $v) {
-                if (!array_key_exists($k, $params)) {
-                    $params[$k] = $v;
-                } else {
-                    $val = $params[$k];
-                    if (is_array($v) || is_array($val)) {
-                        $arr = $v;
-
-                        if (!is_array($arr)) {
-                            $arr = [$arr];
-                        }
-                        if (!is_array($val)) {
-                            $val = [(string)$val];
-                        }
-                        $arr = array_merge($arr, $val);
-                        $params[$k] = $arr;
-                    }
-                }
-            }
+            $params = array_merge($_GET, $params);
         }
-
         $prefix = "";
         if (true === $absolute) {
             $prefix = UriTool::getWebsiteAbsoluteUrl();
         }
         return $prefix . UriTool::appendQueryString($uri, $params);
     }
-
-
 }
