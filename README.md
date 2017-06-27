@@ -39,6 +39,7 @@ Tools       |       Description
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
 [UriTool]( https://github.com/lingtalfi/Bat/blob/master/UriTool.md )          |       Tools for uri manipulation
 [ValidationTool]( https://github.com/lingtalfi/Bat/blob/master/ValidationTool.md )          |       Tools for validating data
+[XmlTool]( https://github.com/lingtalfi/Bat/blob/master/XmlTool.md )          |       Tools for working with xml
 [ZipTool]( https://github.com/lingtalfi/Bat/blob/master/ZipTool.md )          |       Zip related tool
 
 
@@ -53,6 +54,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.72 -- 2017-06-27
+
+    - add XmlTool
     
 - 1.71 -- 2017-06-24
 
