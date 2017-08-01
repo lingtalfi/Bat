@@ -48,7 +48,6 @@ class CaseTool
     }
 
 
-
     public static function snakeToRegular($str)
     {
         if (is_string($str)) {
@@ -82,12 +81,20 @@ class CaseTool
     }
 
 
-    public static function toSnake($str)
+    public static function toSnake($str, $processUpperLetters = false)
     {
+        if (true === $processUpperLetters) {
+            $str = preg_replace('!([A-Z])!', '_$1', $str);
+        }
+
+
         $str = strtolower(StringTool::removeAccents($str));
         $str = preg_replace('![^a-zA-Z0-9\s_]!', '', $str);
+
+
         $str = preg_replace('!\s!', '_', $str);
         $str = preg_replace('!_+!', '_', $str);
+        $str = trim($str, '_');
         return $str;
     }
 

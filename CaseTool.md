@@ -241,7 +241,7 @@ toSnake
 
 
 ```php
-str    toSnake ( string:str )
+str    toSnake ( string:str, bool:processUpperLetters=false )
 ```
 
 Return the [snake version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#snake-case) of the given string.
@@ -258,6 +258,20 @@ require_once "bigbang.php";
 
 
 a(CaseTool::toSnake("Hello everybody, is it ok?")); // hello_everybody_is_it_ok
+```
+
+Use the second argument to consider upper letters as special characters:
+
+```php
+<?php
+
+
+use Bat\CaseTool;
+
+require_once "bigbang.php";
+
+
+a(CaseTool::toSnake("MyClassIsKool", true)); // my_class_is_kool
 ```
 
 

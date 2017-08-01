@@ -56,6 +56,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.74 -- 2017-08-01
+
+    - add CaseTool.toSnake processUpperLetters boolean argument
+    
 - 1.73 -- 2017-06-27
 
     - add HttpTool
