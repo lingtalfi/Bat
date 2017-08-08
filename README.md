@@ -56,6 +56,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.75 -- 2017-08-08
+
+    - enhance UriTool.appendQueryString, now understands associative array
+    
 - 1.74 -- 2017-08-01
 
     - add CaseTool.toSnake processUpperLetters boolean argument

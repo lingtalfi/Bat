@@ -23,11 +23,11 @@ class UriTool
                 if ("" !== $v) {
                     if (is_array($v)) {
                         $c = 0;
-                        foreach ($v as $w) {
+                        foreach ($v as $k2 => $w) {
                             if (0 !== $c++) {
                                 $ret .= '&';
                             }
-                            $ret .= "$k" . "[]=$w";
+                            $ret .= "$k" . "[$k2]=$w";
                         }
                     } else {
                         $ret .= "$k=$v";
