@@ -56,6 +56,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.76 -- 2017-08-18
+
+    - add CaseTool.snakeToFlexiblePascal
+    
 - 1.75 -- 2017-08-08
 
     - enhance UriTool.appendQueryString, now understands associative array

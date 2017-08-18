@@ -149,6 +149,67 @@ foreach ($ar as $a) {
 
 
 
+
+ 
+
+snakeToFlexiblePascal
+-----------
+2018-08-18
+
+
+
+
+```php
+str    snakeToFlexiblePascal ( string:str )
+```
+
+
+Converts a string in snake case to a string in flexible pascal case<br>
+Exact nomenclature is defined in 
+[string cases nomenclature]( https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md )
+ 
+ 
+```php
+<?php
+
+
+use Bat\CaseTool;
+
+require_once "bigbang.php";
+
+
+$ar = [
+    '',
+    'just a test sentence to start with',
+    'and_now_real_shit',
+    'and_now_real_XML',
+    'and_now_real__XML',
+    'AND_NOW_REAL__XML',
+];
+
+
+foreach ($ar as $a) {
+    a(CaseTool::snakeToFlexiblePascal($a));
+}
+ 
+
+
+ 
+/**
+ * The output looks like this (in a browser): 
+ *  
+ * string(0) ""
+ * string(34) "Just a test sentence to start with"
+ * string(14) "AndNowRealShit"
+ * string(13) "AndNowRealXML"
+ * string(13) "AndNowRealXML"
+ * string(13) "ANDNOWREALXML"
+ */
+
+```
+
+
+
 snakeToRegular
 -----------
 2015-12-29

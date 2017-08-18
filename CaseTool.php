@@ -47,6 +47,23 @@ class CaseTool
         return $str;
     }
 
+    public static function snakeToFlexiblePascal($str)
+    {
+        if (is_string($str)) {
+            // splits using one or more consecutive underscores
+            $arr = preg_split('!_+!', $str);
+
+            // for all components, first letter to upper case and returns the components without spaces
+            array_walk($arr, function (&$v) {
+                $v = ucfirst($v);
+            });
+            $str = implode('', $arr);
+        } else {
+            throw new \InvalidArgumentException(sprintf("string argument must be of type string, %s given", gettype($str)));
+        }
+        return $str;
+    }
+
 
     public static function snakeToRegular($str)
     {
