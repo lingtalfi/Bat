@@ -57,6 +57,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.78 -- 2017-08-24
+
+    - StringTool.getUniqueCssId now has a default prefix of a (otherwise it's might not be a regular css identifier)
+    
 - 1.77 -- 2017-08-20
 
     - add UploadTool

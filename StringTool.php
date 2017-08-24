@@ -81,7 +81,7 @@ class StringTool
         return $s;
     }
 
-    public static function getUniqueCssId($prefix = "")
+    public static function getUniqueCssId($prefix = "a")
     {
         return $prefix . md5(uniqid($prefix, true));
     }
