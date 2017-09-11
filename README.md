@@ -58,6 +58,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.81 -- 2017-09-11
+
+    - update UriTool::appendQueryString, now recognize the question mark in baseUri 
+    
 - 1.80 -- 2017-09-11
 
     - update UriTool::uri now strip trailing question marks 

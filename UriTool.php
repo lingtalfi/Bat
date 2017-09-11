@@ -12,7 +12,12 @@ class UriTool
     public static function appendQueryString($baseUri, array $parameters = [])
     {
         $ret = $baseUri;
-        $sep = '?';
+        if (false === strpos($baseUri, "?")) {
+            $sep = '?';
+        } else {
+            $sep = '&';
+        }
+
         if ($parameters) {
             $ret .= $sep;
             $i = 0;
