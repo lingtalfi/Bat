@@ -112,6 +112,7 @@ class UriTool
         if (true === $absolute) {
             $prefix = UriTool::getWebsiteAbsoluteUrl();
         }
-        return $prefix . UriTool::appendQueryString($uri, $params);
+        $ret = $prefix . UriTool::appendQueryString($uri, $params);
+        return rtrim($ret, '?');
     }
 }

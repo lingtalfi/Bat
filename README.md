@@ -58,6 +58,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.80 -- 2017-09-11
+
+    - update UriTool::uri now strip trailing question marks 
+    
 - 1.79 -- 2017-09-11
 
     - add MathTool
