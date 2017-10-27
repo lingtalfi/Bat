@@ -72,6 +72,9 @@ class BdotTool
             $first = str_replace($beeDot, '.', $first);
             if (array_key_exists($first, $array)) {
                 if (count($parts) > 0) {
+                    $parts = array_map(function($v) use($beeDot){
+                        return str_replace($beeDot, "\\.", $v);
+                    }, $parts);
                     $newPath = implode('.', $parts);
                     self::unsetDotValue($newPath, $array[$first]);
                 } else {

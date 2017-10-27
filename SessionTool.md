@@ -64,6 +64,56 @@ exit;
 
 
 
+dump
+-----------
+2017-10-27
+
+return some keys in the session
+
+
+```php
+array|mixed dump( mixed:keys = null, mixed:removeKeys = null, bool:useBdot = true )
+```
+
+Keys represent the key(s) of the session to display.
+Remove keys represent the key(s) of the session to hide.
+
+Both keys and removeKeys can be a scalar value or an array.
+If keys is null, this means show all keys.
+If removeKeys is null, this means hide no keys.
+
+If useBdot is true, you can use the bdot notation.
+
+
+
+
+
+
+Example:
+
+```php
+<?php
+
+/**
+ * Show all entries in the session, except those with keys being one of:
+ * - ekom[cart]
+ * - ekom[estimateCart]
+ * - ekom[order.singleAddress]
+ * 
+ * Note: the bdot notation is used in this example
+ * 
+ */
+a(SessionTool::dump(null, [
+        'ekom.cart',
+        'ekom.estimateCart',
+        'ekom.order\\.singleAddress',
+    ]));
+
+```
+
+
+
+
 start
 -----------
 2017-05-22

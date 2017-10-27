@@ -59,6 +59,11 @@ Dependencies
 History Log
 ------------------
     
+- 1.83 -- 2017-10-27
+
+    - add BDotTool
+    - add SessionTool.dump method
+    
 - 1.82 -- 2017-10-12
 
     - add HashTool 
