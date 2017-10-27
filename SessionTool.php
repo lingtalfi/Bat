@@ -71,4 +71,65 @@ class SessionTool
         }
         session_destroy();
     }
+
+    public static function dump($keys = null, $removeKeys = null, $useBdot = true)
+    {
+        self::start();
+        $ret = [];
+
+        if (true === $useBdot) {
+            if (null === $keys) {
+                $ret = $_SESSION;
+            } elseif (is_string($keys)) {
+                if (BdotTool::hasDotValue($keys, $_SESSION)) {
+                    $ret = BdotTool::getDotValue($keys, $_SESSION);
+                } else {
+                    $ret = null;
+                }
+            } elseif (is_array($keys)) {
+                foreach ($keys as $key) {
+                    if (BdotTool::hasDotValue($key, $_SESSION)) {
+                        $ret = BdotTool::getDotValue($key, $_SESSION);
+                    }
+                }
+            }
+            if (is_array($ret)) {
+                if (is_scalar($removeKeys)) {
+                    BdotTool::unsetDotValue($removeKeys, $ret);
+                } elseif (is_array($removeKeys)) {
+                    foreach ($removeKeys as $key) {
+                        BdotTool::unsetDotValue($key, $ret);
+                    }
+                }
+            }
+        } else {
+            if (null === $keys) {
+                $ret = $_SESSION;
+            } elseif (is_string($keys)) {
+                if (array_key_exists($keys, $_SESSION)) {
+                    $ret = $_SESSION[$keys];
+                } else {
+                    $ret = null;
+                }
+            } elseif (is_array($keys)) {
+                foreach ($keys as $key) {
+                    if (array_key_exists($key, $_SESSION)) {
+                        $ret[$key] = $_SESSION[$key];
+                    }
+                }
+            }
+            if (is_array($ret)) {
+                if (is_scalar($removeKeys)) {
+                    unset($ret[$removeKeys]);
+                } elseif (is_array($removeKeys)) {
+                    foreach ($removeKeys as $key) {
+                        unset($ret[$key]);
+                    }
+                }
+            }
+        }
+        return $ret;
+
+    }
+
 }
