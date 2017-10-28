@@ -59,6 +59,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.84 -- 2017-10-28
+
+    - add LocaleTool
+    
 - 1.83 -- 2017-10-27
 
     - add BDotTool
