@@ -242,6 +242,27 @@ a(CaseTool::snakeToRegular($str)); // mi chel a bu
 ```
 
 
+toCamel
+-----------
+2017-10-30
+
+
+```php
+str    toCamel ( str:string )
+```
+
+Return the [camelCase version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md) of the given string.
+
+
+
+```php
+<?php
+a(CaseTool::toCamel("MY DOG")); // myDog
+```
+
+
+
+
 toDog
 -----------
 2016-01-07

@@ -77,6 +77,32 @@ class CaseTool
         return $str;
     }
 
+    public static function toCamel($str)
+    {
+        $str = StringTool::removeAccents($str);
+        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
+        $str = preg_replace('!-+!', '-', $str);
+        $p = explode('-', $str);
+        $first = strtolower(array_shift($p));
+        $p = array_map(function ($v) {
+            /**
+             * This technique is not perfect as it might cause problems with letters just after numbers:
+             *
+             * my2Cent
+             *
+             * would be reduced to
+             *
+             * my2cent   (culprit lowercase c after the 2)
+             *
+             * @todo-ling: fix this...
+             *
+             */
+            return ucfirst(strtolower($v));
+        }, $p);
+
+        return $first . implode('', $p);
+    }
+
     public static function toDog($str)
     {
         $str = strtolower(StringTool::removeAccents($str));

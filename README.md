@@ -59,6 +59,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.85 -- 2017-10-30
+
+    - add CaseTool::toCamel method
+    
 - 1.84 -- 2017-10-28
 
     - add LocaleTool
