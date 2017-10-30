@@ -59,6 +59,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.86 -- 2017-10-30
+
+    - add ArrayTool::mirrorRange method
+    
 - 1.85 -- 2017-10-30
 
     - add CaseTool::toCamel method

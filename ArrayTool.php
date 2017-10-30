@@ -47,6 +47,21 @@ class ArrayTool
 
 
     /**
+     * Like php range function, but the ranges applies on both the values and the keys
+     * (i.e. not just the values like the php range function does)
+     *
+     * @param $start
+     * @param $end
+     * @param int $step
+     * @return array
+     */
+    public static function mirrorRange($start, $end, $step = 1)
+    {
+        return array_combine(range($start, $end, $step), range($start, $end, $step));
+    }
+
+
+    /**
      * Put the layer array on top of the base array,
      * and return an array containing only the base keys,
      * which values are replaced by the layer values if available.

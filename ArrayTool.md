@@ -78,6 +78,47 @@ a(ArrayTool::getMissingKeys($arr, ['firstName', 'lastName']));  // false
 ```
      
      
+    
+mirrorRange
+-------------
+2017-10-30
+
+
+```php
+array    mirrorRange ( mixed:start, mixed:end, mixed:step = 1 )
+```
+
+
+Like php range function, but the ranges applies on both the values and the keys
+(i.e. not just the values like the php range function does).
+
+
+
+```php
+<?php
+
+az(ArrayTool::mirrorRange(1,10));
+
+/**
+ * Displays this:
+ * 
+ * array(10) {
+ *   [1] => int(1)
+ *   [2] => int(2)
+ *   [3] => int(3)
+ *   [4] => int(4)
+ *   [5] => int(5)
+ *   [6] => int(6)
+ *   [7] => int(7)
+ *   [8] => int(8)
+ *   [9] => int(9)
+ *   [10] => int(10)
+ * }
+*/
+
+```
+     
+     
      
 superimpose
 --------------
