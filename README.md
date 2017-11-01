@@ -59,6 +59,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.87 -- 2017-11-01
+
+    - add LocaleTool::getLangIso639_1ByIso639_2 method
+    
 - 1.86 -- 2017-10-30
 
     - add ArrayTool::mirrorRange method
