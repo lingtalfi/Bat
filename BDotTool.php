@@ -10,7 +10,7 @@ namespace Bat;
  *
  *
  */
-class BdotTool
+class BDotTool
 {
 
     public static function getDotValue($path, array $array, $default = null, &$found = false)
