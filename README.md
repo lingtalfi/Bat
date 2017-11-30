@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.90 -- 2017-11-30
+
+    - fix CaseTool.toCamel method
+    
 - 1.89 -- 2017-11-30
 
     - add StringTool.relativePath method
