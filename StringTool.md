@@ -134,6 +134,38 @@ az($ret); // $ret = ' class="foo bar" style="color: red" required'
 
 
 
+relativePath 
+---------------
+2017-11-30
+
+
+```php
+str    relativePath ( str:absoluteBaseDir, str:absolutePath, mixed:default = null )
+```
+
+Drop the absoluteBaseDir string in front of the absolutePath.
+
+If it's not in front, the returned value depends on the default parameter:
+- if default is null, the absolutePath is returned
+- else default is returned
+
+
+
+Example of use:
+
+```php
+<?php
+
+a(StringTool::relativePath("/p/a/c", "/p/a/c/man.txt")); // return /man.txt
+
+```
+
+
+
+
+
+
+
 removeAccents
 ---------------
 2016-01-07

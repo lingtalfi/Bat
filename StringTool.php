@@ -86,6 +86,34 @@ class StringTool
         return $prefix . md5(uniqid($prefix, true));
     }
 
+
+    /**
+     * Drop the absoluteBaseDir string in front of the absolutePath.
+     *
+     * If it's not in front, the returned value depends on the default parameter:
+     *  - if default is null, the absolutePath is returned
+     *  - else default is returned
+     *
+     *
+     *
+     * @param $absoluteBaseDir , absolute path to the base dir containing the absolutePath
+     * @param $absolutePath , absolute path to a resource
+     * @return string|mixed, a relative path, starting with a slash (at least on linux,
+     *          it will probably NOT WORK on windows),
+     *          or the $default parameter value otherwise.
+     */
+    public static function relativePath($absoluteBaseDir, $absolutePath, $default = null)
+    {
+        if (0 === strpos($absolutePath, $absoluteBaseDir)) {
+            $p = explode($absoluteBaseDir, $absolutePath, 2);
+            return array_pop($p);
+        }
+        if (null === $default) {
+            return $absolutePath;
+        }
+        return $default;
+    }
+
     public static function removeAccents($str)
     {
         static $map = [

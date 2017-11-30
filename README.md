@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.89 -- 2017-11-30
+
+    - add StringTool.relativePath method
+    
 - 1.88 -- 2017-11-28
 
     - add DateTool
