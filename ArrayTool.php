@@ -62,11 +62,8 @@ class ArrayTool
 
 
     /**
-     * Put the layer array on top of the base array,
-     * and return an array containing only the base keys,
-     * which values are replaced by the layer values if available.
-     *
-     * https://stackoverflow.com/questions/18240493/php-array-replace-without-creating-keys
+     * Return the <base> array, with values overridden by
+     * the <layer> (only if the key match).
      *
      * @param array $layer
      * @param array $base
