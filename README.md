@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.91 -- 2017-12-07
+
+    - fix DateTool.getSameDayNextMonth problems with the first year increment  
+    
 - 1.90 -- 2017-11-30
 
     - fix CaseTool.toCamel method

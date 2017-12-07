@@ -37,6 +37,7 @@ class DateTool
      * 2018-11-30
      * 2018-12-31
      * 2018-01-31
+     *
      */
     public static function getSameDayNextMonth($time, $numberMonthsToAdd = 1)
     {
@@ -44,18 +45,26 @@ class DateTool
 
         // replace the day by one temporarily (just to make sure it exists for any month
         $numberOfYearsToAdd = floor($numberMonthsToAdd / 12);
+        if (($month + $numberMonthsToAdd) > 12) {
+            $numberOfYearsToAdd++;
+        }
         $year += $numberOfYearsToAdd;
         $month = ($month + $numberMonthsToAdd) % 12;
         if (0 === $month) {
             $month = 12;
         }
+
+
         $monthFormatted = sprintf('%02s', $month);
         $nbDaysInThisMonth = date("t", strtotime("$year-$monthFormatted-01"));
 
         if ((int)$day > $nbDaysInThisMonth) {
             $day = $nbDaysInThisMonth;
         }
+
+
         $day = sprintf('%02s', $day);
         return strtotime("$year-$monthFormatted-$day");
     }
+
 }
