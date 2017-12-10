@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.92 -- 2017-12-10
+
+    - update FileSystemTool::mkdir, now returns true even if the directory is a link  
+    
 - 1.91 -- 2017-12-07
 
     - fix DateTool.getSameDayNextMonth problems with the first year increment  

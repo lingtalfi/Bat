@@ -214,8 +214,7 @@ class FileSystemTool
      * bool mkdir ( string $pathname [, int $mode = 0777 [, bool $recursive = false [, resource $context ]]] )
      *
      *
-     * It is considered a success when the dir exists and is a dir (not a file or a link),
-     *      and there were no permissions errors.
+     * It is considered a success when the dir exists and is a dir (not a file), and there were no permissions errors.
      *
      * It is considered a failure otherwise.
      *
@@ -227,7 +226,7 @@ class FileSystemTool
      */
     public static function mkdir($pathName, $mode = 0777, $recursive = false)
     {
-        if (file_exists($pathName) && is_dir($pathName) && !is_link($pathName)) {
+        if (file_exists($pathName) && is_dir($pathName)) {
             return true;
         }
         if (4 === func_num_args()) {
