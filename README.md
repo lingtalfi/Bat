@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.93 -- 2017-12-11
+
+    - add HttpTool::isHttps method  
+    
 - 1.92 -- 2017-12-10
 
     - update FileSystemTool::mkdir, now returns true even if the directory is a link  

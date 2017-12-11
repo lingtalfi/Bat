@@ -24,5 +24,20 @@ Post the given data to the given uri, and return the result.
 
 
 
+isHttps
+-------------
+2017-12-11
+
+
+
+```php
+bool    isHttps ()
+```
+
+Returns whether or not the current process uses https.
+
+
+
+
 
 
