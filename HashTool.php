@@ -17,4 +17,9 @@ class HashTool
         return '';
     }
 
+    public static function getRandomHash64()
+    {
+        return hash('sha256', uniqid() . ")" . rand(0, 80));
+    }
+
 }

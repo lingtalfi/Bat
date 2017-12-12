@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.95 -- 2017-12-12
+
+    - add HashTool::getRandomHash64 method  
+    
 - 1.94 -- 2017-12-12
 
     - add StringTool::unserializeAsArray method  
