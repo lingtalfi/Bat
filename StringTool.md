@@ -351,3 +351,29 @@ Like ucfirst, but using utf8 (works with accentuated letters).
 
 
 
+
+unserializeAsArray
+-----------
+2017-12-12
+
+```php
+mixed unserializeAsArray(str:string)
+```
+
+When you need to unserialize a field from your database and you expect an array,
+you can use this function.
+
+Note that even if your application always put a serialized version of your array
+in the database, an accident could happen (you accidentally update the field directly
+via phpMyAdmin for instance), and you end up with a flat string.
+So, this method deals with this case.
+
+
+
+
+
+
+
+
+
+

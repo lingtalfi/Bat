@@ -418,6 +418,19 @@ class StringTool
     {
         return mb_convert_case($string, MB_CASE_TITLE, 'UTF-8');
     }
+
+
+    /**
+     * @param $string string
+     * @return array|mixed
+     */
+    public static function unserializeAsArray($string)
+    {
+        if (empty($string)) {
+            return [];
+        }
+        return unserialize($string);
+    }
 }
 
 

@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.94 -- 2017-12-12
+
+    - add StringTool::unserializeAsArray method  
+    
 - 1.93 -- 2017-12-11
 
     - add HttpTool::isHttps method  
