@@ -28,7 +28,7 @@ class MathTool
     }
 
 
-    public static function getPercentagesByKeyValue(array $arr)
+    public static function getPercentagesByKeyValue(array $arr, $percentSign = null)
     {
         $ret = [];
         $nbItems = count($arr);
@@ -42,6 +42,13 @@ class MathTool
             $ret[$key] = $percent;
             $i++;
         }
+
+        if (null !== $percentSign) {
+            $ret = array_map(function ($v) use ($percentSign) {
+                return $v . $percentSign;
+            }, $ret);
+        }
+
         return $ret;
     }
 

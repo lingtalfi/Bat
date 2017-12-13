@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.97 -- 2017-12-13
+
+    - update MathTool::getPercentagesByKeyValue, add percentSign argument  
+    
 - 1.96 -- 2017-12-13
 
     - add MathTool::getPercentagesByKeyValue method  
