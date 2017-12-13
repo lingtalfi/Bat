@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.96 -- 2017-12-13
+
+    - add MathTool::getPercentagesByKeyValue method  
+    
 - 1.95 -- 2017-12-12
 
     - add HashTool::getRandomHash64 method  

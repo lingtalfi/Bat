@@ -26,4 +26,23 @@ class MathTool
         $res2 = self::combinationsOf($k, $xs1);
         return array_merge($res1, $res2);
     }
+
+
+    public static function getPercentagesByKeyValue(array $arr)
+    {
+        $ret = [];
+        $nbItems = count($arr);
+        $i = 1;
+        $sum = array_sum($arr);
+        foreach ($arr as $key => $number) {
+            $percent = round($number / $sum * 100, 2);
+            if ($i === $nbItems) {
+                $percent = 100 - (array_sum($ret));
+            }
+            $ret[$key] = $percent;
+            $i++;
+        }
+        return $ret;
+    }
+
 }
