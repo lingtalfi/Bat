@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.98 -- 2018-01-11
+
+    - update HashTool::passwordVerify and passwordEncrypt
+    
 - 1.97 -- 2017-12-13
 
     - update MathTool::getPercentagesByKeyValue, add percentSign argument  
