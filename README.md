@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.99 -- 2018-01-18
+
+    - add ArrayTool::arrayKeyExistAll method
+    
 - 1.98 -- 2018-01-11
 
     - update HashTool::passwordVerify and passwordEncrypt

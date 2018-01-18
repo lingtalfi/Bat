@@ -14,7 +14,33 @@ If you don't use bigbang, you can use var_dump as a replacement.
 
 
 
+arrayKeyExistAll
+-------------
+2018-01-18
 
+
+```php
+array    arrayKeyExistAll ( array:keys, array:pool)
+```
+
+Returns whether or not ALL the keys are keys of pool.
+
+
+### Example
+
+```php
+<?php
+
+$keys = ['a', 'b', 'c'];
+$pool = ['a', 'd'];
+
+a(ArrayTool::arrayKeyExistAll($keys, $pool)); // false
+
+
+
+```
+
+  
     
 arrayUniqueRecursive
 -------------

@@ -9,6 +9,16 @@ class ArrayTool
 {
 
 
+    public static function arrayKeyExistAll(array $keys, array $pool)
+    {
+        foreach ($keys as $key) {
+            if (false === array_key_exists($key, $pool)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static function arrayUniqueRecursive(array $array)
     {
         $result = array_map("unserialize", array_unique(array_map("serialize", $array)));
