@@ -78,6 +78,23 @@ For instance,
 
 
 
+getPlural
+-----------
+2018-02-13
+
+
+```php
+string      getPlural (string:word)
+```
+
+Returns the plural form of the given word.
+
+
+```php
+a(StringTool::getPlural("cat")); // cats
+```
+
+
 getUniqueCssId
 -----------
 2017-04-28

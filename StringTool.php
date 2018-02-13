@@ -9,6 +9,41 @@ use Tiphaine\TiphaineTool;
 
 class StringTool
 {
+    private static $irregular = [
+        'woman' => 'women',
+        'man' => 'men',
+        'child' => 'children',
+        'tooth' => 'teeth',
+        'foot' => 'feet',
+        'person' => 'people',
+        'leaf' => 'leaves',
+        'mouse' => 'mice',
+        'goose' => 'geese',
+        'half' => 'halves',
+        'knife' => 'knives',
+        'wife' => 'wives',
+        'life' => 'lives',
+        'elf' => 'elves',
+        'loaf' => 'loaves',
+        'potato' => 'potatoes',
+        'tomato' => 'tomatoes',
+        'cactus' => 'cacti',
+        'focus' => 'foci',
+        'fungus' => 'fungi',
+        'nucleus' => 'nuclei',
+        'syllabus' => 'syllabi',
+        'analysis' => 'analyses',
+        'diagnosis' => 'diagnoses',
+        'oasis' => 'oases',
+        'thesis' => 'theses',
+        'crisis' => 'crises',
+        'phenomenon' => 'phenomena',
+        'criterion' => 'criteria',
+        'datum' => 'data',
+    ];
+
+
+
 
 
     public static function autoCast($string)
@@ -80,6 +115,49 @@ class StringTool
         }
         return $s;
     }
+
+
+    /**
+     * Stolen from OrmToolsHelper (OrmTools planet)
+     */
+    public static function getPlural($word)
+    {
+
+        /**
+         * http://www.ef.com/english-resources/english-grammar/singular-and-plural-nouns/
+         */
+
+        if (array_key_exists($word, self::$irregular)) {
+            return self::$irregular[$word];
+        }
+
+        $lastLetter = substr($word, -1);
+        switch ($lastLetter) {
+            case "y":
+                $word = substr($word, 0, -1) . 'ies';
+                break;
+            case "s":
+            case "x":
+            case "z":
+                $word .= 'es';
+                break;
+            default:
+                $lastTwoLetters = substr($word, -2);
+                switch ($lastTwoLetters) {
+                    case "ch":
+                    case "sh":
+                        $word .= 'es';
+                        break;
+                    default:
+                        $word .= "s";
+                        break;
+                }
+                break;
+        }
+
+        return $word;
+    }
+
 
     public static function getUniqueCssId($prefix = "a")
     {

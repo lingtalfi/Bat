@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.100 -- 2018-02-13
+
+    - add StringTool::getPlural method
+    
 - 1.99 -- 2018-01-18
 
     - add ArrayTool::arrayKeyExistAll method
