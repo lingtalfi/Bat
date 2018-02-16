@@ -71,6 +71,13 @@ class ArrayTool
     }
 
 
+    public static function removeEntry($entry, array &$arr)
+    {
+        if (false !== ($index = array_search($entry, $arr))) {
+            unset($arr[$index]);
+        }
+    }
+
     /**
      * Return the <base> array, with values overridden by
      * the <layer> (only if the key match).

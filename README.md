@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.101 -- 2018-02-16
+
+    - add ArrayTool::removeEntry method
+    
 - 1.100 -- 2018-02-13
 
     - add StringTool::getPlural method

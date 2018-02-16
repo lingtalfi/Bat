@@ -144,6 +144,39 @@ az(ArrayTool::mirrorRange(1,10));
 
 ```
      
+    
+removeEntry
+-------------
+2018-02-16
+
+
+```php
+void removeEntry ( mixed:entry, array:&$arr)
+```
+
+
+remove the entry from the array.
+
+
+
+```php
+<?php
+
+$arr = ["red", "blue", "green"];
+ArrayTool::removeEntry("blue", $arr);
+a($arr);
+
+/**
+ * Displays this:
+ * 
+ * array(2) {
+ *      [0] => string(3) "red"
+ *      [2] => string(5) "green"
+ * }
+*/
+
+```
+     
      
      
 superimpose
