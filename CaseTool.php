@@ -58,6 +58,8 @@ class CaseTool
                 $v = ucfirst($v);
             });
             $str = implode('', $arr);
+            $str = str_replace(' ', '', $str);
+
         } else {
             throw new \InvalidArgumentException(sprintf("string argument must be of type string, %s given", gettype($str)));
         }

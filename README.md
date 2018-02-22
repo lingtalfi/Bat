@@ -60,6 +60,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.102 -- 2018-02-22
+
+    - fix CaseTool::snakeToFlexiblePascal letting spaces through
+    
 - 1.101 -- 2018-02-16
 
     - add ArrayTool::removeEntry method
