@@ -330,6 +330,17 @@ class FileSystemTool
 
 
     /**
+     * Will rename src to dst, creating dst subdirs if necessary
+     */
+    public static function rename($src, $dst)
+    {
+        $dstDir = dirname($dst);
+        FileSystemTool::mkdir($dstDir, 0777, true);
+        return rename($src, $dst);
+    }
+
+
+    /**
      * http://stackoverflow.com/questions/1707801/making-a-temporary-dir-for-unpacking-a-zipfile-into
      */
     public static function tempDir($dir = null, $prefix = null)

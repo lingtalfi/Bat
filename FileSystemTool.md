@@ -336,6 +336,50 @@ if (false === FileSystemTool::remove('doo', false)) {
 
 ```
 
+
+
+
+rename
+-----------
+2018-02-26
+
+
+```php
+bool        rename ( string:source, string:destination )
+```
+
+
+Will rename the source file to the destination file,
+and create necessary subdirectories.
+
+Returns the same as php's native rename: a boolean indicating whether or not the operation
+was successful.
+
+
+
+```php
+
+
+/**
+ * Case 1: straight to the point
+ */
+FileSystemTool::remove('doo');
+// now entry doo doesn't exist on your file system (or you get an exception)
+
+
+/**
+ * Case 2: flexible approach
+ */
+if (false === FileSystemTool::remove('doo', false)) {
+    // here you get the opportunity to handle the failure manually
+}
+
+```
+
+
+
+
+
 tempDir
 -----------
 2016-12-23

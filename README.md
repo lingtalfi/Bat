@@ -61,6 +61,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.106 -- 2018-02-26
+
+    - add FileSystemTool:rename method
+    
 - 1.105 -- 2018-02-26
 
     - add SessionTool:set/get methods
