@@ -113,6 +113,33 @@ a(SessionTool::dump(null, [
 
 
 
+get
+-----------
+2018-02-26
+
+
+Get a variable from the session
+
+```php
+mixed set(str:key, mixed:default=null )
+```
+
+
+
+
+
+set
+-----------
+2018-02-26
+
+
+Set a variable in the session
+
+```php
+void set(str:key, mixed:value )
+```
+
+
 
 start
 -----------

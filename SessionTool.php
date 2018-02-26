@@ -23,9 +23,7 @@ class SessionTool
     public static function destroyPartial($keys)
     {
 
-        if (session_status() === \PHP_SESSION_NONE) {
-            session_start();
-        }
+        self::start();
 
         if (!is_array($keys)) {
             $keys = [$keys];
@@ -50,11 +48,28 @@ class SessionTool
         }
     }
 
+    public static function set($k, $v)
+    {
+        self::start();
+        $_SESSION[$k] = $v;
+    }
+
+
+    public static function get($key, $default = null)
+    {
+        self::start();
+        if (array_key_exists($key, $_SESSION)) {
+            return $_SESSION[$key];
+        }
+        return $default;
+    }
+
+
     public static function destroyAll()
     {
-        if (session_status() === \PHP_SESSION_NONE) {
-            session_start();
-        }
+        self::start();
+
+
         // http://php.net/manual/en/function.session-destroy.php
         $_SESSION = [];
 

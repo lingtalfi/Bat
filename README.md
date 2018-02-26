@@ -61,6 +61,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.105 -- 2018-02-26
+
+    - add SessionTool:set/get methods
+    
 - 1.104 -- 2018-02-26
 
     - enhance DebugTool now recognizes bool and null values
