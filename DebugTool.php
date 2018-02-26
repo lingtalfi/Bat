@@ -18,7 +18,12 @@ class DebugTool
          * BeeFramework\Bat\VarTool::toString method
          *
          */
-        if ($thing instanceof \Closure) {
+        if (is_bool($thing)) {
+            $s = (true === $thing) ? 'true' : 'false';
+            return 'bool(' . $s . ')';
+        } elseif (is_null($thing)) {
+            return 'null';
+        } elseif ($thing instanceof \Closure) {
             return self::closureToString($thing);
         } elseif (is_callable($thing)) {
             return self::callableToString($thing);

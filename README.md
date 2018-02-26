@@ -61,6 +61,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.104 -- 2018-02-26
+
+    - enhance DebugTool now recognizes bool and null values
+    
 - 1.103 -- 2018-02-26
 
     - add DebugTool
