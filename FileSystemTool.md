@@ -59,6 +59,19 @@ bool        copyFile ( str:srcDir, str:targetDir )
 Copy a file.
 
 
+
+countFiles
+-------------     
+2018-02-27
+
+
+```php
+int        countFiles ( str:srcDir )
+```
+
+Returns the number of files of a given dir.
+
+
      
 existsUnder
 -------------     

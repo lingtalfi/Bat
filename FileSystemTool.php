@@ -78,6 +78,19 @@ class FileSystemTool
 
 
     /**
+     * Return the number of files of a given dir.
+     *
+     * https://stackoverflow.com/questions/12801370/count-how-many-files-in-directory-php
+     * @param $dir
+     * @return int
+     */
+    public static function countFiles($dir)
+    {
+        $fi = new \FilesystemIterator($dir, \FilesystemIterator::SKIP_DOTS);
+        return iterator_count($fi);
+    }
+
+    /**
      * Returns true only if:
      * - dir exists
      * - file exists and is located under the dir

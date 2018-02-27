@@ -61,9 +61,13 @@ Dependencies
 History Log
 ------------------
     
+- 1.107 -- 2018-02-27
+
+    - add FileSystemTool::countFiles method
+    
 - 1.106 -- 2018-02-26
 
-    - add FileSystemTool:rename method
+    - add FileSystemTool::rename method
     
 - 1.105 -- 2018-02-26
 
