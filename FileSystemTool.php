@@ -13,6 +13,26 @@ class FileSystemTool
 
 
     /**
+     *
+     * Check if the given dir is empty (i.e. does not contain any file/dir/link).
+     * If this is the case, then remove the dir and cleanDirBubble the parent dir
+     * recursively until the parent dir is not empty.
+     *
+     * @param $dir
+     */
+    public static function cleanDirBubble($dir)
+    {
+        if (0 === self::countFiles($dir)) {
+            self::remove($dir);
+            $parent = dirname($dir);
+            if (is_dir($parent)) {
+                self::cleanDirBubble($parent);
+            }
+        }
+    }
+
+
+    /**
      * Ensures that a directory exist and is empty.
      *
      * It is considered a success if the directory exists and is empty, and a failure otherwise.
@@ -78,7 +98,7 @@ class FileSystemTool
 
 
     /**
-     * Return the number of files of a given dir.
+     * Return the number of files/dirs/links of a given dir.
      *
      * https://stackoverflow.com/questions/12801370/count-how-many-files-in-directory-php
      * @param $dir

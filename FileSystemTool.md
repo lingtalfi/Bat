@@ -13,6 +13,22 @@ If you don't use bigbang, you can use var_dump as a replacement.
 
 
 
+cleanDirBubble
+-------------
+2018-02-27
+
+```php
+void    cleanDirBubble ( string:dir )
+```
+
+Check if the given dir is empty (i.e. does not contain any file/dir/link).
+If this is the case, then remove the dir and cleanDirBubble the parent dir
+recursively until the parent dir is not empty.
+
+     
+
+
+
 clearDir
 -------------
 2015-10-12 --> 2017-06-22

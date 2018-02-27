@@ -61,6 +61,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.108 -- 2018-02-27
+
+    - add FileSystemTool::cleanDirBubble method
+    
 - 1.107 -- 2018-02-27
 
     - add FileSystemTool::countFiles method
