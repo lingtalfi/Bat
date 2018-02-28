@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.111 -- 2018-02-28
+
+    - add DateTool::foreachDateRange method
+    
 - 1.110 -- 2018-02-28
 
     - add DateTool::getDate method

@@ -8,6 +8,28 @@ class DateTool
 {
 
 
+    // https://stackoverflow.com/questions/3207749/i-have-2-dates-in-php-how-can-i-run-a-foreach-loop-to-go-through-all-of-those-d
+    public static function foreachDateRange($dateStart, $dateEnd, callable $cb, $includeDateEnd = true)
+    {
+
+        if (true === $includeDateEnd) {
+            $dateEnd = date("Y-m-d", strtotime($dateEnd) + 86400);
+        }
+
+        $begin = new \DateTime($dateStart);
+        $end = new \DateTime($dateEnd);
+
+
+        $interval = \DateInterval::createFromDateString('1 day');
+        $period = new \DatePeriod($begin, $interval, $end);
+
+        foreach ($period as $dt) {
+            call_user_func($cb, $dt->format("Y-m-d"));
+        }
+
+    }
+
+
     public static function getDate($dateString)
     {
         return date('Y-m-d', strtotime($dateString));

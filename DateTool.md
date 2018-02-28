@@ -9,6 +9,22 @@ This class contains functions for helping with dates.
 
 
 
+foreachDateRange
+-----------
+2018-02-28
+
+
+```php
+void     foreachDateRange ( str:dateStart, str:dateEnd, callable:cb, bool:includeDateEnd=true)
+```
+
+Loops from dateStart to dateEnd included/excluded, depending on the includedDateEnd flag.
+
+Note: dateStart and dateEnd are in the mysql date format (yyyy-mm-dd)
+ 
+ 
+ 
+
 getDate
 -----------
 2018-02-28
