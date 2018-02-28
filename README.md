@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.110 -- 2018-02-28
+
+    - add DateTool::getDate method
+    
 - 1.109 -- 2018-02-27
 
     - add RandomTool::getIp method

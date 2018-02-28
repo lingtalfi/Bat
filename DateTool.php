@@ -7,6 +7,13 @@ namespace Bat;
 class DateTool
 {
 
+
+    public static function getDate($dateString)
+    {
+        return date('Y-m-d', strtotime($dateString));
+    }
+
+
     /**
      *
      * Return the same day of the nth-next month.
@@ -66,5 +73,6 @@ class DateTool
         $day = sprintf('%02s', $day);
         return strtotime("$year-$monthFormatted-$day");
     }
+
 
 }

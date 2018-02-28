@@ -8,6 +8,26 @@ This class contains functions for helping with dates.
 
 
 
+
+getDate
+-----------
+2018-02-28
+
+
+```php
+str:mysqlDate     getDate ( str:dateString)
+```
+
+Return the date from the dateString (which is a date-ish string)
+
+ 
+```php
+a(DateTool::getDate("2018-02-28 00:56:45")); // 2018-02-28
+``` 
+
+
+
+
 getSameDayNextMonth
 -----------
 2017-11-28
