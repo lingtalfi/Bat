@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.112 -- 2018-03-01
+
+    - add RandomTool::lorem method
+    
 - 1.111 -- 2018-02-28
 
     - add DateTool::foreachDateRange method
