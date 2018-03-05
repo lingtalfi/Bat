@@ -7,9 +7,29 @@ namespace Bat;
  */
 class LocalHostTool
 {
-    
-    
-    
+
+
+
+
+    /**
+     * @param $program, the absolute path to the program
+     * @return bool
+     * @throws \Exception
+     */
+    public static function hasProgram($program)
+    {
+        if (true === self::isUnix()) {
+            ob_start();
+            passthru("which $program");
+            return (strlen(ob_get_clean()) > 0);
+        }
+        else {
+            // todo: implement for windows...
+            throw new \Exception("Sorry dude, not implemented now for windows machine, please improve this class");
+        }
+    }
+
+
     public static function isWindows()
     {
         return (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN');
@@ -27,4 +47,5 @@ class LocalHostTool
          */
         return (false === self::isWindows());
     }
+
 }

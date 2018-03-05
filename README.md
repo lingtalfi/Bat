@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.113 -- 2018-03-05
+
+    - add LocalHostTool::hasProgram method
+    
 - 1.112 -- 2018-03-01
 
     - add RandomTool::lorem method

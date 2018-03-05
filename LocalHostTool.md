@@ -8,6 +8,13 @@ This class contains functions related to the local host.
 
 
 
+hasProgram
+------------
+
+This method returns whether or not the underlying OS has the program
+which real/full path is specified.
+
+
 isWindows
 ------------
 
