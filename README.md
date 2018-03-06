@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.114 -- 2018-03-06
+
+    - add ClassTool::getMethodNames method
+    
 - 1.113 -- 2018-03-05
 
     - add LocalHostTool::hasProgram method

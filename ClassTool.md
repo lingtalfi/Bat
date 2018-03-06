@@ -28,6 +28,54 @@ a($content);
 ``` 
 
 
+getMethodInnerContent
+-----------
+2016-12-22
+
+
+
+```php
+str    getMethodInnerContent ( string:class, string:method )
+```
+
+Gets the inner code of the given method.
+
+ 
+```php
+$content = ClassTool::getMethodInnerContent("\Some\MyClass",  'myMethod');
+a($content);
+``` 
+
+
+
+
+getMethodNames
+-----------
+2018-03-06
+
+
+
+```php
+array    getMethodNames ( string:class, array:filter=[] )
+```
+
+Return the method names of the given class.
+We can filter the method names using the following filters:
+
+- static
+- (one of)
+    - public
+    - protected
+    - private
+
+ 
+```php
+$class = '\Core\Services\Hooks';
+$methods = ClassTool::getMethodNames($class); // return all method names
+$methods = ClassTool::getMethodNames($class, ['static', 'protected']); // return only static protected method names
+``` 
+
+
 
 getMethodSignature
 -----------

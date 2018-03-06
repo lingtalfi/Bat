@@ -7,6 +7,8 @@ namespace Bat;
 class ClassTool
 {
 
+
+
     /**
      * Example:
      *      $content = ClassTool::getMethodContent(LayoutServices::class, 'displayLeftMenuBlocks');
@@ -98,6 +100,67 @@ class ClassTool
         $s .= ')';
         return $s;
     }
+
+
+    /**
+     * @param $class
+     * @param array $filter , available filters are:
+     *          - static
+     *          - (one of)
+     *              - public
+     *              - protected
+     *              - private
+     *
+     * @return array
+     */
+    public static function getMethodNames($class, array $filter = [])
+    {
+        $ret = [];
+        $r = new \ReflectionClass($class);
+        $methods = $r->getMethods();
+        $isStatic = in_array('static', $filter, true);
+        $visibility = null;
+        $visibilityMap = [
+            'public' => \ReflectionMethod::IS_PUBLIC,
+            'protected' => \ReflectionMethod::IS_PROTECTED,
+            'private' => \ReflectionMethod::IS_PRIVATE,
+        ];
+
+        if (in_array('public', $filter, true)) {
+            $visibility = $visibilityMap["public"];
+        } elseif (in_array('protected', $filter, true)) {
+            $visibility = $visibilityMap["protected"];
+        } elseif (in_array('private', $filter, true)) {
+            $visibility = $visibilityMap["private"];
+        }
+
+
+        foreach ($methods as $method) {
+
+
+            // checking visibility
+            if ($visibility) {
+                if (
+                    (\ReflectionMethod::IS_PUBLIC === $visibility && false === $method->isPublic()) ||
+                    (\ReflectionMethod::IS_PROTECTED === $visibility && false === $method->isProtected()) ||
+                    (\ReflectionMethod::IS_PRIVATE === $visibility && false === $method->isPrivate())
+                ) {
+                    continue;
+                }
+            }
+
+            // checking static (which defaults to false)
+            if ($isStatic && false === $method->isStatic()) {
+                continue;
+            }
+            $ret[] = $method->name;
+
+        }
+        return $ret;
+    }
+
+
+
 
 
     /**
