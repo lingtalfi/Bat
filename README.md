@@ -62,6 +62,11 @@ Dependencies
 History Log
 ------------------
     
+- 1.115 -- 2018-03-15
+
+    - add SessionTool::setFlag method
+    - add SessionTool::pickupFlag method
+    
 - 1.114 -- 2018-03-06
 
     - add ClassTool::getMethodNames method

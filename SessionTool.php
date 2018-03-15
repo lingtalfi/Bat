@@ -8,6 +8,9 @@ class SessionTool
 {
 
 
+    private static $flagName = 'ling.bat.flags';
+
+
     /**
      * @param $keys , array or string representing the key(s) to destroy from the session.
      *
@@ -145,6 +148,54 @@ class SessionTool
         }
         return $ret;
 
+    }
+
+
+
+
+    //--------------------------------------------
+    // FLAGS
+    //--------------------------------------------
+    /**
+     * The flags mechanism:
+     * you set up a flag with setFlag, then when you retrieve it with pickupFlag
+     * it removes it (i.e. you can only retrieve it once until it's set again).
+     *
+     * This behaviour was handy in the following case (there might be other usecases):
+     *
+     * - an insert form that redirects upon the update page on success.
+     *          Problem, on the redirected page we don't have the success notification that the user expects.
+     *          With flags, we set a flag before redirection, then on landing page we retrieve it to see
+     *          whether or not we show the alert.
+     *
+     */
+    //--------------------------------------------
+    public static function setFlag($identifier, $value = true)
+    {
+        self::start();
+        if (!array_key_exists(self::$flagName, $_SESSION)) {
+            $_SESSION[self::$flagName] = [];
+        }
+        $flags = $_SESSION[self::$flagName];
+        $flags[$identifier] = $value;
+        $_SESSION[self::$flagName] = $flags;
+    }
+
+    public static function pickupFlag($identifier)
+    {
+        self::start();
+        if (!array_key_exists(self::$flagName, $_SESSION)) {
+            $_SESSION[self::$flagName] = [];
+        }
+
+        $flags = $_SESSION[self::$flagName];
+        if (array_key_exists($identifier, $flags)) {
+            $ret = $flags[$identifier];
+            unset($flags[$identifier]);
+            $_SESSION[self::$flagName] = $flags;
+            return $ret;
+        }
+        return false;
     }
 
 }
