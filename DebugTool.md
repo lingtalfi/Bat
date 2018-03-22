@@ -11,13 +11,35 @@ This class contains functions for debugging.
 
 
     
+dump
+-------------
+2018-03-22
+
+
+```php
+string dump ( mixed:thing)
+```
+
+Return a var dump representation of the given thing.
+This is actually the oop equivalent of the universe "a" debug function.
+
+
+### Example:
+```php
+
+DebugTool::dump($thing);
+```
+
+
+
+    
 toString
 -------------
 2018-02-26
 
 
 ```php
-string getDotValue ( mixed:thing)
+string toString ( mixed:thing)
 ```
 
 Return a string representation of the given thing.

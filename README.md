@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.116 -- 2018-03-22
+
+    - add DebugTool::dump method
+    
 - 1.115 -- 2018-03-15
 
     - add SessionTool::setFlag method
