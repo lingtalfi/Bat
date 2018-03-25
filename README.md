@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.117 -- 2018-03-25
+
+    - add ArrayTool::keysSameAsValues method
+    
 - 1.116 -- 2018-03-22
 
     - add DebugTool::dump method

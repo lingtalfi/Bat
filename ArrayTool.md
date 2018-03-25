@@ -102,6 +102,36 @@ a(ArrayTool::getMissingKeys($arr, ['firstName', 'lastName']));  // false
 
 
 ```
+
+
+    
+keysSameAsValues
+-------------
+2018-03-25
+
+
+```php
+array    keysSameAsValues ( array:values )
+```
+
+Return an array with keys equal to values.
+
+
+### Example
+
+```php
+<?php 
+
+$values = ["blue", "red"];
+a(ArrayTool::keysSameAsValues($values));
+?>
+<pre>
+array(2) {
+  ["blue"] => string(4) "blue"
+  ["red"] => string(3) "red"
+}
+</pre>
+```
      
      
     

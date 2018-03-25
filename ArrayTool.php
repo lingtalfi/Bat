@@ -57,6 +57,21 @@ class ArrayTool
 
 
     /**
+     * Return an array with keys equal to values.
+     *
+     * @param array $values
+     * @return array
+     */
+    public static function keysSameAsValues(array $values): array
+    {
+        $ret = [];
+        foreach ($values as $value) {
+            $ret[$value] = $value;
+        }
+        return $ret;
+    }
+
+    /**
      * Like php range function, but the ranges applies on both the values and the keys
      * (i.e. not just the values like the php range function does)
      *
