@@ -184,36 +184,10 @@ class FileSystemTool
     }
 
 
-    /**
-     * Returns the size in bytes of a given file.
-     * The file can be an url starting with http:// https://, or a filesystem file.
-     *
-     * @return int|false in case of failure (file not existing for instance)
-     */
-    public static function getFileSize($file)
-    {
 
-        if (
-            'http://' === substr($file, 0, 7) ||
-            'https://' === substr($file, 0, 8)
-        ) {
-            if (true === extension_loaded('curl')) {
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, $file);
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_HEADER, true);
-                curl_setopt($ch, CURLOPT_NOBODY, true);
-                curl_setopt($ch, CURLOPT_TIMEOUT, 10); // mitigate slowloris attacks http://php.net/manual/en/function.get-headers.php#117189
-                curl_exec($ch);
-                return (int)curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
-            } else {
-                $head = array_change_key_case(get_headers($file, 1));
-                return (int)$head['content-length'];
-            }
-        } else {
-            return filesize($file);
-        }
+    public static function getFileSize($file, $humanize=false)
+    {
+        return FileTool::getFileSize($file, $humanize);
     }
 
 

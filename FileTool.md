@@ -57,6 +57,27 @@ Each slice is an array:
 Slices must not overlap.
 
 
+ 
+     
+
+getFileSize
+-----------
+2018-03-25
+
+
+```php
+int|false    getFileSize ( string:file, bool:humanize=false )
+```
+
+Returns the size of a given file.
+The file can be an url starting with http:// https://, or a filesystem file.
+
+The return is in bytes by default, but is a human string (like 1.59G for instance)
+if the humanize flag is set to true.
+
+
+
+
 
 getNbLines
 -------------
