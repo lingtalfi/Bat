@@ -54,4 +54,11 @@ EEE;
         }
         return implode(" ", $arrWords);
     }
+
+
+    public static function getRandomColor()
+    {
+        return '#' . substr(md5(rand()), 0, 6);
+    }
+
 }

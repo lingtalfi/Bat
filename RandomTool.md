@@ -44,3 +44,23 @@ Note: all words are lower case.
 az(RandomTool::lorem(null, 20,30)); // nec vitae mi fringilla mattis magna mauris ligula cras congue pretium ante sem praesent fermentum in molestie massa nibh nibh quam magna malesuada
 ```
 
+
+
+
+
+getRandomColor
+------------
+2018-03-27
+     
+     
+```php     
+str        getRandomColor()     
+```     
+     
+Return a randomly generated hex color, with the hash symbol prefix.
+
+
+```php
+az(RandomTool::getRandomColor()); // #f1aa56
+```
+

@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.119 -- 2018-03-27
+
+    - add RandomTool::getRandomColor method
+    
 - 1.118 -- 2018-03-25
 
     - add FileTool::getFileSize method (migrated from FileSystemTool), and added a humanize parameter
