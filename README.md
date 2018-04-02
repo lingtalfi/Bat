@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.120 -- 2018-04-02
+
+    - now RandomTool::getRandomHash64 method uses php7 random_bytes if available
+
 - 1.119 -- 2018-03-27
 
     - add RandomTool::getRandomColor method

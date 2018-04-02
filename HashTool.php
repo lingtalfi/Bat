@@ -19,6 +19,9 @@ class HashTool
 
     public static function getRandomHash64()
     {
+        if (function_exists('random_bytes')) {
+            return substr(bin2hex(random_bytes(64)), 0, 64);
+        }
         return hash('sha256', uniqid() . ")" . rand(0, 80));
     }
 
