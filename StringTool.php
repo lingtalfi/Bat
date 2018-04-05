@@ -43,9 +43,6 @@ class StringTool
     ];
 
 
-
-
-
     public static function autoCast($string)
     {
         return TiphaineTool::autoCast($string);
@@ -499,6 +496,8 @@ class StringTool
 
 
     /**
+     * return the serialized input as an array
+     *
      * @param $string string
      * @return array|mixed
      */
@@ -507,7 +506,11 @@ class StringTool
         if (empty($string)) {
             return [];
         }
-        return unserialize($string);
+        $ret = unserialize($string);
+        if (null === $ret) {
+            return [];
+        }
+        return $ret;
     }
 }
 
