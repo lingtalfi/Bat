@@ -507,7 +507,7 @@ class StringTool
             return [];
         }
         $ret = unserialize($string);
-        if (null === $ret) {
+        if (empty($ret)) {
             return [];
         }
         return $ret;
