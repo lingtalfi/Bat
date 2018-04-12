@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.123 -- 2018-04-12
+
+    - fix MathTool::getPercentagesByKeyValue problem with divide by zero
+    
 - 1.122 -- 2018-04-04
 
     - fix StringTool::unserializeAsArray returning empty string (now returns an array)

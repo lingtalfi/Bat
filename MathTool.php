@@ -35,9 +35,13 @@ class MathTool
         $i = 1;
         $sum = array_sum($arr);
         foreach ($arr as $key => $number) {
-            $percent = round($number / $sum * 100, 2);
-            if ($i === $nbItems) {
-                $percent = 100 - (array_sum($ret));
+            if ($sum) {
+                $percent = round($number / $sum * 100, 2);
+                if ($i === $nbItems) {
+                    $percent = 100 - (array_sum($ret));
+                }
+            } else {
+                $percent = 0;
             }
             $ret[$key] = $percent;
             $i++;
