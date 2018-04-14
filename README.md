@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.124 -- 2018-04-14
+
+    - add ObTool::writeWithoutBuffering method
+
 - 1.123 -- 2018-04-12
 
     - fix MathTool::getPercentagesByKeyValue problem with divide by zero
