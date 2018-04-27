@@ -57,6 +57,12 @@ class SessionTool
         $_SESSION[$k] = $v;
     }
 
+    public static function remove($k)
+    {
+        self::start();
+        unset($_SESSION[$k]);
+    }
+
 
     public static function get($key, $default = null)
     {

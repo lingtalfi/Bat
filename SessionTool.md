@@ -128,6 +128,18 @@ mixed set(str:key, mixed:default=null )
 
 
 
+remove
+-----------
+2018-04-27
+
+
+Remove a variable from the session
+
+```php
+void remove(str:key)
+
+
+
 set
 -----------
 2018-02-26

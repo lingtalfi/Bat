@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.125 -- 2018-04-27
+
+    - add SessionTool::remove method
+    
 - 1.124 -- 2018-04-14
 
     - add ObTool::writeWithoutBuffering method
