@@ -105,6 +105,52 @@ a(ArrayTool::getMissingKeys($arr, ['firstName', 'lastName']));  // false
 
 
     
+insertRowAfter
+-------------
+2018-04-30
+
+
+```php
+void    insertRowAfter ( int:index, array:row, array:&rows )
+```
+
+Insert the given row into the rows.
+
+
+### Example
+
+```php
+<?php 
+
+$arr = [
+    [
+        "name" => "peter",
+        "age" => "46",
+    ],
+    [
+        "name" => "andrea",
+        "age" => "28",
+    ],
+    [
+        "name" => "fabrizzio",
+        "age" => "13",
+    ],
+];
+
+ArrayTool::insertRowAfter(1, [
+    "name" => "mélanie",
+    "age" => "5",
+], $arr);
+
+
+a($arr); // melanie is now after andrea...
+
+```
+
+
+
+
+
 keysSameAsValues
 -------------
 2018-03-25
@@ -120,7 +166,7 @@ Return an array with keys equal to values.
 ### Example
 
 ```php
-<?php 
+<?php
 
 $values = ["blue", "red"];
 a(ArrayTool::keysSameAsValues($values));
@@ -132,7 +178,7 @@ array(2) {
 }
 </pre>
 ```
-     
+
      
     
 mirrorRange

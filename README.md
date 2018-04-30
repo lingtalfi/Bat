@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.126 -- 2018-04-30
+
+    - add ArrayTool::insertRowAfter method
+
 - 1.125 -- 2018-04-27
 
     - add SessionTool::remove method

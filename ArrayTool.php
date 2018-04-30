@@ -93,6 +93,25 @@ class ArrayTool
         }
     }
 
+
+    /**
+     * Insert the given row into the rows;
+     *
+     *
+     * @param $index
+     * @param array $entry
+     * @param array $rows , an array with numerical keys, each value being an array.
+     */
+    public static function insertRowAfter(int $index, array $row, array &$rows)
+    {
+        $zeIndex = $index + 1;
+        $start = array_slice($rows, 0, $zeIndex);
+        $end = array_slice($rows, $zeIndex);
+        $entryWrapped = [$row];
+        $rows = array_merge($start, $entryWrapped, $end);
+
+    }
+
     /**
      * Return the <base> array, with values overridden by
      * the <layer> (only if the key match).
