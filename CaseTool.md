@@ -251,7 +251,7 @@ toCamel
 str    toCamel ( str:string )
 ```
 
-Return the [camelCase version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md) of the given string.
+Return the [camelCase version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#camelcase) of the given string.
 
 
 
@@ -259,6 +259,33 @@ Return the [camelCase version](https://github.com/lingtalfi/ConventionGuy/blob/m
 <?php
 a(CaseTool::toCamel("MY DOG")); // myDog
 ```
+
+
+toConstant
+-----------
+2018-05-01
+
+
+```php
+str    toConstant ( str:string )
+```
+
+Return the [constantCase version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#constantcase) of the given string.
+
+
+
+toDash
+-----------
+2018-05-01
+
+
+```php
+str    toDash ( str:string )
+```
+
+Return the [dashCase version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#dashcase) of the given string.
+
+
 
 
 
@@ -313,6 +340,62 @@ require_once "bigbang.php";
 
 a(CaseTool::toFlea("abraham/../...jpg")); // abraham.jpg
 ```
+
+
+
+toFlexibleCamel
+-----------
+2018-05-01
+
+
+```php
+str    toFlexibleCamel ( str:string )
+```
+
+Return the [flexibleCamelCase version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#flexiblecamelcase) of the given string.
+
+
+
+toFlexibleDash
+-----------
+2018-05-01
+
+
+```php
+str    toFlexibleDash ( str:string )
+```
+
+Return the [flexibleDashCase version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#dlexibledashcase) of the given string.
+
+
+
+
+
+toFlexiblePascal
+-----------
+2018-05-01
+
+
+```php
+str    toFlexiblePascal ( str:string )
+```
+
+Return the [flexiblePascal version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#flexiblepascalcase) of the given string.
+
+
+
+toPascal
+-----------
+2018-05-01
+
+
+```php
+str    toPascal ( str:string )
+```
+
+Return the [pascal version](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#pascalcase) of the given string.
+
+
 
 
 

@@ -62,6 +62,16 @@ Dependencies
 History Log
 ------------------
     
+- 1.127 -- 2018-05-01
+
+    - add CaseTool toDash method
+    - add CaseTool toFlexibleDash method
+    - add CaseTool toPascal method
+    - add CaseTool toFlexiblePascal method
+    - add CaseTool toFlexibleCamel method
+    - add CaseTool toConstant method
+    - fix some other cases
+
 - 1.126 -- 2018-04-30
 
     - add ArrayTool::insertRowAfter method

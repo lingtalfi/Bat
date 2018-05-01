@@ -13,7 +13,7 @@ class CaseTool
      * Nomenclature from
      * https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md
      */
-    public static function camel2Constant($str)
+    public static function camel2Constant(string $str)
     {
         if (is_string($str)) {
             $str = preg_replace('!([a-z]+)([^a-z])!', '$1' . '_' . '$2', $str);
@@ -25,12 +25,12 @@ class CaseTool
         return $str;
     }
 
-    public static function snakeToCamel($str)
+    public static function snakeToCamel(string $str)
     {
         return lcfirst(self::snakeToPascal($str));
     }
 
-    public static function snakeToPascal($str)
+    public static function snakeToPascal(string $str)
     {
         if (is_string($str)) {
             // splits using one or more consecutive underscores
@@ -47,7 +47,7 @@ class CaseTool
         return $str;
     }
 
-    public static function snakeToFlexiblePascal($str)
+    public static function snakeToFlexiblePascal(string $str)
     {
         if (is_string($str)) {
             // splits using one or more consecutive underscores
@@ -87,7 +87,7 @@ class CaseTool
      * fix: choice-listWithNames -> choiceListwithnames
      * now is: choice-listWithNames -> choiceListWithNames
      */
-    public static function toCamel($str)
+    public static function toCamel(string $str)
     {
         $str = StringTool::removeAccents($str);
         $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
@@ -95,25 +95,41 @@ class CaseTool
         $p = explode('-', $str);
         $first = strtolower(array_shift($p));
         $p = array_map(function ($v) {
-            /**
-             * This technique is not perfect as it might cause problems with letters just after numbers:
-             *
-             * my2Cent
-             *
-             * would be reduced to
-             *
-             * my2cent   (culprit lowercase c after the 2)
-             *
-             * @todo-ling: fix this...
-             *
-             */
+            return ucfirst(strtolower($v));
+        }, $p);
+
+        return $first . implode('', $p);
+    }
+
+
+    public static function toFlexibleCamel(string $str)
+    {
+        $str = StringTool::removeAccents($str);
+        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
+        $str = preg_replace('!-+!', '-', $str);
+        $p = explode('-', $str);
+        $first = lcfirst(array_shift($p));
+        $p = array_map(function ($v) {
             return ucfirst($v);
         }, $p);
 
         return $first . implode('', $p);
     }
 
-    public static function toDog($str)
+
+    public static function toPascal(string $str)
+    {
+        return ucfirst(self::toCamel($str));
+    }
+
+
+    public static function toFlexiblePascal(string $str)
+    {
+        return ucfirst(self::toFlexibleCamel($str));
+    }
+
+
+    public static function toDog(string $str)
     {
         $str = strtolower(StringTool::removeAccents($str));
         $str = preg_replace('![^a-zA-Z0-9\s_-]!', '', $str);
@@ -122,7 +138,7 @@ class CaseTool
         return $str;
     }
 
-    public static function toFlea($str)
+    public static function toFlea(string $str)
     {
         $str = strtolower(StringTool::removeAccents($str));
         $str = preg_replace('![^a-zA-Z0-9\s\._-]!', '', $str);
@@ -134,7 +150,7 @@ class CaseTool
     }
 
 
-    public static function toSnake($str, $processUpperLetters = false)
+    public static function toSnake(string $str, $processUpperLetters = false)
     {
         if (true === $processUpperLetters) {
             $str = preg_replace('!([A-Z])!', '_$1', $str);
@@ -142,12 +158,32 @@ class CaseTool
 
 
         $str = strtolower(StringTool::removeAccents($str));
-        $str = preg_replace('![^a-zA-Z0-9\s_]!', '', $str);
-
-
-        $str = preg_replace('!\s!', '_', $str);
+        $str = preg_replace('![^a-zA-Z0-9]!', '_', $str);
         $str = preg_replace('!_+!', '_', $str);
         $str = trim($str, '_');
+        return $str;
+    }
+
+    public static function toConstant(string $str)
+    {
+        return strtoupper(self::toSnake($str));
+    }
+
+    public static function toDash(string $str)
+    {
+        $str = strtolower(StringTool::removeAccents($str));
+        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
+        $str = preg_replace('!-+!', '-', $str);
+        $str = trim($str, '-');
+        return $str;
+    }
+
+    public static function toFlexibleDash(string $str)
+    {
+        $str = StringTool::removeAccents($str);
+        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
+        $str = preg_replace('!-+!', '-', $str);
+        $str = trim($str, '-');
         return $str;
     }
 
