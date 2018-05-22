@@ -61,6 +61,9 @@ class DebugTool
         ob_start();
         var_dump($var);
         $output = ob_get_clean();
+
+
+        ob_start();
         if ('1' !== ini_get('xdebug.default_enable')) {
             $output = preg_replace("!\]\=\>\n(\s+)!m", "] => ", $output);
         }
