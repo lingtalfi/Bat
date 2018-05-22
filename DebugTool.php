@@ -55,6 +55,27 @@ class DebugTool
         }
     }
 
+    public static function dumpVar($var, $return = true)
+    {
+
+        ob_start();
+        var_dump($var);
+        $output = ob_get_clean();
+        if ('1' !== ini_get('xdebug.default_enable')) {
+            $output = preg_replace("!\]\=\>\n(\s+)!m", "] => ", $output);
+        }
+        if ('cli' === PHP_SAPI) {
+            echo $output;
+        } else {
+            echo '<pre>' . $output . '</pre>';
+        }
+        $ret = ob_get_clean();
+        if (true === $return) {
+            return $ret;
+        }
+        echo $ret;
+    }
+
 
     //--------------------------------------------
     //

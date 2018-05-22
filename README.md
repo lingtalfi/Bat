@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.128 -- 2018-05-22
+
+    - add DebugTool::dumpVar method
+
 - 1.127 -- 2018-05-01
 
     - add CaseTool toDash method

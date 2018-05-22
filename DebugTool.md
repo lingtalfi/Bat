@@ -20,7 +20,7 @@ dump
 string dump ( mixed:thing)
 ```
 
-Return a var dump representation of the given thing.
+Prints a var dump representation of the given thing.
 This is actually the oop equivalent of the universe "a" debug function.
 
 
@@ -28,6 +28,27 @@ This is actually the oop equivalent of the universe "a" debug function.
 ```php
 
 DebugTool::dump($thing);
+```
+
+
+
+dumpVar
+-------------
+2018-05-22
+
+
+```php
+string dumpVar ( mixed:thing, bool:return=true  )
+```
+
+Return or print a var dump representation of the given thing.
+This is actually the oop equivalent of the universe "a" debug function.
+
+
+### Example:
+```php
+
+$dump = DebugTool::dumpVar($thing);
 ```
 
 
