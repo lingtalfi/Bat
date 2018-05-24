@@ -53,6 +53,45 @@ $dump = DebugTool::dumpVar($thing);
 
 
 
+getArrayPartial
+-------------
+2018-05-24
+
+
+```php
+array getArrayPartial ( array:arr, array:options=[] )
+```
+
+Return a filtered array.
+Possible filters are:
+
+- include: array of bdot paths to include, all other entries will be removed (i.e. only the paths that you specified will be included in the returned result)
+- exclude: array of bdot paths to exclude)
+
+Only one filter type can be used at the time (i.e. either include or exclude, but not both at the same time)
+
+### Example:
+```php
+
+
+// Note that in this example, I use two filters at the same time (just to give you an overview of what's possible),
+// in such a case, only the include will be considered.
+
+
+az(DebugTool::getArrayPartial($_SESSION, [
+    "include" => [
+        "ekom.currentCheckoutData",
+        "ekom.estimateCurrentCheckoutData",
+    ],
+    "exclude" => [
+        "ekom",
+        "nullos.user.login",
+    ],
+]));
+```
+
+
+
     
 toString
 -------------

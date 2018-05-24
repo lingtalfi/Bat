@@ -10,33 +10,6 @@ use BeeFramework\Bat\ReflectionTool;
 class DebugTool
 {
 
-    public static function toString($thing)
-    {
-        /**
-         * inspired by
-         *
-         * BeeFramework\Bat\VarTool::toString method
-         *
-         */
-        if (is_bool($thing)) {
-            $s = (true === $thing) ? 'true' : 'false';
-            return 'bool(' . $s . ')';
-        } elseif (is_null($thing)) {
-            return 'null';
-        } elseif ($thing instanceof \Closure) {
-            return self::closureToString($thing);
-        } elseif (is_callable($thing)) {
-            return self::callableToString($thing);
-        } elseif (is_array($thing)) {
-            return ArrayToStringTool::toPhpArray($thing);
-        } elseif (is_scalar($thing)) {
-            return $thing;
-        } elseif (is_object($thing)) {
-            return 'object(' . get_class($thing) . ')';
-        }
-        return (string)$thing;
-    }
-
 
     public static function dump()
     {
@@ -77,6 +50,53 @@ class DebugTool
             return $ret;
         }
         echo $ret;
+    }
+
+
+    public static function getArrayPartial(array $arr, array $options = [])
+    {
+        $ret = [];
+        $includes = $options['include'] ?? [];
+        $excludes = $options['exclude'] ?? [];
+        if ($includes) {
+            foreach ($includes as $dotPath) {
+                $ret[$dotPath] = BDotTool::getDotValue($dotPath, $arr);
+            }
+        } elseif ($excludes) {
+            $ret = $arr;
+            foreach ($excludes as $dotPath) {
+                BDotTool::unsetDotValue($dotPath, $ret);
+            }
+        }
+        return $ret;
+    }
+
+
+    public static function toString($thing)
+    {
+        /**
+         * inspired by
+         *
+         * BeeFramework\Bat\VarTool::toString method
+         *
+         */
+        if (is_bool($thing)) {
+            $s = (true === $thing) ? 'true' : 'false';
+            return 'bool(' . $s . ')';
+        } elseif (is_null($thing)) {
+            return 'null';
+        } elseif ($thing instanceof \Closure) {
+            return self::closureToString($thing);
+        } elseif (is_callable($thing)) {
+            return self::callableToString($thing);
+        } elseif (is_array($thing)) {
+            return ArrayToStringTool::toPhpArray($thing);
+        } elseif (is_scalar($thing)) {
+            return $thing;
+        } elseif (is_object($thing)) {
+            return 'object(' . get_class($thing) . ')';
+        }
+        return (string)$thing;
     }
 
 

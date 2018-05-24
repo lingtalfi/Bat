@@ -62,10 +62,14 @@ Dependencies
 History Log
 ------------------
     
+- 1.130 -- 2018-05-24
+
+    - add DebugTool::getArrayPartial method
+
 - 1.129 -- 2018-05-22
 
     - fix DebugTool::dumpVar dumping without returning
-    
+
 - 1.128 -- 2018-05-22
 
     - add DebugTool::dumpVar method
