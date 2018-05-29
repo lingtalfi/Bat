@@ -62,6 +62,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.131 -- 2018-05-29
+
+    - add ArrayTool::updateNodeRecursive method
+    
 - 1.130 -- 2018-05-24
 
     - add DebugTool::getArrayPartial method

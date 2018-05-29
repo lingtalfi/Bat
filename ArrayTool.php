@@ -128,4 +128,44 @@ class ArrayTool
     }
 
 
+    /**
+     * @param array $arr
+     * @param callable $callback
+     * @param array $options
+     *
+     *
+     * Example:
+     * (this will add the link property to every node in the array recursively)
+     *
+     *
+     * $linkFmt = "/mylink/{type}/{slug}";
+     * ArrayTool::updateNodeRecursive($ret, function (array &$row) use ($linkFmt) {
+     *      $row['link'] = str_replace([
+     *          "{type}",
+     *          "{slug}",
+     *      ], [
+     *          $row['type'],
+     *          $row['slug'],
+     *          ], $linkFmt);
+     * });
+     *
+     *
+     *
+     *
+     */
+    public static function updateNodeRecursive(array &$arr, callable $callback, array $options = [])
+    {
+        $childrenKey = $options['childrenKey'] ?? "children";
+        foreach ($arr as $k => $v) {
+            call_user_func_array($callback, [&$v]);
+
+            if (array_key_exists($childrenKey, $v) && $v[$childrenKey]) {
+                $children = $v[$childrenKey];
+                self::updateNodeRecursive($children, $callback, $options);
+                $v[$childrenKey] = $children;
+            }
+            $arr[$k] = $v;
+        }
+    }
+
 }

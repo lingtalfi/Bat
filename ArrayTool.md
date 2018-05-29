@@ -303,3 +303,49 @@ a($result);
      
      
 
+
+
+
+
+updateNodeRecursive
+--------------
+2018-05-29
+     
+
+```php
+array    updateNodeRecursive (array &$arr, callable $callback, array $options = [])
+```
+
+Update the structure of a node collection recursively.
+Children nodes must be referenced directly in the nodes using the "children" key by default.
+
+
+Options:
+- childrenKey: string=children, the name of the key used to reference the children of a node
+
+
+
+### Example
+
+```php
+<?php
+
+$linkFmt = A::link("Ekom_category", [
+    "type" => '{type}',
+    "slug" => '{slug}',
+]);
+
+ArrayTool::updateNodeRecursive($ret, function (array &$row) use ($linkFmt) {
+        $row['link'] = str_replace([
+            "{type}",
+            "{slug}",
+        ], [
+            $row['type'],
+            $row['slug'],
+        ], $linkFmt);
+    });
+
+```     
+     
+     
+
