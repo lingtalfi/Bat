@@ -231,7 +231,7 @@ class FileSystemTool
      * method will not try to remove the existing link or file and will fail.
      *
      */
-    public static function mkdir($pathName, $mode = 0777, $recursive = false)
+    public static function mkdir($pathName, $mode = 0777, $recursive = true)
     {
         if (file_exists($pathName) && is_dir($pathName)) {
             return true;

@@ -198,7 +198,7 @@ mkdir
 
 
 ```php
-bool    mkdir ( string:pathName, octal:mode = 0777, bool:recursive = false, resource:context? )
+bool    mkdir ( string:pathName, octal:mode = 0777, bool:recursive = true, resource:context? )
 ```
 
 

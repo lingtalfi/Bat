@@ -63,6 +63,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.135 -- 2018-06-03
+
+    - change FileSystemTool::mkdir method's recursive option defaults to true
+
 - 1.134 -- 2018-06-03
 
     - add UploadTool::getPhpFilesArrayFromFilesSuperArrayItem method
