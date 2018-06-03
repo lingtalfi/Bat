@@ -63,6 +63,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.134 -- 2018-06-03
+
+    - add UploadTool::getPhpFilesArrayFromFilesSuperArrayItem method
+
 - 1.133 -- 2018-06-03
 
     - add UploadTool::getPhpFilesArrayFromCombinedStructure method

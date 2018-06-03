@@ -45,6 +45,31 @@ and combinedStructure: array:
 
 
 
+getPhpFilesArrayFromFilesSuperArrayItem
+-----------
+2018-06-03
+
+
+```php
+array getPhpFilesArrayFromFilesSuperArrayItem ( arr:phpFileItem )
+```
+
+Return an array of phpFileModel from the given phpFileItem.
+
+
+With phpFileModel: see getPhpFilesArrayFromCombinedStructure.
+phpFileItem, a regular entry from the $_FILES super array.
+
+
+```php
+a(UploadTool::getPhpFilesArrayFromFilesSuperArrayItem($_FILES['files']));
+```
+
+
+
+
+
+
 
 isValid
 -----------
