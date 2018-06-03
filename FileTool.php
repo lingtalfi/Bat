@@ -3,7 +3,6 @@
 namespace Bat;
 
 
-use BeeFramework\Bat\ConvertTool;
 
 class FileTool
 {
