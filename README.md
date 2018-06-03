@@ -63,6 +63,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.133 -- 2018-06-03
+
+    - add UploadTool::getPhpFilesArrayFromCombinedStructure method
+
 - 1.132 -- 2018-06-03
 
     - add ConvertTool

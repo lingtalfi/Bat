@@ -16,6 +16,35 @@ some examples require a bigbang script and use the **a** function. More on this 
 
 
 
+getPhpFilesArrayFromCombinedStructure
+-----------
+2018-06-03
+
+
+```php
+array getPhpFilesArrayFromCombinedStructure ( arr:combinedStructure )
+```
+
+Return an array of phpFileModel from the given combinedStructure.
+
+
+With phpFileModel: array:
+- name
+- tmp_name
+- error
+- type
+- size
+
+
+and combinedStructure: array:
+- name: array of php file names
+- type: array of php file mime types
+- tmp_name: array of php file temporary locations
+- error: array of php file error indicators
+- size: array of php file sizes
+
+
+
 
 isValid
 -----------

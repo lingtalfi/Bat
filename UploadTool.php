@@ -3,18 +3,25 @@
 
 namespace Bat;
 
-
+/**
+ * MODELS
+ * ===================
+ *
+ * phpFile
+ * ---------------
+ * array:
+ *   - name
+ *   - tmp_name
+ *   - error
+ *   - type
+ *   - size
+ */
 class UploadTool
 {
 
 
     /**
-     * @param array $phpFile
-     *   - name
-     *   - tmp_name
-     *   - error
-     *   - type
-     *   - size
+     * @param array $phpFile , a phpFile model (see at the top of this class)
      * @return bool
      */
     public static function isValid(array $phpFile)
@@ -32,4 +39,25 @@ class UploadTool
         return false;
     }
 
+
+    /**
+     * @param array $combineStructure :
+     *      name: array of php file names
+     *      type: array of php file mime types
+     *      tmp_name: array of php file temporary locations
+     *      error: array of php file error indicators
+     *      size: array of php file sizes
+     *
+     * @return array of phpFile (see top of this class for more info)
+     */
+    public static function getPhpFilesArrayFromCombinedStructure(array $combineStructure)
+    {
+        $ret = [];
+        foreach ($combineStructure as $key => $values) {
+            foreach ($values as $index => $value) {
+                $ret[$index][$key] = $value;
+            }
+        }
+        return $ret;
+    }
 }
