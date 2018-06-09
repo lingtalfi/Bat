@@ -63,6 +63,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.136 -- 2018-06-09
+
+    - change HashTool::getHashByArray now internally uses asort instead of ksort
+
 - 1.135 -- 2018-06-03
 
     - change FileSystemTool::mkdir method's recursive option defaults to true
