@@ -63,6 +63,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.138 -- 2018-06-15
+
+    - add FileSystemTool::getRelativePath method
+
 - 1.137 -- 2018-06-15
 
     - add FileSystemTool::mkTmpFile method

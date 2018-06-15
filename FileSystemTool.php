@@ -190,6 +190,18 @@ class FileSystemTool
     }
 
 
+    public static function getRelativePath(string $absolutePath, string $rootDir)
+    {
+        $absolutePath = realpath($absolutePath);
+        $rootDir = realpath($rootDir);
+        if (0 === strpos($absolutePath, $rootDir)) {
+            $len = mb_strlen($rootDir);
+            return mb_substr($absolutePath, $len + 1); // +1 to strip the slash
+        }
+        return false;
+    }
+
+
     /**
      * Returns a generator function, which can iterate over the lines of the given file.
      */

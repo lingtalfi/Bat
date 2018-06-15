@@ -192,6 +192,20 @@ See FileTool::getFileSize
 
 
 
+
+getRelativePath
+-----------
+2018-06-15
+
+
+string|false        getRelativePath( string:absolutePath, string:rootDir )
+
+
+Return the relative path from rootDir to absolutePath, or false if the absolutePath
+is not contained in (a children of) rootDir.
+
+
+
 mkdir
 -----------
 2015-10-07
