@@ -184,8 +184,7 @@ class FileSystemTool
     }
 
 
-
-    public static function getFileSize($file, $humanize=false)
+    public static function getFileSize($file, $humanize = false)
     {
         return FileTool::getFileSize($file, $humanize);
     }
@@ -296,6 +295,13 @@ class FileSystemTool
         return false;
     }
 
+
+    public static function mkTmpFile(string $content)
+    {
+        $path = tempnam(sys_get_temp_dir(), 'Bat');
+        self::mkfile($path, $content);
+        return $path;
+    }
 
     public static function noEscalating($uri)
     {

@@ -293,6 +293,30 @@ a(FileSystemTool::mkfile($f, "hello"));
 
 
 
+mkTmpFile
+-----------
+2018-06-15
+
+
+```php
+string:path    mkTmpFile ( str:content )
+```
+
+Creates a temporary file with the given content, and return its path.
+
+
+### Example
+
+```php
+<?php
+
+$path = FileSystemTool::mkTmpFile("I'm the content of the file");
+a($path);  // /private/var/folders/sd/8m3gr23x1812c8_fddkwtk740000gn/T/BatGCcMzM
+
+```
+
+
+
 
 noEscalating
 -----------

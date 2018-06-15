@@ -63,6 +63,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.137 -- 2018-06-15
+
+    - add FileSystemTool::mkTmpFile method
+
 - 1.136 -- 2018-06-09
 
     - change HashTool::getHashByArray now internally uses asort instead of ksort
