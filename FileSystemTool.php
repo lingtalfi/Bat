@@ -315,6 +315,18 @@ class FileSystemTool
         return $path;
     }
 
+
+    public static function move(string $src, string $dst)
+    {
+        return self::rename($src, $dst);
+    }
+
+    public static function moveToDir(string $filePath, string $directory)
+    {
+        $newPath = rtrim($directory, "/") . "/" . basename($filePath);
+        return self::rename($filePath, $newPath);
+    }
+
     public static function noEscalating($uri)
     {
         return str_replace('..', '', $uri);

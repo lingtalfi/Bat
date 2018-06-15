@@ -332,6 +332,29 @@ a($path);  // /private/var/folders/sd/8m3gr23x1812c8_fddkwtk740000gn/T/BatGCcMzM
 
 
 
+move
+-----------
+2018-06-15
+
+Alias for rename.
+
+
+
+moveToDir
+-----------
+2018-06-15
+
+
+```php
+bool    moveToDir (string:filePath, string:destDir)
+```
+
+Move the file filePath to the directory destDir.
+
+
+
+
+
 noEscalating
 -----------
 2017-06-03
