@@ -63,6 +63,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.140 -- 2018-06-17
+
+    - add DateTool::getMysqlDatetime method
+
 - 1.139 -- 2018-06-15
 
     - add FileSystemTool::moveToDir method

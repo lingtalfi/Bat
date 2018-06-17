@@ -34,12 +34,31 @@ getDate
 str:mysqlDate     getDate ( str:dateString)
 ```
 
-Return the date from the dateString (which is a date-ish string)
+Return the (mysql) date from the dateString (which is a date-ish string)
 
  
 ```php
 a(DateTool::getDate("2018-02-28 00:56:45")); // 2018-02-28
 ``` 
+
+
+
+
+getMysqlDatetime
+-----------
+2018-06-17
+
+
+```php
+str:mysqlDatetime     getMysqlDatetime ( str:dateString)
+```
+
+Return the mysql datetime from the dateString (which is a date-ish string)
+
+
+```php
+az(DateTool::getMysqlDatetime("2018-06-17T14:28:43+02:00")); // 2018-06-17 14:28:43
+```
 
 
 

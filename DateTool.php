@@ -7,7 +7,6 @@ namespace Bat;
 class DateTool
 {
 
-
     // https://stackoverflow.com/questions/3207749/i-have-2-dates-in-php-how-can-i-run-a-foreach-loop-to-go-through-all-of-those-d
     public static function foreachDateRange($dateStart, $dateEnd, callable $cb, $includeDateEnd = true)
     {
@@ -33,6 +32,12 @@ class DateTool
     public static function getDate($dateString)
     {
         return date('Y-m-d', strtotime($dateString));
+    }
+
+
+    public static function getMysqlDatetime(string $iso8601Date)
+    {
+        return date("Y-m-d H:i:s", strtotime($iso8601Date));
     }
 
 
