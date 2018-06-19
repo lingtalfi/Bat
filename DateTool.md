@@ -105,3 +105,54 @@ for ($i = 0; $i <= 15; $i++) {
  */
 ``` 
 
+
+getTimeElapsedString
+-----------
+2018-06-19
+
+
+
+```php
+str:timeElapsed     getTimeElapsedString ( str:datetime, array:options=[] )
+```
+
+Get the time elapsed since a past event which datetime is given.
+For instance:
+- 2 seconds ago
+- 3 minutes (full=false)
+- 3 minutes 4 seconds ago (full=true)
+- 1 year 5 months 2 weeks 2 days 4 hours 50 minutes 4 seconds ago (full=true)
+
+ 
+```php
+a(DateTool::getTimeElapsedString("2018-03-12 05:45:12")); // 3 months ago
+a(DateTool::getTimeElapsedString("2018-03-12 05:45:12", [
+    "full" => true,
+])); // 3 months, 1 week, 7 hours, 30 minutes, 58 seconds ago
+a(DateTool::getTimeElapsedString("2018-03-12 05:45:12", [
+    "full" => true,
+    "format" => "il y a %s",
+    "justNow" => "à l'instant",
+    "scale" => [
+        'y' => ['an', 'ans'],
+        'm' => ['mois', 'mois'],
+        'w' => ['semaine', 'semaines'],
+        'd' => ['jour', 'jours'],
+        'h' => ['heure', 'heures'],
+        'i' => ['minute', 'minutes'],
+        's' => ['seconde', 'secondes'],
+    ],
+])); // il y a 3 mois, 1 semaine, 7 heures, 32 minutes, 18 secondes
+
+a(DateTool::getTimeElapsedString("2018-03-12 05:45:12", [
+    "full" => true,
+    "lang" => "fra",
+])); // il y a 3 mois, 1 semaine, 7 heures, 32 minutes, 18 secondes
+
+
+a(DateTool::getTimeElapsedString(date("Y-m-d H:i:s"), [
+    "full" => true,
+    "lang" => "fra",
+])); // à l'instant
+``` 
+

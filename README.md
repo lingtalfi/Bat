@@ -63,6 +63,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.141 -- 2018-06-19
+
+    - add DateTool::getTimeElapsedString method
+    
 - 1.140 -- 2018-06-17
 
     - add DateTool::getMysqlDatetime method

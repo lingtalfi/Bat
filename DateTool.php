@@ -102,4 +102,73 @@ class DateTool
     }
 
 
+    /**
+     * Get the time elapsed since a past event which datetime is given.
+     * For instance:
+     *      - 2 seconds ago
+     *      - 3 minutes (full=false)
+     *      - 3 minutes 4 seconds ago (full=true)
+     *      - 1 year 5 months 2 weeks 2 days 4 hours 50 minutes 4 seconds ago (full=true)
+     *
+     *
+     * @param string $datetime
+     * @param array $options
+     * @return mixed|string
+     */
+    public static function getTimeElapsedString(string $datetime, array $options = [])
+    {
+
+        $lang = $options['lang'] ?? "eng";
+        $full = $options['full'] ?? false;
+        $sep = $options['sep'] ?? ", ";
+
+
+        if ("fra" === $lang) {
+            $justNow = $options['justNow'] ?? "à l'instant";
+            $format = $options['format'] ?? "il y a %s";
+            $scale = $options['scale'] ?? [
+                    'y' => ['an', 'ans'],
+                    'm' => ['mois', 'mois'],
+                    'w' => ['semaine', 'semaines'],
+                    'd' => ['jour', 'jours'],
+                    'h' => ['heure', 'heures'],
+                    'i' => ['minute', 'minutes'],
+                    's' => ['seconde', 'secondes'],
+                ];
+        } else {
+            $justNow = $options['justNow'] ?? "just now";
+            $format = $options['format'] ?? "%s ago";
+            $scale = $options['scale'] ?? [
+                    'y' => ['year', 'years'],
+                    'm' => ['month', 'months'],
+                    'w' => ['week', 'weeks'],
+                    'd' => ['day', 'days'],
+                    'h' => ['hour', 'hours'],
+                    'i' => ['minute', 'minutes'],
+                    's' => ['second', 'seconds'],
+                ];
+        }
+
+
+        $now = new \DateTime();
+        $ago = new \DateTime($datetime);
+        $diff = $now->diff($ago);
+
+        $diff->w = floor($diff->d / 7);
+        $diff->d -= $diff->w * 7;
+
+        foreach ($scale as $k => $v) {
+            if ($diff->$k) {
+                $number = $diff->$k;
+                $unit = ($number > 1 ? $scale[$k][1] : $scale[$k][0]);
+                $scale[$k] = $number . ' ' . $unit;
+            } else {
+                unset($scale[$k]);
+            }
+        }
+
+        if (!$full) $scale = array_slice($scale, 0, 1);
+        return $scale ? sprintf($format, implode($sep, $scale)) : $justNow;
+    }
+
 }
