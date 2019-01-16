@@ -9,6 +9,19 @@ This class contains functions for manipulating files.
 
 
 
+append
+------
+2019-01-16
+
+```php
+void    append ( string:msg, string:file )
+```
+
+Append the given msg to the file.
+If the file does not exist, it will be created.
+
+
+
 cleanVerticalSpaces
 -------------
 2017-04-20
