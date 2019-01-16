@@ -63,6 +63,11 @@ Dependencies
 History Log
 ------------------
     
+- 1.143 -- 2019-01-16
+
+    - add ZipTool::zip method
+    - rewritten ZipTool::unzip method (now use ZipArchive, avoiding system calls)
+
 - 1.142 -- 2019-01-16
 
     - add FileTool::append method
