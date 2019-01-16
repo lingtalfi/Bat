@@ -63,6 +63,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.142 -- 2019-01-16
+
+    - add FileTool::append method
+
 - 1.141 -- 2018-06-19
 
     - add DateTool::getTimeElapsedString method
