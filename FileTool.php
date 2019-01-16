@@ -3,9 +3,19 @@
 namespace Bat;
 
 
-
 class FileTool
 {
+
+
+    public static function append($msg, $file)
+    {
+        if (file_exists($file)) {
+            file_put_contents($file, $msg, FILE_APPEND);
+        } else {
+            FileSystemTool::mkfile($file, $msg, 0777, 0);
+        }
+    }
+
 
     public static function cleanVerticalSpaces($file, $maxConsecutiveBlankLines = 3)
     {
