@@ -63,6 +63,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.144 -- 2019-01-17
+
+    - add ArrayTool::arrayMergeReplaceRecursive method
+
 - 1.143 -- 2019-01-16
 
     - add ZipTool::zip method
