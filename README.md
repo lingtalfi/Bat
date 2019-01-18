@@ -16,6 +16,22 @@ A tool is a **static class**, which means that you can call its methods
 without having to instantiate it.
 
 
+Bat is part of the [universe framework](https://github.com/karayabin/universe-snapshot).
+
+
+
+
+Install
+=============
+
+
+Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
+```bash
+uni import Bat
+```
+
+
+
 
 
 
