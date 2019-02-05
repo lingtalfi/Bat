@@ -41,6 +41,7 @@ So far, the Bat library is composed of the following tools:
 Tools       |       Description
 ----------- | -----------------------
 [ArrayTool]( https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md )          |       Tools for manipulating arrays
+[BDotTool]( https://github.com/lingtalfi/Bat/blob/master/BDotTool.md )          |       Tools for using bdot notation
 [CaseTool]( https://github.com/lingtalfi/Bat/blob/master/CaseTool.md )          |       Tools for converting a case to another
 [ClassTool]( https://github.com/lingtalfi/Bat/blob/master/ClassTool.md )          |       Tools for working with classes
 [ConvertTool]( https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md )          |       Tools for working with conversion related tasks

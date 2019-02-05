@@ -21,6 +21,7 @@ class ArrayTool
     }
 
 
+
     /**
      * Merge the given arrays and return a resulting array,
      * appending numeric keys, and replacing existing associative keys.
