@@ -5,7 +5,7 @@ BDotTool
 
 
 This class contains functions for interacting with arrays using the
-[bdot notation](https://github.com/lingtalfi/Bat/blob/master/doc/bdot-notation.md).
+[bdot notation](https://github.com/karayabin/universe-snapshot/blob/master/universe/Bat/doc/bdot-notation.md).
 
 
 

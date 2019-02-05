@@ -33,7 +33,7 @@ $array = [
 
 The bdot notation to display the value "Tours" would be this:
 
-- universe.earth.france.city
+- ```universe.earth.france.city```
 
 
 ### Example #2 Bdot notation with dotted key
@@ -60,7 +60,7 @@ $array = [
 
 The bdot notation to display the value "Tours" would be this:
 
-- uni\.verse.earth.france.city
+- ```uni\.verse.earth.france.city```
 
 
 
