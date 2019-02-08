@@ -79,6 +79,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.146 -- 2019-02-08
+
+    - add ClassTool::getClassSignature method
+
 - 1.145 -- 2019-02-08
 
     - improve ClassTool::getMethodSignature output

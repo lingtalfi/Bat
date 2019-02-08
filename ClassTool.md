@@ -8,6 +8,47 @@ This class contains functions for helping with classes.
 
 
 
+getClassSignature
+-----------------
+2019-02-08
+
+
+
+```php
+str    getClassSignature ( \ReflectionClass class )
+```
+
+Returns the class signature of the given $class.
+
+Example of outputs:
+
+- class Bat
+- abstract class BaseNodeTreeBuilder implements NodeTreeBuilderInterface
+- final class Imaginary implements Dream, Monday
+- class ArrayRefResolverException extends \Exception implements \Throwable
+
+
+Note: short class names are used only,
+and if the class is not user defined (for instance the \Exception class),
+the class name is prefixed with the backslash (\).
+
+ 
+```php
+$className = "ArrayRefResolver\Exception\ArrayRefResolverException";
+$class = new \ReflectionClass($className);
+az(ClassTool::getClassSignature( $class));
+```
+
+Will output:
+
+```html
+string(72) "class ArrayRefResolverException extends \Exception implements \Throwable"
+
+```
+
+
+
+
 getMethodContent
 -----------
 2016-12-22
@@ -21,11 +62,11 @@ str    getMethodContent ( string:class, string:method )
 Gets the code of the given method, from the start line
 to the end line (including the signature).
 
- 
+
 ```php
 $content = ClassTool::getMethodContent(LayoutServices::class, 'displayLeftMenuBlocks');
 a($content);
-``` 
+```
 
 
 getMethodInnerContent

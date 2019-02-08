@@ -9,6 +9,78 @@ class ClassTool
 
 
     /**
+     * Returns the class signature of the given $class.
+     *
+     * Example:
+     *
+     * - class Bat
+     * - abstract class BaseNodeTreeBuilder implements NodeTreeBuilderInterface
+     * - final class Imaginary implements Dream, Monday
+     * - class ArrayRefResolverException extends \Exception implements \Throwable
+     *
+     *
+     * Note: short class names are used only,
+     * and if the class is not user defined (for instance the \Exception class),
+     * the class name is prefixed with the backslash (\).
+     *
+     *
+     *
+     *
+     *
+     *
+     * @param \ReflectionClass $class
+     * @return string
+     */
+    public static function getClassSignature(\ReflectionClass $class)
+    {
+        $s = '';
+
+        if (true === $class->isFinal()) {
+            $s .= 'final ';
+        }
+
+        if (true === $class->isAbstract()) {
+            $s .= 'abstract ';
+        }
+
+        $s .= 'class ';
+        $className = $class->getShortName();
+        if (false === $class->isUserDefined()) {
+            $className = '\\' . $className;
+        }
+        $s .= $className . ' ';
+
+
+        $parent = $class->getParentClass();
+        if (false !== $parent) {
+            $className = $parent->getShortName();
+            if (false === $parent->isUserDefined()) {
+                $className = '\\' . $className;
+            }
+            $s .= 'extends ' . $className . ' ';
+        }
+
+        $interfaces = $class->getInterfaces();
+        if ($interfaces) {
+
+            $s .= 'implements ';
+            $c = 0;
+            foreach ($interfaces as $interface) {
+                if (0 !== $c++) {
+                    $s .= ', ';
+                }
+                $className = $interface->getShortName();
+                if (false === $interface->isUserDefined()) {
+                    $className = '\\' . $className;
+                }
+                $s .= $className;
+            }
+        }
+        return $s;
+    }
+
+
+    /**
      * Example:
      *      $content = ClassTool::getMethodContent(LayoutServices::class, 'displayLeftMenuBlocks');
      *
