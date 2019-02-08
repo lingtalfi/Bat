@@ -79,6 +79,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.145 -- 2019-02-08
+
+    - improve ClassTool::getMethodSignature output
+
 - 1.144 -- 2019-01-17
 
     - add ArrayTool::arrayMergeReplaceRecursive method

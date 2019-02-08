@@ -8,7 +8,6 @@ class ClassTool
 {
 
 
-
     /**
      * Example:
      *      $content = ClassTool::getMethodContent(LayoutServices::class, 'displayLeftMenuBlocks');
@@ -53,6 +52,9 @@ class ClassTool
     public static function getMethodSignature(\ReflectionMethod $method)
     {
         $s = '';
+        if (true === $method->isFinal()) {
+            $s .= 'final ';
+        }
         if (true === $method->isAbstract()) {
             $s .= 'abstract ';
         }
@@ -80,6 +82,8 @@ class ClassTool
 
             if ($parameter->isArray()) {
                 $s .= 'array ';
+            } elseif ($parameter->isCallable()) {
+                $s .= 'callable ';
             } else {
                 $hint = $parameter->getClass();
                 if (null !== $hint) {
@@ -90,6 +94,11 @@ class ClassTool
             if (true === $parameter->isPassedByReference()) {
                 $s .= '&';
             }
+
+            if (true === $parameter->isVariadic()) {
+                $s .= '...';
+            }
+
             $s .= '$' . $parameter->getName();
 
             if ($parameter->isOptional()) {
@@ -158,9 +167,6 @@ class ClassTool
         }
         return $ret;
     }
-
-
-
 
 
     /**
