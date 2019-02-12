@@ -79,6 +79,11 @@ Dependencies
 History Log
 ------------------
     
+- 1.147 -- 2019-02-13
+
+    - fix ClassTool::getMethodSignature not handling array parameters correctly
+    - DebugTool::toString method now returns the inline version of a php array for arrays (no more carriage returns)
+    
 - 1.146 -- 2019-02-08
 
     - add ClassTool::getClassSignature method

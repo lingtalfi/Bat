@@ -90,7 +90,7 @@ class DebugTool
         } elseif (is_callable($thing)) {
             return self::callableToString($thing);
         } elseif (is_array($thing)) {
-            return ArrayToStringTool::toPhpArray($thing);
+            return ArrayToStringTool::toInlinePhpArray($thing);
         } elseif (is_scalar($thing)) {
             return $thing;
         } elseif (is_object($thing)) {

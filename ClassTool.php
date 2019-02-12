@@ -4,6 +4,8 @@
 namespace Bat;
 
 
+use ArrayToString\ArrayToStringTool;
+
 class ClassTool
 {
 
@@ -174,7 +176,11 @@ class ClassTool
             $s .= '$' . $parameter->getName();
 
             if ($parameter->isOptional()) {
-                $s .= ' = ' . $parameter->getDefaultValue();
+                $defaultValue = $parameter->getDefaultValue();
+                if(is_array($defaultValue)){
+                    $defaultValue = DebugTool::toString($defaultValue);
+                }
+                $s .= ' = ' . $defaultValue;
             }
 
         }

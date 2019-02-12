@@ -1,6 +1,7 @@
 dependencies:
-    - git::/lingtalfi/CopyDir:1.0.0    
-    - git::/lingtalfi/Tiphaine:1.0.0    
+    - git::/lingtalfi/ArrayToStringTool:*
+    - git::/lingtalfi/CopyDir:1.0.0
+    - git::/lingtalfi/Tiphaine:1.0.0
     - git::/lingtalfi/BeeFramework:1.0.0    (only if you need DebugTool)
 ACPCompliantRanges:
     - *
