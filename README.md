@@ -79,6 +79,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.148 -- 2019-02-13
+
+    - add ClassTool::getAbstractAncestors method
+    
 - 1.147 -- 2019-02-13
 
     - fix ClassTool::getMethodSignature not handling array parameters correctly

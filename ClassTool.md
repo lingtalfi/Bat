@@ -8,6 +8,40 @@ This class contains functions for helping with classes.
 
 
 
+getAbstractAncestors
+-----------------
+2019-02-13
+
+
+
+```php
+\ReflectionClass[]    getAbstractAncestors ( \ReflectionClass class )
+```
+
+Returns an array of all abstract ancestors classes (\ReflectionClass) for the given $class.
+
+Example:
+
+ 
+```php
+$class = new \ReflectionClass("DocTools\Link\AnchorLink");
+a(ClassTool::getAbstractAncestors($class));
+```
+
+Will output:
+
+```html
+array(1) {
+  [0] => object(ReflectionClass)#3 (1) {
+    ["name"] => string(18) "DocTools\Link\Link"
+  }
+}
+
+```
+
+
+
+
 getClassSignature
 -----------------
 2019-02-08

@@ -4,11 +4,35 @@
 namespace Bat;
 
 
-use ArrayToString\ArrayToStringTool;
-
 class ClassTool
 {
 
+
+    /**
+     * Returns an array of all abstract ancestors classes (\ReflectionClass) for the given $class.
+     *
+     *
+     * @param \ReflectionClass $class
+     * @return \ReflectionClass[]
+     */
+    public static function getAbstractAncestors(\ReflectionClass $class): array
+    {
+        $ret = [];
+        self::collectAbstractAncestors($class, $ret);
+        return $ret;
+    }
+
+
+    private static function collectAbstractAncestors(\ReflectionClass $class, array &$collection)
+    {
+        $parent = $class->getParentClass();
+        if ($parent instanceof \ReflectionClass) {
+            if ($parent->isAbstract()) {
+                $collection[] = $parent;
+            }
+            self::collectAbstractAncestors($parent, $collection);
+        }
+    }
 
     /**
      * Returns the class signature of the given $class.
@@ -94,7 +118,8 @@ class ClassTool
         // http://stackoverflow.com/questions/7026690/reconstruct-get-code-of-php-function
         try {
             $func = new \ReflectionMethod($class, $method);
-        } catch (\ReflectionException $e) {
+        }
+        catch (\ReflectionException $e) {
             return false;
         }
         $filename = $func->getFileName();
@@ -156,9 +181,11 @@ class ClassTool
 
             if ($parameter->isArray()) {
                 $s .= 'array ';
-            } elseif ($parameter->isCallable()) {
+            }
+            elseif ($parameter->isCallable()) {
                 $s .= 'callable ';
-            } else {
+            }
+            else {
                 $hint = $parameter->getClass();
                 if (null !== $hint) {
                     $s .= '\\' . $hint->name . ' ';
@@ -177,7 +204,7 @@ class ClassTool
 
             if ($parameter->isOptional()) {
                 $defaultValue = $parameter->getDefaultValue();
-                if(is_array($defaultValue)){
+                if (is_array($defaultValue)) {
                     $defaultValue = DebugTool::toString($defaultValue);
                 }
                 $s .= ' = ' . $defaultValue;
@@ -215,9 +242,11 @@ class ClassTool
 
         if (in_array('public', $filter, true)) {
             $visibility = $visibilityMap["public"];
-        } elseif (in_array('protected', $filter, true)) {
+        }
+        elseif (in_array('protected', $filter, true)) {
             $visibility = $visibilityMap["protected"];
-        } elseif (in_array('private', $filter, true)) {
+        }
+        elseif (in_array('private', $filter, true)) {
             $visibility = $visibilityMap["private"];
         }
 
