@@ -5,6 +5,7 @@ namespace Bat;
 /*
  * LingTalfi 2015-10-14
  */
+
 use Tiphaine\TiphaineTool;
 
 class StringTool
@@ -103,7 +104,8 @@ class StringTool
             if (is_numeric($k)) {
                 $s .= ' ';
                 $s .= htmlspecialchars($v, ENT_QUOTES, 'UTF-8');
-            } else {
+            }
+            else {
                 if (null !== $v) {
                     $s .= ' ';
                     $s .= $keyPrefix . htmlspecialchars($k, ENT_QUOTES, 'UTF-8') . '="' . htmlspecialchars($v, ENT_QUOTES, 'UTF-8') . '"';
@@ -159,6 +161,20 @@ class StringTool
     public static function getUniqueCssId($prefix = "a")
     {
         return $prefix . md5(uniqid($prefix, true));
+    }
+
+
+    /**
+     * Returns the given $string, but indented with the $indentNumber spaces for every line.
+     *
+     * @param string $string
+     * @param int $indentNumber
+     * @return string
+     */
+    public static function indent(string $string, int $indentNumber)
+    {
+        $indent = str_repeat(" ", $indentNumber);
+        return $indent . str_replace(PHP_EOL, PHP_EOL . $indent, $string);
     }
 
 
@@ -483,7 +499,8 @@ class StringTool
                 $ret[] = $pos;
                 $offset = $pos + $len;
             }
-        } else {
+        }
+        else {
             trigger_error(sprintf("strPosAll expects needle argument to be string or numeric, %s given", gettype($needle)), E_USER_WARNING);
         }
         return $ret;

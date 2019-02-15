@@ -79,6 +79,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.149 -- 2019-02-15
+
+    - add StringTool::indent method
+    
 - 1.148 -- 2019-02-13
 
     - add ClassTool::getAbstractAncestors method

@@ -150,6 +150,63 @@ az($ret); // $ret = ' class="foo bar" style="color: red" required'
 
 
 
+indent
+-----------
+2019-02-15
+
+
+```php
+str    indent ( string:string, int:indentNumber )
+```
+
+
+Returns the given $string, but indented with the $indentNumber spaces for every line.
+
+
+Example of use:
+
+
+The following code:
+
+```php
+$string = <<<EEE
+    
+This property holds the style to apply to the widget.
+The following values are available:
+- flat: the section titles (properties, methods) are written with doc comments, and the actual elements (properties, methods)
+     are written as top level elements of a list
+
+- indented: the section titles are written as top level elements of a list, and the actual elements are their children (nested list elements).
+     This is the default value
+
+
+@var string = indented (indented|flat)
+     
+EEE;
+
+a(StringTool::indent($string, 4));
+```
+
+Will output:
+
+```html
+string(539) "        
+    This property holds the style to apply to the widget.
+    The following values are available:
+    - flat: the section titles (properties, methods) are written with doc comments, and the actual elements (properties, methods)
+         are written as top level elements of a list
+    
+    - indented: the section titles are written as top level elements of a list, and the actual elements are their children (nested list elements).
+         This is the default value
+    
+    
+    @var string = indented (indented|flat)
+         "
+
+```
+
+
+
 
 relativePath 
 ---------------
