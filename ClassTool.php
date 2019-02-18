@@ -181,7 +181,7 @@ class ClassTool
 
 
             if ($parameter->hasType()) {
-                $s .= (string)$parameter->getType();
+                $s .= (string)$parameter->getType() . ' ';
             }
 
             if (true === $parameter->isPassedByReference()) {

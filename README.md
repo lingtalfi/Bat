@@ -79,6 +79,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.151 -- 2019-02-18
+
+    - fix ClassTool::getMethodSignature method no space between class hint and param name
+    
 - 1.150 -- 2019-02-18
 
     - update ClassTool::getMethodSignature method, better parameter type handling
