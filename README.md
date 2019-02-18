@@ -79,6 +79,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.150 -- 2019-02-18
+
+    - update ClassTool::getMethodSignature method, better parameter type handling
+    
 - 1.149 -- 2019-02-15
 
     - add StringTool::indent method

@@ -179,17 +179,9 @@ class ClassTool
                 $s .= ', ';
             }
 
-            if ($parameter->isArray()) {
-                $s .= 'array ';
-            }
-            elseif ($parameter->isCallable()) {
-                $s .= 'callable ';
-            }
-            else {
-                $hint = $parameter->getClass();
-                if (null !== $hint) {
-                    $s .= '\\' . $hint->name . ' ';
-                }
+
+            if ($parameter->hasType()) {
+                $s .= (string)$parameter->getType();
             }
 
             if (true === $parameter->isPassedByReference()) {
