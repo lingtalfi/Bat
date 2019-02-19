@@ -374,11 +374,18 @@ class FileSystemTool
     }
 
     /**
-     * Alias of the getFileName method.
+     * Removes the file extension from the given $file and returns the result.
+     *
      */
-    public static function removeExtension($file)
+    public static function removeExtension(string $file): string
     {
-        return self::getFileName($file);
+        if (false !== strpos($file, ".")) {
+            $p = explode(".", $file);
+            array_pop($p);
+            return implode('.', $p);
+        }
+        return $file;
+
     }
 
     /**

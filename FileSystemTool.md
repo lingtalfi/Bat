@@ -423,6 +423,38 @@ if (false === FileSystemTool::remove('doo', false)) {
 
 
 
+removeExtension
+-----------
+2019-02-19
+
+
+```php
+string        removeExtension(string:file)
+```
+
+
+Removes the file extension from the given $file and returns the result.
+
+
+The following code: 
+
+```php
+$file = "/komin/jin_site_demo/www-doc/api/DocTools/TemplateWizard/TemplateWizard/getInserts.md";
+a(FileSystemTool::removeExtension($file));
+
+```
+
+Will output:
+
+
+```html
+string(82) "/komin/jin_site_demo/www-doc/api/DocTools/TemplateWizard/TemplateWizard/getInserts"
+
+```
+
+
+
+
 rename
 -----------
 2018-02-26
