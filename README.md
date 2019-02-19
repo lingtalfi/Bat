@@ -79,6 +79,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.152 -- 2019-02-19
+
+    - add FileSystemTool::removeExtension method, alias of FileSystemTool::getFileName 
+    
 - 1.151 -- 2019-02-18
 
     - fix ClassTool::getMethodSignature method no space between class hint and param name

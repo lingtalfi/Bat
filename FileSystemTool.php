@@ -5,6 +5,7 @@ namespace Bat;
 /*
  * LingTalfi 2015-10-07
  */
+
 use CopyDir\AuthorCopyDirUtil;
 
 
@@ -156,7 +157,8 @@ class FileSystemTool
                 }
                 $file = substr($file, 1);
             }
-        } else {
+        }
+        else {
             throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($file)));
         }
         return pathinfo($file, PATHINFO_EXTENSION);
@@ -177,7 +179,8 @@ class FileSystemTool
                 }
                 return implode('.', $p);
             }
-        } else {
+        }
+        else {
             throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($file)));
         }
         return pathinfo($file, PATHINFO_FILENAME);
@@ -213,11 +216,13 @@ class FileSystemTool
                 while ($line = fgets($f)) {
                     if (true === $ignoreTrailingNewLines) {
                         yield rtrim($line, PHP_EOL);
-                    } else {
+                    }
+                    else {
                         yield $line;
                     }
                 }
-            } finally {
+            }
+            finally {
                 fclose($f);
             }
         };
@@ -279,7 +284,8 @@ class FileSystemTool
     {
         if (4 === func_num_args()) {
             $ret = mkdir($pathName, $mode, $recursive, func_get_args()[3]);
-        } else {
+        }
+        else {
             $ret = mkdir($pathName, $mode, $recursive);
         }
         if (false === $ret) {
@@ -354,10 +360,12 @@ class FileSystemTool
         if (false === is_link($file)) {
             if (file_exists($file)) {
                 return self::_remove($file, $throwEx);
-            } else {
+            }
+            else {
                 return true;
             }
-        } else {
+        }
+        else {
             if (false === unlink($file)) {
                 return self::_oops("Cannot remove link $file", $throwEx);
             }
@@ -365,6 +373,13 @@ class FileSystemTool
         }
     }
 
+    /**
+     * Alias of the getFileName method.
+     */
+    public static function removeExtension($file)
+    {
+        return self::getFileName($file);
+    }
 
     /**
      * Will rename src to dst, creating dst subdirs if necessary
@@ -418,15 +433,18 @@ class FileSystemTool
             $n = func_num_args();
             if (1 === $n) {
                 $ret = touch($fileName);
-            } elseif (2 === $n) {
+            }
+            elseif (2 === $n) {
                 $ret = touch($fileName, func_get_arg(1));
-            } elseif (3 === $n) {
+            }
+            elseif (3 === $n) {
                 $ret = touch($fileName, func_get_arg(1), func_get_arg(2));
             }
             if (false === $ret) {
                 throw new \Exception("Could not touch the file $fileName");
             }
-        } else {
+        }
+        else {
             throw new \InvalidArgumentException(sprintf("fileName argument must be of type string, %s given", gettype($fileName)));
         }
     }
@@ -459,10 +477,12 @@ class FileSystemTool
                     return self::_oops("Cannot remove dir $file", $throwEx);
                 }
                 return true;
-            } else {
+            }
+            else {
                 return self::_oops("Cannot remove unreadable dir $file", $throwEx);
             }
-        } else {
+        }
+        else {
             if (true === is_file($file) || true === is_link($file)) {
                 if (false === unlink($file)) {
                     if (true === is_link($file)) {
