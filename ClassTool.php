@@ -181,6 +181,9 @@ class ClassTool
 
 
             if ($parameter->hasType()) {
+                if($parameter->allowsNull() && false === $parameter->isOptional()){
+                    $s .= '?';
+                }
                 $s .= (string)$parameter->getType() . ' ';
             }
 
@@ -193,6 +196,8 @@ class ClassTool
             }
 
             $s .= '$' . $parameter->getName();
+
+
 
             if ($parameter->isOptional()) {
                 $defaultValue = $parameter->getDefaultValue();

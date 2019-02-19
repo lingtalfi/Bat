@@ -79,6 +79,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.153 -- 2019-02-19
+
+    - update ClassTool::getMethodSignature, now handles allowsNull 
+    
 - 1.152 -- 2019-02-19
 
     - add FileSystemTool::removeExtension method, alias of FileSystemTool::getFileName 
