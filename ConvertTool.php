@@ -4,6 +4,8 @@
 namespace Bat;
 
 
+use Bat\Exception\BatException;
+
 /**
  * ConvertTool
  * @author Lingtalfi
@@ -29,29 +31,21 @@ class ConvertTool
             if ('h' === $unit) { // human label
                 if ($bytes < 1000) {
                     $unit = 'b';
-                }
-                elseif ($bytes < (1000 * 1000)) {
+                } elseif ($bytes < (1000 * 1000)) {
                     $unit = 'k';
-                }
-                elseif ($bytes < (1000 * 1000 * 1000)) {
+                } elseif ($bytes < (1000 * 1000 * 1000)) {
                     $unit = 'm';
-                }
-                elseif ($bytes < (1000 * 1000 * 1000 * 1000)) {
+                } elseif ($bytes < (1000 * 1000 * 1000 * 1000)) {
                     $unit = 'g';
-                }
-                elseif ($bytes < (1000 * 1000 * 1000 * 1000 * 1000)) {
+                } elseif ($bytes < (1000 * 1000 * 1000 * 1000 * 1000)) {
                     $unit = 't';
-                }
-                elseif ($bytes < (1000 * 1000 * 1000 * 1000 * 1000 * 1000)) {
+                } elseif ($bytes < (1000 * 1000 * 1000 * 1000 * 1000 * 1000)) {
                     $unit = 'p';
-                }
-                elseif ($bytes < (1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000)) {
+                } elseif ($bytes < (1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000)) {
                     $unit = 'e';
-                }
-                elseif ($bytes < (1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000)) {
+                } elseif ($bytes < (1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000)) {
                     $unit = 'z';
-                }
-                elseif ($bytes < (1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000)) {
+                } elseif ($bytes < (1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000)) {
                     $unit = 'y';
                 }
                 $humanise = true;
@@ -138,12 +132,45 @@ class ConvertTool
                 $ret = $ret . ucfirst($unit);
             }
             return $ret;
-        }
-        else {
+        } else {
             throw new \InvalidArgumentException("unit must be of type string");
         }
     }
 
+
+    /**
+     * Returns an array of rgb colors from the given $hexColor.
+     *
+     * The returned array has the following structure.
+     * - 0: red
+     * - 1: green
+     * - 2: blue
+     *
+     * The given $hexColor can optionally be prefixed with a pound symbol (#).
+     * The hexColor string must be exactly 6 chars long, or the BatException is thrown.
+     *
+     *
+     *
+     * @param string $hexColor
+     * @return array
+     * @throws BatException
+     */
+    public static function convertHexColorToRgb(string $hexColor): array
+    {
+        $expectedLength = 6;
+        $format = "%02x%02x%02x";
+        if ('#' === substr($hexColor, 0, 1)) {
+            $expectedLength++;
+            $format = "#" . $format;
+        }
+
+        if ($expectedLength !== strlen($hexColor)) {
+            $len = strlen($hexColor);
+            throw new BatException("The hexColor must be exactly $expectedLength long, but the given length was $len.");
+        }
+
+        return sscanf($hexColor, $format);
+    }
 
     /**
      * Returns a number of bytes by converting the given $humanSize expression.

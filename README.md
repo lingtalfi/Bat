@@ -79,6 +79,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.155 -- 2019-02-22
+
+    - add ConvertTool::convertHexColorToRgb method 
+    
 - 1.154 -- 2019-02-19
 
     - fix FileSystemTool::removeExtension not returning right results 

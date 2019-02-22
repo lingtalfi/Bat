@@ -33,6 +33,52 @@ az($sizeInMegaBytes); // float(539.78)
 
 
 
+
+convertHexColorToRgb
+-----------
+2019-02-22
+
+
+```php
+array    convertHexColorToRgb ( string hexColor ): array
+```
+
+Returns an array of rgb colors from the given $hexColor.
+
+The returned array has the following structure.
+- 0: red
+- 1: green
+- 2: blue
+
+The given $hexColor can optionally be prefixed with a pound symbol (#).
+The hexColor string must be exactly 6 chars long, or the BatException is thrown.
+
+
+### Example:
+
+The following code:
+
+```php
+<?php
+$hex = "ff9900";
+az(ConvertTool::convertHexColorToRgb($hex));
+
+```
+
+
+Will output:
+
+```html
+array(3) {
+  [0] => int(255)
+  [1] => int(153)
+  [2] => int(0)
+}
+
+```
+
+
+
 convertHumanSizeToBytes
 -----------
 2018-06-03
