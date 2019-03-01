@@ -1,6 +1,8 @@
 dependencies: 
-    - ling.CopyDir
-    - ling.Tiphaine
-    - ling.BeeFramework
+    ling: 
+        - CopyDir
+        - Tiphaine
+        - BeeFramework
+    
 
 post_install: []
