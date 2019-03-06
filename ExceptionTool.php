@@ -1,6 +1,6 @@
 <?php
 
-namespace Bat;
+namespace Ling\Bat;
 
 /*
  * LingTalfi 2016-01-16

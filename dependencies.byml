@@ -1,5 +1,5 @@
 dependencies: 
-    ling: 
+    Ling: 
         - CopyDir
         - Tiphaine
         - BeeFramework

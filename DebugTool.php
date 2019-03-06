@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Bat;
+namespace Ling\Bat;
 
 
-use ArrayToString\ArrayToStringTool;
-use BeeFramework\Bat\ReflectionTool;
+use Ling\ArrayToString\ArrayToStringTool;
+use Ling\BeeFramework\Bat\ReflectionTool;
 
 class DebugTool
 {

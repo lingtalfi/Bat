@@ -1,12 +1,12 @@
 <?php
 
-namespace Bat;
+namespace Ling\Bat;
 
 /*
  * LingTalfi 2015-10-07
  */
 
-use CopyDir\AuthorCopyDirUtil;
+use Ling\CopyDir\AuthorCopyDirUtil;
 
 
 class FileSystemTool

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Bat\Exception;
+namespace Ling\Bat\Exception;
 
 
 /**

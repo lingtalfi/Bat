@@ -169,8 +169,8 @@ Gets the signature of a given method.
 <?php
 
 
-use Bat\ClassTool;
-use DirScanner\DirScanner;
+use Ling\Bat\ClassTool;
+use Ling\DirScanner\DirScanner;
 
 require_once "bigbang.php";
 
@@ -231,7 +231,7 @@ lines is passed as a reference to the transformer callback.
 <?php
 
 
-use Bat\ClassTool;
+use Ling\Bat\ClassTool;
 
 require_once "bigbang.php";
 
@@ -267,7 +267,7 @@ ClassTool::rewriteMethodContent('POOO', 'reindeer', function (&$lines) {
 <?php
 
 
-use Bat\ClassTool;
+use Ling\Bat\ClassTool;
 
 require_once "bigbang.php";
 

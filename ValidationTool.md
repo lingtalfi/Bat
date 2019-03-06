@@ -29,7 +29,7 @@ Returns whether or not the given string is a valid email.
 <?php
 
 
-use Bat\ValidationTool;
+use Ling\Bat\ValidationTool;
 
 require_once "bigbang.php";
 

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Bat;
+namespace Ling\Bat;
 
 
-use Bat\Exception\BatException;
+use Ling\Bat\Exception\BatException;
 
 /**
  * ConvertTool

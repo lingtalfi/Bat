@@ -1,9 +1,9 @@
 <?php
 
-use Bat\FileSystemTool;
-use Bat\StringTool;
-use PhpBeast\AuthorTestAggregator;
-use PhpBeast\PrettyTestInterpreter;
+use Ling\Bat\FileSystemTool;
+use Ling\Bat\StringTool;
+use Ling\PhpBeast\AuthorTestAggregator;
+use Ling\PhpBeast\PrettyTestInterpreter;
 
 require_once "bigbang.php";
 

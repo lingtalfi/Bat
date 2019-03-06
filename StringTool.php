@@ -1,12 +1,12 @@
 <?php
 
-namespace Bat;
+namespace Ling\Bat;
 
 /*
  * LingTalfi 2015-10-14
  */
 
-use Tiphaine\TiphaineTool;
+use Ling\Tiphaine\TiphaineTool;
 
 class StringTool
 {

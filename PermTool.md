@@ -37,7 +37,7 @@ Examples:
 <?php
 
 
-use Bat\PermTool;
+use Ling\Bat\PermTool;
 
 require_once "bigbang.php"; // start the local universe (https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md)
 
@@ -73,7 +73,7 @@ Examples:
 <?php
 
 
-use Bat\PermTool;
+use Ling\Bat\PermTool;
 
 require_once "bigbang.php"; // start the local universe (https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md)
 
@@ -87,7 +87,7 @@ a(PermTool::chown("/my/app/www", 'www-data', 'www-data')); // true|false
 <?php
 
 
-use Bat\PermTool;
+use Ling\Bat\PermTool;
 
 require_once "bigbang.php"; // start the local universe (https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md)
 
@@ -127,7 +127,7 @@ Examples:
 <?php
 
 
-use Bat\PermTool;
+use Ling\Bat\PermTool;
 
 require_once "bigbang.php"; // start the local universe (https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md)
 

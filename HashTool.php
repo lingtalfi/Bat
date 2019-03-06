@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Bat;
+namespace Ling\Bat;
 
 
 class HashTool

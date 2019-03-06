@@ -33,7 +33,7 @@ Example:
 <?php
 
 
-use Bat\ExceptionTool;
+use Ling\Bat\ExceptionTool;
 
 require_once "bigbang.php"; // start the local universe
 

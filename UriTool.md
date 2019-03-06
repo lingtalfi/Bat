@@ -34,7 +34,7 @@ Appends parameters to a base uri, and in the form of a query string (starting wi
 <?php
 
 
-use Bat\UriTool;
+use Ling\Bat\UriTool;
 
 require_once "bigbang.php";
 

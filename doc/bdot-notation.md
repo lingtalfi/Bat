@@ -67,6 +67,6 @@ The bdot notation to display the value "Tours" would be this:
 Tools
 -----
 
-The [Bdot tool](https://github.com/karayabin/universe-snapshot/blob/master/universe/Bat/BDotTool.md) allows us to use the bdot notation in our projects.
+The [Bdot tool](https://github.com/karayabin/universe-snapshot/blob/master/universe/Ling/Bat/BDotTool.md) allows us to use the bdot notation in our projects.
 
 
