@@ -1,0 +1,193 @@
+Ling/Bat
+================
+2019-03-19 --> 2019-03-19
+
+
+
+
+Table of contents
+===========
+
+- [ArrayTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ArrayTool.md) &ndash; The ArrayTool class.
+    - [ArrayTool::arrayKeyExistAll](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ArrayTool/arrayKeyExistAll.md) &ndash; The arrayKeyExistAll method
+    - [ArrayTool::arrayMergeReplaceRecursive](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ArrayTool/arrayMergeReplaceRecursive.md) &ndash; appending numeric keys, and replacing existing associative keys.
+    - [ArrayTool::arrayUniqueRecursive](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ArrayTool/arrayUniqueRecursive.md) &ndash; The arrayUniqueRecursive method
+    - [ArrayTool::getMissingKeys](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ArrayTool/getMissingKeys.md) &ndash; Check that all given $keys exist (as keys) in the given $arr.
+    - [ArrayTool::keysSameAsValues](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ArrayTool/keysSameAsValues.md) &ndash; Return an array with keys equal to values.
+    - [ArrayTool::mirrorRange](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ArrayTool/mirrorRange.md) &ndash; (i.e.
+    - [ArrayTool::removeEntry](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ArrayTool/removeEntry.md) &ndash; The removeEntry method
+    - [ArrayTool::insertRowAfter](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ArrayTool/insertRowAfter.md) &ndash; The insertRowAfter method
+    - [ArrayTool::superimpose](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ArrayTool/superimpose.md) &ndash; the <layer> (only if the key match).
+    - [ArrayTool::updateNodeRecursive](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ArrayTool/updateNodeRecursive.md) &ndash; The updateNodeRecursive method
+- [BDotTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/BDotTool.md) &ndash; This was partially stolen from the bee framework.
+    - [BDotTool::getDotValue](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/BDotTool/getDotValue.md) &ndash; The getDotValue method
+    - [BDotTool::hasDotValue](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/BDotTool/hasDotValue.md) &ndash; The hasDotValue method
+    - [BDotTool::setDotValue](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/BDotTool/setDotValue.md) &ndash; Sets a value in an array.
+    - [BDotTool::unsetDotValue](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/BDotTool/unsetDotValue.md) &ndash; The unsetDotValue method
+    - [BDotTool::walk](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/BDotTool/walk.md) &ndash; The walk method
+- [CaseTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool.md) &ndash; The CaseTool class
+    - [CaseTool::camel2Constant](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/camel2Constant.md) &ndash; The camel2Constant method
+    - [CaseTool::snakeToCamel](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/snakeToCamel.md) &ndash; The snakeToCamel method
+    - [CaseTool::snakeToPascal](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/snakeToPascal.md) &ndash; The snakeToPascal method
+    - [CaseTool::snakeToFlexiblePascal](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/snakeToFlexiblePascal.md) &ndash; The snakeToFlexiblePascal method
+    - [CaseTool::snakeToRegular](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/snakeToRegular.md) &ndash; The snakeToRegular method
+    - [CaseTool::toCamel](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/toCamel.md) &ndash; The toCamel method
+    - [CaseTool::toFlexibleCamel](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/toFlexibleCamel.md) &ndash; The toFlexibleCamel method
+    - [CaseTool::toPascal](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/toPascal.md) &ndash; The toPascal method
+    - [CaseTool::toFlexiblePascal](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/toFlexiblePascal.md) &ndash; The toFlexiblePascal method
+    - [CaseTool::toDog](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/toDog.md) &ndash; The toDog method
+    - [CaseTool::toFlea](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/toFlea.md) &ndash; The toFlea method
+    - [CaseTool::toSnake](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/toSnake.md) &ndash; The toSnake method
+    - [CaseTool::toConstant](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/toConstant.md) &ndash; The toConstant method
+    - [CaseTool::toDash](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/toDash.md) &ndash; The toDash method
+    - [CaseTool::toFlexibleDash](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/toFlexibleDash.md) &ndash; The toFlexibleDash method
+    - [CaseTool::unsnake](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/CaseTool/unsnake.md) &ndash; The unsnake method
+- [ClassTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ClassTool.md) &ndash; The ClassTool class.
+    - [ClassTool::getAbstractAncestors](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ClassTool/getAbstractAncestors.md) &ndash; Returns an array of all abstract ancestors classes (\ReflectionClass) for the given $class.
+    - [ClassTool::getClassSignature](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ClassTool/getClassSignature.md) &ndash; Returns the class signature of the given $class.
+    - [ClassTool::getMethodContent](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ClassTool/getMethodContent.md) &ndash; The getMethodContent method
+    - [ClassTool::getMethodInnerContent](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ClassTool/getMethodInnerContent.md) &ndash; The getMethodInnerContent method
+    - [ClassTool::getMethodSignature](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ClassTool/getMethodSignature.md) &ndash; The getMethodSignature method
+    - [ClassTool::getMethodNames](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ClassTool/getMethodNames.md) &ndash; The getMethodNames method
+    - [ClassTool::getShortName](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ClassTool/getShortName.md) &ndash; The getShortName method
+    - [ClassTool::rewriteMethodContent](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ClassTool/rewriteMethodContent.md) &ndash; The rewriteMethodContent method
+- [ConsoleTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ConsoleTool.md) &ndash; The ConsoleTool class.
+    - [ConsoleTool::exec](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ConsoleTool/exec.md) &ndash; Executes the given $cmd command, and returns whether it was successful.
+- [ConvertTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ConvertTool.md) &ndash; The ConvertTool class
+    - [ConvertTool::convertBytes](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ConvertTool/convertBytes.md) &ndash; The convertBytes method
+    - [ConvertTool::convertHexColorToRgb](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ConvertTool/convertHexColorToRgb.md) &ndash; Returns an array of rgb colors from the given $hexColor.
+    - [ConvertTool::convertHumanSizeToBytes](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ConvertTool/convertHumanSizeToBytes.md) &ndash; Returns a number of bytes by converting the given $humanSize expression.
+- [DateTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/DateTool.md) &ndash; The DateTool class.
+    - [DateTool::foreachDateRange](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/DateTool/foreachDateRange.md) &ndash; The foreachDateRange method
+    - [DateTool::getDate](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/DateTool/getDate.md) &ndash; The getDate method
+    - [DateTool::getMysqlDatetime](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/DateTool/getMysqlDatetime.md) &ndash; The getMysqlDatetime method
+    - [DateTool::getSameDayNextMonth](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/DateTool/getSameDayNextMonth.md) &ndash; Return the same day of the nth-next month.
+    - [DateTool::getTimeElapsedString](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/DateTool/getTimeElapsedString.md) &ndash; Get the time elapsed since a past event which datetime is given.
+- [DebugTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/DebugTool.md) &ndash; The DebugTool class.
+    - [DebugTool::dump](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/DebugTool/dump.md) &ndash; The dump method
+    - [DebugTool::dumpVar](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/DebugTool/dumpVar.md) &ndash; The dumpVar method
+    - [DebugTool::getArrayPartial](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/DebugTool/getArrayPartial.md) &ndash; The getArrayPartial method
+    - [DebugTool::toString](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/DebugTool/toString.md) &ndash; The toString method
+- [BatException](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/Exception/BatException.md) &ndash; The BatException class.
+- [ExceptionTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ExceptionTool.md) &ndash; The ExceptionTool class.
+    - [ExceptionTool::toString](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ExceptionTool/toString.md) &ndash; The toString method
+    - [ExceptionTool::traceAsString](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ExceptionTool/traceAsString.md) &ndash; Return the traceAsString, but with all characters (not trimmed like native php's getTraceAsString do).
+- [FileSystemTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool.md) &ndash; The FileSystemTool class.
+    - [FileSystemTool::cleanDirBubble](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/cleanDirBubble.md) &ndash; Check if the given dir is empty (i.e.
+    - [FileSystemTool::clearDir](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/clearDir.md) &ndash; Ensures that a directory exist and is empty.
+    - [FileSystemTool::copyDir](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/copyDir.md) &ndash; Copies a directory to a given location.
+    - [FileSystemTool::copyFile](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/copyFile.md) &ndash; The copyFile method
+    - [FileSystemTool::countFiles](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/countFiles.md) &ndash; Return the number of files/dirs/links of a given dir.
+    - [FileSystemTool::existsUnder](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/existsUnder.md) &ndash; The existsUnder method
+    - [FileSystemTool::filePerms](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/filePerms.md) &ndash; Gets file permissions.
+    - [FileSystemTool::getFileExtension](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/getFileExtension.md) &ndash; The getFileExtension method
+    - [FileSystemTool::getFileName](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/getFileName.md) &ndash; The file name without the last extension.
+    - [FileSystemTool::getFileSize](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/getFileSize.md) &ndash; The getFileSize method
+    - [FileSystemTool::getRelativePath](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/getRelativePath.md) &ndash; The getRelativePath method
+    - [FileSystemTool::fileGenerator](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/fileGenerator.md) &ndash; Returns a generator function, which can iterate over the lines of the given file.
+    - [FileSystemTool::mkdir](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/mkdir.md) &ndash; Ensures that a directory exists.
+    - [FileSystemTool::mkdirDone](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/mkdirDone.md) &ndash; Ensures that a directory exists, or throws an exception if something wrong happens.
+    - [FileSystemTool::mkfile](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/mkfile.md) &ndash; Creates a file, and the intermediary directories if necessary.
+    - [FileSystemTool::mkTmpFile](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/mkTmpFile.md) &ndash; The mkTmpFile method
+    - [FileSystemTool::move](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/move.md) &ndash; The move method
+    - [FileSystemTool::moveToDir](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/moveToDir.md) &ndash; The moveToDir method
+    - [FileSystemTool::noEscalating](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/noEscalating.md) &ndash; The noEscalating method
+    - [FileSystemTool::remove](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/remove.md) &ndash; Removes an entry from the filesystem.
+    - [FileSystemTool::removeExtension](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/removeExtension.md) &ndash; Removes the file extension from the given $file and returns the result.
+    - [FileSystemTool::rename](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/rename.md) &ndash; The rename method
+    - [FileSystemTool::tempDir](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/tempDir.md) &ndash; The tempDir method
+    - [FileSystemTool::touchDone](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileSystemTool/touchDone.md) &ndash; and that the method throws an Exception if something goes wrong.
+- [FileTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileTool.md) &ndash; The FileTool class.
+    - [FileTool::append](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileTool/append.md) &ndash; The append method
+    - [FileTool::cleanVerticalSpaces](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileTool/cleanVerticalSpaces.md) &ndash; The cleanVerticalSpaces method
+    - [FileTool::getNbLines](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileTool/getNbLines.md) &ndash; The getNbLines method
+    - [FileTool::getFileSize](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileTool/getFileSize.md) &ndash; Returns the size in bytes of a given file.
+    - [FileTool::split](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileTool/split.md) &ndash; Split a file in two parts, at the given lineNumber , and return the two parts.
+    - [FileTool::cut](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileTool/cut.md) &ndash; Or actually do the cut in the file (if replaceFile is true).
+    - [FileTool::extract](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileTool/extract.md) &ndash; Take a file, extract all the slices from it, and return the result.
+    - [FileTool::insert](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/FileTool/insert.md) &ndash; Inserts the given content at the given lineNumber for the file.
+- [HashTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/HashTool.md) &ndash; The HashTool class.
+    - [HashTool::getHashByArray](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/HashTool/getHashByArray.md) &ndash; The getHashByArray method
+    - [HashTool::getRandomHash64](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/HashTool/getRandomHash64.md) &ndash; The getRandomHash64 method
+    - [HashTool::passwordVerify](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/HashTool/passwordVerify.md) &ndash; The passwordVerify method
+    - [HashTool::passwordEncrypt](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/HashTool/passwordEncrypt.md) &ndash; The passwordEncrypt method
+- [HttpTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/HttpTool.md) &ndash; The HttpTool class.
+    - [HttpTool::post](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/HttpTool/post.md) &ndash; Post the given data to the given uri, and return the result.
+    - [HttpTool::isHttps](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/HttpTool/isHttps.md) &ndash; The isHttps method
+- [LocalHostTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/LocalHostTool.md) &ndash; The LocalHostTool class.
+    - [LocalHostTool::hasProgram](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/LocalHostTool/hasProgram.md) &ndash; The hasProgram method
+    - [LocalHostTool::isWindows](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/LocalHostTool/isWindows.md) &ndash; The isWindows method
+    - [LocalHostTool::isMac](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/LocalHostTool/isMac.md) &ndash; The isMac method
+    - [LocalHostTool::isUnix](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/LocalHostTool/isUnix.md) &ndash; The isUnix method
+- [LocaleTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/LocaleTool.md) &ndash; The LocaleTool class.
+    - [LocaleTool::getCountryAlpha3CodeByAlpha2Code](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/LocaleTool/getCountryAlpha3CodeByAlpha2Code.md) &ndash; The getCountryAlpha3CodeByAlpha2Code method
+    - [LocaleTool::getLangIso639_1ByIso639_2](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/LocaleTool/getLangIso639_1ByIso639_2.md) &ndash; The getLangIso639_1ByIso639_2 method
+- [MathTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/MathTool.md) &ndash; The MathTool class.
+    - [MathTool::combinationsOf](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/MathTool/combinationsOf.md) &ndash; The combinationsOf method
+    - [MathTool::getPercentagesByKeyValue](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/MathTool/getPercentagesByKeyValue.md) &ndash; The getPercentagesByKeyValue method
+- [MimeTypeTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/MimeTypeTool.md) &ndash; The MimeTypeTool class
+    - [MimeTypeTool::getMimeType](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/MimeTypeTool/getMimeType.md) &ndash; The getMimeType method
+- [ObTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ObTool.md) &ndash; The ObTool class.
+    - [ObTool::cleanAll](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ObTool/cleanAll.md) &ndash; The cleanAll method
+    - [ObTool::writeWithoutBuffering](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ObTool/writeWithoutBuffering.md) &ndash; The writeWithoutBuffering method
+- [PermTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/PermTool.md) &ndash; The PermTool class.
+    - [PermTool::chmod](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/PermTool/chmod.md) &ndash; The chmod method
+    - [PermTool::chown](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/PermTool/chown.md) &ndash; The chown method
+    - [PermTool::chperms](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/PermTool/chperms.md) &ndash; Combination of chmod and chown.
+    - [PermTool::filePerms](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/PermTool/filePerms.md) &ndash; Gets file permissions.
+- [RandomTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/RandomTool.md) &ndash; The RandomTool class.
+    - [RandomTool::getIp](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/RandomTool/getIp.md) &ndash; The getIp method
+    - [RandomTool::lorem](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/RandomTool/lorem.md) &ndash; The lorem method
+    - [RandomTool::getRandomColor](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/RandomTool/getRandomColor.md) &ndash; The getRandomColor method
+- [SessionTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/SessionTool.md) &ndash; The SessionTool class.
+    - [SessionTool::destroyPartial](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/SessionTool/destroyPartial.md) &ndash; The destroyPartial method
+    - [SessionTool::start](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/SessionTool/start.md) &ndash; The start method
+    - [SessionTool::set](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/SessionTool/set.md) &ndash; The set method
+    - [SessionTool::remove](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/SessionTool/remove.md) &ndash; The remove method
+    - [SessionTool::get](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/SessionTool/get.md) &ndash; The get method
+    - [SessionTool::destroyAll](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/SessionTool/destroyAll.md) &ndash; The destroyAll method
+    - [SessionTool::dump](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/SessionTool/dump.md) &ndash; The dump method
+    - [SessionTool::setFlag](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/SessionTool/setFlag.md) &ndash; it removes it (i.e.
+    - [SessionTool::pickupFlag](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/SessionTool/pickupFlag.md) &ndash; The pickupFlag method
+- [StringTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool.md) &ndash; The StringTool class.
+    - [StringTool::autoCast](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/autoCast.md) &ndash; The autoCast method
+    - [StringTool::camelCase2Constant](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/camelCase2Constant.md) &ndash; The camelCase2Constant method
+    - [StringTool::cutNumericalSuffix](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/cutNumericalSuffix.md) &ndash; The cutNumericalSuffix method
+    - [StringTool::htmlAttributes](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/htmlAttributes.md) &ndash; Returns an html attributes string based on the given array.
+    - [StringTool::getPlural](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/getPlural.md) &ndash; The getPlural method
+    - [StringTool::getUniqueCssId](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/getUniqueCssId.md) &ndash; The getUniqueCssId method
+    - [StringTool::indent](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/indent.md) &ndash; Returns the given $string, but indented with the $indentNumber spaces for every line.
+    - [StringTool::relativePath](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/relativePath.md) &ndash; Drop the absoluteBaseDir string in front of the absolutePath.
+    - [StringTool::removeAccents](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/removeAccents.md) &ndash; The removeAccents method
+    - [StringTool::replacePortion](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/replacePortion.md) &ndash; Cuts a portion of a string, and replaces it with a replacement string.
+    - [StringTool::split](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/split.md) &ndash; Split the given (assumed) string into an array of multi-byte characters.
+    - [StringTool::strPosAll](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/strPosAll.md) &ndash; Returns an array containing all the positions of $needle in $haystack.
+    - [StringTool::ucfirst](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/ucfirst.md) &ndash; The ucfirst method
+    - [StringTool::unserializeAsArray](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/StringTool/unserializeAsArray.md) &ndash; The unserializeAsArray method
+- [UploadTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/UploadTool.md) &ndash; The UploadTool class
+    - [UploadTool::isValid](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/UploadTool/isValid.md) &ndash; The isValid method
+    - [UploadTool::getPhpFilesArrayFromCombinedStructure](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/UploadTool/getPhpFilesArrayFromCombinedStructure.md) &ndash; The getPhpFilesArrayFromCombinedStructure method
+    - [UploadTool::getPhpFilesArrayFromFilesSuperArrayItem](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/UploadTool/getPhpFilesArrayFromFilesSuperArrayItem.md) &ndash; The getPhpFilesArrayFromFilesSuperArrayItem method
+- [UriTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/UriTool.md) &ndash; The UriTool class
+    - [UriTool::appendQueryString](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/UriTool/appendQueryString.md) &ndash; Appends parameters to a base uri, and in the form of a query string (starting with a question mark).
+    - [UriTool::fileGetContents](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/UriTool/fileGetContents.md) &ndash; The fileGetContents method
+    - [UriTool::getHost](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/UriTool/getHost.md) &ndash; The getHost method
+    - [UriTool::getWebsiteAbsoluteUrl](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/UriTool/getWebsiteAbsoluteUrl.md) &ndash; The getWebsiteAbsoluteUrl method
+    - [UriTool::noEscalating](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/UriTool/noEscalating.md) &ndash; The noEscalating method
+    - [UriTool::uri](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/UriTool/uri.md) &ndash; The uri method
+- [ValidationTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ValidationTool.md) &ndash; The ValidationTool class
+    - [ValidationTool::isEmail](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ValidationTool/isEmail.md) &ndash; The isEmail method
+- [XmlTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/XmlTool.md) &ndash; The XmlTool class.
+    - [XmlTool::toArray](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/XmlTool/toArray.md) &ndash; Return an array corresponding to the given xml structure, or false in case of syntax error.
+- [ZipTool](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ZipTool.md) &ndash; The ZipTool class.
+    - [ZipTool::unzip](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ZipTool/unzip.md) &ndash; Extract the given zip file as the given target directory.
+    - [ZipTool::zip](https://github.com/lingtalfi/Bat/blob/master/doc/api/Ling/Bat/ZipTool/zip.md) &ndash; Creates a zip file from the given source.
+
+
+Dependencies
+============
+- [CopyDir](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/CopyDir)
+- [Tiphaine](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/Tiphaine)
+- [BeeFramework](https://github.com/karayabin/universe-snapshot/tree/master/universe/Ling/BeeFramework)
+
+

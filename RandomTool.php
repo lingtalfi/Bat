@@ -3,6 +3,9 @@
 namespace Ling\Bat;
 
 
+/**
+ * The RandomTool class.
+ */
 class RandomTool
 {
 

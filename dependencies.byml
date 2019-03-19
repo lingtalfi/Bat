@@ -1,8 +1,9 @@
 dependencies: 
     Ling: 
+        - ArrayToString
+        - BeeFramework
         - CopyDir
         - Tiphaine
-        - BeeFramework
     
 
 post_install: []

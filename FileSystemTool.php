@@ -2,13 +2,15 @@
 
 namespace Ling\Bat;
 
-/*
- * LingTalfi 2015-10-07
- */
+
 
 use Ling\CopyDir\AuthorCopyDirUtil;
 
 
+/**
+ * The FileSystemTool class.
+ * LingTalfi 2015-10-07
+ */
 class FileSystemTool
 {
 

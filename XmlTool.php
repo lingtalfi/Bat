@@ -4,6 +4,9 @@
 namespace Ling\Bat;
 
 
+/**
+ * The XmlTool class.
+ */
 class XmlTool
 {
 

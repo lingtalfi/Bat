@@ -7,6 +7,10 @@ namespace Ling\Bat;
 use Ling\ArrayToString\ArrayToStringTool;
 use Ling\BeeFramework\Bat\ReflectionTool;
 
+
+/**
+ * The DebugTool class.
+ */
 class DebugTool
 {
 

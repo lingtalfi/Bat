@@ -1,7 +1,9 @@
 <?php
 
 namespace Ling\Bat;
-/*
+
+/**
+ * The UriTool class.
  * LingTalfi 2015-12-04
  */
 class UriTool

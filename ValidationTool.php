@@ -2,7 +2,10 @@
 
 namespace Ling\Bat;
 
-/*
+
+
+/**
+ * The ValidationTool class.
  * LingTalfi 2015-12-16
  */
 class ValidationTool

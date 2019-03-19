@@ -4,6 +4,9 @@
 namespace Ling\Bat;
 
 
+/**
+ * The DateTool class.
+ */
 class DateTool
 {
 
@@ -114,6 +117,7 @@ class DateTool
      * @param string $datetime
      * @param array $options
      * @return mixed|string
+     * @throws \Exception
      */
     public static function getTimeElapsedString(string $datetime, array $options = [])
     {

@@ -4,6 +4,9 @@
 namespace Ling\Bat;
 
 
+/**
+ * The LocaleTool class.
+ */
 class LocaleTool
 {
 

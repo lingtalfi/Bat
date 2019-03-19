@@ -2,10 +2,11 @@
 
 namespace Ling\Bat;
 
-/*
+
+/**
+ * The ArrayTool class.
  * LingTalfi 2015-12-20
  */
-
 class ArrayTool
 {
 

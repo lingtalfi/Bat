@@ -4,6 +4,9 @@
 namespace Ling\Bat;
 
 
+/**
+ * The HashTool class.
+ */
 class HashTool
 {
 

@@ -2,12 +2,13 @@
 
 namespace Ling\Bat;
 
-/*
- * LingTalfi 2015-10-14
- */
-
 use Ling\Tiphaine\TiphaineTool;
 
+
+/**
+ * The StringTool class.
+ * LingTalfi 2015-10-14
+ */
 class StringTool
 {
     private static $irregular = [

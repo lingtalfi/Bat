@@ -2,7 +2,9 @@
 
 namespace Ling\Bat;
 
-/*
+
+/**
+ * The ExceptionTool class.
  * LingTalfi 2016-01-16
  */
 class ExceptionTool
@@ -19,8 +21,8 @@ class ExceptionTool
     {
 
         return "exception '" . get_class($e) . "' with message '" . $e->getMessage() . "' in " . $e->getFile() . ":" . $e->getLine() . PHP_EOL .
-        'Stack trace:' . PHP_EOL .
-        self::traceAsString($e);
+            'Stack trace:' . PHP_EOL .
+            self::traceAsString($e);
     }
 
 
@@ -41,23 +43,17 @@ class ExceptionTool
                 foreach ($frame['args'] as $arg) {
                     if (is_string($arg)) {
                         $args[] = "'" . $arg . "'";
-                    }
-                    elseif (is_array($arg)) {
+                    } elseif (is_array($arg)) {
                         $args[] = "Array";
-                    }
-                    elseif (is_null($arg)) {
+                    } elseif (is_null($arg)) {
                         $args[] = 'NULL';
-                    }
-                    elseif (is_bool($arg)) {
+                    } elseif (is_bool($arg)) {
                         $args[] = ($arg) ? "true" : "false";
-                    }
-                    elseif (is_object($arg)) {
+                    } elseif (is_object($arg)) {
                         $args[] = get_class($arg);
-                    }
-                    elseif (is_resource($arg)) {
+                    } elseif (is_resource($arg)) {
                         $args[] = get_resource_type($arg);
-                    }
-                    else {
+                    } else {
                         $args[] = $arg;
                     }
                 }

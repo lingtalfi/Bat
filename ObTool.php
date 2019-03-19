@@ -4,6 +4,9 @@
 namespace Ling\Bat;
 
 
+/**
+ * The ObTool class.
+ */
 class ObTool
 {
 

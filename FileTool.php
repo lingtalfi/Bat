@@ -3,6 +3,9 @@
 namespace Ling\Bat;
 
 
+/**
+ * The FileTool class.
+ */
 class FileTool
 {
 

@@ -4,6 +4,9 @@
 namespace Ling\Bat;
 
 
+/**
+ * The SessionTool class.
+ */
 class SessionTool
 {
 

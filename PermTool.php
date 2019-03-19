@@ -2,9 +2,10 @@
 
 namespace Ling\Bat;
 
-/*
+
+/**
+ * The PermTool class.
  * LingTalfi 2016-06-16
- * You need to be root to use any of those methods.
  */
 class PermTool
 {

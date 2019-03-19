@@ -2,7 +2,9 @@
 
 namespace Ling\Bat;
 
-
+/**
+ * The ZipTool class.
+ */
 class ZipTool
 {
 

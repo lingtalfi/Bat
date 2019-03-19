@@ -44,6 +44,7 @@ Tools       |       Description
 [BDotTool]( https://github.com/lingtalfi/Bat/blob/master/BDotTool.md )          |       Tools for using bdot notation
 [CaseTool]( https://github.com/lingtalfi/Bat/blob/master/CaseTool.md )          |       Tools for converting a case to another
 [ClassTool]( https://github.com/lingtalfi/Bat/blob/master/ClassTool.md )          |       Tools for working with classes
+[ConsoleTool]( https://github.com/lingtalfi/Bat/blob/master/ConsoleTool.md )          |       Tools for working with console related tasks
 [ConvertTool]( https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md )          |       Tools for working with conversion related tasks
 [DateTool]( https://github.com/lingtalfi/Bat/blob/master/DateTool.md )          |       Tools for working with dates
 [DebugTool]( https://github.com/lingtalfi/Bat/blob/master/DebugTool.md )          |       Tools for debugging
@@ -79,9 +80,13 @@ Dependencies
 History Log
 ------------------
     
+- 1.156 -- 2019-03-19
+
+    - add ConsoleTool
+
 - 1.155 -- 2019-02-22
 
-    - add ConvertTool::convertHexColorToRgb method 
+    - add ConvertTool::convertHexColorToRgb method
     
 - 1.154 -- 2019-02-19
 

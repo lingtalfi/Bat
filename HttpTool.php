@@ -3,6 +3,9 @@
 namespace Ling\Bat;
 
 
+/**
+ * The HttpTool class.
+ */
 class HttpTool
 {
 

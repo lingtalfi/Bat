@@ -2,7 +2,9 @@
 
 namespace Ling\Bat;
 
-/*
+
+/**
+ * The LocalHostTool class.
  * LingTalfi 2015-10-09
  */
 class LocalHostTool
