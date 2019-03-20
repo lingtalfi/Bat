@@ -17,7 +17,7 @@ unzip
 bool    unzip ( str:archive, str:targetDir=null )
 ```
 
-Extract the given zip file as the given target directory.
+Extract the given zip file as the given target directory, and returns whether the operation was successful.
 If target is null, then the zip will be extracted in a directory of the same name as the zip file but without the zip extension.
 Returns false if something went wrong (for instance if the zip extension is not loaded).
 
@@ -72,7 +72,7 @@ zip
 bool    zip ( str:source, str:zipFileName )
 ```
 
-Creates a zip file from the given source.
+Creates a zip file from the given source, and returns whether the operation was successful.
 Source can be either a simple file or a directory (in which case all it will be added recursively to the zip file).
 Note: this method creates the necessary subdirectories for the zip file if necessary.
 Returns false if something went wrong (extension zip not loaded for instance).

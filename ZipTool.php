@@ -2,6 +2,8 @@
 
 namespace Ling\Bat;
 
+use Ling\Bat\Exception\BatException;
+
 /**
  * The ZipTool class.
  */
@@ -11,7 +13,7 @@ class ZipTool
 
     /**
      *
-     * Extract the given zip file as the given target directory.
+     * Extracts the given zip file as the given target directory, and returns whether the operation was successful.
      * If target is null, then the zip will be extracted in a directory of the same name as the zip file but without the zip extension.
      *
      * Examples
@@ -56,7 +58,7 @@ class ZipTool
      * @param $zipFile
      * @param $target =null
      *
-     * @return false if something went wrong (for instance if the zip extension is not loaded)
+     * @return bool
      */
     public static function unzip($zipFile, $target = null)
     {
@@ -74,14 +76,15 @@ class ZipTool
         if ($res === TRUE) {
             // extract it to the path we determined above
             $zip->extractTo($target);
-            $zip->close();
+            return $zip->close();
         }
         return false;
     }
 
 
     /**
-     * Creates a zip file from the given source.
+     * Creates a zip file from the given source, and returns whether the operation was successful.
+     *
      * Source can be either a simple file or a directory (in which case all it will be added recursively to the zip file).
      * Note: this method creates the necessary subdirectories for the zip file if necessary.
      *
@@ -94,13 +97,19 @@ class ZipTool
      *
      * @param $source : the entry to add to the zip. It can be either a file or a directory
      * @param $zipFileName : the filename of the zip file
-     * @return false if something went wrong (extension zip not loaded for instance)
+     * @return bool
+     * @throws BatException
      */
     public static function zip($source, $zipFileName)
     {
-        if (!extension_loaded('zip') || !file_exists($source)) {
-            return false;
+        if (false === extension_loaded('zip')) {
+            throw new BatException("Extension not loaded: zip");
         }
+
+        if (false === file_exists($source)) {
+            throw new BatException("File doesn't exist: $source");
+        }
+
 
         $dir = dirname($zipFileName);
         FileSystemTool::mkdir($dir);

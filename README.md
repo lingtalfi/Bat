@@ -80,6 +80,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.157 -- 2019-03-20
+
+    - update ZipTool, now methods return boolean and throws BatException
+
 - 1.156 -- 2019-03-19
 
     - add ConsoleTool
