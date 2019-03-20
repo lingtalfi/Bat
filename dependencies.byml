@@ -4,6 +4,7 @@ dependencies:
         - BeeFramework
         - CopyDir
         - Tiphaine
+        - DirScanner
     
 
 post_install: []

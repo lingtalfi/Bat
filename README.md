@@ -80,6 +80,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.158 -- 2019-03-20
+
+    - update ZipTool, now zip method has ignore and ignoreHidden options
+
 - 1.157 -- 2019-03-20
 
     - update ZipTool, now methods return boolean and throws BatException

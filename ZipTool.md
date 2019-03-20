@@ -69,13 +69,19 @@ zip
 
 
 ```php
-bool    zip ( str:source, str:zipFileName )
+bool    zip ( str:source, str:zipFileName, array:options )
 ```
 
 Creates a zip file from the given source, and returns whether the operation was successful.
 Source can be either a simple file or a directory (in which case all it will be added recursively to the zip file).
 Note: this method creates the necessary subdirectories for the zip file if necessary.
 Returns false if something went wrong (extension zip not loaded for instance).
+
+
+Options:
+- ignoreHidden: bool=false. Whether to ignore files/dirs which name starts with a dot (.), provided that the given source is a directory.
+- ignore: array=[]. An array of file/directory names to ignore (provided that the given source is a directory).
+    If a directory matches, the entire directory and its content will be ignored recursively.
 
 
 ```php

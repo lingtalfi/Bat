@@ -3,6 +3,7 @@
 namespace Ling\Bat;
 
 use Ling\Bat\Exception\BatException;
+use Ling\DirScanner\YorgDirScannerTool;
 
 /**
  * The ZipTool class.
@@ -95,12 +96,22 @@ class ZipTool
      *
      *
      *
-     * @param $source : the entry to add to the zip. It can be either a file or a directory
-     * @param $zipFileName : the filename of the zip file
+     * @param string $source
+     * The entry to add to the zip. It can be either a file or a directory
+     *
+     * @param string $zipFileName
+     * The filename of the zip file
+     *
+     * @param array $options
+     * - ignoreHidden: bool=false. Whether to ignore files/dirs which name starts with a dot (.), provided that the given source is a directory.
+     * - ignore: array=[]. An array of file/directory names to ignore (provided that the given source is a directory).
+     *          If a directory matches, the entire directory and its content will be ignored recursively.
+     *
+     *
      * @return bool
      * @throws BatException
      */
-    public static function zip($source, $zipFileName)
+    public static function zip(string $source, string $zipFileName, array $options = [])
     {
         if (false === extension_loaded('zip')) {
             throw new BatException("Extension not loaded: zip");
@@ -109,6 +120,10 @@ class ZipTool
         if (false === file_exists($source)) {
             throw new BatException("File doesn't exist: $source");
         }
+
+
+        $ignoreHidden = $options['ignoreHidden'] ?? false;
+        $ignore = $options['ignore'] ?? [];
 
 
         $dir = dirname($zipFileName);
@@ -123,24 +138,22 @@ class ZipTool
         $source = str_replace('\\', '/', realpath($source));
 
         if (is_dir($source) === true) {
-            $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($source), \RecursiveIteratorIterator::SELF_FIRST);
+
+
+            $files = YorgDirScannerTool::getFilesIgnore($source, $ignore, true, false, false, $ignoreHidden);
 
             foreach ($files as $file) {
                 $file = str_replace('\\', '/', $file);
-
-                // Ignore "." and ".." folders
-                if (in_array(substr($file, strrpos($file, '/') + 1), array('.', '..'))) {
-                    continue;
-                }
-
                 $file = realpath($file);
 
-                if (is_dir($file) === true) {
+                if (true === is_dir($file)) {
                     $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
                 } else if (is_file($file) === true) {
                     $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
                 }
+
             }
+
         } else if (is_file($source) === true) {
             $zip->addFromString(basename($source), file_get_contents($source));
         }
