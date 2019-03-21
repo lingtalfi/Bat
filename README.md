@@ -80,6 +80,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.162 -- 2019-03-21
+
+    - update ZipTool::unzip method, now throws BatException if the zip archive doesn't exist
+
 - 1.161 -- 2019-03-21
 
     - add ConsoleTool::passThru method

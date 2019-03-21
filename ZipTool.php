@@ -60,11 +60,16 @@ class ZipTool
      * @param $target =null
      *
      * @return bool
+     * @throws BatException
      */
     public static function unzip($zipFile, $target = null)
     {
-        if (!extension_loaded('zip') || !file_exists($zipFile)) {
-            return false;
+        if (false === extension_loaded('zip')) {
+            throw new BatException("Extension not loaded: zip");
+        }
+
+        if (false === file_exists($zipFile)) {
+            throw new BatException("File doesn't exist: $zipFile");
         }
 
         if (null === $target) {
