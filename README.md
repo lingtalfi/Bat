@@ -80,6 +80,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.161 -- 2019-03-21
+
+    - add ConsoleTool::passThru method
+
 - 1.160 -- 2019-03-21
 
     - add ZipTool::zipByPaths method

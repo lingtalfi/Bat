@@ -53,3 +53,26 @@ ConsoleTool::exec("cp /tmp/test1.txt /tmp/test2.txt"); // true
 ```
 
 
+
+
+
+passThru
+-----------
+2019-03-21
+
+
+```php
+bool    passthru ( str:cmd )
+```
+
+Executes the php passthru function, and returns whether the command was successful.
+
+
+```php
+<?php
+
+ConsoleTool::passThru("cp /tmp/test1.txt /tmp/test2.txt"); // true
+
+```
+
+

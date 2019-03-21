@@ -44,4 +44,18 @@ class ConsoleTool
         exec($cmd, $outputLines, $return);
         return ($return === 0);
     }
+
+
+    /**
+     * Executes the php passthru function, and returns whether the command was successful.
+     *
+     * @param string $cmd
+     * @return bool
+     */
+    public static function passThru(string $cmd): bool
+    {
+        $return = 0;
+        passthru($cmd, $return);
+        return (0 === $return);
+    }
 }
