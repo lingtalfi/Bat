@@ -80,6 +80,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.159 -- 2019-03-21
+
+    - update ZipTool, ignore option replaced with ignoreName. ignorePath option added
+
 - 1.158 -- 2019-03-20
 
     - update ZipTool, now zip method has ignore and ignoreHidden options

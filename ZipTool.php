@@ -104,8 +104,12 @@ class ZipTool
      *
      * @param array $options
      * - ignoreHidden: bool=false. Whether to ignore files/dirs which name starts with a dot (.), provided that the given source is a directory.
-     * - ignore: array=[]. An array of file/directory names to ignore (provided that the given source is a directory).
+     * - ignoreName: array=[]. An array of file/directory names to ignore (provided that the given source is a directory).
      *          If a directory matches, the entire directory and its content will be ignored recursively.
+     *
+     * - ignorePath: array=[]. An array of file/directory relative paths to ignore (provided that the given source is a directory).
+     *          If a directory matches, the entire directory and its content will be ignored recursively.
+     *          Note: a relative path doesn't start with a slash.
      *
      *
      * @return bool
@@ -123,7 +127,8 @@ class ZipTool
 
 
         $ignoreHidden = $options['ignoreHidden'] ?? false;
-        $ignore = $options['ignore'] ?? [];
+        $ignoreName = $options['ignoreName'] ?? [];
+        $ignorePath = $options['ignorePath'] ?? [];
 
 
         $dir = dirname($zipFileName);
@@ -140,7 +145,7 @@ class ZipTool
         if (is_dir($source) === true) {
 
 
-            $files = YorgDirScannerTool::getFilesIgnore($source, $ignore, true, false, false, $ignoreHidden);
+            $files = YorgDirScannerTool::getFilesIgnoreMore($source, $ignoreName, $ignorePath, true, false, false, $ignoreHidden);
 
             foreach ($files as $file) {
                 $file = str_replace('\\', '/', $file);

@@ -80,9 +80,11 @@ Returns false if something went wrong (extension zip not loaded for instance).
 
 Options:
 - ignoreHidden: bool=false. Whether to ignore files/dirs which name starts with a dot (.), provided that the given source is a directory.
-- ignore: array=[]. An array of file/directory names to ignore (provided that the given source is a directory).
+- ignoreName: array=[]. An array of file/directory names to ignore (provided that the given source is a directory).
     If a directory matches, the entire directory and its content will be ignored recursively.
-
+- ignorePath: array=[]. An array of file/directory relative paths to ignore (provided that the given source is a directory).
+         If a directory matches, the entire directory and its content will be ignored recursively.
+         Note: a relative path doesn't start with a slash.
 
 ```php
 ZipTool::zip(__DIR__ . "/my_dir", "my_dir.zip");
