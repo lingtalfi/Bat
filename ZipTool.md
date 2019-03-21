@@ -89,3 +89,47 @@ Options:
 ```php
 ZipTool::zip(__DIR__ . "/my_dir", "my_dir.zip");
 ```
+
+
+
+zipByPaths
+---
+2019-03-21
+
+
+```php
+bool    zipByPaths ( str:dstZipFile, str:rootDir, array:relativePaths, array:&errors=[], array:&failed=[] )
+```
+
+Creates a zip archive based on the given relative paths,
+and returns whether the operation was a success.
+
+
+### Parameters
+
+- dstZipFile: The name (path) of the zip file to create.
+- rootDir: The root dir, base of all relative paths.
+- $relativePaths: An array of relative paths (relative to the given $rootDir) to include in the archive.
+    If the relative path is a directory, the directory will be included in the archive with its content (recursively).
+- errors: An array of errors that might occur.
+- failed: An array of file relative paths which transfer to the archive failed.
+
+
+
+```php
+$base = "/komin/jin_site_demo/class";
+$files = [
+    "dir1",
+    "dir2/.htaccess",
+    "Maurice.php",
+];
+
+$zipDst = "/tmp/myzip.zip";
+$errors = [];
+$failed = [];
+a(ZipTool::zipByPaths($zipDst, $base, $files, $errors, $failed));
+a($errors);
+a($failed);
+
+
+```

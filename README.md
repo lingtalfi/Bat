@@ -80,6 +80,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.160 -- 2019-03-21
+
+    - add ZipTool::zipByPaths method
+
 - 1.159 -- 2019-03-21
 
     - update ZipTool, ignore option replaced with ignoreName. ignorePath option added
