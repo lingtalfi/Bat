@@ -19,7 +19,19 @@ class ConvertTool
 
 
     /**
+     *
+     * Convert a bytes number to another unit.
+     *
+     * If the unit is "h", then a human format is returned (i.e. the unit is chosen based on
+     * human readability criteria).
+     *
      * [size-unit™]
+     *
+     *
+     * @param $bytes
+     * @param string $unit
+     * @param int $precision
+     * @return string
      */
     public static function convertBytes($bytes, $unit = 'b', $precision = 2)
     {
@@ -136,6 +148,8 @@ class ConvertTool
             throw new \InvalidArgumentException("unit must be of type string");
         }
     }
+
+
 
 
     /**

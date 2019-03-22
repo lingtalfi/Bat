@@ -19,6 +19,9 @@ float    convertBytes ( int:bytes, string:destUnit=b, precision=2 )
 
 Convert a bytes number to another unit.
 
+If the unit is "h", then a human format is returned (i.e. the unit is chosen based on
+human readability criteria).
+
 
 
 ```php
