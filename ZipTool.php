@@ -95,6 +95,8 @@ class ZipTool
      * Note: this method creates the necessary subdirectories for the zip file if necessary.
      *
      *
+     * If the zip file already exists, it will be overwritten.
+     *
      *
      * Source:
      * https://stackoverflow.com/questions/1334613/how-to-recursively-zip-a-directory-in-php
@@ -136,6 +138,9 @@ class ZipTool
         $ignorePath = $options['ignorePath'] ?? [];
 
 
+
+
+
         $dir = dirname($zipFileName);
         FileSystemTool::mkdir($dir);
 
@@ -172,9 +177,13 @@ class ZipTool
     }
 
 
+
+
     /**
      * Creates a zip archive based on the given relative paths,
      * and returns whether the operation was a success.
+     *
+     * If the file exists, it will be overwritten.
      *
      *
      *
@@ -200,6 +209,7 @@ class ZipTool
      * @return bool
      * @throws BatException
      */
+
     public static function zipByPaths(string $dstZipFile, string $rootDir, array $relativePaths, array &$errors = [], array &$failed = []): bool
     {
 
@@ -209,6 +219,12 @@ class ZipTool
 
 
         $zip = new \ZipArchive();
+
+
+        FileSystemTool::remove($dstZipFile);
+
+
+
         $res = $zip->open($dstZipFile, \ZipArchive::CREATE);
         if (true === $res) {
             foreach ($relativePaths as $rpath) {

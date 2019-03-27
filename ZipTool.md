@@ -77,6 +77,9 @@ Source can be either a simple file or a directory (in which case all it will be 
 Note: this method creates the necessary subdirectories for the zip file if necessary.
 Returns false if something went wrong (extension zip not loaded for instance).
 
+If the zip file already exists, it will be overwritten.
+
+
 
 Options:
 - ignoreHidden: bool=false. Whether to ignore files/dirs which name starts with a dot (.), provided that the given source is a directory.
@@ -103,6 +106,9 @@ bool    zipByPaths ( str:dstZipFile, str:rootDir, array:relativePaths, array:&er
 
 Creates a zip archive based on the given relative paths,
 and returns whether the operation was a success.
+
+If the zip file already exists, it will be overwritten.
+
 
 
 ### Parameters
