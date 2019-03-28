@@ -93,6 +93,26 @@ class FileTool
 
 
     /**
+     * Prepends the given $text to the given $file and returns
+     * whether the operation was successful.
+     *
+     * @param string $file
+     * @param string $text
+     * @return bool
+     */
+    public static function prepend(string $file, string $text): bool
+    {
+        if (file_exists($file)) {
+            $content = file_get_contents($file);
+            $content = $text . $content;
+            return FileSystemTool::mkfile($file, $content);
+        } else {
+            return FileSystemTool::mkfile($file, $text, 0777, 0);
+        }
+    }
+
+
+    /**
      * Split a file in two parts, at the given lineNumber , and return the two parts.
      * The line indicated by lineNumber is part of the second half (not the first half).
      */

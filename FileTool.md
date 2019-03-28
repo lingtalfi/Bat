@@ -120,6 +120,19 @@ the content will be appended to the existing file, prefixed with a newline.
 
 
 
+prepend
+-------------
+2019-03-28
+
+```php
+bool    prepend ( string:file, string:text )
+```
+
+Prepends the given $text to the given $file and returns whether the operation was successful.
+     
+
+
+
 split
 -------------
 2017-03-24
@@ -131,5 +144,5 @@ array    split ( string:file, int:lineNumber )
 Split a file in two parts, at the given lineNumber , and return the two parts.
 
 The line indicated by lineNumber is part of the second half (not the first half).
-     
-     
+
+

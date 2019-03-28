@@ -80,6 +80,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.164 -- 2019-03-28
+
+    - add FileTool::prepend method
+
 - 1.163 -- 2019-03-27
 
     - fix ZipTool::zip and ZipTool::zipByPaths now overwrite the zip file if it exists (rather than appending to the existing archive)
