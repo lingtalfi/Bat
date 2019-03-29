@@ -80,6 +80,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.165 -- 2019-03-29
+
+    - update ZipTool::zipByPaths method, now fails if no files are added (empty zip)
+
 - 1.164 -- 2019-03-28
 
     - add FileTool::prepend method

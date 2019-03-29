@@ -138,9 +138,6 @@ class ZipTool
         $ignorePath = $options['ignorePath'] ?? [];
 
 
-
-
-
         $dir = dirname($zipFileName);
         FileSystemTool::mkdir($dir);
 
@@ -175,8 +172,6 @@ class ZipTool
 
         return $zip->close();
     }
-
-
 
 
     /**
@@ -224,33 +219,37 @@ class ZipTool
         FileSystemTool::remove($dstZipFile);
 
 
-
         $res = $zip->open($dstZipFile, \ZipArchive::CREATE);
         if (true === $res) {
-            foreach ($relativePaths as $rpath) {
-                $apath = $rootDir . "/" . $rpath;
-                if (is_file($apath)) {
-                    $res = $zip->addFile($apath, $rpath);
-                    if (false === $res) {
+            if ($relativePaths) {
+
+                foreach ($relativePaths as $rpath) {
+                    $apath = $rootDir . "/" . $rpath;
+                    if (is_file($apath)) {
+                        $res = $zip->addFile($apath, $rpath);
+                        if (false === $res) {
+                            $failed[] = $rpath;
+                        }
+                    } elseif (is_dir($apath)) {
+                        $files = YorgDirScannerTool::getFiles($apath, true, true, false, false);
+                        foreach ($files as $_rpath) {
+                            $newRpath = "$rpath/$_rpath";
+                            $apath = $rootDir . "/" . $newRpath;
+                            $res = $zip->addFile($apath, $newRpath);
+                            if (false === $res) {
+                                $failed[] = $newRpath;
+                            }
+                        }
+                    } else {
                         $failed[] = $rpath;
                     }
-                } elseif (is_dir($apath)) {
-                    $files = YorgDirScannerTool::getFiles($apath, true, true, false, false);
-                    foreach ($files as $_rpath) {
-                        $newRpath = "$rpath/$_rpath";
-                        $apath = $rootDir . "/" . $newRpath;
-                        $res = $zip->addFile($apath, $newRpath);
-                        if (false === $res) {
-                            $failed[] = $newRpath;
-                        }
-                    }
-                } else {
-                    $failed[] = $rpath;
                 }
-            }
 
-            $res = $zip->close();
-            return $res;
+                $res = $zip->close();
+                return $res;
+            } else {
+                $errors[] = "You must add at least one file in the zip archive.";
+            }
 
         } else {
             $errors[] = "A ZipArchive error occurred: " . self::zipArchiveErrCodeToHumanMsg($res);
