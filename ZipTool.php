@@ -246,7 +246,7 @@ class ZipTool
                 }
 
                 $res = $zip->close();
-                return $res;
+                return $res && empty($failed);
             } else {
                 $errors[] = "You must add at least one file in the zip archive.";
             }

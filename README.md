@@ -80,6 +80,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.166 -- 2019-04-01
+
+    - update ZipTool::zipByPaths method, now fails if any file couldn't be added to the zip archive.
+
 - 1.165 -- 2019-03-29
 
     - update ZipTool::zipByPaths method, now fails if no files are added (empty zip)
