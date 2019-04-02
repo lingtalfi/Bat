@@ -81,6 +81,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.168 -- 2019-04-02
+
+    - add FileSystemTool::resolveTilde method
+
 - 1.167 -- 2019-04-01
 
     - add OsTool class

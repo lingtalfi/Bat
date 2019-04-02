@@ -370,6 +370,22 @@ Returns a file path which won't be able to escalate into parent directories (rem
 
 
 
+
+resolveTilde
+-----------
+2019-04-02
+
+
+```php
+str    resolveTilde (string:path)
+```
+
+Returns the given $path with the tilde resolved (to the user home directory).
+
+
+
+
+
 remove
 -----------
 2015-10-12
