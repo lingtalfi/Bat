@@ -81,6 +81,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.169 -- 2019-04-03
+
+    - add StringTool::humanizeFileName method
+    
 - 1.168 -- 2019-04-02
 
     - add FileSystemTool::resolveTilde method

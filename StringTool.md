@@ -150,6 +150,35 @@ az($ret); // $ret = ' class="foo bar" style="color: red" required'
 
 
 
+humanizeFileName
+-----------
+2019-04-03
+
+
+```php
+str     humanizeFileName(str:fileName, bool:firstLetterUppercase = false)
+```
+
+Returns a humanized version of a file name.
+
+Basically, the file extension (if any) is dropped, and then dashes, underscores and dots are
+converted into spaces, and all words are turned down to lowercase.
+
+
+### Examples
+
+
+```php
+$f = "easy-menu-configuration.file.md";
+a(StringTool::humanizeFileName($f)); // easy menu configuration file
+
+
+$f = "easy-menu-  ___.-configuration.file.md";
+a(StringTool::humanizeFileName($f, true)); // Easy menu configuration file
+```
+
+
+
 indent
 -----------
 2019-02-15
