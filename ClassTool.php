@@ -37,6 +37,40 @@ class ClassTool
         }
     }
 
+
+    /**
+     * Returns an array of \ReflectionClass representing the the ancestors of the given class.
+     * It can also includes all interfaces (and parents) if the includeInterfaces argument is set to true.
+     *
+     *
+     *
+     * @param \ReflectionClass $class
+     * @param bool $includeInterfaces
+     * @return array
+     */
+    public static function getAncestors(\ReflectionClass $class, bool $includeInterfaces = false)
+    {
+        $ret = [];
+        while (false !== ($parent = $class->getParentClass())) {
+            $ret[] = $parent;
+            if (true === $includeInterfaces) {
+                foreach ($class->getInterfaces() as $interface) {
+                    $ret[] = $interface;
+                    while (false !== ($interfaceParent = $interface->getParentClass())) {
+                        $ret[] = $interfaceParent;
+                        $interface = $interfaceParent;
+                    }
+                }
+            }
+            $class = $parent;
+        }
+
+        $ret = array_unique($ret);
+        return $ret;
+    }
+
+
+
     /**
      * Returns the class signature of the given $class.
      *
@@ -121,8 +155,7 @@ class ClassTool
         // http://stackoverflow.com/questions/7026690/reconstruct-get-code-of-php-function
         try {
             $func = new \ReflectionMethod($class, $method);
-        }
-        catch (\ReflectionException $e) {
+        } catch (\ReflectionException $e) {
             return false;
         }
         $filename = $func->getFileName();
@@ -184,7 +217,7 @@ class ClassTool
 
 
             if ($parameter->hasType()) {
-                if($parameter->allowsNull() && false === $parameter->isOptional()){
+                if ($parameter->allowsNull() && false === $parameter->isOptional()) {
                     $s .= '?';
                 }
                 $s .= (string)$parameter->getType() . ' ';
@@ -199,7 +232,6 @@ class ClassTool
             }
 
             $s .= '$' . $parameter->getName();
-
 
 
             if ($parameter->isOptional()) {
@@ -242,11 +274,9 @@ class ClassTool
 
         if (in_array('public', $filter, true)) {
             $visibility = $visibilityMap["public"];
-        }
-        elseif (in_array('protected', $filter, true)) {
+        } elseif (in_array('protected', $filter, true)) {
             $visibility = $visibilityMap["protected"];
-        }
-        elseif (in_array('private', $filter, true)) {
+        } elseif (in_array('private', $filter, true)) {
             $visibility = $visibilityMap["private"];
         }
 

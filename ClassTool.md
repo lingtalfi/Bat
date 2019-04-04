@@ -42,6 +42,60 @@ array(1) {
 
 
 
+getAncestors
+-----------------
+2019-04-04
+
+
+```php
+str    getAncestors ( \ReflectionClass class, bool:includeInterfaces = false )
+```
+
+Returns an array of \ReflectionClass representing the the ancestors of the given class.
+It can also includes all interfaces (and parents) if the includeInterfaces argument is set to true.
+
+
+### Example
+
+```php
+interface G{
+
+}
+
+interface F{
+
+}
+
+interface E extends F{
+
+}
+
+interface D{
+
+}
+
+abstract class C implements D, E{
+
+}
+
+class B extends C implements G{
+
+}
+
+class A extends B{
+
+}
+
+
+$class = new \ReflectionClass("A");
+a(ClassTool::getAncestors($class, false)); // B C
+a(ClassTool::getAncestors($class, true)); // B C D E F G
+```
+
+
+
+
+
 getClassSignature
 -----------------
 2019-02-08

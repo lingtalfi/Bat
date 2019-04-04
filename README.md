@@ -81,6 +81,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.170 -- 2019-04-04
+
+    - add ClassTool::getAncestors method
+    
 - 1.169 -- 2019-04-03
 
     - add StringTool::humanizeFileName method
