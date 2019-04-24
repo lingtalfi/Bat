@@ -391,12 +391,26 @@ class FileSystemTool
     }
 
     /**
-     * Removes the file extension from the given $file and returns the result.
+     * Removes the (last) file extension from the given $file and returns the result.
+     *
+     * If the file starts with a dot (like .htaccess), what follows the first dot is not considered as an extension.
+     *
+     *
+     * Examples:
+     *
+     * - .htaccess => .htaccess
+     * - file.md => file
+     * - file.tpl.php => file.tpl
+     *
      *
      */
     public static function removeExtension(string $file): string
     {
-        if (false !== strpos($file, ".")) {
+        $pos = strpos($file, ".");
+        if (false !== $pos) {
+            if (0 === $pos) {
+                return $file;
+            }
             $p = explode(".", $file);
             array_pop($p);
             return implode('.', $p);

@@ -81,6 +81,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.171 -- 2019-04-24
+
+    - update FileSystemTool::removeExtension method, now takes into account hidden files
+    
 - 1.170 -- 2019-04-04
 
     - add ClassTool::getAncestors method

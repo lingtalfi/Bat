@@ -441,15 +441,23 @@ if (false === FileSystemTool::remove('doo', false)) {
 
 removeExtension
 -----------
-2019-02-19
+2019-02-19 -> 2019-04-24
 
 
 ```php
 string        removeExtension(string:file)
 ```
 
+Removes the (last) file extension from the given $file and returns the result.
 
-Removes the file extension from the given $file and returns the result.
+If the file starts with a dot (like .htaccess), what follows the first dot is not considered as an extension.
+
+
+Examples:
+
+- .htaccess => .htaccess
+- file.md => file
+- file.tpl.php => file.tpl
 
 
 The following code: 

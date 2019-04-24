@@ -155,8 +155,6 @@ class CaseTool
         if (true === $processUpperLetters) {
             $str = preg_replace('!([A-Z])!', '_$1', $str);
         }
-
-
         $str = strtolower(StringTool::removeAccents($str));
         $str = preg_replace('![^a-zA-Z0-9]!', '_', $str);
         $str = preg_replace('!_+!', '_', $str);

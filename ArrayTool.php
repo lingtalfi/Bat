@@ -27,10 +27,14 @@ class ArrayTool
      * Merge the given arrays and return a resulting array,
      * appending numeric keys, and replacing existing associative keys.
      *
+     * This algorithm merges arrays together, and when a value already exists, one of the two cases occur:
+     *
+     * - either the replaced value is an array, in which case the new value gets appended to that array
+     * - or the replaced value is a scalar value (i.e. not an array), in which case the new value completely replaces the old one
      *
      *
      *
-     * The merging rules are basically the following:
+     * Technically, the merging rules are basically the following:
      * - set the associative key only if it doesn't already exist
      * - if it's a numeric key, append it
      *
