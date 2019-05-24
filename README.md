@@ -44,6 +44,7 @@ Tools       |       Description
 [BDotTool]( https://github.com/lingtalfi/Bat/blob/master/BDotTool.md )          |       Tools for using bdot notation
 [CaseTool]( https://github.com/lingtalfi/Bat/blob/master/CaseTool.md )          |       Tools for converting a case to another
 [ClassTool]( https://github.com/lingtalfi/Bat/blob/master/ClassTool.md )          |       Tools for working with classes
+[ColorTool]( https://github.com/lingtalfi/Bat/blob/master/ColorTool.md )          |       Tools related to colors
 [ConsoleTool]( https://github.com/lingtalfi/Bat/blob/master/ConsoleTool.md )          |       Tools for working with console related tasks
 [ConvertTool]( https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md )          |       Tools for working with conversion related tasks
 [DateTool]( https://github.com/lingtalfi/Bat/blob/master/DateTool.md )          |       Tools for working with dates
@@ -80,6 +81,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.172 -- 2019-05-24
+
+    - add ColorTool class
     
 - 1.171 -- 2019-04-24
 

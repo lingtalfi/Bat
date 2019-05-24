@@ -2,6 +2,7 @@ https://github.com/lingtalfi/Bat/blob/master/ArrayTool.md
 https://github.com/lingtalfi/Bat/blob/master/BDotTool.md
 https://github.com/lingtalfi/Bat/blob/master/CaseTool.md
 https://github.com/lingtalfi/Bat/blob/master/ClassTool.md
+https://github.com/lingtalfi/Bat/blob/master/ColorTool.md
 https://github.com/lingtalfi/Bat/blob/master/ConsoleTool.md
 https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md
 https://github.com/lingtalfi/Bat/blob/master/DateTool.md

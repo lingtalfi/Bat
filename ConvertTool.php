@@ -150,40 +150,13 @@ class ConvertTool
     }
 
 
-
-
     /**
-     * Returns an array of rgb colors from the given $hexColor.
-     *
-     * The returned array has the following structure.
-     * - 0: red
-     * - 1: green
-     * - 2: blue
-     *
-     * The given $hexColor can optionally be prefixed with a pound symbol (#).
-     * The hexColor string must be exactly 6 chars long, or the BatException is thrown.
-     *
-     *
-     *
-     * @param string $hexColor
-     * @return array
-     * @throws BatException
+     * Deprecated.
+     * Alias of ColorTool::hexToRgb an array of rgb colors from the given $hexColor.
      */
     public static function convertHexColorToRgb(string $hexColor): array
     {
-        $expectedLength = 6;
-        $format = "%02x%02x%02x";
-        if ('#' === substr($hexColor, 0, 1)) {
-            $expectedLength++;
-            $format = "#" . $format;
-        }
-
-        if ($expectedLength !== strlen($hexColor)) {
-            $len = strlen($hexColor);
-            throw new BatException("The hexColor must be exactly $expectedLength long, but the given length was $len.");
-        }
-
-        return sscanf($hexColor, $format);
+        return ColorTool::hexToRgb($hexColor);
     }
 
     /**
