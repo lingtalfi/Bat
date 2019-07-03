@@ -22,6 +22,7 @@ https://github.com/lingtalfi/Bat/blob/master/PermTool.md
 https://github.com/lingtalfi/Bat/blob/master/README.md
 https://github.com/lingtalfi/Bat/blob/master/RandomTool.md
 https://github.com/lingtalfi/Bat/blob/master/SessionTool.md
+https://github.com/lingtalfi/Bat/blob/master/ShortCodeTool.md
 https://github.com/lingtalfi/Bat/blob/master/StringTool.md
 https://github.com/lingtalfi/Bat/blob/master/UploadTool.md
 https://github.com/lingtalfi/Bat/blob/master/UriTool.md
