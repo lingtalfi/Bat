@@ -3,6 +3,7 @@ dependencies:
         - ArrayToString
         - BeeFramework
         - CopyDir
+        - BabyYaml
         - Tiphaine
         - DirScanner
     

@@ -8,6 +8,107 @@ This class contains functions for helping with classes.
 
 
 
+executePhpMethod
+-----------------
+2019-07-04
+
+
+```php
+mixed   executePhpMethod ( str:expr )
+```
+
+Executes a php method and return the result.
+
+The given $phpMethod must have one of the following format (or else an exception will be thrown):
+
+- $class::$method
+- $class::$method ( $args )
+- $class->$method
+- $class->$method ( $args )
+
+
+Note that the first two forms refer to a static method call, while the last two forms refer to a method call on
+an instance (instantiation is done by this method).
+
+
+With:
+
+- $class: the full class name (example: Ling\Bat)
+- $method: the name of the method to execute
+- $args: a list of arguments written with smartcode notation (see SmartCodeTool class for more details)
+
+
+     
+     
+
+Example:
+
+
+
+The following code: 
+```php
+class A
+{
+    public function hello()
+    {
+        return "hello";
+    }
+
+    public function returnArgs($args)
+    {
+        return $args;
+    }
+}
+
+
+a(ClassTool::executePhpMethod("Ling\Bat\StringTool::camelCase2Constant('AtariPlayer')"));
+a(ClassTool::executePhpMethod("Ling\Bat\StringTool::camelCase2Constant(AtariPlayer)"));
+a(ClassTool::executePhpMethod("A->hello)"));
+a(ClassTool::executePhpMethod("A->returnArgs(foo)"));
+a(ClassTool::executePhpMethod("A->returnArgs([foo])"));
+a(ClassTool::executePhpMethod("A->returnArgs({orange: road, maurice: vert})"));
+a(ClassTool::executePhpMethod("A->returnArgs({orange: road, maurice: [1,2,3]})"));
+```
+
+Will output:
+
+```html
+string(12) "ATARI_PLAYER"
+
+string(12) "ATARI_PLAYER"
+
+string(5) "hello"
+
+string(3) "foo"
+
+array(1) {
+  [0] => string(3) "foo"
+}
+
+array(2) {
+  ["orange"] => string(4) "road"
+  ["maurice"] => string(4) "vert"
+}
+
+array(2) {
+  ["orange"] => string(4) "road"
+  ["maurice"] => array(3) {
+    [0] => int(1)
+    [1] => int(2)
+    [2] => int(3)
+  }
+}
+
+string(3) "end"
+
+
+```
+
+
+
+
+
+
 getAbstractAncestors
 -----------------
 2019-02-13

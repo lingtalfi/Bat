@@ -4,11 +4,73 @@
 namespace Ling\Bat;
 
 
+use Ling\Bat\Exception\BatException;
+
 /**
  * The ClassTool class.
  */
 class ClassTool
 {
+
+    /**
+     * Executes a php method and return the result.
+     *
+     * The given $phpMethod must have one of the following format (or else an exception will be thrown):
+     *
+     * - $class::$method
+     * - $class::$method ( $args )
+     * - $class->$method
+     * - $class->$method ( $args )
+     *
+     *
+     * Note that the first two forms refer to a static method call, while the last two forms refer to a method call on
+     * an instance (instantiation is done by this method).
+     *
+     *
+     * With:
+     *
+     * - $class: the full class name (example: Ling\Bat)
+     * - $method: the name of the method to execute
+     * - $args: a list of arguments written with smartCode notation (see SmartCodeTool class for more details)
+     *
+     *
+     *
+     *
+     * @param string $phpMethod
+     * @return mixed
+     * @throws \Exception
+     */
+    public static function executePhpMethod(string $phpMethod)
+    {
+
+        if (preg_match('!
+        (?<class>[a-zA-Z0-9_\\\\]*)
+        (?<sep>::|->)
+        (?<method>[a-zA-Z0-9_]*)
+        (?<args>\(.*\))?
+        !x', $phpMethod, $match)) {
+
+
+            $class = $match['class'];
+            $sep = $match['sep'];
+            $method = $match['method'];
+            $args = [];
+            if (array_key_exists('args', $match)) {
+                $args = [SmartCodeTool::parse(substr($match['args'], 1, -1))];
+            }
+
+            $ret = null;
+            if ('::' === $sep) {
+//                $ret = $class::$method($args);
+                $ret = call_user_func_array([$class, $method], $args);
+            } else {
+                $instance = new $class;
+                $ret = call_user_func_array([$instance, $method], $args);
+            }
+            return $ret;
+        }
+        throw new BatException("Invalid php method syntax: $phpMethod.");
+    }
 
 
     /**
@@ -68,7 +130,6 @@ class ClassTool
         $ret = array_unique($ret);
         return $ret;
     }
-
 
 
     /**
@@ -141,9 +202,6 @@ class ClassTool
         }
         return $s;
     }
-
-
-
 
 
     /**
