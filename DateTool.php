@@ -107,6 +107,7 @@ class DateTool
 
     /**
      * Get the time elapsed since a past event which datetime is given.
+     *
      * For instance:
      *      - 2 seconds ago
      *      - 3 minutes (full=false)
@@ -116,6 +117,22 @@ class DateTool
      *
      * @param string $datetime
      * @param array $options
+     *      - lang: string (eng|fra), the prebuilt lang to use. The default is eng.
+     *              To create your own language, just override scale
+     *      - full: bool=false, whether to display all components of the elapsed string, or just the most X relevant,
+     *              X being defined by the notFullLength option.
+     *      - notFullLength: int=1. If full is false, how many components should we display?
+     *      - sep: string=",". The separator between components.
+     *      - justNow: string. The string to display if the datetime just happened. The default in english is "just now".
+     *      - format: string. The format of the returned string. The default in english is "%s ago".
+     *              The %s is replaced with the computed elapsed string.
+     *      - scale: array. The translation for individual components. Each component is given in singular form and plural form.
+     *              Note: this is a very basic method, and the plural rule used by this method is:
+     *                  if the number is more than 1, the plural form is used, otherwise the singular form is used.
+     *              If the language has a more complicated plural system, then you need to use another method.
+     *
+     *
+     *
      * @return mixed|string
      * @throws \Exception
      */
@@ -124,6 +141,7 @@ class DateTool
 
         $lang = $options['lang'] ?? "eng";
         $full = $options['full'] ?? false;
+        $notFullLength = $options['notFullLength'] ?? 1;
         $sep = $options['sep'] ?? ", ";
 
 
@@ -171,7 +189,7 @@ class DateTool
             }
         }
 
-        if (!$full) $scale = array_slice($scale, 0, 1);
+        if (!$full) $scale = array_slice($scale, 0, $notFullLength);
         return $scale ? sprintf($format, implode($sep, $scale)) : $justNow;
     }
 

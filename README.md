@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.175 -- 2019-07-11
+
+    - add DateTool::getTimeElapsedString notFullLength option
+    
 - 1.174 -- 2019-07-04
 
     - add ClassTool::executePhpMethod method
