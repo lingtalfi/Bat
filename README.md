@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.176 -- 2019-07-13
+
+    - add ArrayTool::objectToArray method
+    
 - 1.175 -- 2019-07-11
 
     - add DateTool::getTimeElapsedString notFullLength option

@@ -22,7 +22,6 @@ class ArrayTool
     }
 
 
-
     /**
      * Merge the given arrays and return a resulting array,
      * appending numeric keys, and replacing existing associative keys.
@@ -191,6 +190,27 @@ class ArrayTool
     public static function mirrorRange($start, $end, $step = 1)
     {
         return array_combine(range($start, $end, $step), range($start, $end, $step));
+    }
+
+
+    /**
+     * This method returns the array corresponding to an object, including non public members.
+     *
+     *
+     * @param object $obj
+     * @return array
+     * @throws \Exception
+     */
+    public static function objectToArray(object $obj)
+    {
+        $reflectionClass = new \ReflectionClass(get_class($obj));
+        $array = [];
+        foreach ($reflectionClass->getProperties() as $property) {
+            $property->setAccessible(true);
+            $array[$property->getName()] = $property->getValue($obj);
+            $property->setAccessible(false);
+        }
+        return $array;
     }
 
 

@@ -305,6 +305,62 @@ az(ArrayTool::mirrorRange(1,10));
 */
 
 ```
+
+
+objectToArray
+-------------
+2019-07-13
+
+
+```php
+array    objectToArray ( obj object )
+```
+
+
+This method returns the array corresponding to an object, including non public members.
+
+
+This example (using the service container from the light framework):
+
+```php
+<?php
+
+$user = $service->get("user_manager")->getUser();
+a($user);
+$user = ArrayTool::objectToArray($user);
+a($user);
+
+```
+
+
+displays the following output:
+
+```html
+object(Ling\Light_User\WebsiteLightUser)#157 (7) {
+  ["email":"Ling\Light_User\WebsiteLightUser":private] => string(19) "lingtalfi@gmail.com"
+  ["avatar_url":protected] => string(58) "/plugins/Light_Kit_Admin/zeroadmin/img/avatars/photo-1.jpg"
+  ["pseudo":protected] => string(4) "Ling"
+  ["connect_time":protected] => int(1562970049)
+  ["last_refresh_time":protected] => int(1562970049)
+  ["session_duration":protected] => int(500)
+  ["rights":protected] => array(0) {
+  }
+}
+
+array(7) {
+  ["email"] => string(19) "lingtalfi@gmail.com"
+  ["avatar_url"] => string(58) "/plugins/Light_Kit_Admin/zeroadmin/img/avatars/photo-1.jpg"
+  ["pseudo"] => string(4) "Ling"
+  ["connect_time"] => int(1562970049)
+  ["last_refresh_time"] => int(1562970049)
+  ["session_duration"] => int(500)
+  ["rights"] => array(0) {
+  }
+}
+
+```
+
+
      
     
 removeEntry
