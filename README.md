@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.177 -- 2019-07-17
+
+    - add ArrayTool::isNumericalArray method
+    
 - 1.176 -- 2019-07-13
 
     - add ArrayTool::objectToArray method

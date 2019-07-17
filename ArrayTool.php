@@ -164,6 +164,34 @@ class ArrayTool
 
 
     /**
+     * Returns whether the given argument is an array which first key is numerical.
+     *
+     * Note: supposedly if the first key is numerical, chances are that the whole array is numerical,
+     * depending on the array structure. This method was designed to give a quick guess, as opposed to
+     * check all the keys of the array, which might take too long depending on the array size.
+     *
+     *
+     *
+     *
+     * @param $array
+     * @param bool $emptyIsValid
+     * Whether an empty array is considered a valid numerically indexed array (default is true)
+     *
+     * @return bool
+     */
+    public static function isNumericalArray($array, $emptyIsValid = true): bool
+    {
+        if (is_array($array)) {
+            if (empty($array)) {
+                return $emptyIsValid;
+            }
+            return is_numeric(key($array));
+        }
+        return false;
+    }
+
+
+    /**
      * Return an array with keys equal to values.
      *
      * @param array $values

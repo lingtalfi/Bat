@@ -233,6 +233,36 @@ a($arr); // melanie is now after andrea...
 
 ```
 
+    
+isNumericalArray
+-------------
+2019-07-17
+
+
+```php
+void    isNumericalArray ( mixed:array, bool:emptyIsValid=true )
+```
+
+Returns whether the given argument is an array which first key is numerical.
+
+Note: supposedly if the first key is numerical, chances are that the whole array is numerical,
+depending on the array structure. This method was designed to give a quick guess, as opposed to
+check all the keys of the array, which might take too long depending on the array size.
+
+
+
+### Example
+
+```php
+<?php 
+
+$arr = ["a", "b" , "c"];
+a(ArrayTool::isNumericalArray($arr)); // true
+$arr = ["pou" => "a", "b" , "c"];
+a(ArrayTool::isNumericalArray($arr));
+
+```
+
 
 
 
