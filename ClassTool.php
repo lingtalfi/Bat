@@ -14,6 +14,8 @@ class ClassTool
 
     /**
      * Executes a php method and return the result.
+     * For convenience, developers can refer to this method call as a "smart php method call".
+     *
      *
      * The given $phpMethod must have one of the following format (or else an exception will be thrown):
      *

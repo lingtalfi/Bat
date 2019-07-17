@@ -25,6 +25,8 @@ class CaseTool
         return $str;
     }
 
+
+
     public static function snakeToCamel(string $str)
     {
         return lcfirst(self::snakeToPascal($str));
