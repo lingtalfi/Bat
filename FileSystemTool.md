@@ -153,6 +153,16 @@ string    getFileExtension ( string:file )
 Returns the extension of a file which path is given.
 The extension in this [fileName nomenclature](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md)
 
+If the file path has multiple extensions, only the last one will be returned.
+If the file path has no extension or an empty extension, the empty string will be returned.
+
+
+Examples:
+
+- /www/htdocs/inc/lib.inc.php    --> "php"
+- /path/emptyextension.          --> ""
+- /path/noextension              --> ""
+
 
 
 ```php
@@ -172,9 +182,19 @@ string    getFileName ( string:file )
 ```
 
 Returns the [file name](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md)
-of a file which path is given.
+of a file which path is given, which is the file name without the last extension.
 
 
+
+If the file path has multiple extensions, only the last one will be cut off.
+
+Examples:
+
+- /www/htdocs/inc/lib.inc.php    --> "lib.inc"
+- /path/emptyextension.          --> "emptyextension"
+- /path/noextension              --> "noextension"
+     
+     
 
 ```php
 $f = '/path/to/myfile.jpg';

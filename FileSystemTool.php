@@ -146,9 +146,22 @@ class FileSystemTool
 
     /**
      * Returns the file extension as defined here: https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md
+     *
+     * If the file path has multiple extensions, only the last one will be returned.
+     * If the file path has no extension or an empty extension, the empty string will be returned.
+     *
+     * Examples:
+     *
+     * - /www/htdocs/inc/lib.inc.php    --> "php"
+     * - /path/emptyextension.          --> ""
+     * - /path/noextension              --> ""
+     *
+     *
+     *
+     * @param string $file
      * @return string
      */
-    public static function getFileExtension($file)
+    public static function getFileExtension(string $file): string
     {
         if (is_string($file)) {
             $file = basename($file);
@@ -166,9 +179,24 @@ class FileSystemTool
 
     /**
      * Returns the file name as defined here: https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md
+     *
+     * If the file path has multiple extensions, only the last one will be cut off.
+     *
+     * Examples:
+     *
+     * - /www/htdocs/inc/lib.inc.php    --> "lib.inc"
+     * - /path/emptyextension.          --> "emptyextension"
+     * - /path/noextension              --> "noextension"
+     *
+     *
+     *
+     * @param string $file
+     *
+     * @return string
      * The file name without the last extension.
+     *
      */
-    public static function getFileName($file)
+    public static function getFileName(string $file): string
     {
         if (is_string($file)) {
             $file = basename($file);

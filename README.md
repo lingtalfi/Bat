@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.179 -- 2019-08-02
+
+    - update FileSystemTool documentation
+    
 - 1.178 -- 2019-08-02
 
     - enhance HashTool::getRandomHash64, now accepts a length parameter
