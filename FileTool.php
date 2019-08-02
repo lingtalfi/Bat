@@ -93,6 +93,19 @@ class FileTool
 
 
     /**
+     * Returns whether the given file is an image (based on the guessed mime type).
+     *
+     * @param string $filePath
+     * @return bool
+     */
+    public static function isImage(string $filePath): bool
+    {
+        $finfo = new \finfo();
+        $fileMimeType = $finfo->file($filePath, FILEINFO_MIME_TYPE);
+        return (0 === strpos($fileMimeType, "image/"));
+    }
+
+    /**
      * Prepends the given $text to the given $file and returns
      * whether the operation was successful.
      *

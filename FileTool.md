@@ -118,6 +118,20 @@ the content will be appended to the existing file, prefixed with a newline.
 
 
 
+isImage
+---------
+2019-08-02
+
+```php     
+bool  isImage ( str:filePath )
+```     
+
+Returns whether the given file is an image (based on the guessed mime type).
+
+
+
+
+
 
 
 prepend

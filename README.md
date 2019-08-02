@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.180 -- 2019-08-02
+
+    - add FileTool::isImage method
+    
 - 1.179 -- 2019-08-02
 
     - update FileSystemTool documentation
