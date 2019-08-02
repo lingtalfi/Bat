@@ -33,10 +33,10 @@ getRandomHash64
 
 
 ```php
-str    getRandomHash64 ()
+str    getRandomHash64 (int length = 64)
 ```
 
-Return a random hash of length 64.
+Return a random hash of the given length (default=64).
 
 
 

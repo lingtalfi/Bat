@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.178 -- 2019-08-02
+
+    - enhance HashTool::getRandomHash64, now accepts a length parameter
+    
 - 1.177 -- 2019-07-17
 
     - add ArrayTool::isNumericalArray method

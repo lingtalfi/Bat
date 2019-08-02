@@ -20,10 +20,10 @@ class HashTool
         return '';
     }
 
-    public static function getRandomHash64()
+    public static function getRandomHash64(int $length = 64)
     {
         if (function_exists('random_bytes')) {
-            return substr(bin2hex(random_bytes(64)), 0, 64);
+            return substr(bin2hex(random_bytes($length)), 0, $length);
         }
         return hash('sha256', uniqid() . ")" . rand(0, 80));
     }
