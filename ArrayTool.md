@@ -150,6 +150,49 @@ $input = Bat::arrayUniqueRecursive($input);
 
 ```
      
+     
+     
+filterByAllowed
+-------------
+2019-08-07     
+
+
+```php
+array    filterByAllowed ( array:arr, array:allowed)
+```
+
+Returns the "arr" array, without the entries which keys are NOT listed in "allowed".
+
+
+
+
+### Example
+
+```php
+$array = [
+    "one" => 11,
+    "two" => 22,
+    "garbage" => 123,
+];
+
+$allowed = ["one", "two"];
+
+az(ArrayTool::filterByAllowed($array, $allowed));
+```
+
+This will output:
+
+```html
+array(2) {
+  ["one"] => int(11)
+  ["two"] => int(22)
+}
+
+```  
+     
+     
+
+
 
     
 getMissingKeys

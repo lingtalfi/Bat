@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.182 -- 2019-08-07
+
+    - add ArrayTool::filterByAllowed
+    
 - 1.181 -- 2019-08-07
 
     - fix ClassTool::getAncestors not returning all ancestor interfaces when the $includeInterfaces option is true 

@@ -5,7 +5,7 @@ namespace Ling\Bat;
 
 /**
  * The ArrayTool class.
- * LingTalfi 2015-12-20
+ * LingTalfi 2015-12-20 -> 2019-08-07
  */
 class ArrayTool
 {
@@ -135,6 +135,36 @@ class ArrayTool
             }
         }
         return $result;
+    }
+
+
+    /**
+     * Returns the $array, without the entries which keys are NOT listed in $allowed.
+     *
+     * Example:
+     * ---------
+     * $array = [
+     *      "one" => 11,
+     *      "two" => 22,
+     *      "garbage" => 123,
+     * ];
+     *
+     * $allowed = ["one", "two"];
+     *
+     * az(ArrayTool::filterByAllowed($array, $allowed));
+     *
+     * - one: 11
+     * - two: 22
+     *
+     *
+     *
+     * @param array $array
+     * @param array $allowed
+     * @return array
+     */
+    public static function filterByAllowed(array $array, array $allowed): array
+    {
+        return array_intersect_key($array, array_flip($allowed));
     }
 
     /**
@@ -269,18 +299,40 @@ class ArrayTool
     }
 
     /**
-     * Return the <base> array, with values overridden by
-     * the <layer> (only if the key match).
+     * Returns the given $defaults array,
+     * with values possibly overridden by the $array.
      *
-     * @param array $layer
-     * @param array $base
+     * Example
+     * ----------
+     *
+     * $array = [
+     *      "color" => "blue",
+     *      "hobby" => "music",
+     * ];
+     *
+     * $defaults = [
+     *      "color" => "green",
+     *      "sport" => "judo",
+     *      "fruit" => "apple",
+     * ];
      *
      *
+     * a(ArrayTool::superimpose($array, $defaults));
+     *
+     * - color: blue
+     * - sport: judo
+     * - fruit: apple
+     *
+     *
+     *
+     *
+     * @param array $array
+     * @param array $defaults
      * @return array
      */
-    public static function superimpose(array $layer, array $base)
+    public static function superimpose(array $array, array $defaults)
     {
-        return array_merge($base, array_intersect_key($layer, $base));
+        return array_merge($defaults, array_intersect_key($array, $defaults));
     }
 
 
