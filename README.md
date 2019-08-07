@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.181 -- 2019-08-07
+
+    - fix ClassTool::getAncestors not returning all ancestor interfaces when the $includeInterfaces option is true 
+    
 - 1.180 -- 2019-08-02
 
     - add FileTool::isImage method

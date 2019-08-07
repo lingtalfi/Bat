@@ -129,6 +129,14 @@ class ClassTool
             $class = $parent;
         }
 
+        if (true === $includeInterfaces) {
+            $interfaces = $class->getInterfaces();
+            foreach ($interfaces as $interface) {
+                $ret[] = $interface;
+                $ret = array_merge($ret, self::getAncestors($interface));
+            }
+        }
+
         $ret = array_unique($ret);
         return $ret;
     }
