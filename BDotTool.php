@@ -13,10 +13,62 @@ namespace Ling\Bat;
 class BDotTool
 {
 
+
+
     public static function getDotValue($path, array $array, $default = null, &$found = false)
     {
         return self::doGetValue($path, $array, $default, $found);
     }
+
+
+
+    /**
+     * Returns an array containing the components of the given path.
+     *
+     * Escaped dots are returned as is by default, but this method can unescape them on the fly
+     * by setting the keepEscapedDots option to false.
+     *
+     *
+     * For instance
+     * ------------
+     *
+     * (with keepEscapedDots=true)
+     * my => [my]
+     * my.one => [my, one]
+     * my.one\.two.three => [my, one\.two, three]
+     *
+     * (with keepEscapedDots=false)
+     * my => [my]
+     * my.one => [my, one]
+     * my.one\.two.three => [my, one.two, three]
+     *
+     *
+     *
+     * @param string $path
+     * @param bool $keepEscapedDots
+     * @return array
+     */
+    public static function getPathComponents(string $path, bool $keepEscapedDots = true): array
+    {
+        if (false === strpos($path, '.')) {
+            return [$path];
+        }
+        if (false === strpos($path, '\.')) {
+            return explode(".", $path);
+        }
+        $sUnguessable = '-_|dot-unguessable|_-';
+        $path = str_replace('\.', $sUnguessable, $path);
+        $parts = explode('.', $path);
+        array_walk($parts, function (&$v) use ($sUnguessable, $keepEscapedDots) {
+            if (true === $keepEscapedDots) {
+                $v = str_replace($sUnguessable, '\.', $v);
+            } else {
+                $v = str_replace($sUnguessable, '.', $v);
+            }
+        });
+        return $parts;
+    }
+
 
 
     /**
@@ -72,7 +124,7 @@ class BDotTool
             $first = str_replace($beeDot, '.', $first);
             if (array_key_exists($first, $array)) {
                 if (count($parts) > 0) {
-                    $parts = array_map(function($v) use($beeDot){
+                    $parts = array_map(function ($v) use ($beeDot) {
                         return str_replace($beeDot, "\\.", $v);
                     }, $parts);
                     $newPath = implode('.', $parts);

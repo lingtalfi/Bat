@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.183 -- 2019-08-08
+
+    - add BDotTool::getPathComponents
+    
 - 1.182 -- 2019-08-07
 
     - add ArrayTool::filterByAllowed

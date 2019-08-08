@@ -26,6 +26,60 @@ Also positions the found flag to whether the value was actually found or not.
 
 
 
+
+    
+getPathComponents
+-------------
+2019-08-08
+
+
+```php
+array getPathComponents ( str:path, bool:keepEscapedDots=true)
+```
+
+Returns an array containing the components of the given path.
+
+Escaped dots are returned as is by default, but this method can unescape them on the fly
+by setting the keepEscapedDots option to false.
+
+
+Example:
+```php
+a(BDotTool::getPathComponents("my"));
+a(BDotTool::getPathComponents("my.one"));
+a(BDotTool::getPathComponents("my.one\.two.three"));
+a(BDotTool::getPathComponents("my.one\.two.three", false));
+
+```
+
+Will output:
+
+```html
+array(1) {
+  [0] => string(2) "my"
+}
+
+array(2) {
+  [0] => string(2) "my"
+  [1] => string(3) "one"
+}
+
+array(3) {
+  [0] => string(2) "my"
+  [1] => string(8) "one\.two"
+  [2] => string(5) "three"
+}
+
+array(3) {
+  [0] => string(2) "my"
+  [1] => string(7) "one.two"
+  [2] => string(5) "three"
+}
+```
+
+
+
+
     
 hasDotValue
 -------------
