@@ -167,6 +167,36 @@ class ArrayTool
         return array_intersect_key($array, array_flip($allowed));
     }
 
+
+    /**
+     * Filters the elements of an array recursively, using a given callable.
+     *
+     * The callable function must return a boolean (whether to accept the value or remove it).
+     *
+     * See the examples from the doc for more details.
+     *
+     *
+     * @param array $array
+     * @param callable $callback
+     * @return array
+     */
+    public static function filterRecursive(array $array, callable $callback): array
+    {
+        foreach ($array as $k => $v) {
+            $res = call_user_func($callback, $v);
+            if (false === $res) {
+                unset($array[$k]);
+            } else {
+                if (is_array($v)) {
+                    $array[$k] = self::filterRecursive($v, $callback);
+                }
+            }
+        }
+
+        return $array;
+    }
+
+
     /**
      * Check that all given $keys exist (as keys) in the given $arr.
      * If not, returns the missing keys.

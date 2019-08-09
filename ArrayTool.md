@@ -191,6 +191,105 @@ array(2) {
 ```  
      
      
+     
+     
+     
+filterRecursive
+-------------
+2019-08-09
+
+
+```php
+array    filterByAllowed ( array:arr, callable:callback)
+```
+
+Filters the elements of an array recursively, using a given callable.
+
+The callable function must return a boolean (whether to accept the value or remove it).
+
+
+
+### Example
+
+```php
+$arr = [
+    [
+        "id" => "one",
+        "children" => [],
+    ],
+    [
+        "id" => "two",
+        "children" => [
+            [
+                "id" => "three",
+                "children" => [],
+            ],
+        ],
+    ],
+
+];
+$a = ArrayTool::filterRecursive($arr, function () {
+    return true;
+});
+$b = ArrayTool::filterRecursive($arr, function () {
+    return false;
+});
+$c = ArrayTool::filterRecursive($arr, function ($value) {
+    if (
+        is_array($value) &&
+        array_key_exists("id", $value) &&
+        "three" === $value["id"]
+    ) {
+        return false;
+    }
+    return true;
+});
+
+
+a($a, $b, $c);
+```
+
+This will output:
+
+```html
+array(2) {
+  [0] => array(2) {
+    ["id"] => string(3) "one"
+    ["children"] => array(0) {
+    }
+  }
+  [1] => array(2) {
+    ["id"] => string(3) "two"
+    ["children"] => array(1) {
+      [0] => array(2) {
+        ["id"] => string(5) "three"
+        ["children"] => array(0) {
+        }
+      }
+    }
+  }
+}
+
+array(0) {
+}
+
+array(2) {
+  [0] => array(2) {
+    ["id"] => string(3) "one"
+    ["children"] => array(0) {
+    }
+  }
+  [1] => array(2) {
+    ["id"] => string(3) "two"
+    ["children"] => array(0) {
+    }
+  }
+}
+
+
+```  
+     
+     
 
 
 

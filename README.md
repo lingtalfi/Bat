@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.186 -- 2019-08-09
+
+    - add ArrayTool::filterRecursive
+    
 - 1.185 -- 2019-08-09
 
     - update ArrayTool::updateNodeRecursive documentation
