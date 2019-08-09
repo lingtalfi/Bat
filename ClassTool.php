@@ -33,7 +33,10 @@ class ClassTool
      *
      * - $class: the full class name (example: Ling\Bat)
      * - $method: the name of the method to execute
-     * - $args: a list of arguments written with smartCode notation (see SmartCodeTool class for more details)
+     * - $args: a list of arguments written with smartCode notation (see SmartCodeTool class for more details).
+     *              Note: we can use regular php notation as it's a subset of the smartCode notation.
+     *
+     * See the [examples here](https://github.com/lingtalfi/Bat/blob/master/ClassTool.md#executephpmethod-aka-smart-php-method-call)
      *
      *
      *
@@ -58,7 +61,7 @@ class ClassTool
             $method = $match['method'];
             $args = [];
             if (array_key_exists('args', $match)) {
-                $args = [SmartCodeTool::parse(substr($match['args'], 1, -1))];
+                $args = SmartCodeTool::parse("[" . substr($match['args'], 1, -1) . ']');
             }
 
             $ret = null;

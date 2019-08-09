@@ -36,10 +36,10 @@ With:
 
 - $class: the full class name (example: Ling\Bat)
 - $method: the name of the method to execute
-- $args: a list of arguments written with smartcode notation (see SmartCodeTool class for more details)
+- $args: a list of arguments written with smartcode notation (see SmartCodeTool class for more details).
+            Note: we can write arguments in php style, as the php argument notation is a subset of the smartcode notation.
 
-
-     
+    
      
 
 Example:
@@ -55,52 +55,63 @@ class A
         return "hello";
     }
 
-    public function returnArgs($args)
+    public function returnArgs()
     {
-        return $args;
+
+        return func_get_args();
     }
 }
 
-
-a(ClassTool::executePhpMethod("Ling\Bat\StringTool::camelCase2Constant('AtariPlayer')"));
-a(ClassTool::executePhpMethod("Ling\Bat\StringTool::camelCase2Constant(AtariPlayer)"));
-a(ClassTool::executePhpMethod("A->hello)"));
+a(ClassTool::executePhpMethod("A->hello"));
+a(ClassTool::executePhpMethod("A->hello()"));
 a(ClassTool::executePhpMethod("A->returnArgs(foo)"));
-a(ClassTool::executePhpMethod("A->returnArgs([foo])"));
-a(ClassTool::executePhpMethod("A->returnArgs({orange: road, maurice: vert})"));
-a(ClassTool::executePhpMethod("A->returnArgs({orange: road, maurice: [1,2,3]})"));
+a(ClassTool::executePhpMethod("A->returnArgs(one, apple)"));
+a(ClassTool::executePhpMethod("A->returnArgs([one, two], apple)"));
+a(ClassTool::executePhpMethod("Ling\Bat\StringTool::camelCase2Constant('AtariPlayer')"));
+a(ClassTool::executePhpMethod("A->returnArgs({orange: road, maurice: [1,2,3]}, 456)"));
+
+
+
 ```
 
 Will output:
 
 ```html
-string(12) "ATARI_PLAYER"
-
-string(12) "ATARI_PLAYER"
-
 string(5) "hello"
 
-string(3) "foo"
+string(5) "hello"
 
 array(1) {
   [0] => string(3) "foo"
 }
 
 array(2) {
-  ["orange"] => string(4) "road"
-  ["maurice"] => string(4) "vert"
+  [0] => string(3) "one"
+  [1] => string(5) "apple"
 }
 
 array(2) {
-  ["orange"] => string(4) "road"
-  ["maurice"] => array(3) {
-    [0] => int(1)
-    [1] => int(2)
-    [2] => int(3)
+  [0] => array(2) {
+    [0] => string(3) "one"
+    [1] => string(3) "two"
   }
+  [1] => string(5) "apple"
 }
 
-string(3) "end"
+string(12) "ATARI_PLAYER"
+
+array(2) {
+  [0] => array(2) {
+    ["orange"] => string(4) "road"
+    ["maurice"] => array(3) {
+      [0] => int(1)
+      [1] => int(2)
+      [2] => int(3)
+    }
+  }
+  [1] => int(456)
+}
+
 
 
 ```

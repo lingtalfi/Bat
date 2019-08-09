@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.184 -- 2019-08-09
+
+    - fix ClassTool::executePhpMethod not working correctly with multiple arguments in php style
+    
 - 1.183 -- 2019-08-08
 
     - add BDotTool::getPathComponents
