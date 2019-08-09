@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.185 -- 2019-08-09
+
+    - update ArrayTool::updateNodeRecursive documentation
+    
 - 1.184 -- 2019-08-09
 
     - fix ClassTool::executePhpMethod not working correctly with multiple arguments in php style

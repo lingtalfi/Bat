@@ -337,6 +337,30 @@ class ArrayTool
 
 
     /**
+     * Updates an array recursively, like (php) array_walk_recursive, but adapted for nested item structures.
+     *
+     * A nested item structure looks like this for instance:
+     *
+     * -
+     *      id: one
+     *      label: One
+     *      children: []
+     * -
+     *      id: two
+     *      label: Two
+     *      children:
+     *          -
+     *               id: three
+     *               label: Three
+     *               children: []
+     *
+     *
+     *
+     *
+     *
+     *
+     *
+     *
      * @param array $arr
      * @param callable $callback
      * @param array $options

@@ -531,13 +531,34 @@ updateNodeRecursive
 array    updateNodeRecursive (array &$arr, callable $callback, array $options = [])
 ```
 
-Update the structure of a node collection recursively.
+
+Updates an array recursively, like (php) array_walk_recursive, but adapted for nested item structures.
+
+A nested item structure looks like this for instance:
+
+-
+     id: one
+     label: One
+     children: []
+-
+     id: two
+     label: Two
+     children:
+         -
+              id: three
+              label: Three
+              children: []
+
+
+
 Children nodes must be referenced directly in the nodes using the "children" key by default.
 
 
 Options:
 - childrenKey: string=children, the name of the key used to reference the children of a node
-
+     
+     
+     
 
 
 ### Example
