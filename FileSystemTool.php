@@ -220,6 +220,18 @@ class FileSystemTool
     }
 
 
+    /**
+     * Returns the relative path (without the leading slash) from the given $rootDir to the given $absolutePath,
+     * only if the $absolutePath file is located UNDER the rootDir.
+     *
+     * If not, this method returns false.
+     *
+     *
+     *
+     * @param string $absolutePath
+     * @param string $rootDir
+     * @return string|false
+     */
     public static function getRelativePath(string $absolutePath, string $rootDir)
     {
         $absolutePath = realpath($absolutePath);

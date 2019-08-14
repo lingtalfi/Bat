@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.191 -- 2019-08-14
+
+    - fix RandomTool::pickRandomFromArray not accepting nbRequests=0
+    
 - 1.190 -- 2019-08-14
 
     - add RandomTool::pickRandomFile method

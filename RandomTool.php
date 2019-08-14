@@ -3,7 +3,6 @@
 namespace Ling\Bat;
 
 
-use Ling\Bat\Exception\BatException;
 use Ling\DirScanner\YorgDirScannerTool;
 
 /**
@@ -104,7 +103,6 @@ EEE;
      * @param int $nbRequests
      * @param bool $pickOnce
      * @return mixed
-     * @throws BatException
      */
     public static function pickRandomFromArray(array $array, int $nbRequests = null, bool $pickOnce = true)
     {
@@ -112,7 +110,7 @@ EEE;
             return $array[array_rand($array)];
         } else {
             if ($nbRequests < 1) {
-                throw new BatException("The number of requests must be greater than 0 ($nbRequests given).");
+                return [];
             }
             $ret = [];
             for ($i = 1; $i <= $nbRequests; $i++) {
