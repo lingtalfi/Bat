@@ -66,6 +66,26 @@ az(RandomTool::getRandomColor()); // #f1aa56
 
 
 
+pickRandomFromArray
+------------
+2019-08-14
+     
+     
+```php     
+mixed        pickRandomFromArray( arr:array )     
+```     
+     
+Returns a random element from the given array.
+
+
+```php
+$arr = ["one", "two", "three"];
+a(RandomTool::pickRandomFromArray($arr)); // two
+```
+
+
+
+
 randomBool
 ------------
 2019-08-14

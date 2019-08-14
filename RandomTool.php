@@ -66,6 +66,17 @@ EEE;
 
 
     /**
+     * Returns a random element from the given array.
+     *
+     * @param array $array
+     * @return mixed
+     */
+    public static function pickRandomFromArray(array $array)
+    {
+        return $array[array_rand($array)];
+    }
+
+    /**
      * Returns a random boolean.
      * If the $probabilityOfTrue is given, it's the probability expressed in percentage (i.e. an int between 0 and 100)
      * that this method will return true (i.e. 100 will always return true, and 0 will always return false).

@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.188 -- 2019-08-14
+
+    - add RandomTool::pickRandomFromArray
+    
 - 1.187 -- 2019-08-14
 
     - add RandomTool::randomBool
