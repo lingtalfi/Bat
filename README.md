@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.187 -- 2019-08-14
+
+    - add RandomTool::randomBool
+    
 - 1.186 -- 2019-08-09
 
     - add ArrayTool::filterRecursive

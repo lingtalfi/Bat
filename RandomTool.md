@@ -64,3 +64,25 @@ Return a randomly generated hex color, with the hash symbol prefix.
 az(RandomTool::getRandomColor()); // #f1aa56
 ```
 
+
+
+randomBool
+------------
+2019-08-14
+     
+     
+```php     
+bool        randomBool( int:probabilityOfTrue = 50 )     
+```     
+     
+Returns a random boolean.
+
+If the $probabilityOfTrue is given, it's the probability expressed in percentage (i.e. an int between 0 and 100)
+
+that this method will return true (i.e. 100 will always return true, and 0 will always return false).
+
+
+```php
+az(RandomTool::randomBool()); // true
+```
+

@@ -64,4 +64,20 @@ EEE;
         return '#' . substr(md5(rand()), 0, 6);
     }
 
+
+    /**
+     * Returns a random boolean.
+     * If the $probabilityOfTrue is given, it's the probability expressed in percentage (i.e. an int between 0 and 100)
+     * that this method will return true (i.e. 100 will always return true, and 0 will always return false).
+     *
+     *
+     * @param int $probabilityOfTrue
+     * @return bool
+     */
+    public static function randomBool(int $probabilityOfTrue = 50): bool
+    {
+        $probabilityOfTrue--;
+        return ($probabilityOfTrue >= rand(0, 99));
+    }
+
 }
