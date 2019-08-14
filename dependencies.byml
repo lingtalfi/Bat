@@ -3,9 +3,9 @@ dependencies:
         - ArrayToString
         - BeeFramework
         - CopyDir
+        - DirScanner
         - BabyYaml
         - Tiphaine
-        - DirScanner
     
 
 post_install: []

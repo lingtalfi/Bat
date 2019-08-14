@@ -4,6 +4,7 @@ namespace Ling\Bat;
 
 
 use Ling\Bat\Exception\BatException;
+use Ling\DirScanner\YorgDirScannerTool;
 
 /**
  * The RandomTool class.
@@ -66,6 +67,28 @@ EEE;
         return '#' . substr(md5(rand()), 0, 6);
     }
 
+
+    /**
+     * Picks a random file from the given $dir and returns its path.
+     * If extension is provided, it can be either a string or an array of extensions (without the leading dot),
+     * and defines which extension(s) to look for.
+     *
+     * By default, this method doesn't look into subdirectories, but we can change this with the recursive flag
+     * set to true.
+     *
+     *
+     *
+     * @param string $dir
+     * @param null $extension
+     * @param bool $recursive
+     * @return string
+     * @throws \Exception
+     */
+    public static function pickRandomFile(string $dir, $extension = null, bool $recursive = false): string
+    {
+        $files = YorgDirScannerTool::getFilesWithExtension($dir, $extension, false, $recursive);
+        return self::pickRandomFromArray($files);
+    }
 
     /**
      * Returns a random element from the given array,

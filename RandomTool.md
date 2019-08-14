@@ -65,6 +65,30 @@ az(RandomTool::getRandomColor()); // #f1aa56
 ```
 
 
+pickRandomFile
+------------
+2018-08-14
+     
+     
+```php     
+str        pickRandomFile( str:dir, mixed:extension=null, bool:recursive=false )     
+```     
+     
+Picks a random file from the given $dir and returns its path.
+If extension is provided, it can be either a string or an array of extensions (without the leading dot),
+and defines which extension(s) to look for.
+
+By default, this method doesn't look into subdirectories, but we can change this with the recursive flag
+set to true.     
+
+
+
+```php
+$dir = "/mysite/www/plugins/Light_Kit_Admin/img/avatars";
+a(RandomTool::pickRandomFile($dir)); // string(117) "/mysite/www/plugins/Light_Kit_Admin/img/avatars/user_avatar.png"
+```
+
+
 
 pickRandomFromArray
 ------------
@@ -121,6 +145,9 @@ array(5) {
   [4] => string(3) "one"
 }
 ```
+
+
+
 
 
 
