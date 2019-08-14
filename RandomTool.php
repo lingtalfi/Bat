@@ -3,6 +3,8 @@
 namespace Ling\Bat;
 
 
+use Ling\Bat\Exception\BatException;
+
 /**
  * The RandomTool class.
  */
@@ -66,14 +68,43 @@ EEE;
 
 
     /**
-     * Returns a random element from the given array.
+     * Returns a random element from the given array,
+     * or multiple randomly chosen elements if the $nbRequests parameter is provided.
+     *
+     * By default, an element can be picked only once.
+     * But we can set the pickOnce flag to false to allow the same item to picked up multiple times.
+     *
+     * See the examples from the documentation for more details.
+     *
      *
      * @param array $array
+     * @param int $nbRequests
+     * @param bool $pickOnce
      * @return mixed
+     * @throws BatException
      */
-    public static function pickRandomFromArray(array $array)
+    public static function pickRandomFromArray(array $array, int $nbRequests = null, bool $pickOnce = true)
     {
-        return $array[array_rand($array)];
+        if (null === $nbRequests) {
+            return $array[array_rand($array)];
+        } else {
+            if ($nbRequests < 1) {
+                throw new BatException("The number of requests must be greater than 0 ($nbRequests given).");
+            }
+            $ret = [];
+            for ($i = 1; $i <= $nbRequests; $i++) {
+                if ($array) {
+                    $key = array_rand($array);
+                    $ret[] = $array[$key];
+                    if (true === $pickOnce) {
+                        unset($array[$key]);
+                    }
+                } else {
+                    break;
+                }
+            }
+            return $ret;
+        }
     }
 
     /**

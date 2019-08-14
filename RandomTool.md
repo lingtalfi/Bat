@@ -72,15 +72,54 @@ pickRandomFromArray
      
      
 ```php     
-mixed        pickRandomFromArray( arr:array )     
+mixed        pickRandomFromArray( arr:array, int:nbRequests=null, bool:pickOnce=true )     
 ```     
      
-Returns a random element from the given array.
+Returns a random element from the given array,
+or multiple randomly chosen elements if the $nbRequests parameter is provided.
 
+By default, an element can be picked only once.
+But we can set the pickOnce flag to false to allow the same item to picked up multiple times.
+
+
+### Example
+
+The following code: 
 
 ```php
 $arr = ["one", "two", "three"];
-a(RandomTool::pickRandomFromArray($arr)); // two
+
+a(RandomTool::pickRandomFromArray($arr));
+a(RandomTool::pickRandomFromArray($arr, 2));
+a(RandomTool::pickRandomFromArray($arr, 5));
+a(RandomTool::pickRandomFromArray($arr, 5, false));
+
+```
+
+
+This will output something like this:
+
+```html
+string(3) "two"
+
+array(2) {
+  [0] => string(5) "three"
+  [1] => string(3) "one"
+}
+
+array(3) {
+  [0] => string(3) "one"
+  [1] => string(5) "three"
+  [2] => string(3) "two"
+}
+
+array(5) {
+  [0] => string(3) "two"
+  [1] => string(5) "three"
+  [2] => string(5) "three"
+  [3] => string(3) "one"
+  [4] => string(3) "one"
+}
 ```
 
 

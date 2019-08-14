@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.189 -- 2019-08-14
+
+    - add RandomTool::pickRandomFromArray's nbRequests and pickOnce arguments
+    
 - 1.188 -- 2019-08-14
 
     - add RandomTool::pickRandomFromArray
