@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.192 -- 2019-08-27
+
+    - add StringTool::incrementNumericalSuffix
+    
 - 1.191 -- 2019-08-14
 
     - fix RandomTool::pickRandomFromArray not accepting nbRequests=0

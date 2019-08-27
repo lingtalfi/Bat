@@ -87,6 +87,53 @@ class StringTool
 
 
     /**
+     * Stolen from OrmToolsHelper (OrmTools planet)
+     */
+    public static function getPlural($word)
+    {
+
+        /**
+         * http://www.ef.com/english-resources/english-grammar/singular-and-plural-nouns/
+         */
+
+        if (array_key_exists($word, self::$irregular)) {
+            return self::$irregular[$word];
+        }
+
+        $lastLetter = substr($word, -1);
+        switch ($lastLetter) {
+            case "y":
+                $word = substr($word, 0, -1) . 'ies';
+                break;
+            case "s":
+            case "x":
+            case "z":
+                $word .= 'es';
+                break;
+            default:
+                $lastTwoLetters = substr($word, -2);
+                switch ($lastTwoLetters) {
+                    case "ch":
+                    case "sh":
+                        $word .= 'es';
+                        break;
+                    default:
+                        $word .= "s";
+                        break;
+                }
+                break;
+        }
+
+        return $word;
+    }
+
+
+    public static function getUniqueCssId($prefix = "a")
+    {
+        return $prefix . md5(uniqid($prefix, true));
+    }
+
+    /**
      * Returns an html attributes string based on the given array.
      * Support arguments with just value, like checked for example.
      *
@@ -140,50 +187,45 @@ class StringTool
 
 
     /**
-     * Stolen from OrmToolsHelper (OrmTools planet)
+     * Returns a string based on the proposition, which is not found in the given pool.
+     * The returned string has the following format:
+     *
+     * - {baseString} {separator} {numericalValue}
+     *
+     * We can search against the keys of the pool (useKey=true), or against the values of the pool (useKey=false).
+     *
+     * The baseString shouldn't contain the separator, otherwise results are unpredictable.
+     *
+     * See examples in the documentation.
+     *
+     *
+     *
+     * @param string $proposition
+     * @param array $pool
+     * @param string $separator
+     * @param bool $useKey
+     * @return string
      */
-    public static function getPlural($word)
+    public static function incrementNumericalSuffix(string $proposition, array $pool, $useKey = false, $separator = "__"): string
     {
+        $function = (false === $useKey) ? 'in_array' : 'array_key_exists';
 
-        /**
-         * http://www.ef.com/english-resources/english-grammar/singular-and-plural-nouns/
-         */
+        if (true === $function($proposition, $pool)) {
+            // make sure proposition has the baseString-separator-numericalValue format
+            $p = explode($separator, $proposition, 2);
+            if (1 === count($p)) {
+                $proposition .= $separator . "1";
+            }
 
-        if (array_key_exists($word, self::$irregular)) {
-            return self::$irregular[$word];
+            while (true === $function($proposition, $pool)) {
+                $p = explode($separator, $proposition, 2);
+                $num = (int)$p[1];
+                $num++;
+                $proposition = $p[0] . $separator . $num;
+            }
         }
 
-        $lastLetter = substr($word, -1);
-        switch ($lastLetter) {
-            case "y":
-                $word = substr($word, 0, -1) . 'ies';
-                break;
-            case "s":
-            case "x":
-            case "z":
-                $word .= 'es';
-                break;
-            default:
-                $lastTwoLetters = substr($word, -2);
-                switch ($lastTwoLetters) {
-                    case "ch":
-                    case "sh":
-                        $word .= 'es';
-                        break;
-                    default:
-                        $word .= "s";
-                        break;
-                }
-                break;
-        }
-
-        return $word;
-    }
-
-
-    public static function getUniqueCssId($prefix = "a")
-    {
-        return $prefix . md5(uniqid($prefix, true));
+        return $proposition;
     }
 
 

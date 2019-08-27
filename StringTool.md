@@ -179,6 +179,67 @@ a(StringTool::humanizeFileName($f, true)); // Easy menu configuration file
 
 
 
+incrementNumericalSuffix
+-----------
+2019-08-27
+
+
+
+```php
+str    incrementNumericalSuffix ( str:proposition, array:pool, bool:useKey=false, str:separator=__ )
+```
+
+
+Returns a string based on the proposition, which is not found in the given pool.
+The returned string has the following format:
+
+- {baseString} {separator} {numericalValue}
+
+We can search against the keys of the pool (useKey=true), or against the values of the pool (useKey=false).
+
+The baseString shouldn't contain the separator, otherwise results are unpredictable.
+
+
+Example of use:
+
+
+The following code:
+
+```php
+
+
+$str = "my_value";
+$pool = [
+    "my_value",
+    "my_value__1",
+    "my_value__2",
+];
+
+a(StringTool::incrementNumericalSuffix($str, $pool, false));
+
+
+$str = "my_value";
+$pool = [
+    "my_value" => 66,
+    "my_value__1" => 66,
+    "my_value__2" => 66,
+];
+
+az(StringTool::incrementNumericalSuffix($str, $pool, true));
+```
+
+Will output:
+
+```html
+string(11) "my_value__3"
+
+string(11) "my_value__3"
+
+
+```
+
+
+
 indent
 -----------
 2019-02-15
