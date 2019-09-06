@@ -10,6 +10,10 @@ class UriTool
 {
     /**
      * Appends parameters to a base uri, and in the form of a query string (starting with a question mark).
+     *
+     *
+     * 2019-09-05 update: not sure why I didn't used http_build_query instead. Maybe it's the same, maybe it's not.
+     * I'll now probably use http_build_query instead.
      */
     public static function appendQueryString($baseUri, array $parameters = [])
     {

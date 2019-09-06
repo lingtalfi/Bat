@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.193 -- 2019-09-06
+
+    - add ArrayTool::walkRowsRecursive
+    
 - 1.192 -- 2019-08-27
 
     - add StringTool::incrementNumericalSuffix

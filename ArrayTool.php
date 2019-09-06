@@ -430,4 +430,43 @@ class ArrayTool
         }
     }
 
+
+    /**
+     * Walks the given rows recursively, triggering the given callback on each row.
+     *
+     * A row is an array.
+     * Generally all rows have the same structure.
+     * A row can contain other rows, in which case it's a parent row.
+     * The parent row holds its children using a **children** key, which defaults to **children** (third argument).
+     *
+     *
+     * The callable receives the row as its only argument.
+     *
+     * By default, the callable is called for every row, including the parent rows.
+     * If you want to trigger the callable only on leaves (rows with no children), you can set
+     * the $triggerCallableOnParents flag to false.
+     *
+     *
+     * @param array $arr
+     * @param callable $callback
+     * @param string $childrenKey =children
+     * @param bool $triggerCallableOnParents =true
+     */
+    public static function walkRowsRecursive(array $arr, callable $callback, string $childrenKey = "children", bool $triggerCallableOnParents = true): void
+    {
+        foreach ($arr as $k => $v) {
+            $isParent = array_key_exists($childrenKey, $v) && $v[$childrenKey];
+
+            if (false === $isParent || true === $triggerCallableOnParents) {
+                call_user_func($callback, $v);
+            }
+
+            if (true === $isParent) {
+                $children = $v[$childrenKey];
+                self::walkRowsRecursive($children, $callback, $childrenKey);
+                $v[$childrenKey] = $children;
+            }
+        }
+    }
+
 }

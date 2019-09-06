@@ -684,3 +684,156 @@ ArrayTool::updateNodeRecursive($ret, function (array &$row) use ($linkFmt) {
      
      
 
+
+
+
+
+walkRowsRecursive
+--------------
+2019-09-06
+     
+
+```php
+void    walkRowsRecursive (array $arr, callable $callback, $childrenKey=children, bool $triggerCallableOnParents = true )
+```
+
+Walks the given rows recursively, triggering the given callback on each row.
+
+A row is an array.
+Generally all rows have the same structure.
+A row can contain other rows, in which case it's a parent row.
+The parent row holds its children using a **children** key, which defaults to **children** (third argument).
+
+
+The callable receives the row as its only argument.
+
+By default, the callable is called for every row, including the parent rows.
+If you want to trigger the callable only on leaves (rows with no children), you can set
+the $triggerCallableOnParents flag to false.
+
+
+
+### Example #1: collecting all items
+
+
+The following code:
+```php
+<?php
+
+$groups = [
+    [
+        'action_id' => 'Light_Realist-delete_rows',
+        'text' => 'Delete',
+        'icon' => 'far fa-trash-alt'
+    ],
+    [
+        'text' => 'Share',
+        'icon' => 'fas fa-share-square',
+        'items' => [
+            [
+                'action_id' => 'Light_Realist-rows_to_csv',
+                'icon' => 'far fa-envelope',
+                'text' => 'Csv',
+            ],
+        ],
+    ],
+];
+
+
+
+$all = [];
+ArrayTool::walkRowsRecursive($groups, function (array $item) use (&$all) {
+    $all[] = $item;
+}, 'items');
+
+az($all);
+```     
+     
+Will output:
+
+```html
+array(3) {
+  [0] => array(3) {
+    ["action_id"] => string(25) "Light_Realist-delete_rows"
+    ["text"] => string(6) "Delete"
+    ["icon"] => string(16) "far fa-trash-alt"
+  }
+  [1] => array(3) {
+    ["text"] => string(5) "Share"
+    ["icon"] => string(19) "fas fa-share-square"
+    ["items"] => array(1) {
+      [0] => array(3) {
+        ["action_id"] => string(25) "Light_Realist-rows_to_csv"
+        ["icon"] => string(15) "far fa-envelope"
+        ["text"] => string(3) "Csv"
+      }
+    }
+  }
+  [2] => array(3) {
+    ["action_id"] => string(25) "Light_Realist-rows_to_csv"
+    ["icon"] => string(15) "far fa-envelope"
+    ["text"] => string(3) "Csv"
+  }
+}
+
+
+```
+     
+
+
+### Example #2: collecting children only
+
+The following code:
+
+```php
+
+
+$groups = [
+    [
+        'action_id' => 'Light_Realist-delete_rows',
+        'text' => 'Delete',
+        'icon' => 'far fa-trash-alt'
+    ],
+    [
+        'text' => 'Share',
+        'icon' => 'fas fa-share-square',
+        'items' => [
+            [
+                'action_id' => 'Light_Realist-rows_to_csv',
+                'icon' => 'far fa-envelope',
+                'text' => 'Csv',
+            ],
+        ],
+    ],
+];
+
+
+
+$children = [];
+ArrayTool::walkRowsRecursive($groups, function (array $item) use (&$children) {
+    $children[] = $item;
+}, 'items', false);
+
+az($children);
+
+```
+
+
+Will output:
+
+```html
+
+array(2) {
+  [0] => array(3) {
+    ["action_id"] => string(25) "Light_Realist-delete_rows"
+    ["text"] => string(6) "Delete"
+    ["icon"] => string(16) "far fa-trash-alt"
+  }
+  [1] => array(3) {
+    ["action_id"] => string(25) "Light_Realist-rows_to_csv"
+    ["icon"] => string(15) "far fa-envelope"
+    ["text"] => string(3) "Csv"
+  }
+}
+
+```
