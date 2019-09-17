@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.194 -- 2019-09-17
+
+    - add ArrayTool::reduce
+    
 - 1.193 -- 2019-09-06
 
     - add ArrayTool::walkRowsRecursive

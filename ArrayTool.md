@@ -535,6 +535,52 @@ array(7) {
 
      
     
+reduce
+-------------
+2019-09-17
+
+
+```php
+array reduce ( array:rows, string:column)
+```
+
+Returns a one dimensional numerically indexed array,
+which values are the row[column] values.
+
+
+### Example
+
+The following code:
+
+```php
+<?php
+
+$rows = [
+    [
+        "id" => 1,
+        "name" => "paul",
+    ],
+    [
+        "id" => 2,
+        "name" => "mike",
+    ],
+];
+az(ArrayTool::reduce($rows, "name"));
+
+```
+     
+Will produce this output:
+
+```html
+array(2) {
+  [0] => string(4) "paul"
+  [1] => string(4) "mike"
+}
+
+```     
+     
+     
+    
 removeEntry
 -------------
 2018-02-16

@@ -5,7 +5,7 @@ namespace Ling\Bat;
 
 /**
  * The ArrayTool class.
- * LingTalfi 2015-12-20 -> 2019-08-07
+ * LingTalfi 2015-12-20 -> 2019-09-17
  */
 class ArrayTool
 {
@@ -224,6 +224,24 @@ class ArrayTool
 
 
     /**
+     * Insert the given row into the rows;
+     *
+     *
+     * @param $index
+     * @param array $entry
+     * @param array $rows , an array with numerical keys, each value being an array.
+     */
+    public static function insertRowAfter(int $index, array $row, array &$rows)
+    {
+        $zeIndex = $index + 1;
+        $start = array_slice($rows, 0, $zeIndex);
+        $end = array_slice($rows, $zeIndex);
+        $entryWrapped = [$row];
+        $rows = array_merge($start, $entryWrapped, $end);
+
+    }
+
+    /**
      * Returns whether the given argument is an array which first key is numerical.
      *
      * Note: supposedly if the first key is numerical, chances are that the whole array is numerical,
@@ -311,22 +329,26 @@ class ArrayTool
 
 
     /**
-     * Insert the given row into the rows;
+     * Returns a one dimensional numerically indexed array,
+     * which values are the row[column] values.
+     *
+     * Note: we trust that the user provides consistent rows
+     * (i.e. we don't loose time with checking the data).
      *
      *
-     * @param $index
-     * @param array $entry
-     * @param array $rows , an array with numerical keys, each value being an array.
+     * @param array $rows
+     * @param string $column
+     * @return array
      */
-    public static function insertRowAfter(int $index, array $row, array &$rows)
+    public static function reduce(array $rows, string $column): array
     {
-        $zeIndex = $index + 1;
-        $start = array_slice($rows, 0, $zeIndex);
-        $end = array_slice($rows, $zeIndex);
-        $entryWrapped = [$row];
-        $rows = array_merge($start, $entryWrapped, $end);
-
+        $ret = [];
+        foreach ($rows as $row) {
+            $ret[] = $row[$column];
+        }
+        return $ret;
     }
+
 
     /**
      * Returns the given $defaults array,
