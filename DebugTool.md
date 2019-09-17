@@ -53,6 +53,57 @@ $dump = DebugTool::dumpVar($thing);
 
 
 
+dumpX
+-------------
+2019-09-17
+
+
+```php
+void dumpX ( ...args )
+```
+
+Prints a dump for every arguments passed to it.
+Objects are printed as class name to avoid too long to read dumps.
+
+Note: this method should be used in a web environment (i.e. no cli implementation yet).
+
+
+### Example:
+```php
+
+DebugTool::dumpX($installItems, "iii", true, 987, $light);
+
+```
+
+
+Will output something like this:
+
+```html
+
+Array (2)
+(
+|    ['0'] => Array (2)
+|    (
+|    |    ['0'] = Object( Ling\Light_Kit_Admin\Service\LightKitAdminService )
+|    |    ['1'] = String(18) "Light_UserDatabase"
+|    )
+|    ['1'] => Array (2)
+|    (
+|    |    ['0'] = Object( Ling\Light_UserDatabase\MysqlLightWebsiteUserDatabase )
+|    |    ['1'] = NULL(0) NULL
+|    )
+)
+= String(3) "iii"
+= Boolean(1) TRUE
+= Integer(3) 987
+= Object( Ling\Light\Core\Light )
+```
+
+
+
+
+
+
 getArrayPartial
 -------------
 2018-05-24

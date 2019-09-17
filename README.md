@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.195 -- 2019-09-17
+
+    - add DebugTool::dumpX
+    
 - 1.194 -- 2019-09-17
 
     - add ArrayTool::reduce
