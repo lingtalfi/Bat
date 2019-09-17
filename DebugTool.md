@@ -62,7 +62,7 @@ dumpX
 void dumpX ( ...args )
 ```
 
-Prints a dump for every arguments passed to it.
+Prints a dump for every arguments passed to it, and exits.
 Objects are printed as class name to avoid too long to read dumps.
 
 Note: this method should be used in a web environment (i.e. no cli implementation yet).
