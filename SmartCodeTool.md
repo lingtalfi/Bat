@@ -66,3 +66,26 @@ array(3) {
 }
 
 ```
+
+
+
+parseArguments
+-----------
+2019-09-18
+
+
+Parses the given $expr as if it was the arguments of a function, and returns the resulting array.
+
+
+
+```php
+array parseArguments (str:expression)
+```
+
+So for instance, the string: "a, b, c"
+
+Would return the array:
+- 0: a
+- 1: b
+- 2: c
+

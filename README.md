@@ -84,6 +84,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.196 -- 2019-09-18
+
+    - add SmartCodeTool::parseArguments
+    
 - 1.195 -- 2019-09-17
 
     - add DebugTool::dumpX

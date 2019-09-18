@@ -39,4 +39,28 @@ class SmartCodeTool
         $var = BabyYamlUtil::readBabyYamlString('root: ' . $expr);
         return $var['root'];
     }
+
+
+    /**
+     * Parses the given $expr as if it was the arguments of a function, and returns the resulting array.
+     *
+     * So for instance, the string:
+     *
+     * - a, b, c
+     *
+     * Would return the array:
+     *
+     * - 0: a
+     * - 1: b
+     * - 2: c
+     *
+     *
+     * @param string $expr
+     * @return array
+     * @throws ParseErrorException
+     */
+    public static function parseArguments(string $expr): array
+    {
+        return self::parse('[' . $expr . ']');
+    }
 }
