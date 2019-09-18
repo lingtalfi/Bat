@@ -297,6 +297,20 @@ string(539) "
 
 
 
+isStringable
+-----------
+2019-09-18
+
+
+```php
+bool    isStringable ( mixed:value )
+```
+
+
+Returns whether the given value can be turned into a string.
+
+
+
 
 relativePath 
 ---------------

@@ -84,6 +84,11 @@ Dependencies
 History Log
 ------------------
     
+- 1.197 -- 2019-09-18
+
+    - add StringTool::isStringable
+    - add SmartCodeTool::replaceSmartCodeFunction
+    
 - 1.196 -- 2019-09-18
 
     - add SmartCodeTool::parseArguments

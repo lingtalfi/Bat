@@ -244,6 +244,28 @@ class StringTool
 
 
     /**
+     * Returns whether the given value can be turned into a string.
+     *
+     * https://stackoverflow.com/questions/5496656/check-if-item-can-be-converted-to-string
+     *
+     *
+     * @param mixed $value
+     * @return bool
+     */
+    public static function isStringable($value): bool
+    {
+        if (is_object($value) && method_exists($value, '__toString')) {
+            return true;
+        }
+        if (is_null($value)) {
+            return true;
+        }
+        return is_scalar($value);
+
+    }
+
+
+    /**
      * Drop the absoluteBaseDir string in front of the absolutePath.
      *
      * If it's not in front, the returned value depends on the default parameter:
