@@ -53,6 +53,7 @@ Tools       |       Description
 [FileSystemTool]( https://github.com/lingtalfi/Bat/blob/master/FileSystemTool.md )          |       Tools for the filesystem
 [FileTool]( https://github.com/lingtalfi/Bat/blob/master/FileTool.md )          |                   Tools for the files
 [HashTool]( https://github.com/lingtalfi/Bat/blob/master/HashTool.md )          |                   Tools for the using hashes
+[HepTool]( https://github.com/lingtalfi/Bat/blob/master/HepTool.md )          |                   Tools for the using hep parameters
 [HttpTool]( https://github.com/lingtalfi/Bat/blob/master/HttpTool.md )          |                   Tools for the using http protocol
 [LocalHostTool](  https://github.com/lingtalfi/Bat/blob/master/LocalHostTool.md )          |       Use OsTool instead. LocalHostTool is unofficially deprecated.
 [MathTool](  https://github.com/lingtalfi/Bat/blob/master/MathTool.md )          |       Tools for math problems
@@ -83,6 +84,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.198 -- 2019-09-23
+
+    - add HepTool
     
 - 1.197 -- 2019-09-18
 

@@ -11,6 +11,7 @@ https://github.com/lingtalfi/Bat/blob/master/ExceptionTool.md
 https://github.com/lingtalfi/Bat/blob/master/FileSystemTool.md
 https://github.com/lingtalfi/Bat/blob/master/FileTool.md
 https://github.com/lingtalfi/Bat/blob/master/HashTool.md
+https://github.com/lingtalfi/Bat/blob/master/HepTool.md
 https://github.com/lingtalfi/Bat/blob/master/HttpTool.md
 https://github.com/lingtalfi/Bat/blob/master/LocalHostTool.md
 https://github.com/lingtalfi/Bat/blob/master/LocaleTool.md
