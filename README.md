@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.199 -- 2019-09-26
+
+    - add summary for array tool doc
+    
 - 1.198 -- 2019-09-23
 
     - add HepTool

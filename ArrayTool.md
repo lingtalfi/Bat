@@ -14,6 +14,29 @@ If you don't use bigbang, you can use var_dump as a replacement.
 
 
 
+Table of Contents
+=================
+
+* [arrayKeyExistAll](#arraykeyexistall)
+* [arrayMergeReplaceRecursive](#arraymergereplacerecursive)
+* [arrayUniqueRecursive](#arrayuniquerecursive)
+* [filterByAllowed](#filterbyallowed)
+* [filterRecursive](#filterrecursive)
+* [getMissingKeys](#getmissingkeys)
+* [insertRowAfter](#insertrowafter)
+* [isNumericalArray](#isnumericalarray)
+* [keysSameAsValues](#keyssameasvalues)
+* [mirrorRange](#mirrorrange)
+* [objectToArray](#objecttoarray)
+* [reduce](#reduce)
+* [removeEntry](#removeentry)
+* [superimpose](#superimpose)
+* [updateNodeRecursive](#updatenoderecursive)
+* [walkRowsRecursive](#walkrowsrecursive)
+
+         
+         
+
 arrayKeyExistAll
 -------------
 2018-01-18
