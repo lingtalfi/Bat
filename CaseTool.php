@@ -26,7 +26,6 @@ class CaseTool
     }
 
 
-
     public static function snakeToCamel(string $str)
     {
         return lcfirst(self::snakeToPascal($str));
@@ -103,6 +102,19 @@ class CaseTool
         return $first . implode('', $p);
     }
 
+
+    /**
+     * Returns a portable file name.
+     * For more details: https://github.com/lingtalfi/NotationFan/blob/master/portable-filename.md
+     *
+     * @param string $fileName
+     * @return string
+     */
+    public static function toPortableFilename(string $fileName): string
+    {
+        return preg_replace('![^a-zA-Z0-9._-]!', '', $fileName);
+
+    }
 
     public static function toFlexibleCamel(string $str)
     {

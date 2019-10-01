@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.201 -- 2019-10-01
+
+    - add CaseTool::toPortableFilename method
+
 - 1.200 -- 2019-10-01
 
     - update ArrayTool::walkRowsRecursive, now the callable accepts row passed as a reference

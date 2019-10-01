@@ -316,6 +316,46 @@ a(CaseTool::toDog("Hello everybody, is it ok?")); // hello-everybody-is-it-ok
 ```
 
 
+toPortableFilename
+-----------
+2019-10-01
+
+
+
+```php
+str    toPortableFilename ( str:string )
+```
+
+Returns the portable filename version of the given string.
+More info about portable filename here: https://github.com/lingtalfi/NotationFan/blob/master/portable-filename.md.
+
+
+
+Example
+----------
+
+The following code:
+
+```php
+
+a(CaseTool::toPortableFilename("Ok it's good hala/vista"));
+a(CaseTool::toPortableFilename("pata-one_and_two.md"));
+
+az();
+```
+
+Will produce this output:
+
+```html
+
+string(18) "Okitsgoodhalavista"
+
+string(19) "pata-one_and_two.md"
+
+```
+
+
+
 toFlea
 -----------
 2016-01-07
