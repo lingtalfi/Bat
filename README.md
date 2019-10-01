@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.200 -- 2019-10-01
+
+    - update ArrayTool::walkRowsRecursive, now the callable accepts row passed as a reference
+    
 - 1.199 -- 2019-09-26
 
     - add summary for array tool doc

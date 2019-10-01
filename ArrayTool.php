@@ -463,6 +463,8 @@ class ArrayTool
      *
      *
      * The callable receives the row as its only argument.
+     * If the row is defined as a reference, then we can update the row from inside the callable.
+     *
      *
      * By default, the callable is called for every row, including the parent rows.
      * If you want to trigger the callable only on leaves (rows with no children), you can set
@@ -474,13 +476,13 @@ class ArrayTool
      * @param string $childrenKey =children
      * @param bool $triggerCallableOnParents =true
      */
-    public static function walkRowsRecursive(array $arr, callable $callback, string $childrenKey = "children", bool $triggerCallableOnParents = true): void
+    public static function walkRowsRecursive(array &$arr, callable $callback, string $childrenKey = "children", bool $triggerCallableOnParents = true): void
     {
-        foreach ($arr as $k => $v) {
+        foreach ($arr as $k => &$v) {
             $isParent = array_key_exists($childrenKey, $v) && $v[$childrenKey];
 
             if (false === $isParent || true === $triggerCallableOnParents) {
-                call_user_func($callback, $v);
+                call_user_func_array($callback, [&$v]);
             }
 
             if (true === $isParent) {
