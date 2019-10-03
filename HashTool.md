@@ -24,6 +24,24 @@ Return a hash corresponding to the given array.
 
 
 
+getPasswordHashAlgorithm
+-------------
+2019-10-03
+
+
+
+```php
+int    getPasswordHashAlgorithm ( str:algoName )
+```
+
+Returns the algo integer which corresponds to the given algoName, and to pass to the password_hash function
+(https://www.php.net/manual/en/function.password-hash.php).
+
+
+
+
+
+
 
 
 getRandomHash64

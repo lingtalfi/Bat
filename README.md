@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.202 -- 2019-10-03
+
+    - add HashTool::getPasswordHashAlgorithm method
+    
 - 1.201 -- 2019-10-01
 
     - add CaseTool::toPortableFilename method
