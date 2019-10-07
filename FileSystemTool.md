@@ -333,7 +333,7 @@ mkTmpFile
 
 
 ```php
-string:path    mkTmpFile ( str:content )
+string:path    mkTmpFile ( str:content, str:prefix=null )
 ```
 
 Creates a temporary file with the given content, and return its path.

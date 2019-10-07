@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.203 -- 2019-10-07
+
+    - update FileSystemTool::mkTmpFile, now accepts a prefix argument
+    
 - 1.202 -- 2019-10-03
 
     - add HashTool::getPasswordHashAlgorithm method

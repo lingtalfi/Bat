@@ -350,9 +350,12 @@ class FileSystemTool
     }
 
 
-    public static function mkTmpFile(string $content)
+    public static function mkTmpFile(string $content, string $prefix = null)
     {
-        $path = tempnam(sys_get_temp_dir(), 'Bat');
+        if (null === $prefix) {
+            $prefix = 'Bat-';
+        }
+        $path = tempnam(sys_get_temp_dir(), $prefix);
         self::mkfile($path, $content);
         return $path;
     }
