@@ -350,12 +350,23 @@ class FileSystemTool
     }
 
 
-    public static function mkTmpFile(string $content, string $prefix = null)
+    /**
+     * Creates a temporary file.
+     *
+     * @param string $content
+     * @param string|null $prefix
+     * @param string|null $extension
+     * @return false|string
+     */
+    public static function mkTmpFile(string $content, string $prefix = null, string $extension = null)
     {
         if (null === $prefix) {
             $prefix = 'Bat-';
         }
         $path = tempnam(sys_get_temp_dir(), $prefix);
+        if (null !== $extension) {
+            $path .= "." . $extension;
+        }
         self::mkfile($path, $content);
         return $path;
     }

@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.204 -- 2019-10-09
+
+    - update FileSystemTool::mkTmpFile, now accepts an extension argument
+    
 - 1.203 -- 2019-10-07
 
     - update FileSystemTool::mkTmpFile, now accepts a prefix argument
