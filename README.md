@@ -85,6 +85,11 @@ Dependencies
 History Log
 ------------------
     
+- 1.205 -- 2019-10-16
+
+    - add FileSystemTool::hasDirectoryTraversal
+    - remove FileSystemTool::noEscalating and UriTool::noEscalating
+    
 - 1.204 -- 2019-10-09
 
     - update FileSystemTool::mkTmpFile, now accepts an extension argument

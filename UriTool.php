@@ -103,11 +103,6 @@ class UriTool
         return $proto . '://' . $domain;
     }
 
-    public static function noEscalating($uri)
-    {
-        return str_replace('..', '', $uri);
-    }
-
     public static function uri($uri = null, array $params = [], $replace = true, $absolute = false)
     {
         // assuming we are not using a cli environment

@@ -128,6 +128,26 @@ class FileSystemTool
         return false;
     }
 
+    /**
+     * Returns a generator function, which can iterate over the lines of the given file.
+     */
+    public static function fileGenerator($file, $ignoreTrailingNewLines = true)
+    {
+        return function () use ($file, $ignoreTrailingNewLines) {
+            $f = fopen($file, 'r');
+            try {
+                while ($line = fgets($f)) {
+                    if (true === $ignoreTrailingNewLines) {
+                        yield rtrim($line, PHP_EOL);
+                    } else {
+                        yield $line;
+                    }
+                }
+            } finally {
+                fclose($f);
+            }
+        };
+    }
 
     /**
      * Gets file permissions.
@@ -245,25 +265,19 @@ class FileSystemTool
 
 
     /**
-     * Returns a generator function, which can iterate over the lines of the given file.
+     * Returns whether the given file is under the given rootDir.
+     *
+     * @param string $file
+     * @param string $rootDir
+     * @return bool
      */
-    public static function fileGenerator($file, $ignoreTrailingNewLines = true)
+    public static function hasDirectoryTraversal(string $file, string $rootDir):  bool
     {
-        return function () use ($file, $ignoreTrailingNewLines) {
-            $f = fopen($file, 'r');
-            try {
-                while ($line = fgets($f)) {
-                    if (true === $ignoreTrailingNewLines) {
-                        yield rtrim($line, PHP_EOL);
-                    } else {
-                        yield $line;
-                    }
-                }
-            } finally {
-                fclose($f);
-            }
-        };
+        $realFile = realpath($file);
+        return (false === $realFile || 0 !== strpos($realFile, $rootDir));
     }
+
+
 
 
     /**
@@ -383,10 +397,6 @@ class FileSystemTool
         return self::rename($filePath, $newPath);
     }
 
-    public static function noEscalating($uri)
-    {
-        return str_replace('..', '', $uri);
-    }
 
 
     /**

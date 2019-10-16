@@ -97,18 +97,6 @@ Gets the absolute url for a website. Useful when you need to redirect a page usi
 
 
 
-noEscalating
------------
-2017-05-10
-
-
-```php
-str    noEscalating (string:uri)
-```
-
-Returns an uri which, if mapped to the file system, wouldn't be able to escalate into parent directories.
-
-
 
 uri
 -----------

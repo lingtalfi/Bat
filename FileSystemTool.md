@@ -226,6 +226,18 @@ is not contained in (a children of) rootDir.
 
 
 
+hasDirectoryTraversal
+-----------
+2019-10-16
+
+
+bool        hasDirectoryTraversal( string:file, string:rootDir )
+
+
+Returns whether the given file is under the given rootDir.
+
+
+
 mkdir
 -----------
 2015-10-07
@@ -371,20 +383,6 @@ bool    moveToDir (string:filePath, string:destDir)
 
 Move the file filePath to the directory destDir.
 
-
-
-
-
-noEscalating
------------
-2017-06-03
-
-
-```php
-str    noEscalating (string:uri)
-```
-
-Returns a file path which won't be able to escalate into parent directories (removing the expression ".." basically).
 
 
 
