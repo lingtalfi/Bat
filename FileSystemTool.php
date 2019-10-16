@@ -265,19 +265,24 @@ class FileSystemTool
 
 
     /**
-     * Returns whether the given file exists and is under the given rootDir.
+     * Returns whether the given file and is under the given rootDir.
+     * If the $checkFileExists is set, also checks whether the file exists.
      *
      * @param string $file
      * @param string $rootDir
+     * @param bool $checkFileExists
      * @return bool
      */
-    public static function isDirectoryTraversalSafe(string $file, string $rootDir): bool
+    public static function isDirectoryTraversalSafe(string $file, string $rootDir, bool $checkFileExists = true): bool
     {
         $realFile = realpath($file);
         if (false === $realFile || 0 !== strpos($realFile, $rootDir)) {
             return false;
         }
-        return file_exists($file);
+        if (true === $checkFileExists) {
+            return file_exists($file);
+        }
+        return true;
     }
 
 

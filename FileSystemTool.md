@@ -231,10 +231,11 @@ isDirectoryTraversalSafe
 2019-10-16
 
 
-bool        isDirectoryTraversalSafe( string:file, string:rootDir )
+bool        isDirectoryTraversalSafe( string:file, string:rootDir, bool:checkFileExists )
 
 
-Returns whether the given file exists and is under the given rootDir.
+Returns whether the given file and is under the given rootDir.
+If the $checkFileExists is set, also checks whether the file exists.
 
 
 

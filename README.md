@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.207 -- 2019-10-16
+
+    - update FileSystemTool::hasDirectoryTraversal, now accepts a checkFileExists argument
+    
 - 1.206 -- 2019-10-16
 
     - moved FileSystemTool::hasDirectoryTraversal to isDirectoryTraversalSafe
