@@ -226,15 +226,15 @@ is not contained in (a children of) rootDir.
 
 
 
-hasDirectoryTraversal
+isDirectoryTraversalSafe
 -----------
 2019-10-16
 
 
-bool        hasDirectoryTraversal( string:file, string:rootDir )
+bool        isDirectoryTraversalSafe( string:file, string:rootDir )
 
 
-Returns whether the given file is under the given rootDir.
+Returns whether the given file exists and is under the given rootDir.
 
 
 

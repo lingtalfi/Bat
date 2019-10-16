@@ -265,19 +265,20 @@ class FileSystemTool
 
 
     /**
-     * Returns whether the given file is under the given rootDir.
+     * Returns whether the given file exists and is under the given rootDir.
      *
      * @param string $file
      * @param string $rootDir
      * @return bool
      */
-    public static function hasDirectoryTraversal(string $file, string $rootDir):  bool
+    public static function isDirectoryTraversalSafe(string $file, string $rootDir): bool
     {
         $realFile = realpath($file);
-        return (false === $realFile || 0 !== strpos($realFile, $rootDir));
+        if (false === $realFile || 0 !== strpos($realFile, $rootDir)) {
+            return false;
+        }
+        return file_exists($file);
     }
-
-
 
 
     /**
@@ -396,7 +397,6 @@ class FileSystemTool
         $newPath = rtrim($directory, "/") . "/" . basename($filePath);
         return self::rename($filePath, $newPath);
     }
-
 
 
     /**

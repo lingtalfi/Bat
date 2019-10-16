@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.206 -- 2019-10-16
+
+    - moved FileSystemTool::hasDirectoryTraversal to isDirectoryTraversalSafe
+    
 - 1.205 -- 2019-10-16
 
     - add FileSystemTool::hasDirectoryTraversal
