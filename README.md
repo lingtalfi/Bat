@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.208 -- 2019-10-17
+
+    - add MimeTypeTool::getMimeTypeByFileExtension
+    
 - 1.207 -- 2019-10-16
 
     - update FileSystemTool::hasDirectoryTraversal, now accepts a checkFileExists argument

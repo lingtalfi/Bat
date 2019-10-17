@@ -26,69 +26,114 @@ class MimeTypeTool
                 $mime = $_mime;
             }
             finfo_close($finfo);
-        }
-        else {
+        } else {
             $ext = strtolower(FileSystemTool::getFileExtension($file));
-            $ext2Mime = array(
-
-                'txt' => 'text/plain',
-                'htm' => 'text/html',
-                'html' => 'text/html',
-                'php' => 'text/html',
-                'css' => 'text/css',
-                'js' => 'application/javascript',
-                'json' => 'application/json',
-                'xml' => 'application/xml',
-                'swf' => 'application/x-shockwave-flash',
-                'flv' => 'video/x-flv',
-
-                // images
-                'png' => 'image/png',
-                'jpe' => 'image/jpeg',
-                'jpeg' => 'image/jpeg',
-                'jpg' => 'image/jpeg',
-                'gif' => 'image/gif',
-                'bmp' => 'image/bmp',
-                'ico' => 'image/vnd.microsoft.icon',
-                'tiff' => 'image/tiff',
-                'tif' => 'image/tiff',
-                'svg' => 'image/svg+xml',
-                'svgz' => 'image/svg+xml',
-
-                // archives
-                'zip' => 'application/zip',
-                'rar' => 'application/x-rar-compressed',
-                'exe' => 'application/x-msdownload',
-                'msi' => 'application/x-msdownload',
-                'cab' => 'application/vnd.ms-cab-compressed',
-
-                // audio/video
-                'mp3' => 'audio/mpeg',
-                'qt' => 'video/quicktime',
-                'mov' => 'video/quicktime',
-
-                // adobe
-                'pdf' => 'application/pdf',
-                'psd' => 'image/vnd.adobe.photoshop',
-                'ai' => 'application/postscript',
-                'eps' => 'application/postscript',
-                'ps' => 'application/postscript',
-
-                // ms office
-                'doc' => 'application/msword',
-                'rtf' => 'application/rtf',
-                'xls' => 'application/vnd.ms-excel',
-                'ppt' => 'application/vnd.ms-powerpoint',
-
-                // open office
-                'odt' => 'application/vnd.oasis.opendocument.text',
-                'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
-            );
-            if (array_key_exists($ext, $ext2Mime)) {
-                $mime = $ext2Mime[$ext];
-            }
-
+            $mime = self::getMimeTypeByFileExtension($ext);
         }
         return $mime;
+    }
+
+    /**
+     * Returns the mime type associated with the given file extension, or returns the given default extension otherwise.
+     * if the default extension is not provided, it defaults to "application/octet-stream".
+     *
+     * If the extension has no corresponding mime-type, the found flag is set to false.
+     * This is a mechanism to help the developer be aware of that miss and potentially keep this method updated.
+     *
+     *
+     *
+     * @param string $extension
+     * @param string|null $default
+     * @param bool $found
+     * @return string
+     */
+    public static function getMimeTypeByFileExtension(string $extension, string $default = null, bool &$found = true): string
+    {
+        switch ($extension) {
+            case "ai":
+                return "application/postscript";
+            case "bmp":
+                return "image/bmp";
+            case "cab":
+                return "application/vnd.ms-cab-compressed";
+            case "css":
+                return "text/css";
+            case "doc":
+                return "application/msword";
+            case "eps":
+                return "application/postscript";
+            case "exe":
+                return "application/x-msdownload";
+            case "flv":
+                return "video/x-flv";
+            case "gif":
+                return "image/gif";
+            case "htm":
+            case "html":
+                return "text/html";
+            case "ico":
+                return "image/vnd.microsoft.icon";
+            case "js":
+                return "application/javascript";
+            case "json":
+                return "application/json";
+            case "jpe":
+            case "jpeg":
+            case "jpg":
+                return "image/jpeg";
+            case "mov":
+                return "video/quicktime";
+            case "mp3":
+                return "audio/mpeg";
+            case "msi":
+                return "application/x-msdownload";
+            case "ods":
+                return "application/vnd.oasis.opendocument.spreadsheet";
+            case "odt":
+                return "application/vnd.oasis.opendocument.text";
+            case "pdf":
+                return "application/pdf";
+            case "php":
+                return "application/x-httpd-php";
+            case "png":
+                return "image/png";
+            case "ppt":
+                return "application/vnd.ms-powerpoint";
+            case "ps":
+                return "application/postscript";
+            case "psd":
+                return "image/vnd.adobe.photoshop";
+            case "qt":
+                return "video/quicktime";
+            case "rar":
+                return "application/x-rar-compressed";
+            case "rtf":
+                return "application/rtf";
+            case "svg":
+            case "svgz":
+                return "image/svg+xml";
+            case "swf":
+                return "application/x-shockwave-flash";
+            case "tif":
+            case "tiff":
+                return "image/tiff";
+            case "txt":
+                return "text/plain";
+            case "xls":
+                return "application/vnd.ms-excel";
+            case "xlsx":
+                return "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            case "xml":
+                return "application/xml";
+            case "zip":
+                return "application/zip";
+            default:
+                $found = false;
+                if (null !== $default) {
+                    return $default;
+                }
+                return "application/octet-stream";
+                break;
+        }
     }
 }
