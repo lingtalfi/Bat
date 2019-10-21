@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.209 -- 2019-10-21
+
+    - add UriTool::httpBuildQuery
+    
 - 1.208 -- 2019-10-17
 
     - add MimeTypeTool::getMimeTypeByFileExtension

@@ -12,7 +12,8 @@ namespace Ling\Bat;
 class MimeTypeTool
 {
 
-    public static function getMimeType($file)
+
+    public static function getMimeType(string $file): string
     {
         $mime = 'application/octet-stream';
 

@@ -11,9 +11,6 @@ class UriTool
     /**
      * Appends parameters to a base uri, and in the form of a query string (starting with a question mark).
      *
-     *
-     * 2019-09-05 update: not sure why I didn't used http_build_query instead. Maybe it's the same, maybe it's not.
-     * I'll now probably use http_build_query instead.
      */
     public static function appendQueryString($baseUri, array $parameters = [])
     {
@@ -26,31 +23,13 @@ class UriTool
 
         if ($parameters) {
             $ret .= $sep;
-            $i = 0;
-            foreach ($parameters as $k => $v) {
-                if (0 !== $i) {
-                    $ret .= "&";
-                }
-                if ("" !== $v) {
-                    if (is_array($v)) {
-                        $c = 0;
-                        foreach ($v as $k2 => $w) {
-                            if (0 !== $c++) {
-                                $ret .= '&';
-                            }
-                            $ret .= "$k" . "[$k2]=$w";
-                        }
-                    } else {
-                        $ret .= "$k=$v";
-                    }
-                } else {
-                    $ret .= $k;
-                }
-                $i++;
-            }
+            $ret .= self::httpBuildQuery($parameters);
         }
         return $ret;
     }
+
+
+
 
     /**
      * Returns string|false
@@ -102,6 +81,21 @@ class UriTool
         }
         return $proto . '://' . $domain;
     }
+
+
+    /**
+     * Returns the http query based on the given parameters.
+     * It's almost like the http_build_query php function, except that it returns a non-url-encoded string.
+     *
+     * @param array $parameters
+     * @return string
+     */
+    public static function httpBuildQuery(array $parameters): string
+    {
+        return urldecode(http_build_query($parameters));
+    }
+
+
 
     public static function uri($uri = null, array $params = [], $replace = true, $absolute = false)
     {
