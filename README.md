@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.210 -- 2019-10-28
+
+    - fix FileSystemTool::hasDirectoryTraversal not checking for root relative path
+    
 - 1.209 -- 2019-10-21
 
     - add UriTool::httpBuildQuery

@@ -276,7 +276,7 @@ class FileSystemTool
     public static function isDirectoryTraversalSafe(string $file, string $rootDir, bool $checkFileExists = true): bool
     {
         $realFile = realpath($file);
-        if (false === $realFile || 0 !== strpos($realFile, $rootDir)) {
+        if (false === $realFile || 0 !== strpos($realFile, realpath($rootDir))) {
             return false;
         }
         if (true === $checkFileExists) {
