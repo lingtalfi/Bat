@@ -39,14 +39,19 @@ Table of Contents
 
 arrayKeyExistAll
 -------------
-2018-01-18
+2018-01-18 -> 2019-10-31
 
 
 ```php
-array    arrayKeyExistAll ( array:keys, array:pool)
+bool    arrayKeyExistAll ( mixed:keys, array:pool, bool throwEx=false)
 ```
 
-Returns whether or not ALL the keys are keys of pool.
+Checks that every given keys exist in the given pool array, and by default
+returns the result as a boolean.
+
+If the throwEx flag is set to true, then this method throws an exception if
+one key (or more) is not found.
+
 
 
 ### Example
@@ -58,6 +63,7 @@ $keys = ['a', 'b', 'c'];
 $pool = ['a', 'd'];
 
 a(ArrayTool::arrayKeyExistAll($keys, $pool)); // false
+a(ArrayTool::arrayKeyExistAll($keys, $pool, true)); // throws an exception
 
 
 

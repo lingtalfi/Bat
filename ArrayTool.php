@@ -3,6 +3,8 @@
 namespace Ling\Bat;
 
 
+use Ling\Bat\Exception\BatException;
+
 /**
  * The ArrayTool class.
  * LingTalfi 2015-12-20 -> 2019-09-17
@@ -11,10 +13,31 @@ class ArrayTool
 {
 
 
-    public static function arrayKeyExistAll(array $keys, array $pool)
+    /**
+     * Checks that every given keys exist in the given pool array, and by default
+     * returns the result as a boolean.
+     *
+     * If the throwEx flag is set to true, then this method throws an exception if
+     * one key (or more) is not found.
+     *
+     *
+     *
+     * @param array|string $keys
+     * @param array $pool
+     * @param bool $throwEx
+     * @return bool
+     * @throws \Exception
+     */
+    public static function arrayKeyExistAll($keys, array $pool, bool $throwEx = false)
     {
+        if (false === is_array($keys)) {
+            $keys = [$keys];
+        }
         foreach ($keys as $key) {
             if (false === array_key_exists($key, $pool)) {
+                if (true === $throwEx) {
+                    throw new BatException("Key not found: $key.");
+                }
                 return false;
             }
         }

@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.211 -- 2019-10-31
+
+    - update ArrayTool::arrayKeyExistAll, now accepts a throwEx argument
+    
 - 1.210 -- 2019-10-28
 
     - fix FileSystemTool::hasDirectoryTraversal not checking for root relative path
