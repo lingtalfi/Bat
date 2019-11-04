@@ -264,6 +264,21 @@ class ArrayTool
 
     }
 
+
+    /**
+     * Returns an array containing all the key/value pairs of the given $array which keys are in the given $keys.
+     * See the examples for more information.
+     *
+     *
+     * @param array $array
+     * @param array $keys
+     * @return array
+     */
+    public static function intersect(array $array, array $keys): array
+    {
+        return array_intersect_key($array, array_flip($keys));
+    }
+
     /**
      * Returns whether the given argument is an array which first key is numerical.
      *

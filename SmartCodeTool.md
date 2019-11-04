@@ -4,7 +4,7 @@ SmartCodeTool
 
 
 
-This class contains functions for manipulating smart codes.
+This class contains functions for manipulating [smart codes](https://github.com/lingtalfi/NotationFan/blob/master/smart-code.md).
 
 
 

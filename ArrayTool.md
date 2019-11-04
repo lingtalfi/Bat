@@ -405,6 +405,69 @@ a($arr); // melanie is now after andrea...
 ```
 
     
+intersect
+-------------
+2019-11-04
+
+
+```php
+array    intersect ( array:array, array:keys )
+```
+
+Returns an array containing all the key/value pairs of the given $array which keys are in the given $keys.
+
+
+
+### Example
+
+
+
+The following code:
+
+```php
+<?php 
+$userCols = [
+    "id" => 6,
+    "pseudo" => "morris",
+    "fake" => 789,
+];
+$realCols = ["id", "pseudo"];
+az(ArrayTool::intersect($userCols, $realCols));
+
+```
+
+will produce this output:
+
+```html 
+array(2) {
+  ["id"] => int(6)
+  ["pseudo"] => string(6) "morris"
+}
+```
+
+The following code:
+
+```php
+$userCols = [
+    "kan" => 6,
+];
+$realCols = ["id", "pseudo"];
+az(ArrayTool::intersect($userCols, $realCols));
+
+```
+
+will produce this output:
+
+```html 
+array(0) {
+}
+
+```
+
+
+
+
+    
 isNumericalArray
 -------------
 2019-07-17

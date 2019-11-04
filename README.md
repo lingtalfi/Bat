@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.212 -- 2019-11-04
+
+    - add ArrayTool::intersect
+    
 - 1.211 -- 2019-10-31
 
     - update ArrayTool::arrayKeyExistAll, now accepts a throwEx argument

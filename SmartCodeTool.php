@@ -122,7 +122,6 @@ class SmartCodeTool
         $pattern = '!' . $functionName . '\s*' . $openingParenthesisEsc . '\s*([^' . $closingParenthesisEsc . ']+)\s*' . $closingParenthesisEsc . '!';
 
         array_walk_recursive($arr, function (&$v) use ($pattern, $replaceFunc) {
-
             if (preg_match($pattern, $v, $matches)) {
 
                 $sArgs = trim($matches[1]);
