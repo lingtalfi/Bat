@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.213 -- 2019-11-05
+
+    - add ArrayTool::replaceRecursive
+    
 - 1.212 -- 2019-11-04
 
     - add ArrayTool::intersect

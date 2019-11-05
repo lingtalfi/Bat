@@ -389,6 +389,36 @@ class ArrayTool
 
 
     /**
+     * Parses the given array recursively replacing the tag keys by their values
+     * directly in the array values, using str_replace under the hood.
+     *
+     * Tags is an array of key/value pairs,
+     * such as:
+     *
+     * - {myTag} => 123
+     * - {myTag2} => abc
+     *
+     * Only scalar values are accepted.
+     * If you need to replace with non scalar values such as arrays, you might
+     * be interested in the [ArrayVariableResolver]https://github.com/lingtalfi/ArrayVariableResolver tool.
+     *
+     * See the online documentation for some concrete examples.
+     *
+     *
+     * @param array $tags
+     * @param array &$array
+     * @return array
+     */
+    public static function replaceRecursive(array $tags, array &$array): array
+    {
+        array_walk_recursive($array, function (&$v) use ($tags) {
+            $v = str_replace(array_keys($tags), array_values($tags), $v);
+        });
+        return $array;
+    }
+
+
+    /**
      * Returns the given $defaults array,
      * with values possibly overridden by the $array.
      *

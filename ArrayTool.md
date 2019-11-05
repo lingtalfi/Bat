@@ -673,6 +673,68 @@ array(2) {
      
      
     
+replaceRecursive
+-------------
+2019-11-05
+
+
+
+```php
+array replaceRecursive ( array tags, array &arr )
+```
+
+
+Parses the given array recursively replacing the tag keys by their values
+directly in the array values, using str_replace under the hood.
+
+Tags is an array of key/value pairs,
+such as:
+
+- {myTag} => 123
+- {myTag2} => abc
+
+Only scalar values are accepted.
+If you need to replace with non scalar values such as arrays, you might
+be interested in the [ArrayVariableResolver]https://github.com/lingtalfi/ArrayVariableResolver tool.
+
+
+
+### Example
+
+
+The following code:
+
+```php
+<?php
+
+$arr = [
+    'key1' => 'value 1',
+    'key2' => '{computer} and {computer} and {fruit}',
+];
+$tags = [
+    '{computer}' => 'mac',
+    '{fruit}' => 'apple',
+];
+
+ArrayTool::replaceRecursive($tags, $arr);
+az($arr);
+
+```
+     
+     
+Will produce the following output:
+
+```html
+array(2) {
+  ["key1"] => string(7) "value 1"
+  ["key2"] => string(21) "mac and mac and apple"
+}
+
+```     
+     
+     
+     
+     
 removeEntry
 -------------
 2018-02-16
