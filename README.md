@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.214 -- 2019-11-14
+
+    - fix ArrayTool::replaceRecursive replacing bool value with 1
+    
 - 1.213 -- 2019-11-05
 
     - add ArrayTool::replaceRecursive

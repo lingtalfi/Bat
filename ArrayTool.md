@@ -685,7 +685,7 @@ array replaceRecursive ( array tags, array &arr )
 
 
 Parses the given array recursively replacing the tag keys by their values
-directly in the array values, using str_replace under the hood.
+directly in the array values of type string, using str_replace under the hood.
 
 Tags is an array of key/value pairs,
 such as:

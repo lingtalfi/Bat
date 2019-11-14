@@ -390,7 +390,7 @@ class ArrayTool
 
     /**
      * Parses the given array recursively replacing the tag keys by their values
-     * directly in the array values, using str_replace under the hood.
+     * directly in the array values of type string, using str_replace under the hood.
      *
      * Tags is an array of key/value pairs,
      * such as:
@@ -412,7 +412,9 @@ class ArrayTool
     public static function replaceRecursive(array $tags, array &$array): array
     {
         array_walk_recursive($array, function (&$v) use ($tags) {
-            $v = str_replace(array_keys($tags), array_values($tags), $v);
+            if (is_string($v)) {
+                $v = str_replace(array_keys($tags), array_values($tags), $v);
+            }
         });
         return $array;
     }
