@@ -29,8 +29,6 @@ class UriTool
     }
 
 
-
-
     /**
      * Returns string|false
      *
@@ -95,6 +93,31 @@ class UriTool
         return urldecode(http_build_query($parameters));
     }
 
+    /**
+     * Adds a random parameter to the given get array, which usually would be the $_GET array.
+     *
+     * This might be useful in some cases for instance when you want to redirect the user to a success page
+     * after a form, and you want the redirect page to be the form page itself.
+     * In this case, without randomizing the url, if the user refresh the page the $_POST payload will be
+     * resent (tested in firefox in 2019-12-09). By randomizing the url parameters, the browser will
+     * consider the page as a new one, and the payload will be dropped.
+     *
+     *
+     *
+     * @param array $get
+     */
+    public static function randomize(array &$get)
+    {
+        $rand = rand(0, 9999);
+        $originalKey = 'r';
+        $key = $originalKey;
+        $c = 0;
+        while (true === array_key_exists($key, $get)) {
+            $key = $originalKey . $c++;
+        }
+        $get[$key] = $rand;
+
+    }
 
 
     public static function uri($uri = null, array $params = [], $replace = true, $absolute = false)

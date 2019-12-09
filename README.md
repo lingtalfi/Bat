@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.215 -- 2019-12-09
+
+    - add UriTool::randomize
+    
 - 1.214 -- 2019-11-14
 
     - fix ArrayTool::replaceRecursive replacing bool value with 1
