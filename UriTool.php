@@ -94,7 +94,9 @@ class UriTool
     }
 
     /**
-     * Adds a random parameter to the given get array, which usually would be the $_GET array.
+     * Adds a parameter to the given get array, which usually would be the $_GET array.
+     * The added parameter is chosen randomly by default, or it can be fixed if the key argument is defined.
+     *
      *
      * This might be useful in some cases for instance when you want to redirect the user to a success page
      * after a form, and you want the redirect page to be the form page itself.
@@ -105,10 +107,17 @@ class UriTool
      *
      *
      * @param array $get
+     * @param string $key
      */
-    public static function randomize(array &$get)
+    public static function randomize(array &$get, string $key = null)
     {
         $rand = rand(0, 9999);
+        if (null !== $key) {
+            $get[$key] = $rand;
+            return;
+        }
+
+
         $originalKey = 'r';
         $key = $originalKey;
         $c = 0;

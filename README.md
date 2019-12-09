@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.216 -- 2019-12-09
+
+    - update UriTool::randomize, now accepts a key argument
+    
 - 1.215 -- 2019-12-09
 
     - add UriTool::randomize

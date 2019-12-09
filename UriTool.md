@@ -140,10 +140,12 @@ randomize
 
 
 ```php
-void    randomize ( array &get )
+void    randomize ( array:&get, string:key = null )
 ```
 
-Adds a random parameter to the given get array, which usually would be the $_GET array.
+Adds a parameter to the given get array, which usually would be the $_GET array.
+The added parameter is chosen randomly by default, or it can be fixed if the key argument is defined.
+
 
 This might be useful in some cases for instance when you want to redirect the user to a success page
 after a form, and you want the redirect page to be the form page itself.
