@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.217 -- 2019-12-10
+
+    - update SessionTool::get, now accepts a throwEx argument
+    
 - 1.216 -- 2019-12-09
 
     - update UriTool::randomize, now accepts a key argument

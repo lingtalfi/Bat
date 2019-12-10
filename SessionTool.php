@@ -4,6 +4,8 @@
 namespace Ling\Bat;
 
 
+use Ling\Bat\Exception\BatException;
+
 /**
  * The SessionTool class.
  */
@@ -67,11 +69,28 @@ class SessionTool
     }
 
 
-    public static function get($key, $default = null)
+    /**
+     * Returns the value referenced by the given key from the session.
+     * If it's not found, either:
+     * - the default value is returned (by default)
+     * - an exception is thrown (only if throwEx=true)
+     *
+     *
+     *
+     * @param string $key
+     * @param null $default
+     * @param bool $throwEx
+     * @return mixed
+     * @throws \Exception
+     */
+    public static function get(string $key, $default = null, bool $throwEx = false)
     {
         self::start();
         if (array_key_exists($key, $_SESSION)) {
             return $_SESSION[$key];
+        }
+        if (true === $throwEx) {
+            throw new BatException("Value \"$key\" not found in the session.");
         }
         return $default;
     }

@@ -115,13 +115,17 @@ a(SessionTool::dump(null, [
 
 get
 -----------
-2018-02-26
+2018-02-26 -> 2019-12-10
 
 
-Get a variable from the session
+Returns the value referenced by the given key from the session.
+If it's not found, either:
+- the default value is returned (by default)
+- an exception is thrown (only if throwEx=true)
+
 
 ```php
-mixed set(str:key, mixed:default=null )
+mixed set(str:key, mixed:default=null, bool:throwEx=false )
 ```
 
 
