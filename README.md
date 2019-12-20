@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.218 -- 2019-12-20
+
+    - update ArrayTool::objectToArray, add deep argument
+    
 - 1.217 -- 2019-12-10
 
     - update SessionTool::get, now accepts a throwEx argument

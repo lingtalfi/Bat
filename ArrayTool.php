@@ -340,18 +340,24 @@ class ArrayTool
     /**
      * This method returns the array corresponding to an object, including non public members.
      *
+     * If the deep flag is true, is will operate recursively, otherwise (if false) just at the first level.
      *
      * @param object $obj
+     * @param bool $deep = true
      * @return array
      * @throws \Exception
      */
-    public static function objectToArray(object $obj)
+    public static function objectToArray(object $obj, bool $deep = true)
     {
         $reflectionClass = new \ReflectionClass(get_class($obj));
         $array = [];
         foreach ($reflectionClass->getProperties() as $property) {
             $property->setAccessible(true);
-            $array[$property->getName()] = $property->getValue($obj);
+            $val = $property->getValue($obj);
+            if (true === $deep && is_object($val)) {
+                $val = self::objectToArray($val);
+            }
+            $array[$property->getName()] = $val;
             $property->setAccessible(false);
         }
         return $array;

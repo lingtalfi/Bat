@@ -1,6 +1,6 @@
 ArrayTool
 =====================
-2015-12-20
+2015-12-20 -> 2019-12-20
 
 
 
@@ -573,15 +573,17 @@ az(ArrayTool::mirrorRange(1,10));
 
 objectToArray
 -------------
-2019-07-13
+2019-07-13 -> 2019-12-20
 
 
 ```php
-array    objectToArray ( obj object )
+array    objectToArray ( obj object, bool deep = true )
 ```
 
 
 This method returns the array corresponding to an object, including non public members.
+
+If the deep flag is true, is will operate recursively, otherwise (if false) just at the first level.
 
 
 This example (using the service container from the light framework):
