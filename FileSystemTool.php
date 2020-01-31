@@ -290,7 +290,9 @@ class FileSystemTool
      * Returns whether the given filename is considered valid.
      * A filename is considered valid only if all conditions below are fulfilled:
      *
-     * - the filename is different than "..".
+     * - the filename is not an empty string
+     * - the filename is different than ".."
+     * - the filename doesn't start and/or end with a space
      * - the filename doesn't contain one of the following characters: /?*:;{}\
      *
      *
@@ -300,7 +302,13 @@ class FileSystemTool
      */
     public static function isValidFilename(string $filename): bool
     {
+        if ("" === $filename) {
+            return false;
+        }
         if ('..' === $filename) {
+            return false;
+        }
+        if (preg_match('!(^ | $)!', $filename)) {
             return false;
         }
         if (preg_match('![/?*:;{}\\\]!', $filename)) {
