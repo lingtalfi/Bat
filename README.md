@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.219 -- 2020-01-31
+
+    - add FileSystemTool::isValidFilename
+    
 - 1.218 -- 2019-12-20
 
     - update ArrayTool::objectToArray, add deep argument

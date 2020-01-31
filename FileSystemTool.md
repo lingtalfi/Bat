@@ -231,11 +231,32 @@ isDirectoryTraversalSafe
 2019-10-16
 
 
+```php
 bool        isDirectoryTraversalSafe( string:file, string:rootDir, bool:checkFileExists )
+```
 
 
 Returns whether the given file and is under the given rootDir.
 If the $checkFileExists is set, also checks whether the file exists.
+
+
+
+isValidFilename
+-----------
+2020-01-31
+
+
+```php
+bool        isValidFilename( string:filename)
+```
+
+
+Returns whether the given filename is considered valid.
+
+A filename is considered valid only if all conditions below are fulfilled:
+
+- the filename is different than "..".
+- the filename doesn't contain one of the following characters: /?*:;{}\
 
 
 
