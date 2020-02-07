@@ -165,6 +165,29 @@ class FileSystemTool
 
 
     /**
+     * Returns the weight of the given directory in bytes.
+     *
+     *
+     * https://stackoverflow.com/questions/478121/how-to-get-directory-size-in-php
+     *
+     *
+     * @param string $path
+     * @return int
+     */
+    public static function getDirectorySize(string $path): int
+    {
+        $bytestotal = 0;
+        $path = realpath($path);
+        if ($path !== false && $path != '' && file_exists($path)) {
+            foreach (new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path, \FilesystemIterator::SKIP_DOTS)) as $object) {
+                $bytestotal += $object->getSize();
+            }
+        }
+        return $bytestotal;
+    }
+
+
+    /**
      * Returns the file extension as defined here: https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md
      *
      * If the file path has multiple extensions, only the last one will be returned.

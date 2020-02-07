@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.221 -- 2020-02-07
+
+    - add FileSystemTool::getDirectorySize
+    
 - 1.220 -- 2020-01-31
 
     - update FileSystemTool::isValidFilename, now discards empty string and strings starting or ending with space

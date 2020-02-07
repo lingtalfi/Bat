@@ -141,6 +141,21 @@ See [PermTool::filePerms](https://github.com/lingtalfi/Bat/blob/master/PermTool.
      
      
 
+getDirectorySize
+-----------
+2020-02-07
+
+
+```php
+int getDirectorySize(string $path)
+```
+
+Returns the weight of the given directory in bytes.
+
+
+
+
+
 getFileExtension
 -----------
 2015-10-09
