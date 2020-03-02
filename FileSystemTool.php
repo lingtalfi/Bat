@@ -318,12 +318,15 @@ class FileSystemTool
      * - the filename doesn't start and/or end with a space
      * - the filename doesn't contain one of the following characters: /?*:;{}\
      *
+     * Actually, the filename can contain the slash char (/) if the $acceptSlash argument is set to true.
+     *
      *
      *
      * @param string $filename
+     * @param bool $acceptSlash = false
      * @return bool
      */
-    public static function isValidFilename(string $filename): bool
+    public static function isValidFilename(string $filename, bool $acceptSlash = false): bool
     {
         if ("" === $filename) {
             return false;
@@ -334,7 +337,14 @@ class FileSystemTool
         if (preg_match('!(^ | $)!', $filename)) {
             return false;
         }
-        if (preg_match('![/?*:;{}\\\]!', $filename)) {
+
+        if (false === $acceptSlash) {
+            $regex = '![/?*:;{}\\\]!';
+        } else {
+            $regex = '![?*:;{}\\\]!';
+        }
+
+        if (preg_match($regex, $filename)) {
             return false;
         }
 

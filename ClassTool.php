@@ -308,7 +308,10 @@ class ClassTool
             $s .= '$' . $parameter->getName();
 
 
-            if ($parameter->isOptional()) {
+            if (
+                true === $parameter->isOptional() &&
+                false === $parameter->isVariadic() // assuming a variadic is never optional
+            ) {
                 $defaultValue = $parameter->getDefaultValue();
                 if (is_array($defaultValue)) {
                     $defaultValue = DebugTool::toString($defaultValue);

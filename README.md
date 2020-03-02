@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.222 -- 2020-03-02
+
+    - fix ClassTool::getMethodSignature not handling variadic correctly
+    
 - 1.221 -- 2020-02-07
 
     - add FileSystemTool::getDirectorySize
