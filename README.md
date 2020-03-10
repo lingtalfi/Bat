@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2017-03-24
+2015-10-07 --> 2020-03-10
 
 
 
@@ -84,6 +84,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.223 -- 2020-03-10
+
+    - add RandomTool::randomDate, randomDatetime, randomString
     
 - 1.222 -- 2020-03-02
 

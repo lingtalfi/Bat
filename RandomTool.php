@@ -143,4 +143,41 @@ EEE;
         return ($probabilityOfTrue >= rand(0, 99));
     }
 
+
+    /**
+     * Returns a random date in the mysql format (yyyy-mm-dd).
+     * @return string
+     */
+    public static function randomDate(): string
+    {
+        $timestamp = mt_rand(1, time() + 86400 * 365 * 5);
+        return date("Y-m-d", $timestamp);
+    }
+
+    /**
+     * Returns a random datetime in the mysql format (yyyy-mm-dd hh-ii-ss).
+     * @return string
+     */
+    public static function randomDatetime(): string
+    {
+        $timestamp = mt_rand(1, time() + 86400 * 365 * 5);
+        return date("Y-m-d H:i:s", $timestamp);
+    }
+
+
+    /**
+     * Returns a random string.
+     * @param int $length = 64
+     * @return string
+     */
+    public static function randomString(int $length = 64): string
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
 }

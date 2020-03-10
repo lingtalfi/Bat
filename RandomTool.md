@@ -1,6 +1,6 @@
 RandomTool
 =====================
-2018-02-27
+2018-02-27 -> 2020-03-10
 
 
 
@@ -171,4 +171,58 @@ that this method will return true (i.e. 100 will always return true, and 0 will 
 ```php
 az(RandomTool::randomBool()); // true
 ```
+
+
+
+randomDate
+------------
+2020-03-10
+     
+     
+```php     
+string        randomDate( )     
+```     
+     
+Returns a random date in the mysql format (yyyy-mm-dd).
+
+
+```php
+az(RandomTool::randomDate()); 
+```
+
+randomDatetime
+------------
+2020-03-10
+     
+     
+```php     
+string        randomDatetime( )     
+```     
+     
+Returns a random datetime in the mysql format (yyyy-mm-dd hh-ii-ss).
+
+
+```php
+az(RandomTool::randomDatetime()); 
+```
+
+
+
+randomString
+------------
+2020-03-10
+     
+     
+```php     
+string        randomString( int:length=null )     
+```     
+     
+Returns a random string.
+
+
+```php
+a(RandomTool::randomString(10)); // d45g0rZLKG 
+```
+
+
 
