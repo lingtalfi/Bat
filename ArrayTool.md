@@ -602,8 +602,8 @@ a($user);
 displays the following output:
 
 ```html
-object(Ling\Light_User\WebsiteLightUser)#157 (7) {
-  ["email":"Ling\Light_User\WebsiteLightUser":private] => string(19) "lingtalfi@gmail.com"
+object(Ling\Light_User\LightWebsiteUser)#157 (7) {
+  ["email":"Ling\Light_User\LightWebsiteUser":private] => string(19) "lingtalfi@gmail.com"
   ["avatar_url":protected] => string(58) "/plugins/Light_Kit_Admin/zeroadmin/img/avatars/photo-1.jpg"
   ["pseudo":protected] => string(4) "Ling"
   ["connect_time":protected] => int(1562970049)

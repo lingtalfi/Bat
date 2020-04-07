@@ -137,4 +137,18 @@ class MimeTypeTool
                 break;
         }
     }
+
+
+    /**
+     * Returns whether the given mime type is an image or not.
+     * @param string $mime
+     * @return bool
+     */
+    public static function isMimeImage(string $mime): bool
+    {
+        if (preg_match('!^image/!', $mime)) {
+            return true;
+        }
+        return false;
+    }
 }
