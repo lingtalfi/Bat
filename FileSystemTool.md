@@ -406,11 +406,11 @@ mkTmpCopy
 
 
 ```php
-string:path    mkTmpCopy ( str:path )
+string:path    mkTmpCopy ( str:path, str:filename = null )
 ```
 
 Makes a temporary copy of the given file path. 
-The file extension of the given file is kept.
+A filename can be provided.
 
 
 ### Example
@@ -419,7 +419,8 @@ The file extension of the given file is kept.
 <?php
 
 $uploadedFile = "/komin/jin_site_demo/tmp/lka_admin.png";
-az(FileSystemTool::mkTmpCopy($uploadedFile)); // /private/var/tmp/9MCakP.png
+a(FileSystemTool::mkTmpCopy($uploadedFile)); // /private/var/tmp/9MCakP
+az(FileSystemTool::mkTmpCopy($uploadedFile, "lka_admin.png" )); // /private/var/tmp/lka_admin.png
 
 ```
 

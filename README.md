@@ -85,6 +85,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.226 -- 2020-04-13
+
+    - update FileSystemTool::mkTmpCopy, now accepts filename argument instead of extension keeping
+    
 - 1.225 -- 2020-04-13
 
     - add FileSystemTool::mkTmpCopy
