@@ -1,6 +1,6 @@
 FileSystemTool
 =====================
-2015-10-07
+2015-10-07 -> 2020-04-13
 
 
 
@@ -397,6 +397,29 @@ Creates a temporary file with the given content, and return its path.
 
 $path = FileSystemTool::mkTmpFile("I'm the content of the file");
 a($path);  // /private/var/folders/sd/8m3gr23x1812c8_fddkwtk740000gn/T/BatGCcMzM
+
+```
+
+mkTmpCopy
+-----------
+2020-04-13
+
+
+```php
+string:path    mkTmpCopy ( str:path )
+```
+
+Makes a temporary copy of the given file path. 
+The file extension of the given file is kept.
+
+
+### Example
+
+```php
+<?php
+
+$uploadedFile = "/komin/jin_site_demo/tmp/lka_admin.png";
+az(FileSystemTool::mkTmpCopy($uploadedFile)); // /private/var/tmp/9MCakP.png
 
 ```
 

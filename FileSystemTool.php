@@ -458,6 +458,26 @@ class FileSystemTool
     }
 
 
+    /**
+     * Makes a temporary copy of the given file path.
+     * The file extension of the given file is kept.
+     *
+     *
+     * @param string $path
+     * @return string
+     */
+    public static function mkTmpCopy(string $path): string
+    {
+        $tmp = tempnam(sys_get_temp_dir(), "");
+        $extension = self::getFileExtension($path);
+        if ('' !== $extension) {
+            $tmp .= "." . $extension;
+        }
+        self::copyFile($path, $tmp);
+        return $tmp;
+    }
+
+
     public static function move(string $src, string $dst)
     {
         return self::rename($src, $dst);
