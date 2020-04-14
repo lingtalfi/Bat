@@ -26,6 +26,7 @@ https://github.com/lingtalfi/Bat/blob/master/SessionTool.md
 https://github.com/lingtalfi/Bat/blob/master/ShortCodeTool.md
 https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md
 https://github.com/lingtalfi/Bat/blob/master/StringTool.md
+https://github.com/lingtalfi/Bat/blob/master/TagTool.md
 https://github.com/lingtalfi/Bat/blob/master/UploadTool.md
 https://github.com/lingtalfi/Bat/blob/master/UriTool.md
 https://github.com/lingtalfi/Bat/blob/master/ValidationTool.md
