@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.229 -- 2020-04-20
+
+    - add UriTool::getParams
+    
 - 1.228 -- 2020-04-20
 
     - rename UriTool::appendQueryString to appendParams

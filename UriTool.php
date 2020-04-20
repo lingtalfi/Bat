@@ -48,6 +48,12 @@ class UriTool
         return false;
     }
 
+    /**
+     * Returns the current host based on the $_SERVER information,
+     * or false if it doesn't find anything (i.e. cli environment for instance).
+     *
+     * @return false|string
+     */
     public static function getHost()
     {
         if (array_key_exists('HTTP_HOST', $_SERVER)) {
@@ -60,6 +66,31 @@ class UriTool
         return $domain;
     }
 
+
+    /**
+     * Returns the get parameters attached to the given url.
+     *
+     * @param string $url
+     * @return array
+     */
+    public static function getParams(string $url): array
+    {
+        $result = [];
+        $p = explode('?', $url, 2);
+        if (2 === count($p)) {
+            $q = array_pop($p);
+            parse_str($q, $result);
+            return $result;
+        }
+    }
+
+
+    /**
+     * Returns the absolute url of the current process if available, or false otherwise.
+     *
+     *
+     * @return false|string
+     */
     public static function getWebsiteAbsoluteUrl()
     {
         // http://stackoverflow.com/questions/1175096/how-to-find-out-if-youre-using-https-without-serverhttps
@@ -129,6 +160,16 @@ class UriTool
     }
 
 
+    /**
+     * Returns an uri from the given parameters.
+     *
+     *
+     * @param null $uri
+     * @param array $params
+     * @param bool $replace
+     * @param bool $absolute
+     * @return string
+     */
     public static function uri($uri = null, array $params = [], $replace = true, $absolute = false)
     {
         // assuming we are not using a cli environment

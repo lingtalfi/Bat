@@ -1,6 +1,6 @@
 UriTool
 =====================
-2015-12-04
+2015-12-04 -> 2020-04-20
 
 
 
@@ -77,6 +77,52 @@ str|false    getHost ( )
 ```
 
 Gets the host name, or false in case of error.
+
+
+
+getParams
+-----------
+2020-04-20
+
+
+```php
+array    getParams ( string $url )
+```
+
+Returns the get parameters attached to the given url.
+
+
+Example:
+
+```php
+
+$url = "/something?ok=3&name=john&tags[]=paul&tags[]=alice&sports[combat][]=judo&sports[combat][]=karate&sports[ball]=basket";
+a(UriTool::getParams($url));
+```
+
+Will output:
+
+```html
+array(4) {
+  ["ok"] => string(1) "3"
+  ["name"] => string(4) "john"
+  ["tags"] => array(2) {
+    [0] => string(4) "paul"
+    [1] => string(5) "alice"
+  }
+  ["sports"] => array(2) {
+    ["combat"] => array(2) {
+      [0] => string(4) "judo"
+      [1] => string(6) "karate"
+    }
+    ["ball"] => string(6) "basket"
+  }
+}
+
+```
+
+ 
+ 
 
 
 
