@@ -12,7 +12,7 @@ class UriTool
      * Appends parameters to a base uri, and in the form of a query string (starting with a question mark).
      *
      */
-    public static function appendQueryString($baseUri, array $parameters = [])
+    public static function appendParams($baseUri, array $parameters = [])
     {
         $ret = $baseUri;
         if (false === strpos($baseUri, "?")) {
@@ -144,7 +144,7 @@ class UriTool
         if (true === $absolute) {
             $prefix = UriTool::getWebsiteAbsoluteUrl();
         }
-        $ret = $prefix . UriTool::appendQueryString($uri, $params);
+        $ret = $prefix . UriTool::appendParams($uri, $params);
         return rtrim($ret, '?');
     }
 }

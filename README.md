@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-04-14
+2015-10-07 --> 2020-04-20
 
 
 
@@ -85,6 +85,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.228 -- 2020-04-20
+
+    - rename UriTool::appendQueryString to appendParams
     
 - 1.227 -- 2020-04-14
 
