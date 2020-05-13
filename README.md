@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-04-20
+2015-10-07 --> 2020-05-13
 
 
 
@@ -85,6 +85,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.230 -- 2020-05-13
+
+    - fix UriTool::getParams not returning an array in some cases.
     
 - 1.229 -- 2020-04-20
 

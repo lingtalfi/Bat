@@ -80,8 +80,8 @@ class UriTool
         if (2 === count($p)) {
             $q = array_pop($p);
             parse_str($q, $result);
-            return $result;
         }
+        return $result;
     }
 
 
