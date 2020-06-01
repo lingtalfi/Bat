@@ -1,6 +1,6 @@
 ConvertTool
 =====================
-2018-06-03
+2018-06-03 -> 2020-06-01
 
 
 
@@ -134,5 +134,28 @@ All possible units are exposed in the example above.
 $sizeInBytes = ConvertTool::convertHumanSizeToBytes( "5M");
 az($sizeInBytes); // int(5242880)
 
+
+```
+
+
+
+getPhpErrorLabel
+----------
+2020-06-01
+
+
+```php
+string    getPhpErrorLabel ( int:errorNumber )
+```
+
+Returns the error label corresponding to the given error number, based on this page: [https://www.php.net/manual/en/errorfunc.constants.php](https://www.php.net/manual/en/errorfunc.constants.php).
+     
+     
+
+```php
+<?php
+
+a(ConvertTool::getPhpErrorLabel( 2)); // E_WARNING
+az(ConvertTool::getPhpErrorLabel( \E_USER_NOTICE)); // E_USER_NOTICE
 
 ```

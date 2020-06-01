@@ -4,18 +4,36 @@
 namespace Ling\Bat;
 
 
-use Ling\Bat\Exception\BatException;
-
 /**
  * ConvertTool
  * @author Lingtalfi
- * 2014-08-13
+ * 2014-08-13 -> 2020-06-01
  *
- * (stolen from bee framework)
+ *
+ * (originally stolen from bee framework)
+ *
  *
  */
 class ConvertTool
 {
+    private static $code2Text = [
+        1 => "E_ERROR",
+        2 => "E_WARNING",
+        4 => "E_PARSE",
+        8 => "E_NOTICE",
+        16 => "E_CORE_ERROR",
+        32 => "E_CORE_WARNING",
+        64 => "E_COMPILE_ERROR",
+        128 => "E_COMPILE_WARNING",
+        256 => "E_USER_ERROR",
+        512 => "E_USER_WARNING",
+        1024 => "E_USER_NOTICE",
+        2048 => "E_STRICT",
+        4096 => "E_RECOVERABLE_ERROR",
+        8192 => "E_DEPRECATED",
+        16384 => "E_USER_DEPRECATED",
+        32767 => "E_ALL",
+    ];
 
 
     /**
@@ -242,5 +260,27 @@ class ConvertTool
 
         }
         return (int)$ret;
+    }
+
+
+    /**
+     * Returns the error label corresponding to the given error number, based on this page:
+     * https://www.php.net/manual/en/errorfunc.constants.php.
+     *
+     *
+     *
+     * @param int $errNumber
+     * @param string|null $default
+     * @return string
+     */
+    public static function getPhpErrorLabel(int $errNumber, string $default = null): string
+    {
+        if (array_key_exists($errNumber, self::$code2Text)) {
+            return self::$code2Text[$errNumber];
+        }
+        if (null === $default) {
+            $default = "Unknown";
+        }
+        return $default;
     }
 }
