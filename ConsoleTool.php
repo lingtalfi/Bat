@@ -47,6 +47,24 @@ class ConsoleTool
 
 
     /**
+     * Returns the user home directory if found, or null otherwise.
+     *
+     * Note: this should only works on mac and unix machines, not windows.
+     *
+     *
+     *
+     * @return string|null
+     */
+    public static function getUserHomeDirectory(): ?string
+    {
+        $ret = null;
+        if (array_key_exists("HOME", $_SERVER)) {
+            return $_SERVER['HOME'];
+        }
+        return $ret;
+    }
+
+    /**
      * Executes the php passthru function, and returns whether the command was successful.
      *
      * @param string $cmd

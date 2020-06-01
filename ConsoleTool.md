@@ -1,6 +1,6 @@
 ConsoleTool
 =====================
-2019-03-19
+2019-03-19 -> 2020-06-01
 
 
 
@@ -49,6 +49,29 @@ The $outputLines variable will contain all lines (as an array) written on STD_OU
 <?php
 
 ConsoleTool::exec("cp /tmp/test1.txt /tmp/test2.txt"); // true
+
+```
+
+
+
+getUserHomeDirectory
+-----------
+2020-06-01
+
+
+```php
+string|null    getUserHomeDirectory ( )
+```
+
+Returns the user home directory if found, or null otherwise.
+
+Note: this should only works on mac and unix machines, not windows (like almost all my tools).
+
+
+```php
+<?php
+
+ConsoleTool::getUserHomeDirectory(); // /Users/lingtalfi
 
 ```
 

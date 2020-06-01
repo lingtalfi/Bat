@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.232 -- 2020-06-01
+
+    - add ConsoleTool::getUserHomeDirectory method
+    
 - 1.231 -- 2020-06-01
 
     - add ConvertTool::getPhpErrorLabel method
