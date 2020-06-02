@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.233 -- 2020-06-02
+
+    - add FileSystemTool::isEmptyDir and cleanDir methods
+    
 - 1.232 -- 2020-06-01
 
     - add ConsoleTool::getUserHomeDirectory method

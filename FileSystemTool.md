@@ -1,6 +1,6 @@
 FileSystemTool
 =====================
-2015-10-07 -> 2020-04-13
+2015-10-07 -> 2020-06-02
 
 
 
@@ -12,6 +12,18 @@ If you don't use bigbang, you can use var_dump as a replacement.
 
 
 
+
+cleanDir
+-------------
+2020-06-02
+
+```php
+void    cleanDir ( string:dir )
+```
+
+Removes all the empty dirs under the given directory (recursively).
+
+     
 
 cleanDirBubble
 -------------
@@ -253,6 +265,20 @@ bool        isDirectoryTraversalSafe( string:file, string:rootDir, bool:checkFil
 
 Returns whether the given file and is under the given rootDir.
 If the $checkFileExists is set, also checks whether the file exists.
+
+
+
+isEmptyDir
+-----------
+2020-06-02
+
+
+```php
+bool        isEmptyDir( string:dir )
+```
+
+
+Returns whether the given directory is empty (i.e. contains no files, links or directories).
 
 
 

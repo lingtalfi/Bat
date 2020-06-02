@@ -4,15 +4,32 @@ namespace Ling\Bat;
 
 
 use Ling\CopyDir\AuthorCopyDirUtil;
+use Ling\DirScanner\YorgDirScannerTool;
 
 
 /**
  * The FileSystemTool class.
- * LingTalfi 2015-10-07
+ * LingTalfi 2015-10-07 -> 2020-06-02
  */
 class FileSystemTool
 {
 
+
+    /**
+     *
+     * Removes all the empty dirs under the given directory (recursively).
+     *
+     * @param $dir
+     */
+    public static function cleanDir(string $dir)
+    {
+        $dirs = YorgDirScannerTool::getDirs($dir, true);
+        foreach ($dirs as $dir) {
+            if (true === self::isEmptyDir($dir)) {
+                self::remove($dir);
+            }
+        }
+    }
 
     /**
      *
@@ -308,6 +325,17 @@ class FileSystemTool
         return true;
     }
 
+
+    /**
+     * Returns whether the given directory is empty (i.e. contains no files, links or directories).
+     *
+     * @param string $dir
+     * @return bool
+     */
+    public static function isEmptyDir(string $dir): bool
+    {
+        return (0 === self::countFiles($dir));
+    }
 
     /**
      * Returns whether the given filename is considered valid.
