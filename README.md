@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.235 -- 2020-06-08
+
+    - update HashTool::getHashByFile, now returns file if the file doesn't exist instead of throwing an exception
+    
 - 1.234 -- 2020-06-08
 
     - add HashTool::getHashByFile method

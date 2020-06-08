@@ -29,10 +29,10 @@ getHashByFile
 
 
 ```php
-str    getHashByFile ( arr:file )
+str|false    getHashByFile ( arr:file )
 ```
 
-Returns the hash for the given file.
+Returns the hash for the given file, or false if the file doesn't exist.
 
 Note: this can be slow on big files like videos...
 

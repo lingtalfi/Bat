@@ -30,7 +30,7 @@ class HashTool
 
 
     /**
-     * Returns the hash for the given file.
+     * Returns the hash for the given file, or false if the file doesn't exist.
      *
      * Note: this can be slow on big files like videos...
      *
@@ -38,15 +38,15 @@ class HashTool
      *
      *
      * @param string $file
-     * @return string
+     * @return string|false
      * @throws \Exception
      */
-    public static function getHashByFile(string $file): string
+    public static function getHashByFile(string $file)
     {
         if (file_exists($file)) {
             return hash_file("haval160,4", $file);
         }
-        throw new BatException("The file does not exist: $file.");
+        return false;
     }
 
     /**
