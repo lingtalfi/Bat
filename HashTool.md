@@ -1,6 +1,6 @@
 HashTool
 =====================
-2017-10-12
+2017-10-12 -> 2020-06-08
 
 
 
@@ -20,6 +20,25 @@ str    getHashByArray ( arr:array )
 ```
 
 Return a hash corresponding to the given array.
+
+
+getHashByFile
+-------------
+2020-06-08
+
+
+
+```php
+str    getHashByFile ( arr:file )
+```
+
+Returns the hash for the given file.
+
+Note: this can be slow on big files like videos...
+
+This method was meant to be used with small files.
+     
+     
 
 
 
