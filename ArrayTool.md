@@ -23,7 +23,9 @@ Table of Contents
 * [filterByAllowed](#filterbyallowed)
 * [filterRecursive](#filterrecursive)
 * [getMissingKeys](#getmissingkeys)
+* [hasSameValues](#hassamevalues)
 * [insertRowAfter](#insertrowafter)
+* [isIdentical](#isidentical)
 * [isNumericalArray](#isnumericalarray)
 * [keysSameAsValues](#keyssameasvalues)
 * [mirrorRange](#mirrorrange)
@@ -496,6 +498,31 @@ array(0) {
 
 
 
+isIdentical
+-------------
+2020-06-11
+
+
+```php
+bool    isIdentical ( array:a, array:b )
+```
+
+Returns whether array a and b are identical.
+The order of keys matters.
+
+
+
+### Example
+
+```php
+<?php 
+
+$a = ['a' => [1, 2]];
+$b = ['a' => [1, 3]];
+
+az(ArrayTool::isIdentical($a, $b)); // false
+
+```
 
     
 isNumericalArray

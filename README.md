@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.237 -- 2020-06-11
+
+    - add ArrayTool::isIdentical
+    
 - 1.236 -- 2020-06-11
 
     - add ArrayTool::hasSameValues

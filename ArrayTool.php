@@ -331,6 +331,19 @@ class ArrayTool
 
 
     /**
+     * Returns whether array a and b are identical.
+     * The order of keys matters.
+     *
+     * @param array $a
+     * @param array $b
+     * @return bool
+     */
+    public static function isIdentical(array $a, array $b): bool
+    {
+        return ($a === $b);
+    }
+
+    /**
      * Return an array with keys equal to values.
      *
      * @param array $values
