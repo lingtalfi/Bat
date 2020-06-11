@@ -1,6 +1,6 @@
 ArrayTool
 =====================
-2015-12-20 -> 2019-12-20
+2015-12-20 -> 2020-06-11
 
 
 
@@ -361,6 +361,36 @@ a(ArrayTool::getMissingKeys($arr, ['firstName', 'lastName']));  // false
 ```
 
 
+   
+    
+hasSameValues
+-------------
+2020-06-11
+
+
+```php
+bool    hasSameValues ( array:a, array:b)
+```
+
+Returns whether array a and b contains the same values;
+The order doesn't matter.
+
+
+### Example
+
+```php
+<?php 
+
+$a = ["a", "b"];
+$b = ["b", "a"];
+
+az(ArrayTool::hasSameValues($a, $b)); // true
+
+```
+
+
+    
+        
     
 insertRowAfter
 -------------

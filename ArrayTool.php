@@ -247,6 +247,29 @@ class ArrayTool
 
 
     /**
+     * Returns whether array a and b contains the same values;
+     * The order doesn't matter.
+     *
+     * https://stackoverflow.com/questions/21138505/check-if-two-arrays-have-the-same-values
+     *
+     * @param array $a
+     * @param array $b
+     * @return bool
+     */
+    public static function hasSameValues(array $a, array $b): bool
+    {
+        $copy = $a;
+        foreach ($b as $element) {
+            $key = array_search($element, $copy, true);
+            if ($key === false) {
+                return false;
+            }
+            unset($copy[$key]);
+        }
+        return empty($copy);
+    }
+
+    /**
      * Insert the given row into the rows;
      *
      *

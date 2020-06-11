@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-06-08
+2015-10-07 --> 2020-06-11
 
 
 
@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.236 -- 2020-06-11
+
+    - add ArrayTool::hasSameValues
+        
 - 1.235 -- 2020-06-08
 
     - update HashTool::getHashByFile, now returns file if the file doesn't exist instead of throwing an exception

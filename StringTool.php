@@ -562,6 +562,9 @@ class StringTool
      * Split the given (assumed) string into an array of multi-byte characters.
      * The internal encoding used is the one returned by the php's mb_internal_encoding function.
      *
+     * Note: if you have php 7.4+, consider using mb_str_split instead.
+     * (this method was written before that time).
+     *
      */
     public static function split($string)
     {
