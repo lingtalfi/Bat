@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-06-11
+2015-10-07 --> 2020-06-29
 
 
 
@@ -85,6 +85,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.238 -- 2020-06-29
+
+    - update ArrayTool::arrayKeyExistAll, add missingKeys parameter
     
 - 1.237 -- 2020-06-11
 

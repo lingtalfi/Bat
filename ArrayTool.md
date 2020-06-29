@@ -1,6 +1,6 @@
 ArrayTool
 =====================
-2015-12-20 -> 2020-06-11
+2015-12-20 -> 2020-06-29
 
 
 
@@ -41,18 +41,18 @@ Table of Contents
 
 arrayKeyExistAll
 -------------
-2018-01-18 -> 2019-10-31
+2018-01-18 -> 2020-06-29
 
 
 ```php
-bool    arrayKeyExistAll ( mixed:keys, array:pool, bool throwEx=false)
+bool    arrayKeyExistAll ( mixed:keys, array:pool, bool throwEx=false, array &missingKeys = [])
 ```
 
-Checks that every given keys exist in the given pool array, and by default
-returns the result as a boolean.
+Checks that every given keys exist in the given pool array, and returns the result as a boolean.
 
-If the throwEx flag is set to true, then this method throws an exception if
-one key (or more) is not found.
+If the throwEx flag is set to true, then this method throws an exception as soon as a missing key is found.
+If it's set to false, the missing keys are available via the missingKeys array.
+
 
 
 

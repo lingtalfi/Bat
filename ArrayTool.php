@@ -7,41 +7,43 @@ use Ling\Bat\Exception\BatException;
 
 /**
  * The ArrayTool class.
- * LingTalfi 2015-12-20 -> 2019-09-17
+ * LingTalfi 2015-12-20 -> 2020-06-29
  */
 class ArrayTool
 {
 
 
     /**
-     * Checks that every given keys exist in the given pool array, and by default
-     * returns the result as a boolean.
+     * Checks that every given keys exist in the given pool array, and returns the result as a boolean.
      *
-     * If the throwEx flag is set to true, then this method throws an exception if
-     * one key (or more) is not found.
+     * If the throwEx flag is set to true, then this method throws an exception as soon as a missing key is found.
+     * If it's set to false, the missing keys are available via the missingKeys array.
      *
      *
      *
      * @param array|string $keys
      * @param array $pool
      * @param bool $throwEx
+     * @param array $missingKeys
      * @return bool
      * @throws \Exception
      */
-    public static function arrayKeyExistAll($keys, array $pool, bool $throwEx = false)
+    public static function arrayKeyExistAll($keys, array $pool, bool $throwEx = false, array &$missingKeys = []): bool
     {
         if (false === is_array($keys)) {
             $keys = [$keys];
         }
+        $hasAll = true;
         foreach ($keys as $key) {
             if (false === array_key_exists($key, $pool)) {
                 if (true === $throwEx) {
                     throw new BatException("Key not found: $key.");
                 }
-                return false;
+                $hasAll = false;
+                $missingKeys[] = $key;
             }
         }
-        return true;
+        return $hasAll;
     }
 
 

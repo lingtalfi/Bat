@@ -243,6 +243,21 @@ class StringTool
     }
 
 
+//    /**
+//     * Returns whether the two given strings are identical.
+//     *
+//     * https://stackoverflow.com/questions/3643135/two-identical-strings-yet-different-lengths-trimmed-cleansed-etc
+//     *
+//     *
+//     * @param string $a
+//     * @param string $b
+//     * @return bool
+//     */
+//    public static function isIdentical(string $a, string $b): bool
+//    {
+//        return (bin2hex($a) === bin2hex($b));
+//    }
+
     /**
      * Returns whether the given value can be turned into a string.
      *
