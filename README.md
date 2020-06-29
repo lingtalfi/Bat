@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.239 -- 2020-06-29
+
+    - add ArrayTool::arrayWalkKeys method
+    
 - 1.238 -- 2020-06-29
 
     - update ArrayTool::arrayKeyExistAll, add missingKeys parameter

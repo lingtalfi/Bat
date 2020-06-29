@@ -20,6 +20,7 @@ Table of Contents
 * [arrayKeyExistAll](#arraykeyexistall)
 * [arrayMergeReplaceRecursive](#arraymergereplacerecursive)
 * [arrayUniqueRecursive](#arrayuniquerecursive)
+* [arrayWalkKeys](#arrayuniquerecursive)
 * [filterByAllowed](#filterbyallowed)
 * [filterRecursive](#filterrecursive)
 * [getMissingKeys](#getmissingkeys)
@@ -180,6 +181,56 @@ $input = array_merge_recursive($profile1, $profile2);
 $input = Bat::arrayUniqueRecursive($input);
 
 ```
+
+
+
+    
+arrayWalkKeys
+-------------
+2020-06-29
+
+
+```php
+array    arrayWalkKeys ( array:&arr, callable:fn)
+```
+
+Walks the given array, applying the given callable to every key.
+
+The callable must return a valid key (i.e. a string or a number).
+
+
+
+### Example
+
+
+The following, 
+
+```php
+<?php
+
+$tags = [
+    'fruit' => 'apple',
+    'color' => 'red',
+];
+ArrayTool::arrayWalkKeys($tags, function ($k) {
+    return '{' . $k . '}';
+});
+az($tags);
+
+```
+
+
+will output something like this:
+
+
+```html
+array(2) {
+  ["{fruit}"] => string(5) "apple"
+  ["{color}"] => string(3) "red"
+}
+
+```
+
      
      
      

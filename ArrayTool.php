@@ -164,6 +164,26 @@ class ArrayTool
 
 
     /**
+     * Walks the given array, applying the given callable to every key.
+     *
+     * The callable must return a valid key (i.e. a string or a number).
+     *
+     *
+     * @param array $arr
+     * @param callable $fn
+     * @return void
+     */
+    public static function arrayWalkKeys(array &$arr, callable $fn)
+    {
+        $ret = [];
+        foreach ($arr as $k => $v) {
+            $k = $fn($k);
+            $ret[$k] = $v;
+        }
+        $arr = $ret;
+    }
+
+    /**
      * Returns the $array, without the entries which keys are NOT listed in $allowed.
      *
      * Example:
