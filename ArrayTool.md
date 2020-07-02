@@ -1,6 +1,6 @@
 ArrayTool
 =====================
-2015-12-20 -> 2020-06-29
+2015-12-20 -> 2020-07-02
 
 
 
@@ -20,7 +20,8 @@ Table of Contents
 * [arrayKeyExistAll](#arraykeyexistall)
 * [arrayMergeReplaceRecursive](#arraymergereplacerecursive)
 * [arrayUniqueRecursive](#arrayuniquerecursive)
-* [arrayWalkKeys](#arrayuniquerecursive)
+* [arrayWalkKeys](#arraywalkkeys)
+* [arrayWalkKeysRecursive](#arraywalkkeysrecursive)
 * [filterByAllowed](#filterbyallowed)
 * [filterRecursive](#filterrecursive)
 * [getMissingKeys](#getmissingkeys)
@@ -229,6 +230,63 @@ array(2) {
   ["{color}"] => string(3) "red"
 }
 
+```
+
+
+    
+arrayWalkKeysRecursive
+-------------
+2020-07-02
+
+
+```php
+array    arrayWalkKeysRecursive ( array:&arr, callable:fn)
+```
+
+Walks the given array recursively, applying the given callable to every key.
+
+The callable must return a valid key (i.e. a string or a number).
+
+
+
+### Example
+
+
+The following, 
+
+```php
+<?php
+
+$a = [
+    "fruits" => [
+        "apple" => 64,
+        "banana" => 65,
+    ],
+];
+ArrayTool::arrayWalkKeysRecursive($a, function($k){
+    if('apple' === $k){
+        $k = "pomme";
+    }
+    return $k;
+});
+
+az($a);
+
+
+
+```
+
+
+will output something like this:
+
+
+```html
+array(1) {
+    ["fruits"] => array(2) {
+        ["banana"] => int(65)
+        ["pomme"] => int(64)
+  }
+}
 ```
 
      

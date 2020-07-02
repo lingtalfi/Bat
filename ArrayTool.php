@@ -183,6 +183,42 @@ class ArrayTool
         $arr = $ret;
     }
 
+
+    /**
+     * Walks the given array recursively, applying the given callable to every key.
+     *
+     * The callable must return a valid key (i.e. a string or a number).
+     *
+     *
+     * @param array $arr
+     * @param callable $fn
+     * @return void
+     */
+    public static function arrayWalkKeysRecursive(array &$arr, callable $fn)
+    {
+        $ret = [];
+        $pathsToRemove = [];
+        BDotTool::walk($arr, function ($v, $k, $curPath) use (&$ret, $fn, &$pathsToRemove) {
+
+            $newK = call_user_func($fn, $k);
+            if ($k !== $newK) {
+                $pathsToRemove[] = $curPath;
+                $components = BDotTool::getPathComponents($curPath);
+                array_pop($components);
+                $components[] = str_replace('.', '\.', $newK);
+                $curPath = implode('.', $components);
+            }
+
+            BDotTool::setDotValue($curPath, $v, $ret);
+        });
+
+        foreach ($pathsToRemove as $p) {
+            BDotTool::unsetDotValue($p, $ret);
+        }
+
+        $arr = $ret;
+    }
+
     /**
      * Returns the $array, without the entries which keys are NOT listed in $allowed.
      *

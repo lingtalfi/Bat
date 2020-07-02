@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-06-29
+2015-10-07 --> 2020-07-02
 
 
 
@@ -85,6 +85,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.240 -- 2020-07-02
+
+    - add ArrayTool::arrayWalkKeysRecursive method
     
 - 1.239 -- 2020-06-29
 
