@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.242 -- 2020-07-03
+
+    - add CaseTool::toVariableName method
+    
 - 1.241 -- 2020-07-03
 
     - add CaseTool::toHumanFlatCase method

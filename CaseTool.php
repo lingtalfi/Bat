@@ -103,6 +103,58 @@ class CaseTool
     }
 
 
+    public static function toConstant(string $str)
+    {
+        return strtoupper(self::toSnake($str));
+    }
+
+    public static function toDash(string $str)
+    {
+        $str = strtolower(StringTool::removeAccents($str));
+        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
+        $str = preg_replace('!-+!', '-', $str);
+        $str = trim($str, '-');
+        return $str;
+    }
+
+
+    public static function toDog(string $str)
+    {
+        $str = strtolower(StringTool::removeAccents($str));
+        $str = preg_replace('![^a-zA-Z0-9\s_-]!', '', $str);
+        $str = preg_replace('!\s!', '-', $str);
+        $str = preg_replace('!-+!', '-', $str);
+        return $str;
+    }
+
+    public static function toFlea(string $str)
+    {
+        $str = strtolower(StringTool::removeAccents($str));
+        $str = preg_replace('![^a-zA-Z0-9\s\._-]!', '', $str);
+        $str = preg_replace('!\s!', '-', $str);
+        $str = preg_replace('!-+!', '-', $str);
+        $str = preg_replace('!_+!', '_', $str);
+        $str = preg_replace('!\.+!', '.', $str);
+        return $str;
+    }
+
+
+    public static function toFlexibleDash(string $str)
+    {
+        $str = StringTool::removeAccents($str);
+        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
+        $str = preg_replace('!-+!', '-', $str);
+        $str = trim($str, '-');
+        return $str;
+    }
+
+
+    public static function toFlexiblePascal(string $str)
+    {
+        return ucfirst(self::toFlexibleCamel($str));
+    }
+
+
     /**
      * Returns the [human flat case](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#humanflatcase) version of the given string.
      *
@@ -129,7 +181,16 @@ class CaseTool
 
     }
 
-    public static function toFlexibleCamel(string $str)
+
+    /**
+     * Returns the [flexible camel](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#flexiblecamelcase) version of the given string.
+     *
+     *
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function toFlexibleCamel(string $str): string
     {
         $str = StringTool::removeAccents($str);
         $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
@@ -144,36 +205,27 @@ class CaseTool
     }
 
 
-    public static function toPascal(string $str)
+    /**
+     * Returns the [pascal](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#pascalcase) version of the given string.
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function toPascal(string $str): string
     {
         return ucfirst(self::toCamel($str));
     }
 
 
-    public static function toFlexiblePascal(string $str)
+    /**
+     * Returns a php variable version of the given string.
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function toVariableName(string $str): string
     {
-        return ucfirst(self::toFlexibleCamel($str));
-    }
-
-
-    public static function toDog(string $str)
-    {
-        $str = strtolower(StringTool::removeAccents($str));
-        $str = preg_replace('![^a-zA-Z0-9\s_-]!', '', $str);
-        $str = preg_replace('!\s!', '-', $str);
-        $str = preg_replace('!-+!', '-', $str);
-        return $str;
-    }
-
-    public static function toFlea(string $str)
-    {
-        $str = strtolower(StringTool::removeAccents($str));
-        $str = preg_replace('![^a-zA-Z0-9\s\._-]!', '', $str);
-        $str = preg_replace('!\s!', '-', $str);
-        $str = preg_replace('!-+!', '-', $str);
-        $str = preg_replace('!_+!', '_', $str);
-        $str = preg_replace('!\.+!', '.', $str);
-        return $str;
+        return lcfirst(preg_replace('!^[0-9]*!', '', self::toPascal($str)));
     }
 
 
@@ -189,28 +241,6 @@ class CaseTool
         return $str;
     }
 
-    public static function toConstant(string $str)
-    {
-        return strtoupper(self::toSnake($str));
-    }
-
-    public static function toDash(string $str)
-    {
-        $str = strtolower(StringTool::removeAccents($str));
-        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
-        $str = preg_replace('!-+!', '-', $str);
-        $str = trim($str, '-');
-        return $str;
-    }
-
-    public static function toFlexibleDash(string $str)
-    {
-        $str = StringTool::removeAccents($str);
-        $str = preg_replace('![^a-zA-Z0-9]!', '-', $str);
-        $str = preg_replace('!-+!', '-', $str);
-        $str = trim($str, '-');
-        return $str;
-    }
 
     public static function unsnake($str)
     {

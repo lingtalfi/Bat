@@ -548,6 +548,37 @@ a(CaseTool::toSnake("MyClassIsKool", true)); // my_class_is_kool
 
 
 
+toVariableName
+-----------
+2020-07-03
+
+
+
+
+```php
+str    toVariableName ( string:str)
+```
+
+Returns a php variable version of the given string.
+
+
+
+```php
+<?php
+
+a(CaseTool::toVariableName("Paul Maurice")); // paulMaurice
+a(CaseTool::toVariableName("0Paul Maurice")); // paulMaurice
+a(CaseTool::toVariableName("04Paul Maurice")); // paulMaurice
+a(CaseTool::toVariableName("04 Paul Maurice06")); // paulMaurice06
+
+
+```
+
+
+
+
+
+
 unsnake
 -----------
 2015-12-29
