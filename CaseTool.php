@@ -225,7 +225,7 @@ class CaseTool
      */
     public static function toVariableName(string $str): string
     {
-        return lcfirst(preg_replace('!^[0-9]*!', '', self::toPascal($str)));
+        return lcfirst(self::toFlexiblePascal(preg_replace('!^[0-9]*!', '', $str)));
     }
 
 

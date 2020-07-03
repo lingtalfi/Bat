@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.243 -- 2020-07-03
+
+    - fix CaseTool::toVariableName returning wrong case
+    
 - 1.242 -- 2020-07-03
 
     - add CaseTool::toVariableName method
