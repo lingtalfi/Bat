@@ -104,6 +104,19 @@ class CaseTool
 
 
     /**
+     * Returns the [human flat case](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#humanflatcase) version of the given string.
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function toHumanFlatCase(string $str): string
+    {
+        $str = str_replace('_', ' ', $str);
+        $str = preg_replace('!([a-z0-9])([A-Z])!', '$1 $2', $str);
+        return strtolower($str);
+    }
+
+    /**
      * Returns a portable file name.
      * For more details: https://github.com/lingtalfi/NotationFan/blob/master/portable-filename.md
      *

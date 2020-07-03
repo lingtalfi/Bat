@@ -1,6 +1,6 @@
 CaseTool
 =====================
-2015-12-22
+2015-12-22 -> 2020-07-03
 
 
 
@@ -314,6 +314,72 @@ require_once "bigbang.php";
 
 a(CaseTool::toDog("Hello everybody, is it ok?")); // hello-everybody-is-it-ok
 ```
+
+
+
+toHumanFlatCase
+-----------
+2020-07-03
+
+
+```php
+str    toHumanFlatCase ( str:string )
+```
+
+Returns the [human flat case](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#humanflatcase) version of the given string.
+
+
+
+```php
+<?php
+
+
+$tests = [
+//    'this is not correct' => 'this is not correct',
+    'camelCase' => 'camel case',
+    'simple XML' => 'simple xml',
+    'local db 2 remote' => 'local db 2 remote',
+    'XML element' => 'xml element',
+    'some_tool_here' => 'some tool here',
+    'SOMe_tool_HERe' => 'some tool here',
+    'tai-tai-PEI.MAURICE' => 'tai-tai-pei.maurice',
+    'tai(tai)-PEI+MAURICE' => 'tai(tai)-pei+maurice',
+];
+
+foreach ($tests as $test => $expected) {
+
+    a(CaseTool::toHumanFlatCase($test));
+}
+az();
+
+```
+
+The above example will output something like this:
+
+
+```html
+string(10) "camel case"
+
+string(10) "simple xml"
+
+string(17) "local db 2 remote"
+
+string(11) "xml element"
+
+string(14) "some tool here"
+
+string(14) "some tool here"
+
+string(19) "tai-tai-pei.maurice"
+
+string(20) "tai(tai)-pei+maurice"
+
+
+```
+
+
+
+
 
 
 toPortableFilename
