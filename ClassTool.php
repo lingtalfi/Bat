@@ -395,6 +395,24 @@ class ClassTool
         return array_pop($p);
     }
 
+
+    /**
+     * Returns whether the given class contains the given method.
+     *
+     * Note: the class name must be in the reach of the current autoloader in order
+     * for this method to work correctly.
+     *
+     * @param string $className
+     * @param string $method
+     * @return bool
+     */
+    public static function hasMethod(string $className, string $method): bool
+    {
+        $methods = self::getMethodNames($className);
+        return in_array($method, $methods, true);
+    }
+
+
     /**
      * @throws \ReflectionException when the class/method doesn't exist
      */

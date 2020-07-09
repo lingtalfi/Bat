@@ -1,6 +1,6 @@
 ClassTool
 =====================
-2016-12-22
+2016-12-22 -> 2020-07-09
 
 
 
@@ -370,6 +370,21 @@ Return the short name for the given class.
 
 For instance if the class is A\B\CCC,
 it returns CCC.
+
+
+
+
+hasMethod
+----------
+2020-07-09
+
+```php
+bool hasMethod ( str:className, str: methodName )
+```
+
+Returns whether the given class contains the given method.
+
+Note: the class name must be in the reach of the current autoloader in order for this method to work correctly.
 
 
 
