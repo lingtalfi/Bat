@@ -1,5 +1,6 @@
 dependencies: 
     Ling: 
+        - TokenFun
         - ArrayToString
         - BeeFramework
         - CopyDir

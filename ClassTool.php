@@ -5,6 +5,7 @@ namespace Ling\Bat;
 
 
 use Ling\Bat\Exception\BatException;
+use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
 
 /**
  * The ClassTool class.
@@ -412,6 +413,37 @@ class ClassTool
         return in_array($method, $methods, true);
     }
 
+
+    /**
+     * Returns whether the class, contained in the given file, contains the given method.
+     *
+     * Note: the class name must be in the reach of the current autoloader in order
+     * for this method to work correctly.
+     * It is also assumed that the given class file exists, and that it contains only one class.
+     *
+     *
+     *
+     * @param string $classFile
+     * @param string $method
+     * @return bool
+     * @throws \Exception
+     */
+    public static function hasMethodByFile(string $classFile, string $method): bool
+    {
+
+        if (file_exists($classFile)) {
+
+            $tokens = token_get_all(file_get_contents($classFile));
+            $items = TokenFinderTool::getClassNames($tokens, true, [
+                "includeInterfaces" => false,
+            ]);
+            $className = array_shift($items);
+
+            $c = new \ReflectionClass($className);
+            return $c->hasMethod($method);
+        }
+        throw new BatException("Class file doesn't exist: $classFile.");
+    }
 
     /**
      * @throws \ReflectionException when the class/method doesn't exist

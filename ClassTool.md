@@ -390,6 +390,24 @@ Note: the class name must be in the reach of the current autoloader in order for
 
 
 
+hasMethodByFile 
+----------
+2020-07-09
+
+```php
+bool hasMethodByFile ( str:file, str: methodName )
+```
+
+Returns whether the class, contained in the given file, contains the given method.
+
+Note: the class name must be in the reach of the current autoloader in order
+for this method to work correctly.
+It is also assumed that the given class file exists, and that it contains only one class.
+
+
+
+
+
 rewriteMethodContent
 -----------
 2016-12-25

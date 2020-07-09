@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.245 -- 2020-07-09
+
+    - add ClassTool::hasMethodByFile method
+    
 - 1.244 -- 2020-07-09
 
     - add ClassTool::hasMethod method
