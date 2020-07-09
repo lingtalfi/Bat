@@ -5,6 +5,7 @@ namespace Ling\Bat;
 
 
 use Ling\Bat\Exception\BatException;
+use Ling\Bat\Util\ExtendedReflectionClass;
 use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
 
 /**
@@ -396,6 +397,33 @@ class ClassTool
         return array_pop($p);
     }
 
+
+    /**
+     * Returns the class names found in the use statements for the given class.
+     *
+     * If the useAliasNames flag is set to true, it will return aliases (when defined) instead of the class names.
+     *
+     *
+     * @param string $className
+     * @param bool $useAliasNames
+     * @return array
+     * @throws \Exception
+     */
+    public static function getUseStatements(string $className, bool $useAliasNames = false): array
+    {
+
+        $ret = [];
+        $o = new ExtendedReflectionClass($className);
+        $statements = $o->getUseStatements();
+        foreach ($statements as $statement) {
+            if (false === $useAliasNames) {
+                $ret[] = $statement['class'];
+            } else {
+                $ret[] = $statement['as'];
+            }
+        }
+        return $ret;
+    }
 
     /**
      * Returns whether the given class contains the given method.

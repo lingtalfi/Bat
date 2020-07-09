@@ -373,6 +373,21 @@ it returns CCC.
 
 
 
+getUseStatements
+-----------
+2020-07-09
+
+
+
+```php
+array    getUseStatements ( str:className, bool useAliasNames = false )
+```
+
+Returns the class names found in the use statements for the given class.
+
+If the useAliasNames flag is set to true, it will return aliases (when defined) instead of the class names.
+
+
 
 hasMethod
 ----------
