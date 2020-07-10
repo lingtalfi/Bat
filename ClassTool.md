@@ -424,7 +424,8 @@ array    getUseStatementsInfoByFile ( str:file)
 
 Returns an array of items, each of which:
 
-- 0: use statement: string, the whole use statement line as written (for instance: use Ling\Bat\ClassTool as CTool;), also including // comments if any
+- 0: use statement: string, the whole use statement line as written (for instance: use Ling\Bat\ClassTool as CTool;), also including // comments if any,
+     and including the last "PHP_EOL" char
 - 1: line number: int, the number of the line at which that use statement was found
 
 
