@@ -3,6 +3,8 @@
 namespace Ling\Bat;
 
 
+use Ling\Bat\Exception\BatException;
+
 /**
  * The FileTool class.
  */
@@ -28,121 +30,6 @@ class FileTool
         $n = $maxConsecutiveBlankLines + 1;
         $c = preg_replace('!(\n(\r?\s)*){' . $n . ',}!', $r, $c);
         file_put_contents($file, $c);
-    }
-
-    public static function getNbLines($file)
-    {
-        $linecount = 0;
-
-        $m = exec('which wc');
-        if ('' !== $m) {
-            $cmd = 'wc -l < "' . str_replace('"', '\\"', $file) . '"';
-            $n = exec($cmd);
-            return (int)$n + 1;
-        }
-
-
-        $handle = fopen($file, "r");
-        while (!feof($handle)) {
-            $line = fgets($handle);
-            $linecount++;
-        }
-        fclose($handle);
-        return $linecount;
-    }
-
-    /**
-     * Returns the size in bytes of a given file.
-     * The file can be an url starting with http:// https://, or a filesystem file.
-     *
-     * @return int|false in case of failure (file not existing for instance)
-     */
-    public static function getFileSize(string $file, bool $humanize = false)
-    {
-
-        $sizeInBytes = 0;
-        if (
-            'http://' === substr($file, 0, 7) ||
-            'https://' === substr($file, 0, 8)
-        ) {
-            if (true === extension_loaded('curl')) {
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, $file);
-                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_HEADER, true);
-                curl_setopt($ch, CURLOPT_NOBODY, true);
-                curl_setopt($ch, CURLOPT_TIMEOUT, 10); // mitigate slowloris attacks http://php.net/manual/en/function.get-headers.php#117189
-                curl_exec($ch);
-                $sizeInBytes = (int)curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
-            } else {
-                $head = array_change_key_case(get_headers($file, 1));
-                $sizeInBytes = (int)$head['content-length'];
-            }
-        } else {
-            $sizeInBytes = filesize($file);
-        }
-        if (false === $sizeInBytes) {
-            return $sizeInBytes;
-        }
-        if (true === $humanize) {
-            return ConvertTool::convertBytes($sizeInBytes, "h");
-        }
-        return $sizeInBytes;
-    }
-
-
-    /**
-     * Returns whether the given file is an image (based on the guessed mime type).
-     *
-     * @param string $filePath
-     * @return bool
-     */
-    public static function isImage(string $filePath): bool
-    {
-        $finfo = new \finfo();
-        $fileMimeType = $finfo->file($filePath, FILEINFO_MIME_TYPE);
-        return (0 === strpos($fileMimeType, "image/"));
-    }
-
-    /**
-     * Prepends the given $text to the given $file and returns
-     * whether the operation was successful.
-     *
-     * @param string $file
-     * @param string $text
-     * @return bool
-     */
-    public static function prepend(string $file, string $text): bool
-    {
-        if (file_exists($file)) {
-            $content = file_get_contents($file);
-            $content = $text . $content;
-            return FileSystemTool::mkfile($file, $content);
-        } else {
-            return FileSystemTool::mkfile($file, $text, 0777, 0);
-        }
-    }
-
-
-    /**
-     * Split a file in two parts, at the given lineNumber , and return the two parts.
-     * The line indicated by lineNumber is part of the second half (not the first half).
-     */
-    public static function split($file, $lineNumber)
-    {
-        $lines = file($file);
-        if ($lineNumber < 1) {
-            throw new \Exception("Line number must be greater than 0");
-        }
-        $lineNumber--;
-        $a = array_slice($lines, 0, $lineNumber);
-        $b = array_slice($lines, $lineNumber);
-
-
-        $a = implode("", $a);
-        $b = implode("", $b);
-        return [$a, $b];
     }
 
 
@@ -228,6 +115,69 @@ class FileTool
         return $ret;
     }
 
+
+    /**
+     * Returns the size in bytes of a given file.
+     * The file can be an url starting with http:// https://, or a filesystem file.
+     *
+     * @return int|false in case of failure (file not existing for instance)
+     */
+    public static function getFileSize(string $file, bool $humanize = false)
+    {
+
+        $sizeInBytes = 0;
+        if (
+            'http://' === substr($file, 0, 7) ||
+            'https://' === substr($file, 0, 8)
+        ) {
+            if (true === extension_loaded('curl')) {
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $file);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_HEADER, true);
+                curl_setopt($ch, CURLOPT_NOBODY, true);
+                curl_setopt($ch, CURLOPT_TIMEOUT, 10); // mitigate slowloris attacks http://php.net/manual/en/function.get-headers.php#117189
+                curl_exec($ch);
+                $sizeInBytes = (int)curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
+            } else {
+                $head = array_change_key_case(get_headers($file, 1));
+                $sizeInBytes = (int)$head['content-length'];
+            }
+        } else {
+            $sizeInBytes = filesize($file);
+        }
+        if (false === $sizeInBytes) {
+            return $sizeInBytes;
+        }
+        if (true === $humanize) {
+            return ConvertTool::convertBytes($sizeInBytes, "h");
+        }
+        return $sizeInBytes;
+    }
+
+    public static function getNbLines($file)
+    {
+        $linecount = 0;
+
+        $m = exec('which wc');
+        if ('' !== $m) {
+            $cmd = 'wc -l < "' . str_replace('"', '\\"', $file) . '"';
+            $n = exec($cmd);
+            return (int)$n + 1;
+        }
+
+
+        $handle = fopen($file, "r");
+        while (!feof($handle)) {
+            $line = fgets($handle);
+            $linecount++;
+        }
+        fclose($handle);
+        return $linecount;
+    }
+
+
     /**
      * Inserts the given content at the given lineNumber for the file.
      * If the given lineNumber is greater than the number of lines in the file,
@@ -261,4 +211,120 @@ class FileTool
             throw new \Exception("the lineNumber must be greater than 0");
         }
     }
+
+
+    /**
+     * Returns whether the given file is an image (based on the guessed mime type).
+     *
+     * @param string $filePath
+     * @return bool
+     */
+    public static function isImage(string $filePath): bool
+    {
+        $finfo = new \finfo();
+        $fileMimeType = $finfo->file($filePath, FILEINFO_MIME_TYPE);
+        return (0 === strpos($fileMimeType, "image/"));
+    }
+
+
+    /**
+     * Prepends the given $text to the given $file and returns
+     * whether the operation was successful.
+     *
+     * @param string $file
+     * @param string $text
+     * @return bool
+     */
+    public static function prepend(string $file, string $text): bool
+    {
+        if (file_exists($file)) {
+            $content = file_get_contents($file);
+            $content = $text . $content;
+            return FileSystemTool::mkfile($file, $content);
+        } else {
+            return FileSystemTool::mkfile($file, $text, 0777, 0);
+        }
+    }
+
+
+    /**
+     * Removes the portion of the file starting and ending at the given lines, and replaces it with the given newContent.
+     *
+     * If newContent is false, then the portion delimited by start and end line is just removed.
+     *
+     * Note: don't forget the PHP_EOL at the end of the content you insert.
+     *
+     * Throws an exception if the file doesn't exist, or if the file doesn't contain the start/end lines.
+     *
+     *
+     *
+     * @param string $file
+     * @param int $startLine
+     * @param int $endLine
+     * @param string|false $newContent
+     * @throws \Exception
+     */
+    public static function replace(string $file, int $startLine, int $endLine, $newContent)
+    {
+        $nbLines = self::getNbLines($file);
+        if ($endLine < $startLine) {
+            throw new BatException("The endLine number ($endLine) must be greater than the startLine number ($startLine)");
+        }
+        if ($endLine > $nbLines) {
+            throw new BatException("The file \"$file\" doesn't contain the endLine number $endLine.");
+        }
+        if (false === file_exists($file)) {
+            throw new BatException("File not found: \"$file\".");
+
+        }
+
+        $lines = file($file);
+        // since array is 0-based index, and line numbers are 1-based indexes, we remove one to the start/end numbers
+        $startLine--;
+        $endLine--;
+
+
+        /**
+         * Our strategy here is to replace the startLine with the new content,
+         * and then remove the extra lines from startLine to endLine, if any
+         */
+        if (false !== $newContent) {
+            $lines[$startLine] = $newContent;
+        }
+        if ($endLine > $startLine) {
+            $beginAt = $startLine + 1;
+            for ($i = $beginAt; $i <= $endLine; $i++) {
+                unset($lines[$i]);
+            }
+        }
+
+        if (false === $newContent) {
+            unset($lines[$startLine]);
+        }
+
+        $newContent = implode('', $lines);
+        FileSystemTool::mkfile($file, $newContent);
+    }
+
+
+    /**
+     * Split a file in two parts, at the given lineNumber , and return the two parts.
+     * The line indicated by lineNumber is part of the second half (not the first half).
+     */
+    public static function split($file, $lineNumber)
+    {
+        $lines = file($file);
+        if ($lineNumber < 1) {
+            throw new \Exception("Line number must be greater than 0");
+        }
+        $lineNumber--;
+        $a = array_slice($lines, 0, $lineNumber);
+        $b = array_slice($lines, $lineNumber);
+
+
+        $a = implode("", $a);
+        $b = implode("", $b);
+        return [$a, $b];
+    }
+
 }

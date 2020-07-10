@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.249 -- 2020-07-10
+
+    - add FileTool::replace method
+    
 - 1.248 -- 2020-07-10
 
     - add ClassTool::getUseStatementsInfoByFile method
