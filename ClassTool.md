@@ -272,6 +272,23 @@ string(72) "class ArrayRefResolverException extends \Exception implements \Throw
 
 
 
+getClassStartLineByFile
+-----------
+2020-07-10
+
+
+
+```php
+int    getClassStartLineByFile ( string:file )
+```
+
+Returns the number of the line where the first class is declared in the given file.
+Note: the class must be reachable by the current autoloader(s), otherwise an exception will be thrown.
+
+
+
+
+
 getMethodContent
 -----------
 2016-12-22

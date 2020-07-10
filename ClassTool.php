@@ -250,6 +250,22 @@ class ClassTool
 
 
     /**
+     * Returns the number of the line where the first class is declared in the given file.
+     *
+     * Note: the class must be reachable by the current autoloader(s), otherwise an exception will be thrown.
+     *
+     * @param string $file
+     * @return int
+     */
+    public static function getClassStartLineByFile(string $file): int
+    {
+        $className = self::getClassNameByFile($file);
+        $o = new \ReflectionClass($className);
+        return $o->getStartLine();
+    }
+
+
+    /**
      * Example:
      *      $content = ClassTool::getMethodContent(LayoutServices::class, 'displayLeftMenuBlocks');
      *
