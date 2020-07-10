@@ -558,6 +558,27 @@ It is also assumed that the given class file exists, and that it contains only o
 
 
 
+hasUseStatementByFile 
+----------
+2020-07-10
+
+```php
+bool hasUseStatementByFile ( str:file, str: useStatementClass )
+```
+
+Returns whether the given class is referenced from an use statement in the given file.
+
+Note: this method ignore use statement aliases and always use the "real" class.
+
+
+Example:
+
+```php
+az(ClassTool::hasUseStatementByFile($file, "Ling\Light_Logger\LightLoggerService")); // true
+
+```
+
+
 
 
 rewriteMethodContent

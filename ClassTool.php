@@ -551,6 +551,27 @@ class ClassTool
 
 
     /**
+     * Returns whether the given class is referenced from an use statement in the given file.
+     *
+     * Note: this method ignore use statement aliases and always use the "real" class.
+     *
+     *
+     *
+     *
+     *
+     * @param string $file
+     * @param string $useStatementClass
+     * @return bool
+     */
+    public static function hasUseStatementByFile(string $file, string $useStatementClass): bool
+    {
+        $className = self::getClassNameByFile($file);
+        $useStatements = self::getUseStatements($className);
+        return in_array($useStatementClass, $useStatements, true);
+    }
+
+
+    /**
      * @throws \ReflectionException when the class/method doesn't exist
      */
     public static function rewriteMethodContent($class, $method, $func)
