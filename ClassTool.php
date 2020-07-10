@@ -177,6 +177,7 @@ class ClassTool
         throw new BatException("Class file doesn't exist: $file.");
     }
 
+
     /**
      * Returns the class signature of the given $class.
      *
@@ -262,6 +263,22 @@ class ClassTool
         $className = self::getClassNameByFile($file);
         $o = new \ReflectionClass($className);
         return $o->getStartLine();
+    }
+
+
+    /**
+     * Returns the absolute path of the file containing the given class.
+     *
+     * Note: the class must be reachable by the current autoloader(s), otherwise an exception will be thrown.
+     *
+     * @param string $className
+     * @return string
+     * @throws \Exception
+     */
+    public static function getFile(string $className): string
+    {
+        $o = new \ReflectionClass($className);
+        return $o->getFileName();
     }
 
 
@@ -443,6 +460,43 @@ class ClassTool
         $className = self::getClassNameByFile($file);
         $o = new AnotherExtendedReflectionClass($className);
         return $o->getNamespaceLineNumber();
+    }
+
+
+    /**
+     * Returns an info array of the given property, or false if the property doesn't exist.
+     *
+     *
+     * The returned array looks like this:
+     * - 0: line number of the property declaration
+     * - 1: end line number of the comment
+     * - 2: the comment text
+     *
+     *
+     * Note: the given class name must be reachable by the current autoloader(s).
+     *
+     *
+     *
+     *
+     *
+     * @param string $className
+     * @param string $propertyName
+     * @return array|false
+     * @throws \Exception
+     */
+    public static function getPropertyInfo(string $className, string $propertyName)
+    {
+        $o = new \ReflectionClass($className);
+        if (true === $o->hasProperty($propertyName)) {
+            $p = $o->getProperty($propertyName);
+
+
+            $docComment = $p->getDocComment();
+            if (false !== $docComment) {
+                return $docComment;
+            }
+        }
+        return false;
     }
 
 

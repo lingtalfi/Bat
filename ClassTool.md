@@ -289,6 +289,23 @@ Note: the class must be reachable by the current autoloader(s), otherwise an exc
 
 
 
+getFile
+-----------
+2020-07-10
+
+
+
+```php
+str    getFile ( string:className )
+```
+
+Returns the absolute path of the file containing the given class.
+
+Note: the class must be reachable by the current autoloader(s), otherwise an exception will be thrown.
+
+
+
+
 getMethodContent
 -----------
 2016-12-22

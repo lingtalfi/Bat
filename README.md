@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.256 -- 2020-07-10
+
+    - add ClassTool::getFile method 
+    
 - 1.255 -- 2020-07-10
 
     - add ClassTool::hasProperty method 
