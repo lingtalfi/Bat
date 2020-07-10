@@ -4,6 +4,8 @@
 namespace Ling\Bat\Util;
 
 
+use Ling\Bat\Exception\BatException;
+
 /**
  * The ExtendedReflectionClass class.
  *
@@ -78,7 +80,7 @@ class ExtendedReflectionClass extends \ReflectionClass
         }
 
         if (!$this->isUserDefined()) {
-            throw new RuntimeException('Must parse use statements from user defined classes.');
+            throw new BatException('Must parse use statements from user defined classes.');
         }
 
         $source = $this->readFileSource();

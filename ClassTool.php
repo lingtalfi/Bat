@@ -5,6 +5,7 @@ namespace Ling\Bat;
 
 
 use Ling\Bat\Exception\BatException;
+use Ling\Bat\Util\AnotherExtendedReflectionClass;
 use Ling\Bat\Util\ExtendedReflectionClass;
 use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
 
@@ -145,7 +146,6 @@ class ClassTool
         $ret = array_unique($ret);
         return $ret;
     }
-
 
 
     /**
@@ -456,6 +456,27 @@ class ClassTool
     }
 
     /**
+     * Returns an array of items, each of which:
+     *
+     * - 0: use statement: string, the whole use statement line as written (for instance: use Ling\Bat\ClassTool as CTool;), also including // comments if any
+     * - 1: line number: int, the number of the line at which that use statement was found
+     *
+     *
+     * This method assumes that each "use statement" is only defined on a single line, and that there is at most one use statement defined by line.
+     *
+     *
+     * @param string $file
+     * @return array
+     * @throws \Exception
+     */
+    public static function getUseStatementsInfoByFile(string $file): array
+    {
+        $className = self::getClassNameByFile($file);
+        $o = new AnotherExtendedReflectionClass($className);
+        return $o->getUseStatementsInfo();
+    }
+
+    /**
      * Returns whether the given class contains the given method.
      *
      * Note: the class name must be in the reach of the current autoloader in order
@@ -492,8 +513,6 @@ class ClassTool
         $c = new \ReflectionClass($className);
         return $c->hasMethod($method);
     }
-
-
 
 
     /**

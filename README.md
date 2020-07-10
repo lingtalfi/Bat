@@ -86,6 +86,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.248 -- 2020-07-10
+
+    - add ClassTool::getUseStatementsInfoByFile method
+    
 - 1.247 -- 2020-07-10
 
     - add ClassTool::getClassNameByFile method

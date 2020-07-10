@@ -411,6 +411,101 @@ If the useAliasNames flag is set to true, it will return aliases (when defined) 
 
 
 
+
+getUseStatementsInfoByFile
+-----------
+2020-07-10
+
+
+
+```php
+array    getUseStatementsInfoByFile ( str:file)
+```
+
+Returns an array of items, each of which:
+
+- 0: use statement: string, the whole use statement line as written (for instance: use Ling\Bat\ClassTool as CTool;), also including // comments if any
+- 1: line number: int, the number of the line at which that use statement was found
+
+
+This method assumes that each "use statement" is only defined on a single line, and that there is at most one use statement defined by line.
+
+
+### Example
+
+Given the following class:
+
+
+```php
+
+<?php
+
+
+namespace Ling\Light_Train;
+
+
+use Ling\ClassCooker\ClassCooker as Maurice; // stop
+use Ling\Light_Logger\LightLoggerService;
+
+
+class TrainTest
+{
+
+    /**
+     * This property holds the color for this instance.
+     * @var string
+     */
+    protected $color;
+
+    protected $cooker;
+
+    /**
+     * Builds the TrainTest instance.
+     * @param string $color
+     */
+    public function __construct(string $color)
+    {
+        $this->color = $color;
+    $this->cooker = new Maurice();
+    $a = new LightLoggerService();
+
+    }
+}
+```
+
+
+The following code:
+
+```php
+$file = "/komin/jin_site_demo/universe/Ling/Light_Train/TrainTest.php";
+az(ClassTool::getUseStatementsInfoByFile($file));
+
+```
+
+Will output something like this:
+
+```html
+
+array(2) {
+  [0] => array(2) {
+    [0] => string(53) "use Ling\ClassCooker\ClassCooker as Maurice; // stop
+"
+    [1] => int(7)
+  }
+  [1] => array(2) {
+    [0] => string(42) "use Ling\Light_Logger\LightLoggerService;
+"
+    [1] => int(8)
+  }
+}
+
+```
+
+
+
+
+
+
 hasMethod
 ----------
 2020-07-09
