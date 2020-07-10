@@ -416,6 +416,21 @@ class ClassTool
 
 
     /**
+     * Returns the number of the line containing the first namespace declaration found,
+     * or false if no namespace declaration was found.
+     *
+     * @param string $file
+     * @return int|false
+     */
+    public static function getNamespaceLineNumberByFile(string $file)
+    {
+        $className = self::getClassNameByFile($file);
+        $o = new AnotherExtendedReflectionClass($className);
+        return $o->getNamespaceLineNumber();
+    }
+
+
+    /**
      * @return string, the short name for the given class.
      * For instance if the class is A\B\CCC,
      * it returns CCC.

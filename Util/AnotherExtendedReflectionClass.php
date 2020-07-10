@@ -4,6 +4,7 @@
 namespace Ling\Bat\Util;
 
 
+use Ling\TokenFun\TokenFinder\NamespaceTokenFinder;
 use Ling\TokenFun\TokenFinder\UseStatementsTokenFinder;
 
 /**
@@ -20,6 +21,41 @@ class AnotherExtendedReflectionClass extends \ReflectionClass
     public function __construct($argument)
     {
         parent::__construct($argument);
+    }
+
+
+    /**
+     * Returns the number of the line containing the namespace declaration, or false if none was found.
+     *
+     *
+     *
+     * @return false|int
+     */
+    public function getNamespaceLineNumber()
+    {
+        $ret = [];
+
+//        if (!$this->isUserDefined()) {
+//            throw new BatException('Must parse use statements from user defined classes.');
+//        }
+
+        $file = fopen($this->getFileName(), 'r');
+        $lineNumber = 0;
+        while (!feof($file)) {
+            $lineNumber++;
+
+            if ($lineNumber >= $this->getStartLine()) {
+                break;
+            }
+
+            $line = fgets($file);
+            $isNamespaceLine = $this->isNamespaceLine($line);
+            if (true === $isNamespaceLine) {
+                return $lineNumber;
+            }
+        }
+        fclose($file);
+        return false;
     }
 
 
@@ -82,6 +118,27 @@ class AnotherExtendedReflectionClass extends \ReflectionClass
 
         $tokens = token_get_all($source);
         $o = new UseStatementsTokenFinder();
+        $matches = $o->find($tokens);
+        if ($matches) {
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * Parses the given line, and returns if it contains a valid namespace declaration.
+     *
+     * @param string $line
+     * @return bool
+     */
+    private function isNamespaceLine(string $line): bool
+    {
+        $source = '<?php ' . PHP_EOL;
+        $source .= $line;
+
+        $tokens = token_get_all($source);
+        $o = new NamespaceTokenFinder();
         $matches = $o->find($tokens);
         if ($matches) {
             return true;

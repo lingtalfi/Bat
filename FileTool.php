@@ -117,6 +117,52 @@ class FileTool
 
 
     /**
+     * Returns the content of the file between the given start/end lines (both included).
+     * Note: the returned content includes any "PHP_EOL" char found with the line(s).
+     *
+     *
+     *
+     * @param string $file
+     * @param int $startLine
+     * @param int $endLine
+     * @return string
+     * @throws \Exception
+     */
+    public static function getContent(string $file, int $startLine, int $endLine): string
+    {
+        if (false === file_exists($file)) {
+            throw new BatException("File not found: \"$file\".");
+        }
+        if ($endLine > $startLine) {
+            throw new BatException("Endline number must be greater than startLine number (start=$startLine and end=$endLine given).");
+
+        }
+
+        $file = fopen($file, 'r');
+        $lineNumber = 0;
+        $s = '';
+        while (!feof($file)) {
+            $lineNumber++;
+
+            $line = fgets($file);
+
+            if (
+                $lineNumber >= $startLine &&
+                $lineNumber <= $endLine
+            ) {
+                $s .= $line;;
+            }
+
+            if ($lineNumber > $endLine) {
+                break;
+            }
+        }
+        fclose($file);
+        return $s;
+    }
+
+
+    /**
      * Returns the size in bytes of a given file.
      * The file can be an url starting with http:// https://, or a filesystem file.
      *

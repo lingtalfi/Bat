@@ -71,6 +71,57 @@ Slices must not overlap.
 
 
  
+getContent
+-------------
+2020-07-10
+
+
+```php
+string    getContent ( string:file, int:startLine, int:endLine )
+```
+
+
+Returns the content of the file between the given start/end lines (both included).
+Note: the returned content includes any "PHP_EOL" char found with the line(s).
+
+
+### Example
+
+For the given file:
+
+
+```php
+<?php
+
+
+namespace Ling\Light_Train;
+
+class TrainTest
+{
+
+}
+
+```
+
+The following code:
+
+
+```php
+
+$file = "/komin/jin_site_demo/universe/Ling/Light_Train/TrainTest.php";
+az(FileTool::getContent($file, 4, 4));
+```
+
+Will output something like this:
+
+```html
+
+string(28) "namespace Ling\Light_Train;
+"
+
+```
+
+ 
      
 
 getFileSize
