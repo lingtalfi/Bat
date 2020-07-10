@@ -179,6 +179,18 @@ class ClassTool
 
 
     /**
+     * This is a proxy to the [TokenFinderTool](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php) method with the same name.
+     *
+     *
+     * @return array
+     */
+    public static function getClassPropertyBasicInfo(string $className): array
+    {
+        return TokenFinderTool::getClassPropertyBasicInfo($className);
+    }
+
+
+    /**
      * Returns the class signature of the given $class.
      *
      * Example:

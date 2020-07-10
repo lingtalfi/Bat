@@ -230,6 +230,25 @@ az(ClassTool::getClassNameByFile($file)); // Ling\Light_Train\TrainTest
 ```
 
 
+getClassPropertyBasicInfo
+----------
+2020-07-10
+
+
+```php
+array    getClassPropertyBasicInfo ( str:className )
+```
+
+
+This is a proxy to the [TokenFinderTool](https://github.com/lingtalfi/TokenFun/blob/master/TokenFinder/Tool/TokenFinderTool.php) method with the same name.
+See the comments of that method to know what it returns.
+
+
+
+
+
+
+
 
 getClassSignature
 -----------------
