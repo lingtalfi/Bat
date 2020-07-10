@@ -465,6 +465,9 @@ class ClassTool
      * This method assumes that each "use statement" is only defined on a single line, and that there is at most one use statement defined by line.
      *
      *
+     * Note: the statements are ordered by ascending line number.
+     *
+     *
      * @param string $file
      * @return array
      * @throws \Exception
