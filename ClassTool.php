@@ -551,6 +551,22 @@ class ClassTool
 
 
     /**
+     * Returns whether the given class contains the given property.
+     * Note: the given class must be reachable by the current autoloader(s).
+     *
+     *
+     * @param string $className
+     * @param string $propertyName
+     * @return bool
+     */
+    public static function hasProperty(string $className, string $propertyName): bool
+    {
+        $o = new \ReflectionClass($className);
+        return $o->hasProperty($propertyName);
+    }
+
+
+    /**
      * Returns whether the given class is referenced from an use statement in the given file.
      *
      * Note: this method ignore use statement aliases and always use the "real" class.

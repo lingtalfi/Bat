@@ -558,6 +558,19 @@ It is also assumed that the given class file exists, and that it contains only o
 
 
 
+hasProperty 
+----------
+2020-07-10
+
+```php
+bool hasProperty ( str:className, str: propertyName )
+```
+
+Returns whether the given class contains the given property.
+Note: the given class must be reachable by the current autoloader(s).
+
+
+
 hasUseStatementByFile 
 ----------
 2020-07-10
