@@ -1,6 +1,6 @@
 ClassTool
 =====================
-2016-12-22 -> 2020-07-09
+2016-12-22 -> 2020-07-10
 
 
 
@@ -206,6 +206,28 @@ a(ClassTool::getAncestors($class, true)); // B C D E F G
 ```
 
 
+
+
+
+getClassNameByFile
+-----------------
+2020-07-10
+
+
+
+```php
+str    getClassNameByFile ( str:file )
+```
+
+Returns the class name of the first class found in the given file.
+     
+If the file doesn't exist or doesn't contain an autoloader reachable class, an exception is thrown.
+
+ 
+```php
+az(ClassTool::getClassNameByFile($file)); // Ling\Light_Train\TrainTest
+
+```
 
 
 

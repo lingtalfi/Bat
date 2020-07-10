@@ -147,6 +147,36 @@ class ClassTool
     }
 
 
+
+    /**
+     *
+     * Returns the class name of the first class found in the given file.
+     *
+     * If the file doesn't exist or doesn't contain an autoloader reachable class, an exception is thrown.
+     *
+     *
+     * @param string $file
+     * @return string
+     * @throws \Exception
+     */
+    public static function getClassNameByFile(string $file): string
+    {
+        if (file_exists($file)) {
+
+            $tokens = token_get_all(file_get_contents($file));
+            $items = TokenFinderTool::getClassNames($tokens, true, [
+                "includeInterfaces" => false,
+            ]);
+            if ($items) {
+                $className = array_shift($items);
+                return $className;
+            }
+            throw new BatException("No class found in file: $file.");
+
+        }
+        throw new BatException("Class file doesn't exist: $file.");
+    }
+
     /**
      * Returns the class signature of the given $class.
      *
@@ -458,20 +488,13 @@ class ClassTool
      */
     public static function hasMethodByFile(string $classFile, string $method): bool
     {
-
-        if (file_exists($classFile)) {
-
-            $tokens = token_get_all(file_get_contents($classFile));
-            $items = TokenFinderTool::getClassNames($tokens, true, [
-                "includeInterfaces" => false,
-            ]);
-            $className = array_shift($items);
-
-            $c = new \ReflectionClass($className);
-            return $c->hasMethod($method);
-        }
-        throw new BatException("Class file doesn't exist: $classFile.");
+        $className = self::getClassNameByFile($classFile);
+        $c = new \ReflectionClass($className);
+        return $c->hasMethod($method);
     }
+
+
+
 
     /**
      * @throws \ReflectionException when the class/method doesn't exist
