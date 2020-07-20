@@ -14,12 +14,40 @@ class BDotTool
 {
 
 
+    /**
+     * Returns an escaped string.
+     *
+     * So, dots are prefixed with the backslash character.
+     *
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function escape(string $str): string
+    {
+        return str_replace('.', '\.', $str);
+    }
+
+
+    /**
+     * Returns the unescaped version of the given string.
+     *
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function unescape(string $str): string
+    {
+        return str_replace('\\.', '.', $str);
+    }
+
+
+
 
     public static function getDotValue($path, array $array, $default = null, &$found = false)
     {
         return self::doGetValue($path, $array, $default, $found);
     }
-
 
 
     /**
@@ -68,7 +96,6 @@ class BDotTool
         });
         return $parts;
     }
-
 
 
     /**

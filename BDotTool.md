@@ -1,6 +1,6 @@
 BDotTool
 =====================
-2017-10-27
+2017-10-27 -> 2020-07-20
 
 
 
@@ -8,6 +8,23 @@ This class contains functions for interacting with arrays using the
 [bdot notation](https://github.com/karayabin/universe-snapshot/blob/master/universe/Ling/Bat/doc/bdot-notation.md).
 
 
+
+
+
+    
+escape
+-------------
+2020-07-20
+
+
+```php
+string escape ( str:str )
+```
+
+
+Returns an escaped string.
+
+So, dots are prefixed with the backslash character.
 
 
 
@@ -105,6 +122,21 @@ void setDotValue ( str:path, mixed:replacement, array:array )
 Sets a value in an array.
 Note: if the key does not exist, it will be created.
 Also, if a key along the path is not an array, it will be overwritten and become an array.
+
+
+    
+unescape
+-------------
+2020-07-20
+
+
+```php
+string unescape ( str:str )
+```
+
+
+Returns the unescaped version of the given string.
+
 
 
 
