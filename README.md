@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-07-20
+2015-10-07 --> 2020-07-21
 
 
 
@@ -85,6 +85,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.259 -- 2020-07-21
+
+    - add ClassTool::getUseStatementClassByUseStatement method 
     
 - 1.258 -- 2020-07-20
 

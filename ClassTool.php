@@ -526,6 +526,23 @@ class ClassTool
 
 
     /**
+     * Extracts the class from the given useStatement and returns it.
+     *
+     *
+     * @param string $useStatement
+     * @return string
+     */
+    public static function getUseStatementClassByUseStatement(string $useStatement): string
+    {
+        $useStatement = trim($useStatement);
+        $useStatement = substr($useStatement, 3); // get rid of the use prefix
+        $useStatement = trim($useStatement, ' ;');
+        $p = preg_split('!\s+as\s+!', $useStatement, 2);
+        return array_shift($p);
+    }
+
+
+    /**
      * Returns the class names found in the use statements for the given class.
      *
      * If the useAliasNames flag is set to true, it will return aliases (when defined) instead of the class names.

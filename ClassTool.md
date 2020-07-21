@@ -1,6 +1,6 @@
 ClassTool
 =====================
-2016-12-22 -> 2020-07-10
+2016-12-22 -> 2020-07-21
 
 
 
@@ -445,6 +445,35 @@ Return the short name for the given class.
 
 For instance if the class is A\B\CCC,
 it returns CCC.
+
+
+
+getUseStatementClassByUseStatement
+-----------
+2020-07-21
+
+
+
+```php
+string    getUseStatementClassByUseStatement ( str:useStatement )
+```
+
+Extracts the class from the given useStatement and returns it.
+
+
+```php
+$useStatement = 'use Ling\Light_Logger\LightLoggerService;';
+a(ClassTool::getUseStatementClassByUseStatement($useStatement)); // Ling\Light_Logger\LightLoggerService
+
+//
+$useStatement = 'use Ling\Light_Logger\LightLoggerService as Maurice;';
+a(ClassTool::getUseStatementClassByUseStatement($useStatement)); // Ling\Light_Logger\LightLoggerService
+
+
+```
+
+
+
 
 
 
