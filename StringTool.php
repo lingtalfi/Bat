@@ -552,6 +552,7 @@ class StringTool
     }
 
 
+
     /**
      * Cuts a portion of a string, and replaces it with a replacement string.
      *

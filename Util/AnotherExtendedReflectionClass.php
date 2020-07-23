@@ -33,21 +33,10 @@ class AnotherExtendedReflectionClass extends \ReflectionClass
      */
     public function getNamespaceLineNumber()
     {
-        $ret = [];
-
-//        if (!$this->isUserDefined()) {
-//            throw new BatException('Must parse use statements from user defined classes.');
-//        }
-
         $file = fopen($this->getFileName(), 'r');
         $lineNumber = 0;
         while (!feof($file)) {
             $lineNumber++;
-
-            if ($lineNumber >= $this->getStartLine()) {
-                break;
-            }
-
             $line = fgets($file);
             $isNamespaceLine = $this->isNamespaceLine($line);
             if (true === $isNamespaceLine) {
@@ -116,7 +105,8 @@ class AnotherExtendedReflectionClass extends \ReflectionClass
         $source = '<?php ' . PHP_EOL;
         $source .= $line;
 
-        $tokens = token_get_all($source);
+        $tokens = @token_get_all($source);
+
         $o = new UseStatementsTokenFinder();
         $matches = $o->find($tokens);
         if ($matches) {

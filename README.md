@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-07-21
+2015-10-07 --> 2020-07-23
 
 
 
@@ -85,6 +85,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.260 -- 2020-07-23
+
+    - fix AnotherExtendedReflectionClass::isUseStatementLine triggering warning if line contains unclosed comment 
     
 - 1.259 -- 2020-07-21
 
