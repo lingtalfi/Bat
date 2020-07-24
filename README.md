@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-07-23
+2015-10-07 --> 2020-07-24
 
 
 
@@ -67,6 +67,7 @@ Tools       |       Description
 [SmartCodeTool]( https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md )          |       Tools for manipulating smart codes
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
 [TagTool]( https://github.com/lingtalfi/Bat/blob/master/TagTool.md )          |       Tools for helping with tags
+[TimeTool]( https://github.com/lingtalfi/Bat/blob/master/TimeTool.md )          |       Tools for helping with time
 [UploadTool]( https://github.com/lingtalfi/Bat/blob/master/UploadTool.md )          |       Tools for helping with php file uploads
 [UriTool]( https://github.com/lingtalfi/Bat/blob/master/UriTool.md )          |       Tools for uri manipulation
 [ValidationTool]( https://github.com/lingtalfi/Bat/blob/master/ValidationTool.md )          |       Tools for validating data
@@ -85,6 +86,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.261 -- 2020-07-24
+
+    - add TimeTool class 
     
 - 1.260 -- 2020-07-23
 
