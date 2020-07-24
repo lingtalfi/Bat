@@ -671,6 +671,17 @@ class ClassTool
 
 
     /**
+     * Returns whether the given class is loaded (i.e. accessible via auto-loaders).
+     *
+     * @param string $className
+     * @return bool
+     */
+    public static function isLoaded(string $className): bool
+    {
+        return class_exists($className, true);
+    }
+
+    /**
      * @throws \ReflectionException when the class/method doesn't exist
      */
     public static function rewriteMethodContent($class, $method, $func)

@@ -1,6 +1,6 @@
 ClassTool
 =====================
-2016-12-22 -> 2020-07-21
+2016-12-22 -> 2020-07-24
 
 
 
@@ -655,6 +655,22 @@ Example:
 az(ClassTool::hasUseStatementByFile($file, "Ling\Light_Logger\LightLoggerService")); // true
 
 ```
+
+
+
+
+isLoaded 
+----------
+2020-07-24
+
+```php
+bool isLoaded ( str:className )
+```
+
+Returns whether the given class is loaded (i.e. accessible via auto-loaders).
+
+
+
 
 
 

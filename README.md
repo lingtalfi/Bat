@@ -87,6 +87,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.262 -- 2020-07-24
+
+    - add ClassTool::isLoaded method 
+    
 - 1.261 -- 2020-07-24
 
     - add TimeTool class 
