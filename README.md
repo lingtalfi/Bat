@@ -87,6 +87,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.264 -- 2020-07-27
+
+    - add shortcode tool documentation link to smartcode tool 
+    
 - 1.263 -- 2020-07-27
 
     - fix ExtendedReflectionClass::tokenizeSource, token_get_all complaining when parsing unfinished comment 

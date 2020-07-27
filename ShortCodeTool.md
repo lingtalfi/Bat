@@ -1,10 +1,14 @@
 ShortCodeTool
 =====================
-2019-07-03
+2019-07-03 -> 2020-07-27
 
 
 
 This class contains functions for manipulating shortcodes.
+
+Please consider using [SmartCodeTool](https://github.com/lingtalfi/NotationFan/blob/master/smart-code.md) instead,
+which is more common in my work.
+
 
 
 
