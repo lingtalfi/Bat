@@ -130,7 +130,7 @@ class ExtendedReflectionClass extends \ReflectionClass
     private function tokenizeSource(string $source)
     {
 
-        $tokens = token_get_all($source);
+        $tokens = @token_get_all($source);
 
         $builtNamespace = '';
         $buildingNamespace = false;

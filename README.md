@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-07-24
+2015-10-07 --> 2020-07-27
 
 
 
@@ -86,6 +86,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.263 -- 2020-07-27
+
+    - fix ExtendedReflectionClass::tokenizeSource, token_get_all complaining when parsing unfinished comment 
     
 - 1.262 -- 2020-07-24
 
