@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-07-27
+2015-10-07 --> 2020-07-28
 
 
 
@@ -86,6 +86,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.265 -- 2020-07-28
+
+    - fix ExtendedReflectionClass and AnotherExtendedReflectionClass relying on reflection to get the start line
     
 - 1.264 -- 2020-07-27
 

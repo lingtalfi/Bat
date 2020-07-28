@@ -4,6 +4,7 @@
 namespace Ling\Bat\Util;
 
 
+use Ling\ClassCooker\ClassCooker;
 use Ling\TokenFun\TokenFinder\NamespaceTokenFinder;
 use Ling\TokenFun\TokenFinder\UseStatementsTokenFinder;
 
@@ -67,12 +68,27 @@ class AnotherExtendedReflectionClass extends \ReflectionClass
 //            throw new BatException('Must parse use statements from user defined classes.');
 //        }
 
+        /**
+         * Note: we don't rely on the getStartLine method of the reflection class, since
+         * we assume that the observed file's content might be updated dynamically, and reflection class
+         * doesn't handle dynamic changes.
+         *
+         * We only rely on token based methods.
+         *
+         */
+        $cooker = new ClassCooker();
+        $cooker->setFile($this->getFileName());
+        $startLine = $cooker->getClassStartLine();
+
+
+
+
         $file = fopen($this->getFileName(), 'r');
         $lineNumber = 0;
         while (!feof($file)) {
             $lineNumber++;
 
-            if ($lineNumber >= $this->getStartLine()) {
+            if ($lineNumber >= $startLine) {
                 break;
             }
 

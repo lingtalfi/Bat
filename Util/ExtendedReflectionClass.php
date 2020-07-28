@@ -5,13 +5,14 @@ namespace Ling\Bat\Util;
 
 
 use Ling\Bat\Exception\BatException;
+use Ling\ClassCooker\ClassCooker;
 
 /**
  * The ExtendedReflectionClass class.
  *
  * https://stackoverflow.com/questions/30308137/get-use-statement-from-class
  *
- * Credits to zeronight (https://gist.github.com/Zeronights/7b7d90fcf8d4daf9db0c)
+ * Inspired by (https://gist.github.com/Zeronights/7b7d90fcf8d4daf9db0c)
  *
  *
  */
@@ -36,6 +37,13 @@ class ExtendedReflectionClass extends \ReflectionClass
 
 
     /**
+     * This property holds the theStartLine for this instance.
+     * @var int=0
+     */
+    private $theStartLine;
+
+
+    /**
      * Builds the ExtendedReflectionClass instance.
      * @param $argument
      * @throws \ReflectionException
@@ -45,6 +53,7 @@ class ExtendedReflectionClass extends \ReflectionClass
         parent::__construct($argument);
         $this->useStatements = [];
         $this->useStatementsParsed = false;
+        $this->theStartLine = 0;
 
     }
 
@@ -83,6 +92,21 @@ class ExtendedReflectionClass extends \ReflectionClass
             throw new BatException('Must parse use statements from user defined classes.');
         }
 
+
+        /**
+         * Note: we don't rely on the getStartLine method of the reflection class, since
+         * we assume that the observed file's content might be updated dynamically, and reflection class
+         * doesn't handle dynamic changes.
+         *
+         * We only rely on token based methods.
+         *
+         */
+        $cooker = new ClassCooker();
+        $cooker->setFile($this->getFileName());
+        $this->theStartLine = $cooker->getClassStartLine();
+
+
+
         $source = $this->readFileSource();
         $this->useStatements = $this->tokenizeSource($source);
 
@@ -98,7 +122,6 @@ class ExtendedReflectionClass extends \ReflectionClass
      */
     private function readFileSource()
     {
-
         $file = fopen($this->getFileName(), 'r');
         $line = 0;
         $source = '';
@@ -106,7 +129,7 @@ class ExtendedReflectionClass extends \ReflectionClass
         while (!feof($file)) {
             ++$line;
 
-            if ($line >= $this->getStartLine()) {
+            if ($line >= $this->theStartLine) {
                 break;
             }
 
@@ -218,7 +241,7 @@ class ExtendedReflectionClass extends \ReflectionClass
                 }
             }
 
-            if ($token[2] >= $this->getStartLine()) {
+            if ($token[2] >= $this->theStartLine) {
                 break;
             }
         }
