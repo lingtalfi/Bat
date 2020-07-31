@@ -1,6 +1,6 @@
 ClassTool
 =====================
-2016-12-22 -> 2020-07-24
+2016-12-22 -> 2020-07-31
 
 
 
@@ -429,6 +429,25 @@ class A
 $method = new \ReflectionMethod('A', 'pou');
 a(ClassTool::getMethodSignature($method)); // public static function pou(array &$daa, \DirScanner\DirScanner $po, $pp, \Closure $func)
 ``` 
+
+
+
+
+getReflectionClass
+-----------
+2020-07-30
+
+
+
+```php
+false|ReflectionClass   getReflectionClass ( str:className )
+```
+
+Returns the reflection class instance corresponding to the given className.
+
+False is returned if the reflection class can't be instantiated.
+
+
 
 
 getShortName

@@ -513,6 +513,23 @@ class ClassTool
 
 
     /**
+     * Returns the reflection class instance corresponding to the given className.
+     *
+     * False is returned if the reflection class can't be instantiated.
+     *
+     * @param string $className
+     * @return false|\ReflectionClass
+     */
+    public static function getReflectionClass(string $className)
+    {
+        try {
+            return new \ReflectionClass($className);
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    /**
      * @return string, the short name for the given class.
      * For instance if the class is A\B\CCC,
      * it returns CCC.
