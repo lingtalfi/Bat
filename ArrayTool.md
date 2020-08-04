@@ -1,6 +1,6 @@
 ArrayTool
 =====================
-2015-12-20 -> 2020-07-02
+2015-12-20 -> 2020-08-04
 
 
 
@@ -34,6 +34,7 @@ Table of Contents
 * [objectToArray](#objecttoarray)
 * [reduce](#reduce)
 * [removeEntry](#removeentry)
+* [splice](#splice)
 * [superimpose](#superimpose)
 * [updateNodeRecursive](#updatenoderecursive)
 * [walkRowsRecursive](#walkrowsrecursive)
@@ -934,6 +935,57 @@ a($arr);
 */
 
 ```
+     
+     
+     
+splice
+--------------
+2020-08-04
+     
+
+```php
+void    splice (&$input, $offset, $length, $replacement = array())
+```
+
+Same as php array_splice, but preserve keys.
+
+
+
+### Example
+
+```php
+<?php
+
+$p = [
+    "one" => 111,
+    "two" => 222,
+    "three" => 333,
+];
+
+ArrayTool::splice($p,1,1, [
+    "five" => 555,
+    "four" => 444,
+]);
+
+
+az($p);
+
+
+```     
+
+
+Will output something like:
+
+```txt
+array(4) {
+  ["one"] => int(111)
+  ["five"] => int(555)
+  ["four"] => int(444)
+  ["three"] => int(333)
+}
+
+```
+     
      
      
      

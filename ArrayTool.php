@@ -521,6 +521,33 @@ class ArrayTool
 
 
     /**
+     * Same as php array_splice, but preserve keys.
+     *
+     *
+     * @param $input
+     * @param $offset
+     * @param $length
+     * @param array $replacement
+     */
+    public static function splice(&$input, $offset, $length, $replacement = array())
+    {
+        // https://stackoverflow.com/questions/16585502/array-splice-preserving-keys
+        $replacement = (array)$replacement;
+        $key_indices = array_flip(array_keys($input));
+        if (isset($input[$offset]) && is_string($offset)) {
+            $offset = $key_indices[$offset];
+        }
+        if (isset($input[$length]) && is_string($length)) {
+            $length = $key_indices[$length] - $offset;
+        }
+
+        $input = array_slice($input, 0, $offset, true)
+            + $replacement
+            + array_slice($input, $offset + $length, null, true);
+    }
+
+
+    /**
      * Returns the given $defaults array,
      * with values possibly overridden by the $array.
      *
