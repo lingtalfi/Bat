@@ -1,6 +1,6 @@
 FileSystemTool
 =====================
-2015-10-07 -> 2020-06-02
+2015-10-07 -> 2020-08-24
 
 
 
@@ -584,6 +584,22 @@ string(82) "/komin/jin_site_demo/www-doc/api/DocTools/TemplateWizard/TemplateWiz
 ```
 
 
+
+
+
+
+
+
+removeTraversalDots
+-----------
+2020-08-24
+
+
+```php
+string        removeTraversalDots(string:file)
+```
+
+Replaces the double dot (..) traversal string from the given path with an empty string, and returns the result.
 
 
 rename

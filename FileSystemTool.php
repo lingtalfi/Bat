@@ -583,6 +583,8 @@ class FileSystemTool
         }
     }
 
+
+
     /**
      * Removes the (last) file extension from the given $file and returns the result.
      *
@@ -611,6 +613,20 @@ class FileSystemTool
         return $file;
 
     }
+
+
+
+    /**
+     * Replaces the double dot (..) traversal string from the given path with an empty string, and returns the result.
+     * @param string $path
+     * @return string
+     */
+    public static function removeTraversalDots(string $path): string
+    {
+        return str_replace("..", "", $path);
+    }
+
+
 
     /**
      * Will rename src to dst, creating dst subdirs if necessary

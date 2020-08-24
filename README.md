@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-08-18
+2015-10-07 --> 2020-08-24
 
 
 
@@ -87,6 +87,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.269 -- 2020-08-24
+
+    - add FileSystemTool::removeTraversalDots method
     
 - 1.268 -- 2020-08-18
 
