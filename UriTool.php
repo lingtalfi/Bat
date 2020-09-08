@@ -63,7 +63,7 @@ class UriTool
      */
     public static function getCurrentUrl(array $options = []): string
     {
-        $use_forwarded_host = $options['useForward']??false;
+        $use_forwarded_host = $options['useForward'] ?? false;
 
         $s = $_SERVER;
         $ssl = (!empty($s['HTTPS']) && $s['HTTPS'] == 'on');
@@ -195,6 +195,15 @@ class UriTool
      * Returns an uri from the given parameters.
      *
      *
+     *
+     * - uri: string|null=null, the base uri. If null, the current uri will be used.
+     *      Note: you can also pass a full url it will work too (but be sure to have the absolute flag=false in that case).
+     * - params: array, the parameters to add to the uri
+     * - replace: bool=true, whether to replace the current url parameters by the one in the params array.
+     *      If false, the existing uri parameters will be merged with the ones passed to this method.
+     * - absolute: bool=false, whether to prefix the result with the host url
+     *
+     *
      * @param null $uri
      * @param array $params
      * @param bool $replace
@@ -206,11 +215,17 @@ class UriTool
         // assuming we are not using a cli environment
         if (null === $uri) {
             $uri = $_SERVER['REQUEST_URI'];
-            $p = explode("?", $uri, 2);
-            $uri = $p[0];
         }
+        $p = explode("?", $uri, 2);
+        $uri = $p[0];
+        $uriParams = [];
+        if (2 === count($p)) {
+            parse_str($p[1], $uriParams);
+        }
+
+
         if (false === $replace) {
-            $params = array_merge($_GET, $params);
+            $params = array_merge($uriParams, $params);
         }
         $prefix = "";
         if (true === $absolute) {

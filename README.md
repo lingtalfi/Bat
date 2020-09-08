@@ -88,6 +88,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.271 -- 2020-09-08
+
+    - update UriTool::getCurrentUrl internal behaviour
+    
 - 1.270 -- 2020-09-08
 
     - add UriTool::getCurrentUrl
