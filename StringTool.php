@@ -552,7 +552,6 @@ class StringTool
     }
 
 
-
     /**
      * Cuts a portion of a string, and replaces it with a replacement string.
      *
@@ -609,6 +608,37 @@ class StringTool
             trigger_error(sprintf("strPosAll expects needle argument to be string or numeric, %s given", gettype($needle)), E_USER_WARNING);
         }
         return $ret;
+    }
+
+
+    /**
+     * Returns a comma separated string version of the given key/value pairs array.
+     * Note: by default there is a space after each comma separator.
+     *
+     * Available options are:
+     * - commaSep: string, the expression to use as the comma separator. The default value is a comma followed by a space (, ).
+     * - equalSep: string, the expression to use as the equal separator (i.e. between the key and the value). The default value is the equal symbol (=).
+     *
+     *
+     * @param array $keyValuePairs
+     * @param array $options
+     * @return string
+     */
+    public static function toCsv(array $keyValuePairs, array $options = []): string
+    {
+        $equalSep = $options['equalSep'] ?? '=';
+        $commaSep = $options['commaSep'] ?? ', ';
+
+        $s = '';
+        $x = false;
+        foreach ($keyValuePairs as $k => $v) {
+            if (true === $x) {
+                $s .= $commaSep;
+            }
+            $s .= $k . $equalSep . $v;
+            $x = true;
+        }
+        return $s;
     }
 
     public static function ucfirst($string)

@@ -88,6 +88,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.272 -- 2020-09-08
+
+    - add StringTool::toCsv method
+    
 - 1.271 -- 2020-09-08
 
     - update UriTool::getCurrentUrl internal behaviour

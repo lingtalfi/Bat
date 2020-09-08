@@ -1,6 +1,6 @@
 StringTool
 =====================
-2015-10-14
+2015-10-14 -> 2020-09-08
 
 
 
@@ -513,6 +513,32 @@ array (size=2)
   1 => int 32
 
 ```
+
+
+
+
+
+
+
+
+toCsv
+-----------
+2020-09-08
+
+```php
+string toCsv( arr:keyValueParams, arr:options=[] )
+```
+
+
+Returns a comma separated string version of the given key/value pairs array.
+Note: by default there is a space after each comma separator.
+
+Available options are:
+- commaSep: string, the expression to use as the comma separator. The default value is a comma followed by a space (, ).
+- equalSep: string, the expression to use as the equal separator (i.e. between the key and the value). The default value is the equal symbol (=).
+
+
+
 
 
 
