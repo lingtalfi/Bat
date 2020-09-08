@@ -48,6 +48,37 @@ class UriTool
         return false;
     }
 
+
+    /**
+     * Returns the current url.
+     *
+     * Available options are:
+     * - useForward: bool=false, whether to deal with the HTTP_X_FORWARDED_HOST property
+     *
+     *
+     * https://stackoverflow.com/questions/6768793/get-the-full-url-in-php
+     *
+     * @param array $options
+     * @return string
+     */
+    public static function getCurrentUrl(array $options = []): string
+    {
+        $use_forwarded_host = $options['useForward']??false;
+
+        $s = $_SERVER;
+        $ssl = (!empty($s['HTTPS']) && $s['HTTPS'] == 'on');
+        $sp = strtolower($s['SERVER_PROTOCOL']);
+        $protocol = substr($sp, 0, strpos($sp, '/')) . (($ssl) ? 's' : '');
+        $port = $s['SERVER_PORT'];
+        $port = ((!$ssl && $port == '80') || ($ssl && $port == '443')) ? '' : ':' . $port;
+        $host = ($use_forwarded_host && isset($s['HTTP_X_FORWARDED_HOST'])) ? $s['HTTP_X_FORWARDED_HOST'] : (isset($s['HTTP_HOST']) ? $s['HTTP_HOST'] : null);
+        $host = isset($host) ? $host : $s['SERVER_NAME'] . $port;
+        $urlOrigin = $protocol . '://' . $host;
+
+        return $urlOrigin . $s['REQUEST_URI'];
+    }
+
+
     /**
      * Returns the current host based on the $_SERVER information,
      * or false if it doesn't find anything (i.e. cli environment for instance).

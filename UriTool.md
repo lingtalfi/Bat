@@ -1,6 +1,6 @@
 UriTool
 =====================
-2015-12-04 -> 2020-04-20
+2015-12-04 -> 2020-09-08
 
 
 
@@ -63,6 +63,23 @@ Will try differents methods:
 - or curl if installed
 
 
+
+
+
+
+getCurrentUrl
+-----------
+2020-09-08
+
+
+```php
+str   getCurrentUrl (  array options = [] )
+```
+
+Returns the current url.
+
+Available options are:
+- useForward: bool=false, whether to deal with the HTTP_X_FORWARDED_HOST property
 
 
 
