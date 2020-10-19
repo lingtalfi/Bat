@@ -238,7 +238,7 @@ class FileSystemTool
     }
 
     /**
-     * Returns the file name as defined here: https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md
+     * Returns the [base name](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md) of the given file path.
      *
      * If the file path has multiple extensions, only the last one will be cut off.
      *
@@ -271,6 +271,17 @@ class FileSystemTool
             throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($file)));
         }
         return pathinfo($file, PATHINFO_FILENAME);
+    }
+
+
+    /**
+     * Returns the [base name](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md)) of the given path.
+     * @param string $path
+     * @return string
+     */
+    public static function getBasename(string $path): string
+    {
+        return self::getFileName($path);
     }
 
 
@@ -584,7 +595,6 @@ class FileSystemTool
     }
 
 
-
     /**
      * Removes the (last) file extension from the given $file and returns the result.
      *
@@ -615,7 +625,6 @@ class FileSystemTool
     }
 
 
-
     /**
      * Replaces the double dot (..) traversal string from the given path with an empty string, and returns the result.
      * @param string $path
@@ -625,7 +634,6 @@ class FileSystemTool
     {
         return str_replace("..", "", $path);
     }
-
 
 
     /**

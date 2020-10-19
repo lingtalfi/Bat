@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-09-08
+2015-10-07 --> 2020-10-19
 
 
 
@@ -87,6 +87,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.273 -- 2020-10-19
+
+    - add FileSystemTool::getBasename alias method
     
 - 1.272 -- 2020-09-08
 

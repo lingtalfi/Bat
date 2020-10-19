@@ -153,6 +153,21 @@ See [PermTool::filePerms](https://github.com/lingtalfi/Bat/blob/master/PermTool.
      
      
 
+     
+
+getBasename
+-----------
+2020-10-19
+
+
+```php
+string    getBasename ( string:path )
+```
+
+Alias for [getFileName](#getfilename).
+
+
+
 getDirectorySize
 -----------
 2020-02-07
