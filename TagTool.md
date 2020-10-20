@@ -1,6 +1,6 @@
 TagTool
 =====================
-2020-04-14
+2020-04-14 -> 2020-10-20
 
 
 
@@ -60,5 +60,37 @@ az($arr);
  *      }
  * }
  */
+```
+
+
+
+
+injectTags
+-------------
+2020-10-20
+
+
+```injectTags(string expression, array tags): string```
+
+
+Injects the given tags into the given expression, and returns the result.
+
+The tags array is an array of tagName => value.
+
+
+
+
+### Example
+
+
+```php
+<?php
+
+$str = "I like {animal}, and {fruit}";
+$tags = [
+    "animal" => "dog",
+    "fruit" => "apple",
+];
+az(TagTool::injectTags($str, $tags)); // I like dog, and apple
 ```
 

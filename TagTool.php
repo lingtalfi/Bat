@@ -41,4 +41,23 @@ class TagTool
             }, $v);
         });
     }
+
+    /**
+     * Injects the given tags into the given expression, and returns the result.
+     *
+     * The tags array is an array of tagName => value.
+     *
+     * @param string $expression
+     * @param array $tags
+     * @return string
+     */
+    public static function injectTags(string $expression, array $tags): string
+    {
+        $myTags = [];
+        foreach ($tags as $name => $value) {
+            $myTags['{' . $name . '}'] = $value;
+        }
+        return str_replace(array_keys($myTags), array_values($myTags), $expression);
+    }
+
 }
