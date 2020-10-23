@@ -88,6 +88,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.276 -- 2020-10-23
+
+    - add StringTool::startsWith and endsWith methods
+    
 - 1.275 -- 2020-10-23
 
     - update FileSystemTool::getBasename doc

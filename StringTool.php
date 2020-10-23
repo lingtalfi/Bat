@@ -85,6 +85,31 @@ class StringTool
         return [$str, $suffix];
     }
 
+    /**
+     * Returns whether the given haystack string ends with the given needle string.
+     *
+     * @param string $haystack
+     * @param string $needle
+     * @return bool
+     */
+    public static function endsWith(string $haystack, string $needle): bool
+    {
+        return substr($haystack, -strlen($needle)) === $needle;
+    }
+
+
+    /**
+     * Returns whether the given haystack string starts with the given needle string.
+     *
+     * @param string $haystack
+     * @param string $needle
+     * @return bool
+     */
+    public static function startsWith(string $haystack, string $needle): bool
+    {
+        $length = strlen($needle);
+        return substr($haystack, 0, $length) === $needle;
+    }
 
     /**
      * Stolen from OrmToolsHelper (OrmTools planet)
