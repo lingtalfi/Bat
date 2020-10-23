@@ -1,6 +1,6 @@
 FileSystemTool
 =====================
-2015-10-07 -> 2020-08-24
+2015-10-07 -> 2020-10-23
 
 
 
@@ -157,14 +157,14 @@ See [PermTool::filePerms](https://github.com/lingtalfi/Bat/blob/master/PermTool.
 
 getBasename
 -----------
-2020-10-19
+2020-10-19 -> 2020-10-23
 
 
 ```php
 string    getBasename ( string:path )
 ```
 
-Alias for [getFileName](#getfilename).
+Returns the [basename](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md) of the given path.
 
 
 
