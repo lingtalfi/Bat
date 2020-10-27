@@ -88,6 +88,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.277 -- 2020-10-27
+
+    - fix FileSystemTool::FileSystemTool not starting with leaves
+    
 - 1.276 -- 2020-10-23
 
     - add StringTool::startsWith and endsWith methods

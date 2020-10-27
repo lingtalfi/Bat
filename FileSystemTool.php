@@ -9,7 +9,7 @@ use Ling\DirScanner\YorgDirScannerTool;
 
 /**
  * The FileSystemTool class.
- * LingTalfi 2015-10-07 -> 2020-06-02
+ * LingTalfi 2015-10-07 -> 2020-10-27
  */
 class FileSystemTool
 {
@@ -24,6 +24,11 @@ class FileSystemTool
     public static function cleanDir(string $dir)
     {
         $dirs = YorgDirScannerTool::getDirs($dir, true);
+
+        /**
+         * It's better to have the leaves first, because it will also get rid of any parent that contains only empty folders.
+         */
+        $dirs = array_reverse($dirs);
         foreach ($dirs as $dir) {
             if (true === self::isEmptyDir($dir)) {
                 self::remove($dir);
