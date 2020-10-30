@@ -1,6 +1,6 @@
-datetool
+DateTool
 =====================
-2017-11-28
+2017-11-28 -> 2020-10-30
 
 
 
@@ -44,16 +44,18 @@ a(datetool::getdate("2018-02-28 00:56:45")); // 2018-02-28
 
 
 
-getmysqldatetime
+getMysqlDatetime
 -----------
-2018-06-17
+2018-06-17 -> 2020-10-30
 
 
 ```php
-str:mysqldatetime     getmysqldatetime ( str:datestring)
+str:mysqldatetime     getmysqldatetime ( str:datestring=null)
 ```
 
-return the mysql datetime from the datestring (which is a date-ish string)
+Returns the mysql datetime from the given **datestring** (which is a date-ish string).
+If the given **datestring** is null, the current datetime will be returned.
+
 
 
 ```php

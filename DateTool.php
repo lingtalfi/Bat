@@ -38,8 +38,20 @@ class DateTool
     }
 
 
-    public static function getMysqlDatetime(string $iso8601Date)
+    /**
+     * Returns the mysql date time corresponding to the given date.
+     *
+     * If the given date is null, the current datetime (of the server) will be returned.
+     *
+     *
+     * @param string|null $iso8601Date
+     * @return false|string
+     */
+    public static function getMysqlDatetime(string $iso8601Date = null)
     {
+        if (null === $iso8601Date) {
+            return date("Y-m-d H:i:s");
+        }
         return date("Y-m-d H:i:s", strtotime($iso8601Date));
     }
 

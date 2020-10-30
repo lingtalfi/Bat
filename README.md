@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-10-23
+2015-10-07 --> 2020-10-30
 
 
 
@@ -87,6 +87,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.278 -- 2020-10-30
+
+    - update DateTool::getMysqlDatetime, now accepts null value
     
 - 1.277 -- 2020-10-27
 
