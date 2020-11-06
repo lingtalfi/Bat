@@ -243,7 +243,22 @@ class FileSystemTool
     }
 
     /**
-     * Returns the [base name](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md) of the given file path.
+     * Returns the [file name](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md) of the given file path.
+     *
+     * @param string $file
+     *
+     * @return string
+     * The file name without the last extension.
+     *
+     */
+    public static function getFilename(string $file): string
+    {
+        return basename($file);
+    }
+
+
+    /**
+     * Returns the [base name](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md)) of the given path.
      *
      * If the file path has multiple extensions, only the last one will be cut off.
      *
@@ -255,38 +270,25 @@ class FileSystemTool
      *
      *
      *
-     * @param string $file
      *
+     * @param string $path
      * @return string
-     * The file name without the last extension.
-     *
      */
-    public static function getFileName(string $file): string
+    public static function getBasename(string $path): string
     {
-        if (is_string($file)) {
-            $file = basename($file);
-            if ('.' === $file[0]) {
-                $p = explode('.', $file);
+        if (is_string($path)) {
+            $path = basename($path);
+            if ('.' === $path[0]) {
+                $p = explode('.', $path);
                 if (count($p) > 2) {
                     array_pop($p);
                 }
                 return implode('.', $p);
             }
         } else {
-            throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($file)));
+            throw new \InvalidArgumentException(sprintf("file argument must be of type string, %s given", gettype($path)));
         }
-        return pathinfo($file, PATHINFO_FILENAME);
-    }
-
-
-    /**
-     * Returns the [base name](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md)) of the given path.
-     * @param string $path
-     * @return string
-     */
-    public static function getBasename(string $path): string
-    {
-        return self::getFileName($path);
+        return pathinfo($path, PATHINFO_FILENAME);
     }
 
 

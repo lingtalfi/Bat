@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-10-30
+2015-10-07 --> 2020-11-06
 
 
 
@@ -87,6 +87,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.279 -- 2020-11-06
+
+    - rename FileSystemTool::getFileName to FileSystemTool::getFilename, and fix that it was returning the basename instead of the filename
     
 - 1.278 -- 2020-10-30
 

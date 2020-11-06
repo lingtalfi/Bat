@@ -74,7 +74,7 @@ class ZipTool
 
         if (null === $target) {
             // get the absolute path to $file
-            $target = pathinfo(realpath($zipFile), PATHINFO_DIRNAME) . "/" . FileSystemTool::getFileName($zipFile);
+            $target = pathinfo(realpath($zipFile), PATHINFO_DIRNAME) . "/" . FileSystemTool::getBasename($zipFile);
         }
 
         $zip = new \ZipArchive();

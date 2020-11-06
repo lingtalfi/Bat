@@ -214,33 +214,20 @@ a(FileSystemTool::getFileExtension($f)); // jpg
      
      
 
-getFileName
+getFilename 
 -----------
-2015-10-25
+2015-10-25 -> 2020-11-06
 
 
 ```php
-string    getFileName ( string:file )
+string    getFilename ( string:file )
 ```
 
-Returns the [file name](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.fileName.eng.md)
-of a file which path is given, which is the file name without the last extension.
-
-
-
-If the file path has multiple extensions, only the last one will be cut off.
-
-Examples:
-
-- /www/htdocs/inc/lib.inc.php    --> "lib.inc"
-- /path/emptyextension.          --> "emptyextension"
-- /path/noextension              --> "noextension"
-     
-     
+Returns the [filename](https://github.com/lingtalfi/NotationFan/blob/master/filename-basename.md) of the given path.
 
 ```php
 $f = '/path/to/myfile.jpg';
-a(FileSystemTool::getFileName($f)); // myfile
+a(FileSystemTool::getFilename($f)); // myfile.jpg
 ```
  
      
