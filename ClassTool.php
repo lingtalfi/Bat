@@ -698,6 +698,35 @@ class ClassTool
         return class_exists($className, true);
     }
 
+
+    /**
+     * Instantiates the given class with the given args, and returns its instance.
+     *
+     * If the class cannot be instantiated, the behaviour of this method depends on the throwEx flag:
+     *
+     * - if true, throws an exception
+     * - if false, returns false
+     *
+     *
+     *
+     * @param string $className
+     */
+    public static function instantiate(string $className, array $args = null, bool $throwEx = false)
+    {
+        if (true === self::isLoaded($className)) {
+            if (null === $args) {
+                $o = new $className();
+            } else {
+                $o = new $className($args);
+            }
+            return $o;
+        } elseif (true === $throwEx) {
+            throw new BatException("Cannot instantiate class $className.");
+        }
+        return false;
+    }
+
+
     /**
      * @throws \ReflectionException when the class/method doesn't exist
      */

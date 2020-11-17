@@ -1,6 +1,6 @@
 ClassTool
 =====================
-2016-12-22 -> 2020-07-31
+2016-12-22 -> 2020-11-17
 
 
 
@@ -674,6 +674,24 @@ Example:
 az(ClassTool::hasUseStatementByFile($file, "Ling\Light_Logger\LightLoggerService")); // true
 
 ```
+
+
+
+
+instantiate 
+----------
+2020-11-17
+
+```php
+mixed instantiate ( str:className, arr:args=null, bool throwEx=false )
+```
+
+Instantiates the given class with the given args, and returns its instance.
+
+If the class cannot be instantiated, the behaviour of this method depends on the throwEx flag:
+
+- if true, throws an exception
+- if false, returns false
 
 
 
