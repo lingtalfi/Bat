@@ -172,7 +172,22 @@ class DebugTool
     }
 
 
-    public static function toString($thing)
+    /**
+     * Returns a string representing the given thing.
+     *
+     *
+     * Available options are:
+     *
+     * - expandArray: bool=true. Whether to display the content of the arrays.
+     *          If false, the word "array" will be used instead.
+     *
+     *
+     * @param $thing
+     * @param array $options
+     *
+     * @return string
+     */
+    public static function toString($thing, array $options = [])
     {
         /**
          * inspired by
@@ -190,7 +205,11 @@ class DebugTool
         } elseif (is_callable($thing)) {
             return self::callableToString($thing);
         } elseif (is_array($thing)) {
-            return ArrayToStringTool::toInlinePhpArray($thing);
+            $expand = $options['expandArray'] ?? true;
+            if (true === $expand) {
+                return ArrayToStringTool::toInlinePhpArray($thing);
+            }
+            return 'array';
         } elseif (is_scalar($thing)) {
             return $thing;
         } elseif (is_object($thing)) {

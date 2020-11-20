@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-11-17
+2015-10-07 --> 2020-11-20
 
 
 
@@ -87,6 +87,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.281 -- 2020-11-20
+
+    - update DebugTool->toString method, now has an expandArray option
     
 - 1.280 -- 2020-11-17
 

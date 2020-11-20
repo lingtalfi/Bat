@@ -1,6 +1,6 @@
 DebugTool
 =====================
-2018-02-26
+2018-02-26 -> 2020-11-20
 
 
 
@@ -146,14 +146,19 @@ az(DebugTool::getArrayPartial($_SESSION, [
     
 toString
 -------------
-2018-02-26
+2018-02-26 -> 2020-11-20
 
 
 ```php
-string toString ( mixed:thing)
+string toString ( mixed:thing, array:options=[])
 ```
 
 Return a string representation of the given thing.
+
+Available options are:
+
+- expandArray: bool=true. Whether to display the content of the arrays. If false, the word "array" will be used instead.
+
 
 
 ### Example:
