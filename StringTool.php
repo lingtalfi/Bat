@@ -111,6 +111,22 @@ class StringTool
         return substr($haystack, 0, $length) === $needle;
     }
 
+
+    /**
+     * Returns a more compact version of the given string.
+     * More compact means:
+     * - trimmed
+     * - consecutive whitespaces are reduced to one space
+     *
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function getCompactString(string $str): string
+    {
+        return trim(preg_replace('!\s+!', ' ', $str));
+    }
+
     /**
      * Stolen from OrmToolsHelper (OrmTools planet)
      */

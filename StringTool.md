@@ -1,6 +1,6 @@
 StringTool
 =====================
-2015-10-14 -> 2020-10-23
+2015-10-14 -> 2020-11-20
 
 
 
@@ -96,6 +96,25 @@ a(StringTool::endsWith("boris", 'bo')); // false
 az(StringTool::endsWith("boris", 'ris')); // true
 
 ```
+
+
+
+getCompactString
+-----------
+2020-11-20
+
+
+```php
+string      getCompactString (string:str)
+```
+
+Returns a more compact version of the given string.
+
+More compact means:
+- trimmed
+- consecutive whitespaces are reduced to one space
+
+
 
 
 

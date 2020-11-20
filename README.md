@@ -88,6 +88,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.282 -- 2020-11-20
+
+    - update DebugTool->toString method, now has strMaxLen and strCompact options, add DebugTool::getTraceAsString method, and StringTool::getCompactString method
+    
 - 1.281 -- 2020-11-20
 
     - update DebugTool->toString method, now has an expandArray option
