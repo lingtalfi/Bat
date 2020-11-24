@@ -483,7 +483,7 @@ class FileSystemTool
 
 
     /**
-     * Creates a temporary file.
+     * Creates a temporary file with the given content, and return its path.
      *
      * @param string $content
      * @param string|null $prefix

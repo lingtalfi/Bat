@@ -88,17 +88,21 @@ Dependencies
 History Log
 ------------------
     
+- 1.284 -- 2020-11-24
+
+    - update FileSystemTool::mkTmpFile comment
+    
 - 1.283 -- 2020-11-24
 
-    - update HepTool->hepAttributes, now can treat arrays recursively
+    - update HepTool::hepAttributes, now can treat arrays recursively
     
 - 1.282 -- 2020-11-20
 
-    - update DebugTool->toString method, now has strMaxLen and strCompact options, add DebugTool::getTraceAsString method, and StringTool::getCompactString method
+    - update DebugTool::toString method, now has strMaxLen and strCompact options, add DebugTool::getTraceAsString method, and StringTool::getCompactString method
     
 - 1.281 -- 2020-11-20
 
-    - update DebugTool->toString method, now has an expandArray option
+    - update DebugTool::toString method, now has an expandArray option
     
 - 1.280 -- 2020-11-17
 
