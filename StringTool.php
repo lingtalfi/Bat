@@ -682,6 +682,48 @@ class StringTool
         return $s;
     }
 
+    /**
+     * Returns the truncated version of the given expression.
+     *
+     * If the expression's length is greater than the given maxLen,
+     * we add an ellipsis to it, which defaults to three consecutive dots (...).
+     *
+     *
+     * Note: that the total length of the expression plus the ellipsis will then be maxLen (i.e. and not maxLen + ellipsisLen).
+     * That's because the intent of this method was to prepare data for insertion in a database, which has strict limitations.
+     *
+     * If the length of the ellipsis is greater than the length of the given expression, then the ellipsis is not used at all,
+     * and the expression is truncated without suffix.
+     *
+     *
+     * Available options are:
+     * - ellipsis: string=null, the ellipsis to use. If null, defaults to three consecutive dots (...)
+     *
+     *
+     * @param string $expr
+     * @param int $maxLen
+     * @param array $options
+     * @return string
+     */
+    public static function truncate(string $expr, int $maxLen, array $options = []): string
+    {
+        $len = mb_strlen($expr);
+        if ($len > $maxLen) {
+            $ellipsis = $options['ellipsis'] ?? '...';
+            $elLen = mb_strlen($ellipsis);
+
+            if ($len > $elLen) {
+                $maxLen -= $elLen;
+                $expr = mb_substr($expr, 0, $maxLen) . $ellipsis;
+            } else {
+                $expr = mb_substr($expr, 0, $maxLen);
+            }
+
+
+        }
+        return $expr;
+    }
+
     public static function ucfirst($string)
     {
         return mb_convert_case($string, MB_CASE_TITLE, 'UTF-8');

@@ -88,6 +88,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.285 -- 2020-11-24
+
+    - add StringTool::truncate method
+    
 - 1.284 -- 2020-11-24
 
     - update FileSystemTool::mkTmpFile comment

@@ -1,6 +1,6 @@
 StringTool
 =====================
-2015-10-14 -> 2020-11-20
+2015-10-14 -> 2020-11-24
 
 
 
@@ -596,6 +596,39 @@ Available options are:
 
 
 
+
+truncate
+-----------
+2020-11-24
+
+```php
+string truncate( str:expr, arr:options=[] )
+```
+
+Returns the truncated version of the given expression.
+
+If the expression's length is greater than the given maxLen,
+we add an ellipsis to it, which defaults to three consecutive dots (...).
+
+
+Note: that the total length of the expression plus the ellipsis will then be maxLen (i.e. and not maxLen + ellipsisLen).
+That's because the intent of this method was to prepare data for insertion in a database, which has strict limitations.
+
+If the length of the ellipsis is greater than the length of the given expression, then the ellipsis is not used at all,
+and the expression is truncated without suffix.
+
+
+Available options are:
+- ellipsis: string=null, the ellipsis to use. If null, defaults to three consecutive dots (...)
+
+
+
+### Example
+
+```php
+$expr = "hello there!";
+az(StringTool::truncate($expr, 5)); // string(5) "he..."
+```
 
 
 
