@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-11-20
+2015-10-07 --> 2020-11-24
 
 
 
@@ -87,6 +87,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.283 -- 2020-11-24
+
+    - update HepTool->hepAttributes, now can treat arrays recursively
     
 - 1.282 -- 2020-11-20
 

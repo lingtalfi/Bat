@@ -19,13 +19,21 @@ class HepTool
      *
      *
      * @param array $params
+     * @param string|null $prefix
      * @return string
      */
-    public static function hepAttributes(array $params): string
+    public static function hepAttributes(array $params, string $prefix = null): string
     {
         $s = '';
         foreach ($params as $k => $v) {
-            $s .= ' data-param-' . $k . '="' . htmlspecialchars($v) . '"';
+            if (is_array($v)) {
+                $s .= self::hepAttributes($v, $k);
+            } else {
+                if (null !== $prefix) {
+                    $k = $prefix . '-' . $k;
+                }
+                $s .= ' data-param-' . $k . '="' . htmlspecialchars($v) . '"';
+            }
         }
         return $s;
     }
