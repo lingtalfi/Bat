@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-11-24
+2015-10-07 --> 2020-11-27
 
 
 
@@ -44,10 +44,11 @@ Tools       |       Description
 [BDotTool]( https://github.com/lingtalfi/Bat/blob/master/BDotTool.md )          |       Tools for using bdot notation
 [CaseTool]( https://github.com/lingtalfi/Bat/blob/master/CaseTool.md )          |       Tools for converting a case to another
 [ClassTool]( https://github.com/lingtalfi/Bat/blob/master/ClassTool.md )          |       Tools for working with classes
-[CommentTool]( https://github.com/lingtalfi/Bat/blob/master/CommentTool.md )          |       Tools related to php comments
 [ColorTool]( https://github.com/lingtalfi/Bat/blob/master/ColorTool.md )          |       Tools related to colors
+[CommentTool]( https://github.com/lingtalfi/Bat/blob/master/CommentTool.md )          |       Tools related to php comments
 [ConsoleTool]( https://github.com/lingtalfi/Bat/blob/master/ConsoleTool.md )          |       Tools for working with console related tasks
 [ConvertTool]( https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md )          |       Tools for working with conversion related tasks
+[CookieTool]( https://github.com/lingtalfi/Bat/blob/master/CookieTool.md )          |       Tools for working with cookies
 [DateTool]( https://github.com/lingtalfi/Bat/blob/master/DateTool.md )          |       Tools for working with dates
 [DebugTool]( https://github.com/lingtalfi/Bat/blob/master/DebugTool.md )          |       Tools for debugging
 [ExceptionTool]( https://github.com/lingtalfi/Bat/blob/master/ExceptionTool.md )          |       Tools for manipulating exception
@@ -87,6 +88,10 @@ Dependencies
 
 History Log
 ------------------
+    
+- 1.286 -- 2020-11-27
+
+    - add CookieTool
     
 - 1.285 -- 2020-11-24
 
