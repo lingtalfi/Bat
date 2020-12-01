@@ -166,6 +166,22 @@ EEE;
 
 
     /**
+     * Returns a random password
+     * @param int $length = 64
+     * @return string
+     */
+    public static function randomPassword(int $length = 64): string
+    {
+        $characters = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ,;:=+?.!()&#\'"';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    /**
      * Returns a random string.
      * @param int $length = 64
      * @return string

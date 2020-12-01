@@ -1,6 +1,6 @@
 RandomTool
 =====================
-2018-02-27 -> 2020-03-10
+2018-02-27 -> 2020-12-01
 
 
 
@@ -204,6 +204,24 @@ Returns a random datetime in the mysql format (yyyy-mm-dd hh-ii-ss).
 
 ```php
 az(RandomTool::randomDatetime()); 
+```
+
+
+
+randomPassword
+------------
+2020-12-01
+     
+     
+```php     
+string        randomPassword( int:length=null )     
+```     
+     
+Returns a random password.
+
+
+```php
+a(RandomTool::randomPassword(10)); // d45g0rZ,KG 
 ```
 
 

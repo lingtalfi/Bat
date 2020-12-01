@@ -89,6 +89,10 @@ Dependencies
 History Log
 ------------------
     
+- 1.287 -- 2020-12-01
+
+    - add RandomTool::randomPassword
+    
 - 1.286 -- 2020-11-27
 
     - add CookieTool
