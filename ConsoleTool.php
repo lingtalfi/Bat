@@ -29,6 +29,8 @@ class ConsoleTool
     }
 
 
+
+
     /**
      * Executes the given $cmd command, and returns whether it was successful.
      * The $outputLines variable will contain all lines (as an array) written on STD_OUT by the command.
@@ -75,5 +77,15 @@ class ConsoleTool
         $return = 0;
         passthru($cmd, $return);
         return (0 === $return);
+    }
+
+
+
+    /**
+     * Invokes the reset command (assuming it exists), which in effect resets the terminal.
+     */
+    public static function reset()
+    {
+        self::exec('reset');
     }
 }

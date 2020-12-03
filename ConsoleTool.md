@@ -1,6 +1,6 @@
 ConsoleTool
 =====================
-2019-03-19 -> 2020-06-01
+2019-03-19 -> 2020-12-03
 
 
 
@@ -95,6 +95,27 @@ Executes the php passthru function, and returns whether the command was successf
 <?php
 
 ConsoleTool::passThru("cp /tmp/test1.txt /tmp/test2.txt"); // true
+
+```
+
+
+
+reset
+-----------
+2020-12-03
+
+
+```php
+void    reset ( )
+```
+
+Invokes the reset command (assuming it exists), which in effect resets the terminal.
+
+
+```php
+<?php
+
+ConsoleTool::reset();)
 
 ```
 
