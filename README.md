@@ -88,7 +88,11 @@ Dependencies
 
 History Log
 ------------------
-    
+
+- 1.289 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.288 -- 2020-12-03
 
     - add ConsoleTool::reset
