@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-12-03
+2015-10-07 --> 2020-12-07
 
 
 
@@ -89,6 +89,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.290 -- 2020-12-07
+
+    - Update HttpTool, add getHttpResponseCode method
+  
 - 1.289 -- 2020-12-04
 
     - Add lpi-deps.byml file
