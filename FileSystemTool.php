@@ -101,6 +101,8 @@ class FileSystemTool
 
     /**
      * Copies a directory to a given location.
+     *
+     * Following php's philosophy of the copy function, if the destination file already exists, it will be overwritten.
      */
     public static function copyDir($src, $target, $preservePerms = false, &$errors = [])
     {

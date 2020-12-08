@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-12-07
+2015-10-07 --> 2020-12-08
 
 
 
@@ -89,6 +89,18 @@ Dependencies
 History Log
 ------------------
 
+- 1.293 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
+- 1.292 -- 2020-12-08
+
+    - test Bat update lpi-deps
+  
+- 1.291 -- 2020-12-08
+
+    - Update FileSystemTool::copyDir comment
+  
 - 1.290 -- 2020-12-07
 
     - Update HttpTool, add getHttpResponseCode method
