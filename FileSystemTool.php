@@ -485,6 +485,22 @@ class FileSystemTool
 
 
     /**
+     * Creates a temporary directory in the system temporary files, and returns its path.
+     *
+     * @return string
+     */
+    public static function mkTmpDir(): string
+    {
+        $name = uniqid();
+        $dir = sys_get_temp_dir() . '/' . $name;
+        if (false === file_exists($dir)) {
+            self::mkdir($dir);
+            return $dir;
+        }
+        return self::mkTmpDir();
+    }
+
+    /**
      * Creates a temporary file with the given content, and return its path.
      *
      * @param string $content

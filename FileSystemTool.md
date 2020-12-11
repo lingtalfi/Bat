@@ -1,6 +1,6 @@
 FileSystemTool
 =====================
-2015-10-07 -> 2020-10-23
+2015-10-07 -> 2020-12-11
 
 
 
@@ -403,6 +403,23 @@ a(FileSystemTool::mkfile($f, "hello"));
 
 
 ```
+
+
+
+mkTmpDir
+-----------
+2020-12-11
+
+
+```php
+string:path    mkTmpDir ( )
+```
+
+Creates a temporary directory in the system temporary files, and returns its path.
+
+
+
+
 
 
 
