@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-12-08
+2015-10-07 --> 2020-12-11
 
 
 
@@ -89,6 +89,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.294 -- 2020-12-11
+
+    - add FileSystemTool::mkTmpDir method
+  
 - 1.293 -- 2020-12-08
 
     - Fix lpi-deps not using natsort.
