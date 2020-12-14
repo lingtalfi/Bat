@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-12-11
+2015-10-07 --> 2020-12-14
 
 
 
@@ -49,6 +49,7 @@ Tools       |       Description
 [ConsoleTool]( https://github.com/lingtalfi/Bat/blob/master/ConsoleTool.md )          |       Tools for working with console related tasks
 [ConvertTool]( https://github.com/lingtalfi/Bat/blob/master/ConvertTool.md )          |       Tools for working with conversion related tasks
 [CookieTool]( https://github.com/lingtalfi/Bat/blob/master/CookieTool.md )          |       Tools for working with cookies
+[CurrentProcess]( https://github.com/lingtalfi/Bat/blob/master/CurrentProcess.md )          |       Tools for working with the current process
 [DateTool]( https://github.com/lingtalfi/Bat/blob/master/DateTool.md )          |       Tools for working with dates
 [DebugTool]( https://github.com/lingtalfi/Bat/blob/master/DebugTool.md )          |       Tools for debugging
 [ExceptionTool]( https://github.com/lingtalfi/Bat/blob/master/ExceptionTool.md )          |       Tools for manipulating exception
@@ -89,6 +90,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.295 -- 2020-12-14
+
+    - add CurrentProcess class
+  
 - 1.294 -- 2020-12-11
 
     - add FileSystemTool::mkTmpDir method
