@@ -29,8 +29,6 @@ class ConsoleTool
     }
 
 
-
-
     /**
      * Executes the given $cmd command, and returns whether it was successful.
      * The $outputLines variable will contain all lines (as an array) written on STD_OUT by the command.
@@ -38,9 +36,10 @@ class ConsoleTool
      *
      * @param string $cmd
      * @param array $outputLines
+     * @param int $return
      * @return bool
      */
-    public static function exec(string $cmd, array &$outputLines = []): bool
+    public static function exec(string $cmd, array &$outputLines = [], int &$return = 0): bool
     {
         $return = 0;
         exec($cmd, $outputLines, $return);
@@ -78,7 +77,6 @@ class ConsoleTool
         passthru($cmd, $return);
         return (0 === $return);
     }
-
 
 
     /**

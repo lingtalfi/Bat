@@ -1,6 +1,6 @@
 ConsoleTool
 =====================
-2019-03-19 -> 2020-12-03
+2019-03-19 -> 2020-12-16
 
 
 
@@ -34,15 +34,17 @@ ConsoleTool::capture("whoami"); // ling
 
 exec
 -----------
-2019-03-19
+2019-03-19 -> 2020-12-16
 
 
 ```php
-bool    exec ( str:cmd, array:&outputLines=[] )
+bool    exec ( str:cmd, array:&outputLines=[], int &return=0 )
 ```
 
 Executes the given $cmd command, and returns whether it was successful.
 The $outputLines variable will contain all lines (as an array) written on STD_OUT by the command.
+The return variable contains the return status.
+
 
 
 ```php

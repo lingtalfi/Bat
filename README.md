@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-12-14
+2015-10-07 --> 2020-12-16
 
 
 
@@ -90,6 +90,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.296 -- 2020-12-16
+
+    - update ConsoleTool::exec, now transmits the return code as well
+  
 - 1.295 -- 2020-12-14
 
     - add CurrentProcess class
