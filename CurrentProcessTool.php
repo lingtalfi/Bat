@@ -6,7 +6,7 @@ namespace Ling\Bat;
 /**
  * The CurrentProcess class.
  */
-class CurrentProcess
+class CurrentProcessTool
 {
 
 
