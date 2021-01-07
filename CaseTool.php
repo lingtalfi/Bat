@@ -168,6 +168,18 @@ class CaseTool
         return strtolower($str);
     }
 
+
+    /**
+     * Returns the [underscore low case](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#underscorelow-case) version of the given string.
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function toUnderscoreLow(string $str): string
+    {
+        return self::toSnake(self::toHumanFlatCase($str));
+    }
+
     /**
      * Returns a portable file name.
      * For more details: https://github.com/lingtalfi/NotationFan/blob/master/portable-filename.md

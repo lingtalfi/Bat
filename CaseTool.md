@@ -1,6 +1,6 @@
 CaseTool
 =====================
-2015-12-22 -> 2020-07-03
+2015-12-22 -> 2021-01-07
 
 
 
@@ -543,6 +543,72 @@ require_once "bigbang.php";
 
 
 a(CaseTool::toSnake("MyClassIsKool", true)); // my_class_is_kool
+```
+
+
+
+
+toUnderscoreLow
+-----------
+2021-01-07
+
+
+
+
+```php
+str    toUnderscoreLow ( string:str)
+```
+
+Returns the [underscore_low](https://github.com/lingtalfi/ConventionGuy/blob/master/nomenclature.stringCases.eng.md#underscorelow-case) version of the given string.
+
+
+
+```php
+<?php
+
+$a = [
+    'this is not correct',
+    'camelCase',
+    'simple XML',
+    'local db 2 remote',
+    'XML element',
+    'some_tool_here',
+    'SOMe_tool_HERe',
+    'tai-tai-PEI.MAURICE',
+    'tai(tai)-PEI+MAURICE',
+];
+
+foreach ($a as $b) {
+    a(CaseTool::toUnderscoreLow($b));
+}
+
+
+```
+
+
+Will print something like this:
+
+
+```html
+string(19) "this_is_not_correct"
+
+string(10) "camel_case"
+
+string(10) "simple_xml"
+
+string(17) "local_db_2_remote"
+
+string(11) "xml_element"
+
+string(14) "some_tool_here"
+
+string(14) "some_tool_here"
+
+string(19) "tai_tai_pei_maurice"
+
+string(19) "tai_tai_pei_maurice"
+
+
 ```
 
 

@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2020-12-31
+2015-10-07 --> 2021-01-07
 
 
 
@@ -90,6 +90,10 @@ Dependencies
 History Log
 ------------------
 
+- 1.298 -- 2021-01-07
+
+    - add CaseTool::toUnderscoreLow method
+  
 - 1.297 -- 2020-12-31
 
     - renamed CurrentProcess class to CurrentProcessTool
