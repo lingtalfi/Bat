@@ -86,6 +86,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.300 -- 2021-01-07
+
+    - update FileListTool, now filelist contains symlinks
+  
 - 1.299 -- 2021-01-07
 
     - add FileListTool

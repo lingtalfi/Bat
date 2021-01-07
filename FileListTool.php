@@ -12,7 +12,7 @@ use Ling\DirScanner\YorgDirScannerTool;
  *
  * Concepts used in this class:
  *
- * - filelist: an array of relative paths pointing to files.
+ * - filelist: an array of relative paths pointing to files or symlinks (to files or dirs).
  *
  *
  *
@@ -23,7 +23,7 @@ class FileListTool
     /**
      * Returns the list of files in the given $dir.
      *
-     * Note: symlinks are not followed.
+     * Note: symlinks are not followed, but they are collected
      *
      * Available options are:
      * - ignore: array of dir/file base names to ignore
@@ -40,7 +40,7 @@ class FileListTool
     public static function getFileList(string $dir, array $options = []): array
     {
         $ignore = $options['ignore'] ?? [];
-        return YorgDirScannerTool::getFilesIgnore($dir, $ignore, true, true);
+        return YorgDirScannerTool::getFilesIgnore($dir, $ignore, true, true, false, 1, true);
     }
 
 
@@ -57,7 +57,17 @@ class FileListTool
         foreach ($fileList as $relPath) {
             $srcAbsPath = $srcDir . "/" . $relPath;
             $dstAbsPath = $dstDir . "/" . $relPath;
-            FileSystemTool::copyFile($srcAbsPath, $dstAbsPath);
+
+            // if it's a link, we preserve it as is
+            if (true === is_link($srcAbsPath)) {
+                $linkDst = readlink($srcAbsPath);
+                $dstAbsDir = dirname($dstAbsPath);
+                FileSystemTool::mkdir($dstAbsDir);
+                symlink($linkDst, $dstAbsPath);
+
+            } else {
+                FileSystemTool::copyFile($srcAbsPath, $dstAbsPath);
+            }
         }
     }
 }

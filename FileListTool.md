@@ -21,7 +21,7 @@ getFileList
 getFileList(string $dir, array $options = []): array
 ```
 
-Returns the list of files in the given $dir.
+Returns the list of files/links in the given $dir.
 
 Note: symlinks are not followed.
 
@@ -45,5 +45,5 @@ copyFileListToDir
 copyFileListToDir(array $fileList, string $srcDir, string $dstDir)
 ```
 
-Copies the files listed in the given file list from the $srcDir to the $dstDir.
+Copies the files/links listed in the given file list from the $srcDir to the $dstDir.
 
