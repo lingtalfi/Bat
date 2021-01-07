@@ -3,8 +3,8 @@ dependencies:
         - TokenFun
         - ArrayToString
         - BeeFramework
-        - CopyDir
         - DirScanner
+        - CopyDir
         - BabyYaml
         - Tiphaine
         - ClassCooker

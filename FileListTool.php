@@ -1,0 +1,63 @@
+<?php
+
+
+namespace Ling\Bat;
+
+
+use Ling\DirScanner\YorgDirScannerTool;
+
+
+/**
+ * The FileListTool class.
+ *
+ * Concepts used in this class:
+ *
+ * - filelist: an array of relative paths pointing to files.
+ *
+ *
+ *
+ */
+class FileListTool
+{
+
+    /**
+     * Returns the list of files in the given $dir.
+     *
+     * Note: symlinks are not followed.
+     *
+     * Available options are:
+     * - ignore: array of dir/file base names to ignore
+     *      For instance:
+     *          - .DS_Store
+     *          - .git
+     *
+     *
+     *
+     * @param string $dir
+     * @param array $options
+     * @return array
+     */
+    public static function getFileList(string $dir, array $options = []): array
+    {
+        $ignore = $options['ignore'] ?? [];
+        return YorgDirScannerTool::getFilesIgnore($dir, $ignore, true, true);
+    }
+
+
+    /**
+     * Copies the files listed in the given file list from the $srcDir to the $dstDir.
+     *
+     * @param array $fileList
+     * @param string $srcDir
+     * @param string $dstDir
+     */
+    public static function copyFileListToDir(array $fileList, string $srcDir, string $dstDir)
+    {
+
+        foreach ($fileList as $relPath) {
+            $srcAbsPath = $srcDir . "/" . $relPath;
+            $dstAbsPath = $dstDir . "/" . $relPath;
+            FileSystemTool::copyFile($srcAbsPath, $dstAbsPath);
+        }
+    }
+}

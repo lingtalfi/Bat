@@ -53,6 +53,7 @@ Tools       |       Description
 [DateTool]( https://github.com/lingtalfi/Bat/blob/master/DateTool.md )          |       Tools for working with dates
 [DebugTool]( https://github.com/lingtalfi/Bat/blob/master/DebugTool.md )          |       Tools for debugging
 [ExceptionTool]( https://github.com/lingtalfi/Bat/blob/master/ExceptionTool.md )          |       Tools for manipulating exception
+[FileListTool]( https://github.com/lingtalfi/Bat/blob/master/FileListTool.md )          |         Tools for manipulating file lists.
 [FileSystemTool]( https://github.com/lingtalfi/Bat/blob/master/FileSystemTool.md )          |       Tools for the filesystem
 [FileTool]( https://github.com/lingtalfi/Bat/blob/master/FileTool.md )          |                   Tools for the files
 [HashTool]( https://github.com/lingtalfi/Bat/blob/master/HashTool.md )          |                   Tools for the using hashes
@@ -79,17 +80,16 @@ Tools       |       Description
 
 
 
-Dependencies
-------------------
-
-- [CopyDir 1.0.0](https://github.com/lingtalfi/CopyDir)
-- [Tiphaine 1.0.0](https://github.com/lingtalfi/Tiphaine)
 
 
 
 History Log
 ------------------
 
+- 1.299 -- 2021-01-07
+
+    - add FileListTool
+  
 - 1.298 -- 2021-01-07
 
     - add CaseTool::toUnderscoreLow method
