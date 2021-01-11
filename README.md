@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-01-07
+2015-10-07 --> 2021-01-11
 
 
 
@@ -86,6 +86,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.301 -- 2021-01-11
+
+    - update FileListTool::copyFileListToDir, now removes destination before copying a link
+  
 - 1.300 -- 2021-01-07
 
     - update FileListTool, now filelist contains symlinks

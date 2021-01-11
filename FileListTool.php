@@ -61,6 +61,9 @@ class FileListTool
             // if it's a link, we preserve it as is
             if (true === is_link($srcAbsPath)) {
                 $linkDst = readlink($srcAbsPath);
+
+                FileSystemTool::remove($dstAbsPath);
+
                 $dstAbsDir = dirname($dstAbsPath);
                 FileSystemTool::mkdir($dstAbsDir);
                 symlink($linkDst, $dstAbsPath);
