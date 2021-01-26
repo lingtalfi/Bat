@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-01-11
+2015-10-07 --> 2021-01-26
 
 
 
@@ -86,6 +86,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.302 -- 2021-01-26
+
+    - add HttpTool::isValidUrl method
+  
 - 1.301 -- 2021-01-11
 
     - update FileListTool::copyFileListToDir, now removes destination before copying a link

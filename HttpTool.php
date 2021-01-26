@@ -35,6 +35,23 @@ class HttpTool
 
 
     /**
+     * Returns whether the given url is valid.
+     * A valid url, in this case, returns an http response code which starts with either 2 or 3.
+     *
+     * @param string $url
+     * @return bool
+     */
+    public static function isValidUrl(string $url): bool
+    {
+        $responseCode = (string)self::getHttpResponseCode($url);
+        $firstChar = substr($responseCode, 0, 1);
+        return (true === in_array($firstChar, [
+                "2",
+                "3",
+            ]));
+    }
+
+    /**
      * https://stackoverflow.com/questions/1175096/how-to-find-out-if-youre-using-https-without-serverhttps
      */
     public static function isHttps()
