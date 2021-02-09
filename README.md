@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-01-26
+2015-10-07 --> 2021-02-09
 
 
 
@@ -86,6 +86,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.303 -- 2021-02-09
+
+    - fix FileSystemTool::mkTmpDir returning path with two consecutive slashes in it
+  
 - 1.302 -- 2021-01-26
 
     - add HttpTool::isValidUrl method

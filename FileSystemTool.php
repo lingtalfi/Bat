@@ -492,7 +492,7 @@ class FileSystemTool
     public static function mkTmpDir(): string
     {
         $name = uniqid();
-        $dir = sys_get_temp_dir() . '/' . $name;
+        $dir = rtrim(sys_get_temp_dir(), '/') . '/' . $name;
         if (false === file_exists($dir)) {
             self::mkdir($dir);
             return $dir;

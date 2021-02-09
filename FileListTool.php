@@ -12,7 +12,7 @@ use Ling\DirScanner\YorgDirScannerTool;
  *
  * Concepts used in this class:
  *
- * - filelist: an array of relative paths pointing to files or symlinks (to files or dirs).
+ * - filelist: an array of relative paths pointing to files, symlinks (to files or dirs), and optionally dirs.
  *
  *
  *
@@ -46,6 +46,7 @@ class FileListTool
 
     /**
      * Copies the files listed in the given file list from the $srcDir to the $dstDir.
+     * If the entry is a dir, the dir will be copied recursively.
      *
      * @param array $fileList
      * @param string $srcDir
@@ -69,7 +70,11 @@ class FileListTool
                 symlink($linkDst, $dstAbsPath);
 
             } else {
-                FileSystemTool::copyFile($srcAbsPath, $dstAbsPath);
+                if (true === is_file($srcAbsPath)) {
+                    FileSystemTool::copyFile($srcAbsPath, $dstAbsPath);
+                } elseif (true === is_dir($srcAbsPath)) {
+                    FileSystemTool::copyDir($srcAbsPath, $dstAbsPath);
+                }
             }
         }
     }
