@@ -204,7 +204,18 @@ class FileSystemTool
         $path = realpath($path);
         if ($path !== false && $path != '' && file_exists($path)) {
             foreach (new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path, \FilesystemIterator::SKIP_DOTS)) as $object) {
-                $bytestotal += $object->getSize();
+
+
+                try {
+                    /**
+                     * @var $object \SplFileInfo
+                     *
+                     */
+                    $bytestotal += $object->getSize();
+                } catch (\Exception) {
+                    // just ignore problem files...
+                }
+
             }
         }
         return $bytestotal;

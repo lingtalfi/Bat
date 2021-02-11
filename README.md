@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-02-09
+2015-10-07 --> 2021-02-11
 
 
 
@@ -86,6 +86,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.304 -- 2021-02-11
+
+    - update FileSystemTool::getDirectorySize, now doesn't stop in case of problem
+  
 - 1.303 -- 2021-02-09
 
     - fix FileSystemTool::mkTmpDir returning path with two consecutive slashes in it
