@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-02-11
+2015-10-07 --> 2021-02-15
 
 
 
@@ -86,6 +86,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.305 -- 2021-02-15
+
+    - fix HashTool::getPasswordHashAlgorithm return type being int instead of string
+  
 - 1.304 -- 2021-02-11
 
     - update FileSystemTool::getDirectorySize, now doesn't stop in case of problem

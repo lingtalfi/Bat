@@ -50,15 +50,15 @@ class HashTool
     }
 
     /**
-     * Returns the algo integer which corresponds to the given algoName, and to pass to the password_hash function
+     * Returns the algo string which corresponds to the given algoName, and to pass to the password_hash function
      * (https://www.php.net/manual/en/function.password-hash.php).
      *
      *
      * @param string $algoName
-     * @return int
+     * @return string
      * @throws \Exception
      */
-    public static function getPasswordHashAlgorithm(string $algoName): int
+    public static function getPasswordHashAlgorithm(string $algoName): string
     {
         switch ($algoName) {
             case "default":
