@@ -3057,3 +3057,13 @@
     - Ling:BabyYaml:1.7.7+
     - Ling:Tiphaine:1.0.2+
     - Ling:ClassCooker:1.16.2+
+
+1.306: 
+    - Ling:ArrayToString:1.4.4+
+    - Ling:BabyYaml:1.7.7+
+    - Ling:BeeFramework:1.0.6+
+    - Ling:ClassCooker:1.16.2+
+    - Ling:CopyDir:1.3.2+
+    - Ling:DirScanner:1.13.3+
+    - Ling:Tiphaine:1.0.2+
+    - Ling:TokenFun:1.11.5+

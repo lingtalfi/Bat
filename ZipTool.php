@@ -13,6 +13,90 @@ class ZipTool
 
 
     /**
+     * Adds an entry to an existing zip file.
+     *
+     * The sourcePath can be a directory or a file.
+     * If it's a directory, its content will be added recursively.
+     *
+     * The dest name is the relative path inside the zip.
+     *
+     *
+     * @param string $zipFile
+     * @param string $srcPath
+     * @param string $dstName
+     */
+    public static function addToZip(string $zipFile, string $srcPath, string $dstName)
+    {
+        $zip = new \ZipArchive();
+        if (true !== ($res = $zip->open($zipFile))) {
+            throw new BatException("Could not open the zipFile: " . $zip->getStatusString());
+        }
+
+
+        if (true === is_dir($srcPath)) {
+
+            $files = YorgDirScannerTool::getFiles($srcPath, true, true);
+
+            foreach ($files as $file) {
+                $relName = $dstName . "/$file";
+                $absPath = $srcPath . "/" . $file;
+
+                if (true === is_dir($absPath)) {
+                    $zip->addEmptyDir($relName);
+                } else if (true === is_file($absPath)) {
+                    $zip->addFromString($relName, file_get_contents($absPath));
+                } else {
+                    throw new BatException("Not a file, nor a dir: $absPath. Aborting.");
+                }
+            }
+
+
+        } elseif (is_file($srcPath)) {
+            $zip->addFromString($dstName, file_get_contents($srcPath));
+        } else {
+            throw new BatException("The srcPath is neither a dir, nor a file. Aborting.");
+        }
+
+
+        $zip->close();
+    }
+
+
+
+    /**
+     * Removes an entry from an existing zip file.
+     *
+     * The name is the relative path of the entry to remove (relative to the zip's root).
+     *
+     *
+     * @param string $zipFile
+     * @param string $name
+     * @param bool $isDir
+     * @throws \Exception
+     */
+    public static function deleteFromZip(string $zipFile, string $name, bool $isDir)
+    {
+        $zip = new \ZipArchive();
+        if (true !== ($res = $zip->open($zipFile))) {
+            throw new BatException("Could not open the zipFile: " . $zip->getStatusString());
+        }
+
+
+        $name = rtrim($name, DIRECTORY_SEPARATOR);
+        if (true === $isDir) {
+            $name .= DIRECTORY_SEPARATOR;
+        }
+        for ($i = 0; $i < $zip->numFiles; $i++) {
+            $info = $zip->statIndex($i);
+            if (true === str_starts_with($info['name'], $name)) {
+                $zip->deleteIndex($i);
+            }
+        }
+        $zip->close();
+    }
+
+
+    /**
      *
      * Extracts the given zip file as the given target directory, and returns whether the operation was successful.
      * If target is null, then the zip will be extracted in a directory of the same name as the zip file but without the zip extension.
@@ -149,7 +233,7 @@ class ZipTool
 
         $source = str_replace('\\', '/', realpath($source));
 
-        if (is_dir($source) === true) {
+        if (true === is_dir($source)) {
 
 
             $files = YorgDirScannerTool::getFilesIgnoreMore($source, $ignoreName, $ignorePath, true, false, false, $ignoreHidden);
@@ -160,18 +244,22 @@ class ZipTool
 
                 if (true === is_dir($file)) {
                     $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
-                } else if (is_file($file) === true) {
+                } else if (true === is_file($file)) {
                     $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
                 }
 
             }
 
-        } else if (is_file($source) === true) {
+        } else if (true === is_file($source)) {
             $zip->addFromString(basename($source), file_get_contents($source));
         }
 
         return $zip->close();
     }
+
+
+
+
 
 
     /**

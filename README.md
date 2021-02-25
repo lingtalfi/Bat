@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-02-15
+2015-10-07 --> 2021-02-25
 
 
 
@@ -86,6 +86,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.306 -- 2021-02-25
+
+    - update ZipTool, add addToZip and deleteFromZip methods
+  
 - 1.305 -- 2021-02-15
 
     - fix HashTool::getPasswordHashAlgorithm return type being int instead of string

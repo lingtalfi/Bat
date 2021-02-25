@@ -1,13 +1,13 @@
 dependencies: 
     Ling: 
-        - TokenFun
         - ArrayToString
-        - BeeFramework
-        - DirScanner
-        - CopyDir
         - BabyYaml
-        - Tiphaine
+        - BeeFramework
         - ClassCooker
+        - CopyDir
+        - DirScanner
+        - Tiphaine
+        - TokenFun
     
 
 post_install: []
