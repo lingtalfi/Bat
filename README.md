@@ -86,6 +86,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.307 -- 2021-02-25
+
+    - update ZipTool::addToZip, enhance error message
+  
 - 1.306 -- 2021-02-25
 
     - update ZipTool, add addToZip and deleteFromZip methods

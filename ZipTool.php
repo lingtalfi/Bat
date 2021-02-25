@@ -54,7 +54,7 @@ class ZipTool
         } elseif (is_file($srcPath)) {
             $zip->addFromString($dstName, file_get_contents($srcPath));
         } else {
-            throw new BatException("The srcPath is neither a dir, nor a file. Aborting.");
+            throw new BatException("The srcPath is neither a dir, nor a file: $srcPath. Aborting.");
         }
 
 
