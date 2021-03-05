@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-02-25
+2015-10-07 --> 2021-03-05
 
 
 
@@ -23,6 +23,11 @@ Bat is part of the [universe framework](https://github.com/karayabin/universe-sn
 Install
 =============
 
+
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Bat
+```
 
 Using the [uni tool](https://github.com/lingtalfi/universe-naive-importer)
 ```bash
@@ -85,6 +90,10 @@ Tools       |       Description
 
 History Log
 ------------------
+
+- 1.308 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.307 -- 2021-02-25
 

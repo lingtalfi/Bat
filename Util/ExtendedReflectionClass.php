@@ -6,6 +6,8 @@ namespace Ling\Bat\Util;
 
 use Ling\Bat\Exception\BatException;
 use Ling\ClassCooker\ClassCooker;
+use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
+use Ling\TokenFun\Tool\TokenTool;
 
 /**
  * The ExtendedReflectionClass class.
@@ -63,7 +65,7 @@ class ExtendedReflectionClass extends \ReflectionClass
      *
      * The returned array is an array of items, each of which being an array with the following:
      *      - class: the real class used in the use statement
-     *      - as: the alias version of the class used in the use statement
+     *      - as: the alias version of the class used in the use statement, which defaults to the real class if no alias was used.
      *
      * @return array
      */
@@ -104,7 +106,6 @@ class ExtendedReflectionClass extends \ReflectionClass
         $cooker = new ClassCooker();
         $cooker->setFile($this->getFileName());
         $this->theStartLine = $cooker->getClassStartLine();
-
 
 
         $source = $this->readFileSource();
@@ -155,71 +156,30 @@ class ExtendedReflectionClass extends \ReflectionClass
 
         $tokens = @token_get_all($source);
 
-        $builtNamespace = '';
-        $buildingNamespace = false;
-        $matchedNamespace = false;
 
         $useStatements = [];
-        $record = false;
+        $parsingUseStatement = false;
         $currentUse = [
             'class' => '',
             'as' => ''
         ];
 
+
+        a(TokenTool::explicitTokenNames($tokens));
+        $useDeps = TokenFinderTool::getUseDependencies($tokens);
+        azf($useDeps);
+
         foreach ($tokens as $token) {
 
-            if ($token[0] === T_NAMESPACE) {
-                $buildingNamespace = true;
 
-                if ($matchedNamespace) {
-                    break;
-                }
-            }
-
-            if ($buildingNamespace) {
-
-                if ($token === ';') {
-                    $buildingNamespace = false;
-                    continue;
+            if (false === $parsingUseStatement) {
+                if (T_USE === $token[0]) {
+                    $parsingUseStatement = true;
+                    $record = 'class';
                 }
 
-                switch ($token[0]) {
-
-                    case T_STRING:
-                    case T_NS_SEPARATOR:
-                        $builtNamespace .= $token[1];
-                        break;
-                }
-
-                continue;
-            }
-
-            if ($token === ';' || !is_array($token)) {
-
-                if ($record) {
-                    $useStatements[] = $currentUse;
-                    $record = false;
-                    $currentUse = [
-                        'class' => '',
-                        'as' => ''
-                    ];
-                }
-
-                continue;
-            }
-
-            if ($token[0] === T_CLASS) {
-                break;
-            }
-
-            if (strcasecmp($builtNamespace, $this->getNamespaceName()) === 0) {
-                $matchedNamespace = true;
-            }
-
-            if ($matchedNamespace) {
 
                 if ($token[0] === T_USE) {
-                    $record = 'class';
                 }
 
                 if ($token[0] === T_AS) {
@@ -231,6 +191,8 @@ class ExtendedReflectionClass extends \ReflectionClass
 
                         case T_STRING:
                         case T_NS_SEPARATOR:
+                        case T_NAME_QUALIFIED:
+                        case T_WHITESPACE:
 
                             if ($record) {
                                 $currentUse[$record] .= $token[1];
@@ -239,11 +201,13 @@ class ExtendedReflectionClass extends \ReflectionClass
                             break;
                     }
                 }
+
+
+                if ($token[2] >= $this->theStartLine) {
+                    break;
+                }
             }
 
-            if ($token[2] >= $this->theStartLine) {
-                break;
-            }
         }
 
 
