@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-03-05
+2015-10-07 --> 2021-03-18
 
 
 
@@ -90,6 +90,11 @@ Tools       |       Description
 
 History Log
 ------------------
+
+- 1.309 -- 2021-03-18
+
+    - fix ArrayTool::arrayMergeReplaceRecursive trying to merge array with string
+    - update ClassTool::getReflectionClass signature, added return types
 
 - 1.308 -- 2021-03-05
 

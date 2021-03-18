@@ -520,7 +520,7 @@ class ClassTool
      * @param string $className
      * @return false|\ReflectionClass
      */
-    public static function getReflectionClass(string $className)
+    public static function getReflectionClass(string $className): \ReflectionClass|false
     {
         try {
             return new \ReflectionClass($className);

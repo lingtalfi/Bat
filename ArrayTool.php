@@ -135,10 +135,14 @@ class ArrayTool
                     $arr[] = $v;
                 } else {
 
-                    if (!array_key_exists($k, $arr)) {
+                    if (false === array_key_exists($k, $arr)) {
                         $arr[$k] = $v;
                     } else {
-                        if (is_array($v) && !empty($v)) {
+                        if (
+                            true === is_array($v) &&
+                            false === empty($v) &&
+                            true === is_array($arr[$k])
+                        ) {
                             $arr[$k] = self::arrayMergeReplaceRecursive([$arr[$k], $v]);
                         } else {
                             $arr[$k] = $v;

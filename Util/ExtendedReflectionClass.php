@@ -165,9 +165,9 @@ class ExtendedReflectionClass extends \ReflectionClass
         ];
 
 
-        a(TokenTool::explicitTokenNames($tokens));
-        $useDeps = TokenFinderTool::getUseDependencies($tokens);
-        azf($useDeps);
+
+//        $useDeps = TokenFinderTool::getUseDependencies($tokens);
+
 
         foreach ($tokens as $token) {
 
