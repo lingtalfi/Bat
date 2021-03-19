@@ -245,8 +245,11 @@ class FileTool
             $a = array_slice($lines, 0, $index);
             $b = array_slice($lines, $index);
 
+
+
             $c = implode("", $a);
-            if ($max === $lineNumber && empty($b)) {
+
+            if ($max === $lineNumber && empty($b) && 1 !== $lineNumber) {
                 $c .= PHP_EOL;
             }
             $c .= $content;

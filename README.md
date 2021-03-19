@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-03-18
+2015-10-07 --> 2021-03-19
 
 
 
@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.310 -- 2021-03-19
+
+    - fix FileTool::insert prepending blank line when nbLine is 1
+  
 - 1.309 -- 2021-03-18
 
     - fix ArrayTool::arrayMergeReplaceRecursive trying to merge array with string
