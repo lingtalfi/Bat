@@ -1,6 +1,6 @@
 StringTool
 =====================
-2015-10-14 -> 2020-11-24
+2015-10-14 -> 2021-04-06
 
 
 
@@ -149,6 +149,71 @@ Returns a "unique" identifier to use as a css id, possibly prefixed with a given
 
 ```php
 a(StringTool::getUniqueCssId("po-")); // po-7d92af3dddd5083eb7432686c2a9f2ca
+```
+
+
+
+
+getUniqueDuplicatedName
+-----------
+2021-04-06
+
+
+```php
+string      getUniqueDuplicatedName ( string:identifier, callable:doesItStillExist )
+```
+
+Returns a unique identifier, based on the given one.
+
+If you provide an identifier of:
+
+- abc
+
+Then the duplicated entries will look like this:
+
+- abc copy
+- abc copy 2
+- abc copy 3
+- ...
+
+
+
+The given callable makes sure than the new identifier does not exist.
+It takes the tested identifier as the input, and returns whether that identifier exists or not.
+If not, then it's returned as the chosen identifier.
+
+
+
+
+
+
+Testing rig:
+
+```php
+
+$pool = [
+    'abc',
+    "abc copy",
+    "abc copy111",
+    "abc copy 2",
+    "abc copy 3",
+    "abc copy 4",
+    "abc copy 5",
+    "abc copy 6",
+    "abc copy 7",
+    "abc copy 8",
+    "abc copy 9",
+    "abc copy 10",
+    "abc copy 11",
+];
+
+
+$match = StringTool::getUniqueDuplicatedName("abc", function ($id) use ($pool) {
+    return in_array($id, $pool, true);
+});
+
+
+az("match=$match");
 ```
 
 

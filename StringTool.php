@@ -85,6 +85,64 @@ class StringTool
         return [$str, $suffix];
     }
 
+
+    /**
+     * Returns a unique identifier, based on the given one.
+     *
+     * If you provide an identifier of:
+     *
+     * - abc
+     *
+     * Then the duplicated entries will look like this:
+     *
+     * - abc copy
+     * - abc copy 2
+     * - abc copy 3
+     * - ...
+     *
+     *
+     *
+     * The given callable makes sure than the new identifier does not exist.
+     * It takes the tested identifier as the input, and returns whether that identifier exists or not.
+     * If not, then it's returned as the chosen identifier.
+     *
+     *
+     *
+     *
+     * @param string $identifier
+     * @param callable $doesItStillExist
+     * @return string
+     */
+    public static function getUniqueDuplicatedName(string $identifier, callable $doesItStillExist): string
+    {
+        while (true) {
+
+            if (preg_match('!^(.+) copy( [0-9]+)?$!', $identifier, $matches)) {
+                if (2 === count($matches)) {
+                    // was duplicated only once
+                    $identifier .= " 2";
+                } else {
+                    // was duplicated more than once
+                    $int = (int)$matches[2];
+                    $int++;
+                    $p = explode(" ", $identifier);
+                    array_pop($p);
+                    $identifier = implode(" ", $p) . " " . $int;
+                }
+            } else {
+                // was never duplicated before
+                $identifier .= " copy";
+            }
+
+
+            if (false === $doesItStillExist($identifier)) {
+                break;
+            }
+        }
+        return $identifier;
+    }
+
+
     /**
      * Returns whether the given haystack string ends with the given needle string.
      *

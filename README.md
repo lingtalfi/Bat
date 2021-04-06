@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-03-19
+2015-10-07 --> 2021-04-06
 
 
 
@@ -90,6 +90,10 @@ Tools       |       Description
 
 History Log
 ------------------
+
+- 1.311 -- 2021-04-06
+
+    - add StringTool::getUniqueDuplicatedName method
 
 - 1.310 -- 2021-03-19
 
