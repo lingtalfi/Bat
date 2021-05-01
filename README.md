@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-04-06
+2015-10-07 --> 2021-05-01
 
 
 
@@ -90,6 +90,10 @@ Tools       |       Description
 
 History Log
 ------------------
+
+- 1.312 -- 2021-05-01
+
+    - add ClassTool::instantiateIfImplements method
 
 - 1.311 -- 2021-04-06
 
