@@ -1,6 +1,6 @@
 ClassTool
 =====================
-2016-12-22 -> 2020-11-17
+2016-12-22 -> 2021-05-01
 
 
 
@@ -692,6 +692,24 @@ If the class cannot be instantiated, the behaviour of this method depends on the
 
 - if true, throws an exception
 - if false, returns false
+
+
+
+
+
+instantiateIfImplements 
+----------
+2021-05-01
+
+
+```php
+object|null instantiateIfImplements ( str:className, str:interface)
+```
+
+Returns an instance of the given class, only if it implements the given interface.
+If the given class doesn't implement the interface, null is returned.
+
+
 
 
 
