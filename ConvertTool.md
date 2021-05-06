@@ -1,6 +1,6 @@
 ConvertTool
 =====================
-2018-06-03 -> 2020-06-01
+2018-06-03 -> 2021-05-06
 
 
 
@@ -159,3 +159,28 @@ a(ConvertTool::getPhpErrorLabel( 2)); // E_WARNING
 az(ConvertTool::getPhpErrorLabel( \E_USER_NOTICE)); // E_USER_NOTICE
 
 ```
+
+
+
+toPrice
+----------
+2021-05-06
+
+
+```php
+string    toPrice ( str:price, str:decimalSeparator=".")
+```
+
+
+Returns a price string formatted as a number with two decimals, but without the currency symbol.
+It looks like this:
+
+- 49.99
+- 250.00
+
+
+If the given value has more than 3 decimals, we round it up.
+So for instance 4.875 will be rounded to 4.88 (i.e. not 4.87).
+
+     
+    

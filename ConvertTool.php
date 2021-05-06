@@ -283,4 +283,28 @@ class ConvertTool
         }
         return $default;
     }
+
+
+    /**
+     * Returns a price string formatted as a number with two decimals, but without the currency symbol.
+     * It looks like this:
+     *
+     * - 49.99
+     * - 250.00
+     *
+     *
+     * If the given value has more than 3 decimals, we round it up.
+     * So for instance 4.875 will be rounded to 4.88 (i.e. not 4.87).
+     *
+     *
+     *
+     * @param string $price
+     * @param string $decimalSeparator
+     * @return string
+     */
+    public static function toPrice(string $price, string $decimalSeparator = "."): string
+    {
+        $price = str_replace(',', '.', $price);
+        return number_format($price, 2, $decimalSeparator);
+    }
 }

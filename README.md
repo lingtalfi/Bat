@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.315 -- 2021-05-06
+
+    - add ConvertTool::toPrice method
+
 - 1.314 -- 2021-05-06
 
     - fix FileSystemTool::mkAutoRemovingTmpFile not always auto-removing file
