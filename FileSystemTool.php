@@ -542,7 +542,11 @@ class FileSystemTool
      */
     public static function mkAutoRemovingTmpFile(): string
     {
-        return stream_get_meta_data(tmpfile())['uri'];
+        $path = stream_get_meta_data(tmpfile())['uri'];
+        register_shutdown_function(function () use ($path) {
+            unlink($path);
+        });
+        return $path;
     }
 
 
