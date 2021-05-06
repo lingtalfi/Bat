@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-05-01
+2015-10-07 --> 2021-05-06
 
 
 
@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.313 -- 2021-05-06
+
+    - add FileSystemTool::mkAutoRemovingTmpFile method
+  
 - 1.312 -- 2021-05-01
 
     - add ClassTool::instantiateIfImplements method

@@ -534,6 +534,19 @@ class FileSystemTool
 
 
     /**
+     * Returns the path to an auto-removing temporary file.
+     * The file is automatically removed when closed (for example, by calling fclose), or when the script ends.
+     *
+     *
+     * @return string
+     */
+    public static function mkAutoRemovingTmpFile(): string
+    {
+        return stream_get_meta_data(tmpfile())['uri'];
+    }
+
+
+    /**
      * Makes a temporary copy of the given file path.
      * A filename can be provided.
      *

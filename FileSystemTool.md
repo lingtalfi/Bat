@@ -1,6 +1,6 @@
 FileSystemTool
 =====================
-2015-10-07 -> 2020-12-11
+2015-10-07 -> 2021-05-06
 
 
 
@@ -302,6 +302,25 @@ A filename is considered valid only if all conditions below are fulfilled:
 - the filename is different than ".."
 - the filename doesn't start and/or end with a space
 - the filename doesn't contain one of the following characters: /?*:;{}\
+
+
+
+
+
+mkAutoRemovingTmpFile
+-------
+2021-05-06
+
+
+```php
+string    mkAutoRemovingTmpFile ()
+```
+
+
+Returns the path to an auto-removing temporary file.
+The file is automatically removed when closed (for example, by calling fclose), or when the script ends.
+
+
 
 
 
