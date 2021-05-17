@@ -100,12 +100,27 @@ class FileSystemTool
 
 
     /**
-     * Copies a directory to a given location.
+     * Copies a directory to a given location, and returns whether the operation was successful.
+     *
      *
      * Following php's philosophy of the copy function, if the destination file already exists, it will be overwritten.
+     *
+     * Available options are:
+     * - preservePerms: bool = false, whether to preserve permissions.
+     *
+     *
+     * @param string $src
+     * @param string $target
+     * @param array $options
+     * @param array $errors
+     * @return bool
+     * @throws \Exception
      */
-    public static function copyDir($src, $target, $preservePerms = false, &$errors = [])
+    public static function copyDir(string $src, string $target, array $options = [], array &$errors = [])
     {
+
+        $preservePerms = $options['preservePerms'] ?? false;
+
         $o = AuthorCopyDirUtil::create();
         $o->setPreservePerms($preservePerms);
         $ret = $o->copyDir($src, $target);

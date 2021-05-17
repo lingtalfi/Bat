@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-05-06
+2015-10-07 --> 2021-05-17
 
 
 
@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.316 -- 2021-05-17
+
+    - update FileSystemTool::copyDir method, preservePerms parameter is now replaced with options parameter
+  
 - 1.315 -- 2021-05-06
 
     - add ConvertTool::toPrice method

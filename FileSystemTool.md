@@ -1,6 +1,6 @@
 FileSystemTool
 =====================
-2015-10-07 -> 2021-05-06
+2015-10-07 -> 2021-05-17
 
 
 
@@ -66,13 +66,19 @@ If you want to clear the symlink dir, set the $abortIfSymlink flag to false.
 
 copyDir
 -------------     
-2015-10-20
+2015-10-20 -> 2021-05-17
 
 ```php
-bool        copyDir ( str:srcDir, str:targetDir, bool:preservePerms = false, array:&errors = [] )
+bool        copyDir ( str:srcDir, str:targetDir, array:options = [], array:&errors = [] )
 ```
-     
-Copies a directory (recursively) to a given location.
+
+Copies a directory to a given location, and returns whether the operation was successful.
+
+
+Following php's philosophy of the copy function, if the destination file already exists, it will be overwritten.
+
+Available options are:
+- preservePerms: bool = false, whether to preserve permissions.
 
 
 copyFile
