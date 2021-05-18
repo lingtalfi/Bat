@@ -80,10 +80,14 @@ class ConsoleTool
 
 
     /**
-     * Invokes the reset command (assuming it exists), which in effect resets the terminal.
+     * Resets the terminal screen.
+     *
+     * https://linoxide.com/commands-clear-linux-terminal/
+     *
      */
     public static function reset()
     {
-        self::exec('reset');
+        echo "\033c"; // this is blazing fast
+//        self::exec('reset'); // this is stupid slow
     }
 }

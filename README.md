@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-05-17
+2015-10-07 --> 2021-05-18
 
 
 
@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.317 -- 2021-05-18
+
+    - update ConsoleTool::reset method, now uses a faster method
+  
 - 1.316 -- 2021-05-17
 
     - update FileSystemTool::copyDir method, preservePerms parameter is now replaced with options parameter
