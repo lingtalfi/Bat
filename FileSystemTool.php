@@ -351,6 +351,29 @@ class FileSystemTool
 
 
     /**
+     * Returns a human friendly time string that can be used in a filename or directory name.
+     *
+     * It looks something like this by default:
+     *
+     * - 2021-05-18--16-53-10--63251500
+     *
+     *
+     * @param bool $useMicro
+     * @return string
+     */
+    public static function getTimeString(bool $useMicro = true): string
+    {
+        $s = date("Y-m-d--H-i-s");
+        if (true === $useMicro) {
+            $p = explode(' ', microtime());
+            $n = substr(array_shift($p), 2);
+            $s .= "--" . $n;
+        }
+        return $s;
+    }
+
+
+    /**
      * Returns whether the given file and is under the given rootDir.
      * If the $checkFileExists is set, also checks whether the file exists.
      *

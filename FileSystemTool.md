@@ -1,6 +1,6 @@
 FileSystemTool
 =====================
-2015-10-07 -> 2021-05-17
+2015-10-07 -> 2021-05-18
 
 
 
@@ -258,6 +258,23 @@ string|false        getRelativePath( string:absolutePath, string:rootDir )
 
 Return the relative path from rootDir to absolutePath, or false if the absolutePath
 is not contained in (a children of) rootDir.
+
+
+
+
+getTimeString
+-----------
+2021-05-18
+
+
+string        getTimeString( bool:useMicro = true )
+
+
+Returns a human friendly time string that can be used in a filename or directory name.
+
+It looks something like this by default:
+
+- 2021-05-18--16-53-10--63251500
 
 
 

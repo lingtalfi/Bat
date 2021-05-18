@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.318 -- 2021-05-18
+
+    - add FileSystemTool::getTimeString method
+  
 - 1.317 -- 2021-05-18
 
     - update ConsoleTool::reset method, now uses a faster method
