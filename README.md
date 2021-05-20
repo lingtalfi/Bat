@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-05-18
+2015-10-07 --> 2021-05-20
 
 
 
@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.320 -- 2021-05-20
+
+    - add ConsoleTool::clearLine, cursorUp, cursorDown, cursorLeft, cursorRight methods
+  
 - 1.319 -- 2021-05-20
 
     - add FileSystemTool::getUniqueTimeStringedEntry method

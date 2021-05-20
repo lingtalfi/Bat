@@ -6,6 +6,11 @@ namespace Ling\Bat;
 
 /**
  * The ConsoleTool class.
+ *
+ *
+ * Useful links for escape codes:
+ *
+ * - https://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html#cursor-navigation
  */
 class ConsoleTool
 {
@@ -89,5 +94,54 @@ class ConsoleTool
     {
         echo "\033c"; // this is blazing fast
 //        self::exec('reset'); // this is stupid slow
+    }
+
+
+    /**
+     * Clears a line.
+     * This needs to be called from a terminal.
+     *
+     * https://unix.stackexchange.com/questions/26576/how-to-delete-line-with-echo
+     */
+    public static function clearLine(): void
+    {
+        echo "\033[2K";
+    }
+
+    /**
+     * Prints the ansi escape code to move the cursor up n times.
+     *
+     * @param int $n
+     */
+    public static function cursorUp(int $n=1){
+        echo "\033[${n}A";
+    }
+
+    /**
+     * Prints the ansi escape code to move the cursor down n times.
+     *
+     *
+     * @param int $n
+     */
+    public static function cursorDown(int $n=1){
+        echo "\033[${n}B";
+    }
+
+    /**
+     * Prints the ansi escape code to move the cursor to the left n times.
+     *
+     *
+     * @param int $n
+     */
+    public static function cursorLeft(int $n=1){
+        echo "\033[${n}D";
+    }
+
+    /**
+     * Prints the ansi escape code to move the cursor to the right n times.
+     * @param int $n
+     */
+    public static function cursorRight(int $n=1){
+        echo "\033[${n}C";
     }
 }

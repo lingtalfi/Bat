@@ -1,6 +1,6 @@
 ConsoleTool
 =====================
-2019-03-19 -> 2020-12-16
+2019-03-19 -> 2021-05-20
 
 
 
@@ -28,6 +28,71 @@ was successful.
 ConsoleTool::capture("whoami"); // ling
 
 ```
+
+
+
+
+clearLine
+-----------
+2021-05-20
+
+
+```php
+void  clearLine ( )
+```
+
+Clears the current line. This needs to be called from a terminal.
+
+
+
+cursorDown
+-----------
+2021-05-20
+
+
+```php
+void  cursorDown ( int:n = 1 )
+```
+
+Prints the ansi escape code to move the cursor down n times.
+
+
+cursorLeft
+-----------
+2021-05-20
+
+
+```php
+void  cursorLeft ( int:n = 1 )
+```
+
+Prints the ansi escape code to move the cursor to the left n times.
+
+
+
+cursorRight
+-----------
+2021-05-20
+
+
+```php
+void  cursorRight ( int:n = 1 )
+```
+
+Prints the ansi escape code to move the cursor to the right n times.
+
+
+cursorUp
+-----------
+2021-05-20
+
+
+```php
+void  cursorUp ( int:n = 1 )
+```
+
+Prints the ansi escape code to move the cursor up n times.
+
 
 
 
