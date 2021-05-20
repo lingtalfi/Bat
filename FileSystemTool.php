@@ -374,6 +374,66 @@ class FileSystemTool
 
 
     /**
+     * Returns a unique entry path (in the given directory), based on time, which basename looks like this for a directory:
+     *
+     * - 2021-05-18--16-53-10--63251500-56
+     *
+     * Or like this for a file
+     *
+     * - 2021-05-18--16-53-10--63251500-56.txt
+     *
+     *
+     * The file flavour is returned only if the exension parameter is set.
+     *
+     *
+     *
+     * The dash separated components are the following (in order of appearance):
+     *
+     * - year
+     * - month
+     * - day
+     * - hour
+     * - minute
+     * - second
+     * - microsecond
+     * - number to ensure the file is unique (starts at 1 and is auto-incremented if necessary)
+     *
+     *
+     *
+     *
+     * @param string $dir
+     * @param string|null $extension
+     * @return string
+     */
+    public static function getUniqueTimeStringedEntry(string $dir, string $extension = null): string
+    {
+
+        $basePath = $dir . DIRECTORY_SEPARATOR . self::getTimeString() . "-1";
+        $filePath = $basePath;
+        if (null !== $extension) {
+            $filePath .= "." . $extension;
+        }
+        while (true === file_exists($filePath)) {
+            $fileName = basename($filePath);
+            if (null !== $extension) {
+                $q = explode(".", $fileName);
+                array_pop($q); // get temporarily rid of extension
+                $fileName = implode('.', $q);
+            }
+
+            $p = explode('-', $fileName);
+            $lastComponent = (int)array_pop($p);
+            $lastComponent++;
+            $filePath = $dir . DIRECTORY_SEPARATOR . implode('-', $p) . "-" . $lastComponent;
+            if (null !== $extension) {
+                $filePath .= "." . $extension;
+            }
+        }
+        return $filePath;
+    }
+
+
+    /**
      * Returns whether the given file and is under the given rootDir.
      * If the $checkFileExists is set, also checks whether the file exists.
      *

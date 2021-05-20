@@ -1,6 +1,6 @@
 FileSystemTool
 =====================
-2015-10-07 -> 2021-05-18
+2015-10-07 -> 2021-05-20
 
 
 
@@ -275,6 +275,42 @@ Returns a human friendly time string that can be used in a filename or directory
 It looks something like this by default:
 
 - 2021-05-18--16-53-10--63251500
+
+
+
+getUniqueTimeStringedEntry
+-----------
+2021-05-20
+
+
+```php
+string        getUniqueTimeStringedEntry( str:dir, str:extension=null )
+```
+
+
+Returns a unique entry path (in the given directory), based on time, which basename looks like this for a directory:
+
+- 2021-05-18--16-53-10--63251500-56
+
+Or like this for a file
+
+- 2021-05-18--16-53-10--63251500-56.txt
+
+
+The file flavour is returned only if the exension parameter is set.
+
+
+
+The dash separated components are the following (in order of appearance):
+
+- year
+- month
+- day
+- hour
+- minute
+- second
+- microsecond
+- number to ensure the file is unique (starts at 1 and is auto-incremented if necessary)
 
 
 

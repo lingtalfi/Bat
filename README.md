@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.319 -- 2021-05-20
+
+    - add FileSystemTool::getUniqueTimeStringedEntry method
+  
 - 1.318 -- 2021-05-18
 
     - add FileSystemTool::getTimeString method
