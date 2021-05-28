@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-05-20
+2015-10-07 --> 2021-05-28
 
 
 
@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.321 -- 2021-05-28
+
+    - fix 1.310 dependency missing from lpi-deps
+  
 - 1.320 -- 2021-05-20
 
     - add ConsoleTool::clearLine, cursorUp, cursorDown, cursorLeft, cursorRight methods
