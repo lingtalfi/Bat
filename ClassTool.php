@@ -683,7 +683,6 @@ class ClassTool
     {
         $className = self::getClassNameByFile($file);
         $useStatements = self::getUseStatements($className);
-        azf($className, $useStatements);
         return in_array($useStatementClass, $useStatements, true);
     }
 

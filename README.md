@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-05-28
+2015-10-07 --> 2021-06-03
 
 
 
@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.323 -- 2021-06-03
+
+    - fix ExtendedReflectionClass not using latest token methods
+  
 - 1.322 -- 2021-05-31
 
     - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api

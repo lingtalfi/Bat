@@ -7,7 +7,6 @@ namespace Ling\Bat\Util;
 use Ling\Bat\Exception\BatException;
 use Ling\ClassCooker\ClassCooker;
 use Ling\TokenFun\TokenFinder\Tool\TokenFinderTool;
-use Ling\TokenFun\Tool\TokenTool;
 
 /**
  * The ExtendedReflectionClass class.
@@ -157,69 +156,21 @@ class ExtendedReflectionClass extends \ReflectionClass
         $tokens = @token_get_all($source);
 
 
-        $useStatements = [];
-        $parsingUseStatement = false;
-        $currentUse = [
-            'class' => '',
-            'as' => ''
-        ];
+        $useStatements = TokenFinderTool::getUseDependencies($tokens, ['alias' => true]);
+        $ret = [];
 
-
-
-//        $useDeps = TokenFinderTool::getUseDependencies($tokens);
-
-
-        foreach ($tokens as $token) {
-
-
-            if (false === $parsingUseStatement) {
-                if (T_USE === $token[0]) {
-                    $parsingUseStatement = true;
-                    $record = 'class';
-                }
-
-
-                if ($token[0] === T_USE) {
-                }
-
-                if ($token[0] === T_AS) {
-                    $record = 'as';
-                }
-
-                if ($record) {
-                    switch ($token[0]) {
-
-                        case T_STRING:
-                        case T_NS_SEPARATOR:
-                        case T_NAME_QUALIFIED:
-                        case T_WHITESPACE:
-
-                            if ($record) {
-                                $currentUse[$record] .= $token[1];
-                            }
-
-                            break;
-                    }
-                }
-
-
-                if ($token[2] >= $this->theStartLine) {
-                    break;
-                }
+        foreach ($useStatements as $item) {
+            list($class, $alias) = $item;
+            if (null === $alias) {
+                $alias = $class;
             }
-
+            $ret[] = [
+                "class" => $class,
+                "alias" => $alias,
+            ];
         }
 
 
-        // Make sure the as key has the name of the class even
-        // if there is no alias in the use statement.
-        foreach ($useStatements as &$useStatement) {
-
-            if (empty($useStatement['as'])) {
-                $useStatement['as'] = $useStatement['class'];
-            }
-        }
-
-        return $useStatements;
+        return $ret;
     }
 }
