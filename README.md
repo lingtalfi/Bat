@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-06-03
+2015-10-07 --> 2021-06-15
 
 
 
@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.324 -- 2021-06-15
+
+    - add LocalHostTool::getComposerPath method
+  
 - 1.323 -- 2021-06-03
 
     - fix ExtendedReflectionClass not using latest token methods
