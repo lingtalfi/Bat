@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-06-15
+2015-10-07 --> 2021-06-21
 
 
 
@@ -91,6 +91,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.325 -- 2021-06-21
+
+    - add StringTool::countCapitals method
+  
 - 1.324 -- 2021-06-15
 
     - add LocalHostTool::getComposerPath method

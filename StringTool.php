@@ -62,6 +62,20 @@ class StringTool
 
 
     /**
+     * Returns the number of capitals in the given string.
+     *
+     * https://stackoverflow.com/questions/1557975/simplest-shortest-way-to-count-capital-letters-in-a-string-with-php
+     *
+     *
+     * @param string $s
+     * @return int
+     */
+    public static function countCapitals(string $s): int
+    {
+        return mb_strlen(preg_replace('![^A-Z]+!', '', $s));
+    }
+
+    /**
      * Take a string, and return an array containing two entries:
      *
      * - the string without the numerical suffix

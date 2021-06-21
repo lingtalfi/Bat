@@ -1,6 +1,6 @@
 StringTool
 =====================
-2015-10-14 -> 2021-04-06
+2015-10-14 -> 2021-06-21
 
 
 
@@ -52,7 +52,22 @@ Exact nomenclature is defined in
 This method is an alias to the [CaseTool:camel2Constant](https://github.com/lingtalfi/Bat/blob/master/CaseTool.md#camel2Constant) method since 1.22.
 See the CaseTool:camel2Constant documentation for more info.
 
- 
+
+
+
+countCapitals
+-----------
+2021-06-21
+
+
+
+
+```php
+int    countCapitals ( string:str )
+```
+
+
+Returns the number of capitals in the given string.
 
 
 cutNumericalSuffix
