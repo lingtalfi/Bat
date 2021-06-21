@@ -92,6 +92,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.327 -- 2021-06-21
+
+    - add StringTool::getSymbolicPath method
+
 - 1.326 -- 2021-06-21
 
     - add TemplateTool class

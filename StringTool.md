@@ -150,6 +150,19 @@ a(StringTool::getPlural("cat")); // cats
 ```
 
 
+getSymbolicPath
+-----------
+2021-06-21
+
+
+```php
+string      getSymbolicPath (string:path, string:appDir)
+```
+
+Returns a symbolic path, where the given absolute path to the application directory is replaced by the symbol [app].
+
+
+
 getUniqueCssId
 -----------
 2017-04-28
