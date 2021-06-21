@@ -76,6 +76,7 @@ Tools       |       Description
 [SmartCodeTool]( https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md )          |       Tools for manipulating smart codes
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
 [TagTool]( https://github.com/lingtalfi/Bat/blob/master/TagTool.md )          |       Tools for helping with tags
+[TemplateTool]( https://github.com/lingtalfi/Bat/blob/master/TemplateTool.md )          |       Tools to help with templates
 [TimeTool]( https://github.com/lingtalfi/Bat/blob/master/TimeTool.md )          |       Tools for helping with time
 [UploadTool]( https://github.com/lingtalfi/Bat/blob/master/UploadTool.md )          |       Tools for helping with php file uploads
 [UriTool]( https://github.com/lingtalfi/Bat/blob/master/UriTool.md )          |       Tools for uri manipulation
@@ -91,6 +92,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.326 -- 2021-06-21
+
+    - add TemplateTool class
+  
 - 1.325 -- 2021-06-21
 
     - add StringTool::countCapitals method
