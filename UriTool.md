@@ -1,6 +1,6 @@
 UriTool
 =====================
-2015-12-04 -> 2020-09-08
+2015-12-04 -> 2021-06-22
 
 
 
@@ -191,6 +191,29 @@ Will output something like:
 string(50) "files[0]=images/avatar.png&files[1]=photos/cat.png"
 ```
 
+
+
+
+
+
+
+matchCurrentUrl
+-----------
+2021-06-22
+
+
+```php
+bool    matchCurrentUrl ( string:testUrl, string:currentUrl = null )
+```
+
+Returns whether the given url matches the current url.
+
+It matches if both url share the same uri, and if all the GET parameters of the testUrl are present in the current url.
+
+
+Note that for now, the testUrl must be in the uri format (i.e. starting with a slash), absolute urls are not yet accepted.
+Same with current url.
+This might change if the need for it appears in the future.
 
 
 

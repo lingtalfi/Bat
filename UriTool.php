@@ -155,6 +155,55 @@ class UriTool
         return urldecode(http_build_query($parameters));
     }
 
+
+    /**
+     *
+     * Returns whether the given url matches the current url.
+     *
+     * It matches if both url share the same uri, and if all the GET parameters of the testUrl are present in the current url.
+     *
+     *
+     * Note that for now, the testUrl must be in the uri format (i.e. starting with a slash), absolute urls are not yet accepted.
+     * Same with current url.
+     * This might change if the need for it appears in the future.
+     *
+     *
+     *
+     * @param string $testUrl
+     * @param string|null $currentUrl
+     * @return bool
+     */
+    public static function matchCurrentUrl(string $testUrl, string $currentUrl = null): bool
+    {
+        if (null === $currentUrl) {
+            $currentUrl = $_SERVER['REQUEST_URI'];
+        }
+        $currentUrlParams = self::getParams($currentUrl);
+        $p = explode('?', $currentUrl);
+        $currentUri = array_shift($p);
+
+
+        $testUrlParams = self::getParams($testUrl);
+        $p = explode('?', $testUrl);
+        $testUri = array_shift($p);
+
+        if ($currentUri === $testUri) {
+            foreach ($testUrlParams as $key => $value) {
+                if (
+                    true === array_key_exists($key, $currentUrlParams) &&
+                    $value === $currentUrlParams[$key]
+                ) {
+                    continue;
+                } else {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+
     /**
      * Adds a parameter to the given get array, which usually would be the $_GET array.
      * The added parameter is chosen randomly by default, or it can be fixed if the key argument is defined.

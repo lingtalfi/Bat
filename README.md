@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-06-21
+2015-10-07 --> 2021-06-22
 
 
 
@@ -92,6 +92,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.328 -- 2021-06-22
+
+    - add UriTool::matchCurrentUrl method
+  
 - 1.327 -- 2021-06-21
 
     - add StringTool::getSymbolicPath method
