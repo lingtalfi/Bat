@@ -1,6 +1,6 @@
 ConvertTool
 =====================
-2018-06-03 -> 2021-05-06
+2018-06-03 -> 2021-06-24
 
 
 
@@ -159,6 +159,43 @@ a(ConvertTool::getPhpErrorLabel( 2)); // E_WARNING
 az(ConvertTool::getPhpErrorLabel( \E_USER_NOTICE)); // E_USER_NOTICE
 
 ```
+
+
+
+toBoolean
+----------
+2021-06-24
+
+
+```php
+bool    toBoolean ( mixed:var)
+```
+
+Returns the boolean version of the given var.
+
+The following maps are used:
+
+ints:
+0 -> false; any other int -> true
+
+floats:
+0.00 -> false; any other float -> true
+
+strings: (strings are first trimmed before being processed, the map below applies to the trimmed version)
+
+"0" -> false; "1" -> true
+"false" -> false; "true" -> true
+"" -> false;
+any other string -> true
+
+
+booleans:
+false -> false; true -> true
+null:
+null -> false
+
+other types:
+any other type -> true
 
 
 

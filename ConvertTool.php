@@ -286,6 +286,62 @@ class ConvertTool
 
 
     /**
+     * Returns the boolean version of the given var.
+     *
+     * The following maps are used:
+     *
+     * ints:
+     * 0 -> false; any other int -> true
+     *
+     * floats:
+     * 0.00 -> false; any other float -> true
+     *
+     * strings: (strings are first trimmed before being processed, the map below applies to the trimmed version)
+     *
+     * "0" -> false; "1" -> true
+     * "false" -> false; "true" -> true
+     * "" -> false;
+     * any other string -> true
+     *
+     *
+     * booleans:
+     * false -> false; true -> true
+     * null:
+     * null -> false
+     *
+     * other types:
+     * any other type -> true
+     *
+     *
+     * @param mixed $var
+     * @return bool
+     */
+    public static function toBoolean(mixed $var): bool
+    {
+        if (true === is_bool($var)) {
+            return $var;
+        } elseif (true === is_int($var)) {
+            return (1 === $var);
+        } elseif (true === is_float($var)) {
+            return (0.00 !== $var);
+        } elseif (true === is_string($var)) {
+            $var = trim($var);
+            if (
+                'false' === $var ||
+                '0' === $var ||
+                '' === $var
+            ) {
+                return false;
+            }
+            return true;
+        } elseif (null === $var) {
+            return false;
+        }
+        return true;
+    }
+
+
+    /**
      * Returns a price string formatted as a number with two decimals, but without the currency symbol.
      * It looks like this:
      *
