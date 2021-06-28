@@ -10,6 +10,8 @@ namespace Ling\Bat;
 class DateTool
 {
 
+
+
     // https://stackoverflow.com/questions/3207749/i-have-2-dates-in-php-how-can-i-run-a-foreach-loop-to-go-through-all-of-those-d
     public static function foreachDateRange($dateStart, $dateEnd, callable $cb, $includeDateEnd = true)
     {
@@ -54,6 +56,9 @@ class DateTool
         }
         return date("Y-m-d H:i:s", strtotime($iso8601Date));
     }
+
+
+
 
 
     /**

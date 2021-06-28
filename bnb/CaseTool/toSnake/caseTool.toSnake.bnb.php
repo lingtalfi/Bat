@@ -5,7 +5,7 @@ use Ling\PhpBeast\AuthorTestAggregator;
 use Ling\PhpBeast\PrettyTestInterpreter;
 use Ling\PhpBeast\Tool\ComparisonErrorTableTool;
 
-require_once "bigbang.php";
+require_once __DIR__ . "/../../../../../bigbang.php";
 
 
 $agg = AuthorTestAggregator::create();

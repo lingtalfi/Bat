@@ -20,11 +20,11 @@ class CookieTool
      *
      *
      * Available options:
-     * - path: same as php doc
-     * - domain: same as php doc
-     * - secure: same as php doc
-     * - httponly: same as php doc
-     * - expires: same as php doc. If set, will override the $nbDays argument.
+     * - path: string, same as php doc
+     * - domain: string, same as php doc
+     * - secure: bool, same as php doc
+     * - httponly: bool, same as php doc
+     * - expires: string, same as php doc. If set, will override the $nbDays argument.
      *
      *
      *

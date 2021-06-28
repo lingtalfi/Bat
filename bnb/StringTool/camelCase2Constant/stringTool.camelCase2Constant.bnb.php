@@ -4,7 +4,7 @@ use Ling\Bat\StringTool;
 use Ling\PhpBeast\AuthorTestAggregator;
 use Ling\PhpBeast\PrettyTestInterpreter;
 
-require_once "bigbang.php";
+require_once __DIR__ . "/../../../../../bigbang.php";
 
 
 $agg = AuthorTestAggregator::create();
@@ -26,26 +26,26 @@ $b = [
 ];
 
 
-$c = [
-    456,
-    null,
-    true,
-    false,
-];
+//$c = [
+//    456,
+//    null,
+//    true,
+//    false,
+//];
 
 $agg->addTestsByColumn($a, $b, function ($value, $expected, &$msg) {
     $res = StringTool::camelCase2Constant($value);
     return ($expected === $res);
 });
 
-$agg->addExceptionTests($c, function ($v) {
-    StringTool::camelCase2Constant($v);
-}, [
-    '0-2' => 'InvalidArgumentException', // testing that the short name of the exception for tests 0,1,2 is InvalidArgumentException
-    '3' => [
-        'msgSub' => 'argument',  // testing that the exception message contains the "argument" substring
-    ],
-]);
+//$agg->addExceptionTests($c, function ($v) {
+//    StringTool::camelCase2Constant($v);
+//}, [
+//    '0-2' => 'InvalidArgumentException', // testing that the short name of the exception for tests 0,1,2 is InvalidArgumentException
+//    '3' => [
+//        'msgSub' => 'argument',  // testing that the exception message contains the "argument" substring
+//    ],
+//]);
 
 
 PrettyTestInterpreter::create()->execute($agg);

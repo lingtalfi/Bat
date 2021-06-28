@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-06-24
+2015-10-07 --> 2021-06-28
 
 
 
@@ -70,6 +70,7 @@ Tools       |       Description
 [ObTool](  https://github.com/lingtalfi/Bat/blob/master/ObTool.md )          |          Tool for buffer manipulation
 [OsTool](  https://github.com/lingtalfi/Bat/blob/master/OsTool.md )          |          Tool aware of the OS.
 [PermTool](  https://github.com/lingtalfi/Bat/blob/master/PermTool.md )          |       Tool for permissions manipulation
+[PsvTool](  https://github.com/lingtalfi/Bat/blob/master/PsvTool.md )          |       Tool for manipulating psv
 [RandomTool]( https://github.com/lingtalfi/Bat/blob/master/RandomTool.md )          |       Tools for manipulating random numbers
 [SessionTool]( https://github.com/lingtalfi/Bat/blob/master/SessionTool.md )          |       Tools for session manipulation
 [ShortCodeTool]( https://github.com/lingtalfi/Bat/blob/master/ShortCodeTool.md )          |       Tools for manipulating shortcodes
@@ -92,6 +93,11 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.330 -- 2021-06-28
+
+    - add PsvTool class
+    - fix CaseTool::toSnake incorrectly trimming underscores
+  
 - 1.329 -- 2021-06-24
 
     - add ConvertTool::toBoolean method

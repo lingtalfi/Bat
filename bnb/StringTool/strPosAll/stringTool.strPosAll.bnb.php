@@ -4,7 +4,7 @@ use Ling\Bat\StringTool;
 use Ling\PhpBeast\AuthorTestAggregator;
 use Ling\PhpBeast\PrettyTestInterpreter;
 
-require_once "bigbang.php";
+require_once __DIR__ . "/../../../../../bigbang.php";
 
 
 //------------------------------------------------------------------------------/

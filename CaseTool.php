@@ -249,7 +249,7 @@ class CaseTool
         $str = strtolower(StringTool::removeAccents($str));
         $str = preg_replace('![^a-zA-Z0-9]!', '_', $str);
         $str = preg_replace('!_+!', '_', $str);
-        $str = trim($str, '_');
+//        $str = trim($str, '_');
         return $str;
     }
 
