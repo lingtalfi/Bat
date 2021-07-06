@@ -3,6 +3,8 @@
 
 namespace Ling\Bat;
 
+use Ling\Bat\Exception\BatException;
+
 /**
  * The PsvTool class.
  *
@@ -19,6 +21,48 @@ namespace Ling\Bat;
  */
 class PsvTool
 {
+
+
+    /**
+     * Joins array elements in protected components separated by the given delim.
+     * The protection depends on the quote type:
+     *
+     * - s: single quote
+     * - d: double quote
+     *
+     *
+     *
+     * @param string $delim
+     * @param array $values
+     * @param string $quoteType
+     * @return string
+     */
+    public static function implode(string $delim, array $values, $quoteType = "s"): string
+    {
+        if (false === in_array($quoteType, ['d', 's'])) {
+            throw new BatException("Invalid quoteType: $quoteType.");
+        }
+        $s = "";
+        $q = "s" === $quoteType ? "'" : '"';
+
+        $c = 0;
+        foreach ($values as $v) {
+            if (0 !== $c) {
+                $s .= $delim;
+            }
+
+
+            if ('s' === $quoteType) {
+                $v = str_replace("'", "\'", $v);
+            } else {
+                $v = str_replace('"', '\"', $v);
+            }
+            $s .= $q . $v . $q;
+            $c++;
+        }
+
+        return $s;
+    }
 
 
     /**

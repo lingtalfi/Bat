@@ -1,6 +1,6 @@
 PsvTool
 =====================
-2021-06-28
+2021-07-06
 
 
 
@@ -123,6 +123,55 @@ array(6) {
   [4] => string(1) "d"
   [5] => string(0) ""
 }
+
+
+```
+
+
+
+
+
+
+
+
+implode
+----------
+2021-07-06
+
+
+```php
+public static function implode(string $delim, array $values, $quoteType = "s"): string
+```
+
+
+
+Joins array elements in protected components separated by the given delim.
+The protection depends on the quote type:
+
+- s: single quote
+- d: double quote
+
+
+
+
+### Example
+2021-07-06
+
+The following code:
+
+
+```php 
+
+$s = PsvTool::implode(",", ["hello", "1", "world"]);
+az($s);
+
+```
+
+Will output something like this:
+
+
+```html
+string(19) "'hello','1','world'"
 
 
 ```
