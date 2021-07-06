@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 --> 2021-06-28
+2015-10-07 --> 2021-07-06
 
 
 
@@ -67,6 +67,7 @@ Tools       |       Description
 [LocalHostTool](  https://github.com/lingtalfi/Bat/blob/master/LocalHostTool.md )          |       Use OsTool instead. LocalHostTool is unofficially deprecated.
 [MathTool](  https://github.com/lingtalfi/Bat/blob/master/MathTool.md )          |       Tools for math problems
 [MimeTypeTool](  https://github.com/lingtalfi/Bat/blob/master/MimeTypeTool.md )          |       Tool handling mime type
+[MiniCsvTool](  https://github.com/lingtalfi/Bat/blob/master/MiniCsvTool.md )          |       Tool for working with mini csv strings
 [ObTool](  https://github.com/lingtalfi/Bat/blob/master/ObTool.md )          |          Tool for buffer manipulation
 [OsTool](  https://github.com/lingtalfi/Bat/blob/master/OsTool.md )          |          Tool aware of the OS.
 [PermTool](  https://github.com/lingtalfi/Bat/blob/master/PermTool.md )          |       Tool for permissions manipulation
@@ -93,6 +94,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.331 -- 2021-07-06
+
+    - add MiniCsvTool class
+  
 - 1.330 -- 2021-06-28
 
     - add PsvTool class
