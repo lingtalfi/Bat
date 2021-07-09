@@ -1,6 +1,6 @@
 UriTool
 =====================
-2015-12-04 -> 2021-06-22
+2015-12-04 -> 2021-07-09
 
 
 
@@ -63,6 +63,20 @@ Will try differents methods:
 - or curl if installed
 
 
+
+
+
+
+getCurrentUri
+-----------
+2021-07-09
+
+
+```php
+str   getCurrentUri ( )
+```
+
+Returns the current uri.
 
 
 

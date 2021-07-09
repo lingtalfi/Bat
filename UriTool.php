@@ -50,6 +50,16 @@ class UriTool
 
 
     /**
+     * Returns the current uri.
+     *
+     * @return string
+     */
+    public static function getCurrentUri(): string
+    {
+        return $_SERVER['REQUEST_URI'];
+    }
+
+    /**
      * Returns the current url.
      *
      * Available options are:

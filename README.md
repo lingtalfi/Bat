@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 -> 2021-07-06
+2015-10-07 -> 2021-07-09
 
 
 
@@ -94,6 +94,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.333 -- 2021-07-09
+
+    - add UriTool::getCurrentUri method
+  
 - 1.332 -- 2021-07-06
 
     - add PsvTool::implode method
