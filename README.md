@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 -> 2021-07-09
+2015-10-07 -> 2021-07-17
 
 
 
@@ -64,6 +64,7 @@ Tools       |       Description
 [HashTool]( https://github.com/lingtalfi/Bat/blob/master/HashTool.md )          |                   Tools for the using hashes
 [HepTool]( https://github.com/lingtalfi/Bat/blob/master/HepTool.md )          |                   Tools for the using hep parameters
 [HttpTool]( https://github.com/lingtalfi/Bat/blob/master/HttpTool.md )          |                   Tools for the using http protocol
+[ImageTool]( https://github.com/lingtalfi/Bat/blob/master/ImageTool.md )          |                   Tools to help with images
 [LocalHostTool](  https://github.com/lingtalfi/Bat/blob/master/LocalHostTool.md )          |       Use OsTool instead. LocalHostTool is unofficially deprecated.
 [MathTool](  https://github.com/lingtalfi/Bat/blob/master/MathTool.md )          |       Tools for math problems
 [MimeTypeTool](  https://github.com/lingtalfi/Bat/blob/master/MimeTypeTool.md )          |       Tool handling mime type
@@ -77,6 +78,7 @@ Tools       |       Description
 [ShortCodeTool]( https://github.com/lingtalfi/Bat/blob/master/ShortCodeTool.md )          |       Tools for manipulating shortcodes
 [SmartCodeTool]( https://github.com/lingtalfi/Bat/blob/master/SmartCodeTool.md )          |       Tools for manipulating smart codes
 [StringTool]( https://github.com/lingtalfi/Bat/blob/master/StringTool.md )          |       Tools for string manipulation
+[StopWatchTool]( https://github.com/lingtalfi/Bat/blob/master/StopWatchTool.md )          |       Tools for stopwatch related methods
 [TagTool]( https://github.com/lingtalfi/Bat/blob/master/TagTool.md )          |       Tools for helping with tags
 [TemplateTool]( https://github.com/lingtalfi/Bat/blob/master/TemplateTool.md )          |       Tools to help with templates
 [TimeTool]( https://github.com/lingtalfi/Bat/blob/master/TimeTool.md )          |       Tools for helping with time
@@ -94,6 +96,11 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.334 -- 2021-07-17
+
+    - add StopWatchTool class
+    - add ImageTool class
+  
 - 1.333 -- 2021-07-09
 
     - add UriTool::getCurrentUri method
