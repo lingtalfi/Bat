@@ -13,7 +13,13 @@ class ImageTool
 
 
     /**
-     * Returns the dimensions (w, h) of the given image file, based on the file extension.
+     * Returns the dimensions as an array of the given image file, based on the file extension.
+     * The returned array contains two elements:
+     *
+     * - 0: int, the width in pixels
+     * - 1: int, the height in pixels
+     *
+     *
      *
      * The file can be an url too.
      *
@@ -32,7 +38,10 @@ class ImageTool
         $util = new FastImageSize();
         $size = $util->getImageSize($imageFile);
         if (false !== $size) {
-            return $size;
+            return [
+                $size['width'],
+                $size['height'],
+            ];
         }
         list($width, $height) = getimagesize($imageFile);
         return [

@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 -> 2021-07-17
+2015-10-07 -> 2021-07-18
 
 
 
@@ -96,6 +96,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.335 -- 2021-07-18
+
+    - fix ImageTool::getDimensions not returning correct array keys
+  
 - 1.334 -- 2021-07-17
 
     - add StopWatchTool class

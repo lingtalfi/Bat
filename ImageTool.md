@@ -1,6 +1,6 @@
 ImageTool
 =====================
-2021-07-17
+2021-07-17 - 2021-07-18
 
 
 
@@ -9,39 +9,26 @@ This class contains functions to help with images.
 
 
 
-getCountryAlpha3CodeByAlpha2Code
--------------
-2017-10-28
 
+getDimensions
+---------
+2021-07-18
 
 
 ```php
 public static function getDimensions(string $imageFile): array
 ```
 
-Returns the dimensions (w, h) of the given image file, based on the file extension.
+
+Returns the dimensions as an array of the given image file, based on the file extension.
+The returned array contains two elements:
+
+- 0: int, the width in pixels
+- 1: int, the height in pixels
+
+
 
 The file can be an url too.
 
 This method assumes that the given image file is actually a real image.
 If not, unpredictable results might be returned.
-
-
-
-Example:
-
-```php 
-$f = "/kit_store/www/libs/universe/Ling/Light_Kit_Store/img/products/76/large/amazon-4.jpg";
-az(ImageTool::getDimensions($f)); 
-
-```
-
-Will output something like this:
-
-```html 
-array(2) {
-  ["width"] => int(1500)
-  ["height"] => int(1500)
-}
-
-```
