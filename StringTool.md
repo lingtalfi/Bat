@@ -79,13 +79,15 @@ cutAtWordBoundary
 
 
 ```php
-str    cutAtWordBoundary ( string:str, int:maxNbChars = 250, str:ending="...")
+str    cutAtWordBoundary ( string:str, int:maxNbChars = 250, str:ending="...", bool:&more = false)
 ```
 
 
 Returns a subset of the given string, which doesn't cut a word in half, and which length is the closest to the given maxNbChars without being higher.
 
 In addition to that, the ending string is added only if the str length is greater than the given maxNbChars limit.
+
+The "more" flag is raised to true if that's the case.
 
 The given string preferably shouldn't contain any PHP_EOL chars.
 

@@ -81,19 +81,22 @@ class StringTool
      *
      * In addition to that, the ending string is added only if the str length is greater than the given maxNbChars limit.
      *
+     * The "more" flag is raised to true if that's the case.
+     *
      * The given string preferably shouldn't contain any PHP_EOL chars.
      *
      * @param string $str
      * @param int $maxNbChars
      * @return string
      */
-    public static function cutAtWordBoundary(string $str, int $maxNbChars = 250, string $ending = "..."): string
+    public static function cutAtWordBoundary(string $str, int $maxNbChars = 250, string $ending = "...", bool &$more = false): string
     {
         $s = wordwrap(str_replace(PHP_EOL, ' ', $str), $maxNbChars, PHP_EOL);
 
         $ret = explode(PHP_EOL, $s, 2)[0];
         if (mb_strlen($str) > $maxNbChars) {
             $ret .= $ending;
+            $more = true;
         }
         return $ret;
     }
