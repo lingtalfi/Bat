@@ -75,6 +75,22 @@ class StringTool
         return mb_strlen(preg_replace('![^A-Z]+!', '', $s));
     }
 
+
+    /**
+     * Returns a subset of the given string, which doesn't cut a word in half, and which length is the closest to the given maxNbChars without being higher.
+     *
+     * The given string preferably shouldn't contain any PHP_EOL chars.
+     *
+     * @param string $str
+     * @param int $maxNbChars
+     * @return string
+     */
+    public static function cutAtWordBoundary(string $str, int $maxNbChars = 250): string
+    {
+        $s = wordwrap(str_replace(PHP_EOL, ' ', $str), $maxNbChars, PHP_EOL);
+        return explode(PHP_EOL, $s, 2)[0];
+    }
+
     /**
      * Take a string, and return an array containing two entries:
      *
@@ -172,8 +188,6 @@ class StringTool
         }
         return $path;
     }
-
-
 
 
     /**

@@ -1,6 +1,6 @@
 StringTool
 =====================
-2015-10-14 -> 2021-06-21
+2015-10-14 -> 2021-07-22
 
 
 
@@ -68,6 +68,32 @@ int    countCapitals ( string:str )
 
 
 Returns the number of capitals in the given string.
+
+
+
+cutAtWordBoundary
+-----------
+2021-07-22
+
+
+
+
+```php
+str    cutAtWordBoundary ( string:str, int:maxNbChars = 250)
+```
+
+
+Returns a subset of the given string, which doesn't cut a word in half, and which length is the closest to the given maxNbChars without being higher.
+
+The given string preferably shouldn't contain any PHP_EOL chars.
+
+Example:
+
+```php 
+$s = "This is a test sentence.";
+a(StringTool::cutAtWordBoundary($s, 15)); // This is a test
+```
+
 
 
 cutNumericalSuffix
