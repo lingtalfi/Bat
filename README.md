@@ -96,6 +96,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.337 -- 2021-07-22
+
+    - update StringTool::cutAtWordBoundary, add $ending argument
+  
 - 1.336 -- 2021-07-22
 
     - add StringTool::cutAtWordBoundary method

@@ -79,16 +79,23 @@ class StringTool
     /**
      * Returns a subset of the given string, which doesn't cut a word in half, and which length is the closest to the given maxNbChars without being higher.
      *
+     * In addition to that, the ending string is added only if the str length is greater than the given maxNbChars limit.
+     *
      * The given string preferably shouldn't contain any PHP_EOL chars.
      *
      * @param string $str
      * @param int $maxNbChars
      * @return string
      */
-    public static function cutAtWordBoundary(string $str, int $maxNbChars = 250): string
+    public static function cutAtWordBoundary(string $str, int $maxNbChars = 250, string $ending = "..."): string
     {
         $s = wordwrap(str_replace(PHP_EOL, ' ', $str), $maxNbChars, PHP_EOL);
-        return explode(PHP_EOL, $s, 2)[0];
+
+        $ret = explode(PHP_EOL, $s, 2)[0];
+        if (mb_strlen($str) > $maxNbChars) {
+            $ret .= $ending;
+        }
+        return $ret;
     }
 
     /**
