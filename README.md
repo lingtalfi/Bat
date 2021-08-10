@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 -> 2021-07-22
+2015-10-07 -> 2021-08-10
 
 
 
@@ -96,6 +96,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.339 -- 2021-08-10
+
+    - update LocalHostTool::getComposerPath, add one more path
+  
 - 1.338 -- 2021-07-22
 
     - update StringTool::cutAtWordBoundary, add $more argument

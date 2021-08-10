@@ -57,6 +57,7 @@ class LocalHostTool
     {
         $possiblePaths = [
             "/usr/local/bin/composer.phar",
+            "/usr/local/bin/composer",
         ];
         foreach ($possiblePaths as $path) {
             if (true === file_exists($path)) {
