@@ -96,6 +96,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.341 -- 2022-02-03
+
+    - update DateTool::isNextDay, fix using M instead m date format
+  
 - 1.340 -- 2022-02-03
 
     - add DateTool::isNextDay method

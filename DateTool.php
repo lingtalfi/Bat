@@ -237,12 +237,12 @@ class DateTool
         $t2 = strtotime($p2[0]);
 
         $day2 = date('d', $t2);
-        $month2 = date('M', $t2);
+        $month2 = date('m', $t2);
         $year2 = date('Y', $t2);
 
         $t1 += 86400;
         $day1 = date('d', $t1);
-        $month1 = date('M', $t1);
+        $month1 = date('m', $t1);
         $year1 = date('Y', $t1);
 
         $time1 = trim($p1[1]);
