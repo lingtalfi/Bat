@@ -1,6 +1,6 @@
 DateTool
 =====================
-2017-11-28 -> 2020-10-30
+2017-11-28 -> 2022-02-03
 
 
 
@@ -61,6 +61,32 @@ If the given **dateString** is null, the current datetime will be returned.
 ```php
 az(datetool::getMysqlDatetime("2018-06-17t14:28:43+02:00")); // 2018-06-17 14:28:43
 ```
+
+
+getNextDayByDate
+-----------
+2022-02-03
+
+
+```php
+string     getNextDayByDate ( str:date)
+```
+
+Returns the mysql date corresponding to the day after the given date.
+
+
+getNextDayByDatetime
+-----------
+2022-02-03
+
+
+```php
+string     getNextDayByDate ( str:datetime)
+```
+
+Returns the mysql datetime corresponding to the day after the given datetime.
+
+
 
 
 

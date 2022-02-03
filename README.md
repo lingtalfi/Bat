@@ -96,6 +96,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.342 -- 2022-02-03
+
+    - fix DateTool::isNextDay not working on 31st october, add getNextDayByDate and getNextDayByDatetime methods
+  
 - 1.341 -- 2022-02-03
 
     - update DateTool::isNextDay, fix using M instead m date format

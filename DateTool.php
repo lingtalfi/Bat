@@ -216,46 +216,47 @@ class DateTool
      *
      * @param string $datetime1
      * @param string $datetime2
-     * @param bool $compareDateOnly
      * @return bool
      */
-    public static function isNextDay(string $datetime1, string $datetime2, bool $compareDateOnly = false): bool
+    public static function isNextDay(string $datetime1, string $datetime2): bool
     {
 
         /**
          * Note: I did compare strotime+86400 at first, but for some reason it returned false between
-         * 27 mars 2021 and 28 mars 2021, so it was unreliable
+         * 27 mars 2021 and 28 mars 2021, so it was unreliable. Also had problems with 30-31 october.
          *
+         *
+         * https://stackoverflow.com/questions/5883571/get-next-and-previous-day-with-php
+         * So below is the only method I found was working.
          *
          */
-// return strtotime($datetime1) + 86400 === strtotime($datetime2); // this doesn't always work
+        $newDateTime1 = self::getNextDayByDatetime($datetime1);
+        return $datetime2 === $newDateTime1;
 
-        $p1 = explode(" ", $datetime1);
-        $p2 = explode(" ", $datetime2);
+    }
 
-        $t1 = strtotime($p1[0]);
-        $t2 = strtotime($p2[0]);
 
-        $day2 = date('d', $t2);
-        $month2 = date('m', $t2);
-        $year2 = date('Y', $t2);
+    /**
+     * Returns the mysql date corresponding to the day after the given date.
+     *
+     * @param string $date
+     * @return string
+     */
+    public static function getNextDayByDate(string $date): string
+    {
+        return date("Y-m-d", strtotime('+1 day', strtotime($date)));
+    }
 
-        $t1 += 86400;
-        $day1 = date('d', $t1);
-        $month1 = date('m', $t1);
-        $year1 = date('Y', $t1);
 
-        $time1 = trim($p1[1]);
-        $time2 = trim($p2[1]);
-        return (
-            (
-                true === $compareDateOnly ||
-                $time2 === $time1
-            )
-            && $day2 === $day1
-            && $month2 === $month1
-            && $year2 === $year1
-        );
+    /**
+     * Returns the mysql datetime corresponding to the day after the given datetime.
+     *
+     * @param string $datetime
+     * @return string
+     */
+    public static function getNextDayByDatetime(string $datetime): string
+    {
+        return date("Y-m-d H:i:s", strtotime('+1 day', strtotime($datetime)));
     }
 
 }
