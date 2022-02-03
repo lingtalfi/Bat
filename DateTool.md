@@ -9,36 +9,36 @@ this class contains functions for helping with dates.
 
 
 
-foreachdaterange
+foreachDateRange
 -----------
 2018-02-28
 
 
 ```php
-void     foreachdaterange ( str:datestart, str:dateend, callable:cb, bool:includedateend=true)
+void     foreachDateRange ( str:dateStart, str:dateEnd, callable:cb, bool:includeDateEnd=true)
 ```
 
-loops from datestart to dateend included/excluded, depending on the includeddateend flag.
+loops from dateStart to dateEnd included/excluded, depending on the includeddateend flag.
 
-note: datestart and dateend are in the mysql date format (yyyy-mm-dd)
+note: dateStart and dateEnd are in the mysql date format (yyyy-mm-dd)
  
  
  
 
-getdate
+getDate
 -----------
 2018-02-28
 
 
 ```php
-str:mysqldate     getdate ( str:datestring)
+str:mysqldate     getDate ( str:dateString)
 ```
 
-return the (mysql) date from the datestring (which is a date-ish string)
+return the (mysql) date from the dateString (which is a date-ish string)
 
  
 ```php
-a(datetool::getdate("2018-02-28 00:56:45")); // 2018-02-28
+a(datetool::getDate("2018-02-28 00:56:45")); // 2018-02-28
 ``` 
 
 
@@ -50,29 +50,29 @@ getMysqlDatetime
 
 
 ```php
-str:mysqldatetime     getmysqldatetime ( str:datestring=null)
+str:mysqldatetime     getMysqlDatetime ( str:dateString=null)
 ```
 
-Returns the mysql datetime from the given **datestring** (which is a date-ish string).
-If the given **datestring** is null, the current datetime will be returned.
+Returns the mysql datetime from the given **dateString** (which is a date-ish string).
+If the given **dateString** is null, the current datetime will be returned.
 
 
 
 ```php
-az(datetool::getmysqldatetime("2018-06-17t14:28:43+02:00")); // 2018-06-17 14:28:43
+az(datetool::getMysqlDatetime("2018-06-17t14:28:43+02:00")); // 2018-06-17 14:28:43
 ```
 
 
 
 
-getsamedaynextmonth
+getSameDayNextMonth
 -----------
 2017-11-28
 
 
 
 ```php
-int:time     getsamedaynextmonth ( int:time, int:numbermonthstoadd = 1 )
+int:time     getSameDayNextMonth ( int:time, int:numbermonthstoadd = 1 )
 ```
 
 return the same day of the nth-next month.
@@ -83,7 +83,7 @@ then the closest day is taken (i.e. the last actual day of the month).
 ```php
 $time = strtotime("2017-10-31");
 for ($i = 0; $i <= 15; $i++) {
-    $_time = datetool::getsamedaynextmonth($time, $i);
+    $_time = datetool::getSameDayNextMonth($time, $i);
     echo date("y-m-d", $_time) . '<br>';
 }
 
@@ -108,14 +108,14 @@ for ($i = 0; $i <= 15; $i++) {
 ``` 
 
 
-gettimeelapsedstring
+getTimeElapsedString
 -----------
 2018-06-19 -> 2019-07-11
 
 
 
 ```php
-str:timeelapsed     gettimeelapsedstring ( str:datetime, array:options=[] )
+str:timeelapsed     getTimeElapsedString ( str:datetime, array:options=[] )
 ```
 
 get the time elapsed since a past event which datetime is given.
@@ -144,11 +144,11 @@ Options:
       
  
 ```php
-a(datetool::gettimeelapsedstring("2018-03-12 05:45:12")); // 3 months ago
-a(datetool::gettimeelapsedstring("2018-03-12 05:45:12", [
+a(datetool::getTimeElapsedString("2018-03-12 05:45:12")); // 3 months ago
+a(datetool::getTimeElapsedString("2018-03-12 05:45:12", [
     "full" => true,
 ])); // 3 months, 1 week, 7 hours, 30 minutes, 58 seconds ago
-a(datetool::gettimeelapsedstring("2018-03-12 05:45:12", [
+a(datetool::getTimeElapsedString("2018-03-12 05:45:12", [
     "full" => true,
     "format" => "il y a %s",
     "justnow" => "à l'instant",
@@ -163,15 +163,29 @@ a(datetool::gettimeelapsedstring("2018-03-12 05:45:12", [
     ],
 ])); // il y a 3 mois, 1 semaine, 7 heures, 32 minutes, 18 secondes
 
-a(datetool::gettimeelapsedstring("2018-03-12 05:45:12", [
+a(datetool::getTimeElapsedString("2018-03-12 05:45:12", [
     "full" => true,
     "lang" => "fra",
 ])); // il y a 3 mois, 1 semaine, 7 heures, 32 minutes, 18 secondes
 
 
-a(datetool::gettimeelapsedstring(date("y-m-d h:i:s"), [
+a(datetool::getTimeElapsedString(date("y-m-d h:i:s"), [
     "full" => true,
     "lang" => "fra",
 ])); // à l'instant
 ``` 
 
+
+
+
+
+isNextDay
+-----------
+2022-02-03
+
+```php
+bool     isNextDay ( string:datetime1, string:datetime2, bool:compareDateOnly = false )
+```
+Returns whether the datetime1 is exactly one day before datetime2.
+
+Datetime 1 and 2 are given in mysql datetime format (yyyy-mm-dd hh:ii:ss).

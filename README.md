@@ -1,6 +1,6 @@
 Bat
 ==========
-2015-10-07 -> 2021-08-10
+2015-10-07 -> 2022-02-03
 
 
 
@@ -96,6 +96,10 @@ Tools       |       Description
 History Log
 ------------------
 
+- 1.340 -- 2022-02-03
+
+    - add DateTool::isNextDay method
+  
 - 1.339 -- 2021-08-10
 
     - update LocalHostTool::getComposerPath, add one more path

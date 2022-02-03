@@ -11,7 +11,6 @@ class DateTool
 {
 
 
-
     // https://stackoverflow.com/questions/3207749/i-have-2-dates-in-php-how-can-i-run-a-foreach-loop-to-go-through-all-of-those-d
     public static function foreachDateRange($dateStart, $dateEnd, callable $cb, $includeDateEnd = true)
     {
@@ -56,9 +55,6 @@ class DateTool
         }
         return date("Y-m-d H:i:s", strtotime($iso8601Date));
     }
-
-
-
 
 
     /**
@@ -208,6 +204,58 @@ class DateTool
 
         if (!$full) $scale = array_slice($scale, 0, $notFullLength);
         return $scale ? sprintf($format, implode($sep, $scale)) : $justNow;
+    }
+
+
+    /**
+     * Returns whether the datetime1 is exactly one day before datetime2.
+     *
+     * Datetime 1 and 2 are given in mysql datetime format (yyyy-mm-dd hh:ii:ss)
+     *
+     *
+     *
+     * @param string $datetime1
+     * @param string $datetime2
+     * @param bool $compareDateOnly
+     * @return bool
+     */
+    public static function isNextDay(string $datetime1, string $datetime2, bool $compareDateOnly = false): bool
+    {
+
+        /**
+         * Note: I did compare strotime+86400 at first, but for some reason it returned false between
+         * 27 mars 2021 and 28 mars 2021, so it was unreliable
+         *
+         *
+         */
+// return strtotime($datetime1) + 86400 === strtotime($datetime2); // this doesn't always work
+
+        $p1 = explode(" ", $datetime1);
+        $p2 = explode(" ", $datetime2);
+
+        $t1 = strtotime($p1[0]);
+        $t2 = strtotime($p2[0]);
+
+        $day2 = date('d', $t2);
+        $month2 = date('M', $t2);
+        $year2 = date('Y', $t2);
+
+        $t1 += 86400;
+        $day1 = date('d', $t1);
+        $month1 = date('M', $t1);
+        $year1 = date('Y', $t1);
+
+        $time1 = trim($p1[1]);
+        $time2 = trim($p2[1]);
+        return (
+            (
+                true === $compareDateOnly ||
+                $time2 === $time1
+            )
+            && $day2 === $day1
+            && $month2 === $month1
+            && $year2 === $year1
+        );
     }
 
 }
